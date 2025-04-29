@@ -23,12 +23,6 @@ enum RepeatType {
   Weekly
 }
 
-enum AttendanceStatus {
-  Valid
-  Invalid
-  Pending
-}
-
 model User {
   id             String   @id @default(uuid())
   email          String   @unique
@@ -41,6 +35,7 @@ model User {
   authenticator  String?
   biometric_key  String?
   faceData       String?
+  bobKey         String?
   createdAt      DateTime @updatedAt
   updateAt       DateTime @updatedAt
 
@@ -99,10 +94,10 @@ model SessionCycle {
 }
 
 model Attendance {
-  id       String           @id @default(uuid())
-  time     DateTime
-  status   AttendanceStatus
-  deviceId String
+  id         String   @id @default(uuid())
+  time       DateTime
+  isVerified Boolean
+  deviceId   String
 
   attendantId    String
   attendant      User         @relation(fields: [attendantId], references: [id])

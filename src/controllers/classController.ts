@@ -1,9 +1,11 @@
 import { catcher } from "@/helpers";
-import { AttendanceModel, ClassModel, SessionModel } from "@/models";
+import { AttendanceModel, ClassModel, SessionModel, UserModel } from "@/models";
 import { ILocal, IResBody } from "@/types";
 import { Request, Response } from "express";
 import { RepeatType, UserType } from "generated/prisma";
+import crypto from "node:crypto";
 import * as yup from "yup";
+
 class ClassController {
   async getAllClasses(req: Request, res: Response<IResBody, ILocal>) {
     const { id, role } = res.locals.user;
@@ -81,7 +83,7 @@ class ClassController {
 
   async getSessionCycle(req: Request, res: Response<IResBody, ILocal>) {
     const { id } = res.locals.user;
-    
+
     await catcher(res, async () => {
       const result = await SessionModel.getAllSessionCycles(id);
       res.json({ data: result }).end();
@@ -106,6 +108,43 @@ class ClassController {
 
       await AttendanceModel.checkin(sid, uid, data);
       res.json({ message: "Success" }).end();
+    });
+  }
+
+  async getKey(req: Request, res: Response<IResBody, ILocal>) {
+    const { id: uid } = res.locals.user;
+    const data = req.body;
+
+    const schema = yup.object({
+      key: yup.string().required(),
+    });
+
+    await catcher(res, async () => {
+      const { key } = await schema.validate(data);
+
+      // Create key pair
+      const curveName = "secp256k1";
+      const alice = crypto.createECDH(curveName);
+      alice.generateKeys();
+
+      // Alice's public key
+      const alicePublicKey = alice.getPublicKey().toString("hex");
+
+      // Generate shared secret
+      const aliceSecret = alice.computeSecret(Buffer.from(key, "hex"));
+
+      // Save key
+      await UserModel.updateUserKey(uid, aliceSecret.toString("hex"));
+
+      res
+        .json({
+          message: "Success",
+          data: {
+            key: alicePublicKey,
+            expire: Date.now() + 7 * 24 * 60 * 60 * 1000, // 7 days
+          },
+        })
+        .end();
     });
   }
 }

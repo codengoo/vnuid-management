@@ -13,6 +13,7 @@ router.put("/session/:id", authMid(["Teacher"]), ClassController.updateSession);
 router.post("/fire/:id", authMid(["Teacher"]), ClassController.triggerSession);
 
 router.get("/checkin/list", authMid(["Student"]), ClassController.getSessionCycle);
-router.post("/checkin", authMid(["Student"]), ClassController.checkin);
+router.post("/checkin/:id", authMid(["Student"]), ClassController.checkin);
+router.put("/checkin/key", authMid(["Student"]), ClassController.getKey);
 
 export default router;

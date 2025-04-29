@@ -46,6 +46,16 @@ class UserModel {
     });
     return result;
   }
+
+  async updateUserKey(uid: string, key: string) {
+    console.log(uid, key);
+    
+    const result = await prisma.user.update({
+      where: { id: uid },
+      data: { bobKey: key },
+    });
+    return result;
+  }
 }
 
 export default new UserModel();

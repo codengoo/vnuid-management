@@ -129,6 +129,7 @@ exports.Prisma.UserScalarFieldEnum = {
   authenticator: 'authenticator',
   biometric_key: 'biometric_key',
   faceData: 'faceData',
+  bobKey: 'bobKey',
   createdAt: 'createdAt',
   updateAt: 'updateAt',
   type: 'type'
@@ -165,7 +166,7 @@ exports.Prisma.SessionCycleScalarFieldEnum = {
 exports.Prisma.AttendanceScalarFieldEnum = {
   id: 'id',
   time: 'time',
-  status: 'status',
+  isVerified: 'isVerified',
   deviceId: 'deviceId',
   attendantId: 'attendantId',
   sessionCycleId: 'sessionCycleId'
@@ -192,12 +193,6 @@ exports.UserType = exports.$Enums.UserType = {
 
 exports.RepeatType = exports.$Enums.RepeatType = {
   Weekly: 'Weekly'
-};
-
-exports.AttendanceStatus = exports.$Enums.AttendanceStatus = {
-  Valid: 'Valid',
-  Invalid: 'Invalid',
-  Pending: 'Pending'
 };
 
 exports.Prisma.ModelName = {

@@ -8,7 +8,8 @@ class AttendanceModel {
       where: { id: sid },
       select: { subject: true },
     });
-    if (!sessionCycle) throw new Error("Class not found");
+    if (!sessionCycle) throw new Error("Session cycle not found");
+
     const subject = await prisma.subject.findFirst({
       where: { id: sessionCycle.subject?.id },
       select: { students: true },
@@ -21,7 +22,13 @@ class AttendanceModel {
     // Checkin
     const result = await prisma.attendance.create({
       // @ts-ignore
-      data: { ...data, attendantId: uid },
+      data: {
+        deviceId: data.deviceId || "",
+        isVerified: data.isVerified || false,
+        time: data.time || new Date(),
+        attendantId: uid,
+        sessionCycleId: sid,
+      },
     });
     return result;
   }

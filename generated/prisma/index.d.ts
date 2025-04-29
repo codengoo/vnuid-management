@@ -57,15 +57,6 @@ export const RepeatType: {
 
 export type RepeatType = (typeof RepeatType)[keyof typeof RepeatType]
 
-
-export const AttendanceStatus: {
-  Valid: 'Valid',
-  Invalid: 'Invalid',
-  Pending: 'Pending'
-};
-
-export type AttendanceStatus = (typeof AttendanceStatus)[keyof typeof AttendanceStatus]
-
 }
 
 export type UserType = $Enums.UserType
@@ -75,10 +66,6 @@ export const UserType: typeof $Enums.UserType
 export type RepeatType = $Enums.RepeatType
 
 export const RepeatType: typeof $Enums.RepeatType
-
-export type AttendanceStatus = $Enums.AttendanceStatus
-
-export const AttendanceStatus: typeof $Enums.AttendanceStatus
 
 /**
  * ##  Prisma Client ʲˢ
@@ -1455,6 +1442,7 @@ export namespace Prisma {
     authenticator: string | null
     biometric_key: string | null
     faceData: string | null
+    bobKey: string | null
     createdAt: Date | null
     updateAt: Date | null
     type: $Enums.UserType | null
@@ -1472,6 +1460,7 @@ export namespace Prisma {
     authenticator: string | null
     biometric_key: string | null
     faceData: string | null
+    bobKey: string | null
     createdAt: Date | null
     updateAt: Date | null
     type: $Enums.UserType | null
@@ -1489,6 +1478,7 @@ export namespace Prisma {
     authenticator: number
     biometric_key: number
     faceData: number
+    bobKey: number
     createdAt: number
     updateAt: number
     type: number
@@ -1508,6 +1498,7 @@ export namespace Prisma {
     authenticator?: true
     biometric_key?: true
     faceData?: true
+    bobKey?: true
     createdAt?: true
     updateAt?: true
     type?: true
@@ -1525,6 +1516,7 @@ export namespace Prisma {
     authenticator?: true
     biometric_key?: true
     faceData?: true
+    bobKey?: true
     createdAt?: true
     updateAt?: true
     type?: true
@@ -1542,6 +1534,7 @@ export namespace Prisma {
     authenticator?: true
     biometric_key?: true
     faceData?: true
+    bobKey?: true
     createdAt?: true
     updateAt?: true
     type?: true
@@ -1632,6 +1625,7 @@ export namespace Prisma {
     authenticator: string | null
     biometric_key: string | null
     faceData: string | null
+    bobKey: string | null
     createdAt: Date
     updateAt: Date
     type: $Enums.UserType
@@ -1666,6 +1660,7 @@ export namespace Prisma {
     authenticator?: boolean
     biometric_key?: boolean
     faceData?: boolean
+    bobKey?: boolean
     createdAt?: boolean
     updateAt?: boolean
     type?: boolean
@@ -1687,6 +1682,7 @@ export namespace Prisma {
     authenticator?: boolean
     biometric_key?: boolean
     faceData?: boolean
+    bobKey?: boolean
     createdAt?: boolean
     updateAt?: boolean
     type?: boolean
@@ -1704,6 +1700,7 @@ export namespace Prisma {
     authenticator?: boolean
     biometric_key?: boolean
     faceData?: boolean
+    bobKey?: boolean
     createdAt?: boolean
     updateAt?: boolean
     type?: boolean
@@ -1721,12 +1718,13 @@ export namespace Prisma {
     authenticator?: boolean
     biometric_key?: boolean
     faceData?: boolean
+    bobKey?: boolean
     createdAt?: boolean
     updateAt?: boolean
     type?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "sid" | "gid" | "password" | "name" | "dob" | "official_class" | "authenticator" | "biometric_key" | "faceData" | "createdAt" | "updateAt" | "type", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "sid" | "gid" | "password" | "name" | "dob" | "official_class" | "authenticator" | "biometric_key" | "faceData" | "bobKey" | "createdAt" | "updateAt" | "type", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     host?: boolean | User$hostArgs<ExtArgs>
     join?: boolean | User$joinArgs<ExtArgs>
@@ -1755,6 +1753,7 @@ export namespace Prisma {
       authenticator: string | null
       biometric_key: string | null
       faceData: string | null
+      bobKey: string | null
       createdAt: Date
       updateAt: Date
       type: $Enums.UserType
@@ -2195,6 +2194,7 @@ export namespace Prisma {
     readonly authenticator: FieldRef<"User", 'String'>
     readonly biometric_key: FieldRef<"User", 'String'>
     readonly faceData: FieldRef<"User", 'String'>
+    readonly bobKey: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updateAt: FieldRef<"User", 'DateTime'>
     readonly type: FieldRef<"User", 'UserType'>
@@ -6122,7 +6122,7 @@ export namespace Prisma {
   export type AttendanceMinAggregateOutputType = {
     id: string | null
     time: Date | null
-    status: $Enums.AttendanceStatus | null
+    isVerified: boolean | null
     deviceId: string | null
     attendantId: string | null
     sessionCycleId: string | null
@@ -6131,7 +6131,7 @@ export namespace Prisma {
   export type AttendanceMaxAggregateOutputType = {
     id: string | null
     time: Date | null
-    status: $Enums.AttendanceStatus | null
+    isVerified: boolean | null
     deviceId: string | null
     attendantId: string | null
     sessionCycleId: string | null
@@ -6140,7 +6140,7 @@ export namespace Prisma {
   export type AttendanceCountAggregateOutputType = {
     id: number
     time: number
-    status: number
+    isVerified: number
     deviceId: number
     attendantId: number
     sessionCycleId: number
@@ -6151,7 +6151,7 @@ export namespace Prisma {
   export type AttendanceMinAggregateInputType = {
     id?: true
     time?: true
-    status?: true
+    isVerified?: true
     deviceId?: true
     attendantId?: true
     sessionCycleId?: true
@@ -6160,7 +6160,7 @@ export namespace Prisma {
   export type AttendanceMaxAggregateInputType = {
     id?: true
     time?: true
-    status?: true
+    isVerified?: true
     deviceId?: true
     attendantId?: true
     sessionCycleId?: true
@@ -6169,7 +6169,7 @@ export namespace Prisma {
   export type AttendanceCountAggregateInputType = {
     id?: true
     time?: true
-    status?: true
+    isVerified?: true
     deviceId?: true
     attendantId?: true
     sessionCycleId?: true
@@ -6251,7 +6251,7 @@ export namespace Prisma {
   export type AttendanceGroupByOutputType = {
     id: string
     time: Date
-    status: $Enums.AttendanceStatus
+    isVerified: boolean
     deviceId: string
     attendantId: string
     sessionCycleId: string
@@ -6277,7 +6277,7 @@ export namespace Prisma {
   export type AttendanceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     time?: boolean
-    status?: boolean
+    isVerified?: boolean
     deviceId?: boolean
     attendantId?: boolean
     sessionCycleId?: boolean
@@ -6288,7 +6288,7 @@ export namespace Prisma {
   export type AttendanceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     time?: boolean
-    status?: boolean
+    isVerified?: boolean
     deviceId?: boolean
     attendantId?: boolean
     sessionCycleId?: boolean
@@ -6299,7 +6299,7 @@ export namespace Prisma {
   export type AttendanceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     time?: boolean
-    status?: boolean
+    isVerified?: boolean
     deviceId?: boolean
     attendantId?: boolean
     sessionCycleId?: boolean
@@ -6310,13 +6310,13 @@ export namespace Prisma {
   export type AttendanceSelectScalar = {
     id?: boolean
     time?: boolean
-    status?: boolean
+    isVerified?: boolean
     deviceId?: boolean
     attendantId?: boolean
     sessionCycleId?: boolean
   }
 
-  export type AttendanceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "time" | "status" | "deviceId" | "attendantId" | "sessionCycleId", ExtArgs["result"]["attendance"]>
+  export type AttendanceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "time" | "isVerified" | "deviceId" | "attendantId" | "sessionCycleId", ExtArgs["result"]["attendance"]>
   export type AttendanceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     attendant?: boolean | UserDefaultArgs<ExtArgs>
     sessionCycle?: boolean | SessionCycleDefaultArgs<ExtArgs>
@@ -6339,7 +6339,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       time: Date
-      status: $Enums.AttendanceStatus
+      isVerified: boolean
       deviceId: string
       attendantId: string
       sessionCycleId: string
@@ -6770,7 +6770,7 @@ export namespace Prisma {
   interface AttendanceFieldRefs {
     readonly id: FieldRef<"Attendance", 'String'>
     readonly time: FieldRef<"Attendance", 'DateTime'>
-    readonly status: FieldRef<"Attendance", 'AttendanceStatus'>
+    readonly isVerified: FieldRef<"Attendance", 'Boolean'>
     readonly deviceId: FieldRef<"Attendance", 'String'>
     readonly attendantId: FieldRef<"Attendance", 'String'>
     readonly sessionCycleId: FieldRef<"Attendance", 'String'>
@@ -7214,6 +7214,7 @@ export namespace Prisma {
     authenticator: 'authenticator',
     biometric_key: 'biometric_key',
     faceData: 'faceData',
+    bobKey: 'bobKey',
     createdAt: 'createdAt',
     updateAt: 'updateAt',
     type: 'type'
@@ -7262,7 +7263,7 @@ export namespace Prisma {
   export const AttendanceScalarFieldEnum: {
     id: 'id',
     time: 'time',
-    status: 'status',
+    isVerified: 'isVerified',
     deviceId: 'deviceId',
     attendantId: 'attendantId',
     sessionCycleId: 'sessionCycleId'
@@ -7371,16 +7372,9 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'AttendanceStatus'
+   * Reference to a field of type 'Boolean'
    */
-  export type EnumAttendanceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AttendanceStatus'>
-    
-
-
-  /**
-   * Reference to a field of type 'AttendanceStatus[]'
-   */
-  export type ListEnumAttendanceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AttendanceStatus[]'>
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -7416,6 +7410,7 @@ export namespace Prisma {
     authenticator?: StringNullableFilter<"User"> | string | null
     biometric_key?: StringNullableFilter<"User"> | string | null
     faceData?: StringNullableFilter<"User"> | string | null
+    bobKey?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updateAt?: DateTimeFilter<"User"> | Date | string
     type?: EnumUserTypeFilter<"User"> | $Enums.UserType
@@ -7436,6 +7431,7 @@ export namespace Prisma {
     authenticator?: SortOrderInput | SortOrder
     biometric_key?: SortOrderInput | SortOrder
     faceData?: SortOrderInput | SortOrder
+    bobKey?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updateAt?: SortOrder
     type?: SortOrder
@@ -7459,6 +7455,7 @@ export namespace Prisma {
     authenticator?: StringNullableFilter<"User"> | string | null
     biometric_key?: StringNullableFilter<"User"> | string | null
     faceData?: StringNullableFilter<"User"> | string | null
+    bobKey?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updateAt?: DateTimeFilter<"User"> | Date | string
     type?: EnumUserTypeFilter<"User"> | $Enums.UserType
@@ -7479,6 +7476,7 @@ export namespace Prisma {
     authenticator?: SortOrderInput | SortOrder
     biometric_key?: SortOrderInput | SortOrder
     faceData?: SortOrderInput | SortOrder
+    bobKey?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updateAt?: SortOrder
     type?: SortOrder
@@ -7502,6 +7500,7 @@ export namespace Prisma {
     authenticator?: StringNullableWithAggregatesFilter<"User"> | string | null
     biometric_key?: StringNullableWithAggregatesFilter<"User"> | string | null
     faceData?: StringNullableWithAggregatesFilter<"User"> | string | null
+    bobKey?: StringNullableWithAggregatesFilter<"User"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updateAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     type?: EnumUserTypeWithAggregatesFilter<"User"> | $Enums.UserType
@@ -7718,7 +7717,7 @@ export namespace Prisma {
     NOT?: AttendanceWhereInput | AttendanceWhereInput[]
     id?: StringFilter<"Attendance"> | string
     time?: DateTimeFilter<"Attendance"> | Date | string
-    status?: EnumAttendanceStatusFilter<"Attendance"> | $Enums.AttendanceStatus
+    isVerified?: BoolFilter<"Attendance"> | boolean
     deviceId?: StringFilter<"Attendance"> | string
     attendantId?: StringFilter<"Attendance"> | string
     sessionCycleId?: StringFilter<"Attendance"> | string
@@ -7729,7 +7728,7 @@ export namespace Prisma {
   export type AttendanceOrderByWithRelationInput = {
     id?: SortOrder
     time?: SortOrder
-    status?: SortOrder
+    isVerified?: SortOrder
     deviceId?: SortOrder
     attendantId?: SortOrder
     sessionCycleId?: SortOrder
@@ -7743,7 +7742,7 @@ export namespace Prisma {
     OR?: AttendanceWhereInput[]
     NOT?: AttendanceWhereInput | AttendanceWhereInput[]
     time?: DateTimeFilter<"Attendance"> | Date | string
-    status?: EnumAttendanceStatusFilter<"Attendance"> | $Enums.AttendanceStatus
+    isVerified?: BoolFilter<"Attendance"> | boolean
     deviceId?: StringFilter<"Attendance"> | string
     attendantId?: StringFilter<"Attendance"> | string
     sessionCycleId?: StringFilter<"Attendance"> | string
@@ -7754,7 +7753,7 @@ export namespace Prisma {
   export type AttendanceOrderByWithAggregationInput = {
     id?: SortOrder
     time?: SortOrder
-    status?: SortOrder
+    isVerified?: SortOrder
     deviceId?: SortOrder
     attendantId?: SortOrder
     sessionCycleId?: SortOrder
@@ -7769,7 +7768,7 @@ export namespace Prisma {
     NOT?: AttendanceScalarWhereWithAggregatesInput | AttendanceScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Attendance"> | string
     time?: DateTimeWithAggregatesFilter<"Attendance"> | Date | string
-    status?: EnumAttendanceStatusWithAggregatesFilter<"Attendance"> | $Enums.AttendanceStatus
+    isVerified?: BoolWithAggregatesFilter<"Attendance"> | boolean
     deviceId?: StringWithAggregatesFilter<"Attendance"> | string
     attendantId?: StringWithAggregatesFilter<"Attendance"> | string
     sessionCycleId?: StringWithAggregatesFilter<"Attendance"> | string
@@ -7787,6 +7786,7 @@ export namespace Prisma {
     authenticator?: string | null
     biometric_key?: string | null
     faceData?: string | null
+    bobKey?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -7807,6 +7807,7 @@ export namespace Prisma {
     authenticator?: string | null
     biometric_key?: string | null
     faceData?: string | null
+    bobKey?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -7827,6 +7828,7 @@ export namespace Prisma {
     authenticator?: NullableStringFieldUpdateOperationsInput | string | null
     biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -7847,6 +7849,7 @@ export namespace Prisma {
     authenticator?: NullableStringFieldUpdateOperationsInput | string | null
     biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -7867,6 +7870,7 @@ export namespace Prisma {
     authenticator?: string | null
     biometric_key?: string | null
     faceData?: string | null
+    bobKey?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -7884,6 +7888,7 @@ export namespace Prisma {
     authenticator?: NullableStringFieldUpdateOperationsInput | string | null
     biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -7901,6 +7906,7 @@ export namespace Prisma {
     authenticator?: NullableStringFieldUpdateOperationsInput | string | null
     biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -8121,7 +8127,7 @@ export namespace Prisma {
   export type AttendanceCreateInput = {
     id?: string
     time: Date | string
-    status: $Enums.AttendanceStatus
+    isVerified: boolean
     deviceId: string
     attendant: UserCreateNestedOneWithoutAttendancesInput
     sessionCycle: SessionCycleCreateNestedOneWithoutAttendancesInput
@@ -8130,7 +8136,7 @@ export namespace Prisma {
   export type AttendanceUncheckedCreateInput = {
     id?: string
     time: Date | string
-    status: $Enums.AttendanceStatus
+    isVerified: boolean
     deviceId: string
     attendantId: string
     sessionCycleId: string
@@ -8139,7 +8145,7 @@ export namespace Prisma {
   export type AttendanceUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     time?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     deviceId?: StringFieldUpdateOperationsInput | string
     attendant?: UserUpdateOneRequiredWithoutAttendancesNestedInput
     sessionCycle?: SessionCycleUpdateOneRequiredWithoutAttendancesNestedInput
@@ -8148,7 +8154,7 @@ export namespace Prisma {
   export type AttendanceUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     time?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     deviceId?: StringFieldUpdateOperationsInput | string
     attendantId?: StringFieldUpdateOperationsInput | string
     sessionCycleId?: StringFieldUpdateOperationsInput | string
@@ -8157,7 +8163,7 @@ export namespace Prisma {
   export type AttendanceCreateManyInput = {
     id?: string
     time: Date | string
-    status: $Enums.AttendanceStatus
+    isVerified: boolean
     deviceId: string
     attendantId: string
     sessionCycleId: string
@@ -8166,14 +8172,14 @@ export namespace Prisma {
   export type AttendanceUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     time?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     deviceId?: StringFieldUpdateOperationsInput | string
   }
 
   export type AttendanceUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     time?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     deviceId?: StringFieldUpdateOperationsInput | string
     attendantId?: StringFieldUpdateOperationsInput | string
     sessionCycleId?: StringFieldUpdateOperationsInput | string
@@ -8264,6 +8270,7 @@ export namespace Prisma {
     authenticator?: SortOrder
     biometric_key?: SortOrder
     faceData?: SortOrder
+    bobKey?: SortOrder
     createdAt?: SortOrder
     updateAt?: SortOrder
     type?: SortOrder
@@ -8281,6 +8288,7 @@ export namespace Prisma {
     authenticator?: SortOrder
     biometric_key?: SortOrder
     faceData?: SortOrder
+    bobKey?: SortOrder
     createdAt?: SortOrder
     updateAt?: SortOrder
     type?: SortOrder
@@ -8298,6 +8306,7 @@ export namespace Prisma {
     authenticator?: SortOrder
     biometric_key?: SortOrder
     faceData?: SortOrder
+    bobKey?: SortOrder
     createdAt?: SortOrder
     updateAt?: SortOrder
     type?: SortOrder
@@ -8549,11 +8558,9 @@ export namespace Prisma {
     subjectId?: SortOrder
   }
 
-  export type EnumAttendanceStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.AttendanceStatus | EnumAttendanceStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.AttendanceStatus[] | ListEnumAttendanceStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.AttendanceStatus[] | ListEnumAttendanceStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumAttendanceStatusFilter<$PrismaModel> | $Enums.AttendanceStatus
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type SessionCycleScalarRelationFilter = {
@@ -8564,7 +8571,7 @@ export namespace Prisma {
   export type AttendanceCountOrderByAggregateInput = {
     id?: SortOrder
     time?: SortOrder
-    status?: SortOrder
+    isVerified?: SortOrder
     deviceId?: SortOrder
     attendantId?: SortOrder
     sessionCycleId?: SortOrder
@@ -8573,7 +8580,7 @@ export namespace Prisma {
   export type AttendanceMaxOrderByAggregateInput = {
     id?: SortOrder
     time?: SortOrder
-    status?: SortOrder
+    isVerified?: SortOrder
     deviceId?: SortOrder
     attendantId?: SortOrder
     sessionCycleId?: SortOrder
@@ -8582,20 +8589,18 @@ export namespace Prisma {
   export type AttendanceMinOrderByAggregateInput = {
     id?: SortOrder
     time?: SortOrder
-    status?: SortOrder
+    isVerified?: SortOrder
     deviceId?: SortOrder
     attendantId?: SortOrder
     sessionCycleId?: SortOrder
   }
 
-  export type EnumAttendanceStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.AttendanceStatus | EnumAttendanceStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.AttendanceStatus[] | ListEnumAttendanceStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.AttendanceStatus[] | ListEnumAttendanceStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumAttendanceStatusWithAggregatesFilter<$PrismaModel> | $Enums.AttendanceStatus
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumAttendanceStatusFilter<$PrismaModel>
-    _max?: NestedEnumAttendanceStatusFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type SubjectCreateNestedManyWithoutTeacherInput = {
@@ -9024,8 +9029,8 @@ export namespace Prisma {
     connect?: SessionCycleWhereUniqueInput
   }
 
-  export type EnumAttendanceStatusFieldUpdateOperationsInput = {
-    set?: $Enums.AttendanceStatus
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type UserUpdateOneRequiredWithoutAttendancesNestedInput = {
@@ -9214,21 +9219,17 @@ export namespace Prisma {
     _max?: NestedEnumRepeatTypeFilter<$PrismaModel>
   }
 
-  export type NestedEnumAttendanceStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.AttendanceStatus | EnumAttendanceStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.AttendanceStatus[] | ListEnumAttendanceStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.AttendanceStatus[] | ListEnumAttendanceStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumAttendanceStatusFilter<$PrismaModel> | $Enums.AttendanceStatus
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type NestedEnumAttendanceStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.AttendanceStatus | EnumAttendanceStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.AttendanceStatus[] | ListEnumAttendanceStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.AttendanceStatus[] | ListEnumAttendanceStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumAttendanceStatusWithAggregatesFilter<$PrismaModel> | $Enums.AttendanceStatus
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumAttendanceStatusFilter<$PrismaModel>
-    _max?: NestedEnumAttendanceStatusFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type SubjectCreateWithoutTeacherInput = {
@@ -9305,7 +9306,7 @@ export namespace Prisma {
   export type AttendanceCreateWithoutAttendantInput = {
     id?: string
     time: Date | string
-    status: $Enums.AttendanceStatus
+    isVerified: boolean
     deviceId: string
     sessionCycle: SessionCycleCreateNestedOneWithoutAttendancesInput
   }
@@ -9313,7 +9314,7 @@ export namespace Prisma {
   export type AttendanceUncheckedCreateWithoutAttendantInput = {
     id?: string
     time: Date | string
-    status: $Enums.AttendanceStatus
+    isVerified: boolean
     deviceId: string
     sessionCycleId: string
   }
@@ -9397,7 +9398,7 @@ export namespace Prisma {
     NOT?: AttendanceScalarWhereInput | AttendanceScalarWhereInput[]
     id?: StringFilter<"Attendance"> | string
     time?: DateTimeFilter<"Attendance"> | Date | string
-    status?: EnumAttendanceStatusFilter<"Attendance"> | $Enums.AttendanceStatus
+    isVerified?: BoolFilter<"Attendance"> | boolean
     deviceId?: StringFilter<"Attendance"> | string
     attendantId?: StringFilter<"Attendance"> | string
     sessionCycleId?: StringFilter<"Attendance"> | string
@@ -9415,6 +9416,7 @@ export namespace Prisma {
     authenticator?: string | null
     biometric_key?: string | null
     faceData?: string | null
+    bobKey?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -9434,6 +9436,7 @@ export namespace Prisma {
     authenticator?: string | null
     biometric_key?: string | null
     faceData?: string | null
+    bobKey?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -9458,6 +9461,7 @@ export namespace Prisma {
     authenticator?: string | null
     biometric_key?: string | null
     faceData?: string | null
+    bobKey?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -9477,6 +9481,7 @@ export namespace Prisma {
     authenticator?: string | null
     biometric_key?: string | null
     faceData?: string | null
+    bobKey?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -9564,6 +9569,7 @@ export namespace Prisma {
     authenticator?: NullableStringFieldUpdateOperationsInput | string | null
     biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -9583,6 +9589,7 @@ export namespace Prisma {
     authenticator?: NullableStringFieldUpdateOperationsInput | string | null
     biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -9621,6 +9628,7 @@ export namespace Prisma {
     authenticator?: StringNullableFilter<"User"> | string | null
     biometric_key?: StringNullableFilter<"User"> | string | null
     faceData?: StringNullableFilter<"User"> | string | null
+    bobKey?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updateAt?: DateTimeFilter<"User"> | Date | string
     type?: EnumUserTypeFilter<"User"> | $Enums.UserType
@@ -9851,7 +9859,7 @@ export namespace Prisma {
   export type AttendanceCreateWithoutSessionCycleInput = {
     id?: string
     time: Date | string
-    status: $Enums.AttendanceStatus
+    isVerified: boolean
     deviceId: string
     attendant: UserCreateNestedOneWithoutAttendancesInput
   }
@@ -9859,7 +9867,7 @@ export namespace Prisma {
   export type AttendanceUncheckedCreateWithoutSessionCycleInput = {
     id?: string
     time: Date | string
-    status: $Enums.AttendanceStatus
+    isVerified: boolean
     deviceId: string
     attendantId: string
   }
@@ -9970,6 +9978,7 @@ export namespace Prisma {
     authenticator?: string | null
     biometric_key?: string | null
     faceData?: string | null
+    bobKey?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -9989,6 +9998,7 @@ export namespace Prisma {
     authenticator?: string | null
     biometric_key?: string | null
     faceData?: string | null
+    bobKey?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -10043,6 +10053,7 @@ export namespace Prisma {
     authenticator?: NullableStringFieldUpdateOperationsInput | string | null
     biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -10062,6 +10073,7 @@ export namespace Prisma {
     authenticator?: NullableStringFieldUpdateOperationsInput | string | null
     biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -10108,7 +10120,7 @@ export namespace Prisma {
   export type AttendanceCreateManyAttendantInput = {
     id?: string
     time: Date | string
-    status: $Enums.AttendanceStatus
+    isVerified: boolean
     deviceId: string
     sessionCycleId: string
   }
@@ -10195,7 +10207,7 @@ export namespace Prisma {
   export type AttendanceUpdateWithoutAttendantInput = {
     id?: StringFieldUpdateOperationsInput | string
     time?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     deviceId?: StringFieldUpdateOperationsInput | string
     sessionCycle?: SessionCycleUpdateOneRequiredWithoutAttendancesNestedInput
   }
@@ -10203,7 +10215,7 @@ export namespace Prisma {
   export type AttendanceUncheckedUpdateWithoutAttendantInput = {
     id?: StringFieldUpdateOperationsInput | string
     time?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     deviceId?: StringFieldUpdateOperationsInput | string
     sessionCycleId?: StringFieldUpdateOperationsInput | string
   }
@@ -10211,7 +10223,7 @@ export namespace Prisma {
   export type AttendanceUncheckedUpdateManyWithoutAttendantInput = {
     id?: StringFieldUpdateOperationsInput | string
     time?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     deviceId?: StringFieldUpdateOperationsInput | string
     sessionCycleId?: StringFieldUpdateOperationsInput | string
   }
@@ -10242,6 +10254,7 @@ export namespace Prisma {
     authenticator?: NullableStringFieldUpdateOperationsInput | string | null
     biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -10261,6 +10274,7 @@ export namespace Prisma {
     authenticator?: NullableStringFieldUpdateOperationsInput | string | null
     biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -10280,6 +10294,7 @@ export namespace Prisma {
     authenticator?: NullableStringFieldUpdateOperationsInput | string | null
     biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -10360,7 +10375,7 @@ export namespace Prisma {
   export type AttendanceCreateManySessionCycleInput = {
     id?: string
     time: Date | string
-    status: $Enums.AttendanceStatus
+    isVerified: boolean
     deviceId: string
     attendantId: string
   }
@@ -10368,7 +10383,7 @@ export namespace Prisma {
   export type AttendanceUpdateWithoutSessionCycleInput = {
     id?: StringFieldUpdateOperationsInput | string
     time?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     deviceId?: StringFieldUpdateOperationsInput | string
     attendant?: UserUpdateOneRequiredWithoutAttendancesNestedInput
   }
@@ -10376,7 +10391,7 @@ export namespace Prisma {
   export type AttendanceUncheckedUpdateWithoutSessionCycleInput = {
     id?: StringFieldUpdateOperationsInput | string
     time?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     deviceId?: StringFieldUpdateOperationsInput | string
     attendantId?: StringFieldUpdateOperationsInput | string
   }
@@ -10384,7 +10399,7 @@ export namespace Prisma {
   export type AttendanceUncheckedUpdateManyWithoutSessionCycleInput = {
     id?: StringFieldUpdateOperationsInput | string
     time?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     deviceId?: StringFieldUpdateOperationsInput | string
     attendantId?: StringFieldUpdateOperationsInput | string
   }
