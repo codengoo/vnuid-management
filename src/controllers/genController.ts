@@ -40,7 +40,7 @@ class GenController {
         endTime: new Date(),
         openingDay: new Date(),
         name: "Class " + i,
-        teacherId: "52c67580-617d-402c-93bd-4db32597f573",
+        teacherId: "62ec9765-6512-4cac-9929-39e0e9f3aaca",
       });
     }
 

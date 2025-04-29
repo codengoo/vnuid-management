@@ -1,8 +1,8 @@
 import { prisma } from "@/configs";
-import { Session } from "generated/prisma";
+import { SessionAttendance } from "generated/prisma";
 
 class SessionModel {
-  async insertSession(session: Partial<Session>, uid: string) {
+  async insertSession(session: Partial<SessionAttendance>, uid: string) {
     // Check class
     const classObj = await prisma.subject.findFirst({
       where: { id: session.classId },
@@ -11,7 +11,7 @@ class SessionModel {
     if (classObj.teacherId !== uid) throw new Error("You are not teacher of this class");
 
     // Insert
-    const result = await prisma.session.create({
+    const result = await prisma.sessionAttendance.create({
       // @ts-ignore
       data: session,
     });
@@ -21,11 +21,11 @@ class SessionModel {
 
   async updateSession(
     id: string,
-    { id: _, classId: __, ...session }: Partial<Session>,
+    { id: _, classId: __, ...session }: Partial<SessionAttendance>,
     uid: string,
   ) {
     // Check class
-    const ses = await prisma.session.findFirst({
+    const ses = await prisma.sessionAttendance.findFirst({
       where: { id },
       include: { class: true },
     });
@@ -33,7 +33,7 @@ class SessionModel {
     if (ses.class.teacherId !== uid) throw new Error("You are not teacher of this class");
 
     // Update
-    const result = await prisma.session.update({
+    const result = await prisma.sessionAttendance.update({
       where: { id },
       // @ts-ignore
       data: session,
@@ -44,7 +44,7 @@ class SessionModel {
 
   async deleteSession(id: string, uid: string) {
     // Check class
-    const session = await prisma.session.findFirst({
+    const session = await prisma.sessionAttendance.findFirst({
       where: { id },
       include: { class: true },
     });
@@ -52,7 +52,19 @@ class SessionModel {
     if (session.class.teacherId !== uid) throw new Error("You are not teacher of this class");
 
     // Remove
-    const result = await prisma.session.delete({ where: { id } });
+    const result = await prisma.sessionAttendance.delete({ where: { id } });
+
+    return result;
+  }
+
+  async triggerSessionCycle(id: string){
+    // Check
+
+    // Create
+    const result = await prisma.sessionCycle.create({data: {
+      start: new Date(),
+      sessionId: id
+    }})
 
     return result;
   }

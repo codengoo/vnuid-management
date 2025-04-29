@@ -70,6 +70,15 @@ class ClassController {
     });
   }
 
+  async triggerSession(req: Request, res: Response<IResBody, ILocal>) {
+    const { id } = req.params;
+
+    await catcher(res, async () => {
+      await SessionModel.triggerSessionCycle(id);
+      res.json({ message: "Success" }).end();
+    });
+  }
+
   async checkin(req: Request, res: Response<IResBody, ILocal>) {
     const { id: sid } = req.params;
     const { id: uid } = res.locals.user;
@@ -81,7 +90,7 @@ class ClassController {
       isVerified: yup.boolean().required(),
       // image: later
       token: yup.string().required(),
-    })
+    });
 
     await catcher(res, async () => {
       await schema.validate(data);

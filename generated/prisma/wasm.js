@@ -146,7 +146,7 @@ exports.Prisma.SubjectScalarFieldEnum = {
   teacherId: 'teacherId'
 };
 
-exports.Prisma.SessionScalarFieldEnum = {
+exports.Prisma.SessionAttendanceScalarFieldEnum = {
   id: 'id',
   name: 'name',
   start: 'start',
@@ -203,7 +203,7 @@ exports.AttendanceStatus = exports.$Enums.AttendanceStatus = {
 exports.Prisma.ModelName = {
   User: 'User',
   Subject: 'Subject',
-  Session: 'Session',
+  SessionAttendance: 'SessionAttendance',
   SessionCycle: 'SessionCycle',
   Attendance: 'Attendance'
 };

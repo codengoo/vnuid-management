@@ -10,6 +10,7 @@ router.get("/:id", authMid(), ClassController.getClass);
 router.post("/session", authMid(["Teacher"]), ClassController.createSession);
 router.delete("/session/:id", authMid(["Teacher"]), ClassController.deleteSession);
 router.put("/session/:id", authMid(["Teacher"]), ClassController.updateSession);
+router.post("/fire/:id", authMid(["Teacher"]), ClassController.triggerSession);
 
 router.post("/checkin", authMid(["Student"]), ClassController.checkin);
 
