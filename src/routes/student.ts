@@ -3,7 +3,6 @@ import { Router } from "express";
 
 const router = Router();
 
-router.get("/classes", StudentController.getAllClasses);
 router.get("/face", StudentController.getFace);
 router.post("/face", StudentController.registerFace);
 

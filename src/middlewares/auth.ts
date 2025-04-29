@@ -31,7 +31,7 @@ export function authMid(roles: UserType[] = []) {
       Token === InternalKey &&
       (roles.length === 0 || refRoles.includes(Role.toLowerCase()))
     ) {
-      res.locals.user = { id: UserId, role: Role };
+      res.locals.user = { id: UserId, role: Role.toLowerCase() };
       next();
     } else {
       res.status(401).json({ message: "Unauthorized" });
