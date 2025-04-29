@@ -14,11 +14,82 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum UserType {
+  Student
+  Teacher
+}
+
+enum RepeatType {
+  Weekly
+}
+
+enum AttendanceStatus {
+  Valid
+  Invalid
+  Pending
+}
+
 model User {
-  id    Int    @id @default(autoincrement())
-  name  String
-  email String @unique
-  age   Int?
+  id          String       @id @default(uuid())
+  name        String
+  email       String       @unique
+  age         Int?
+  host        Class[]      @relation("TeacherClass")
+  join        Class[]      @relation("StudentClass")
+  type        UserType
+  attendances Attendance[]
 
   @@map("users")
+}
+
+model Class {
+  id         String   @id @default(uuid())
+  code       String
+  name       String
+  openingDay DateTime
+  startTime  DateTime
+  endTime    DateTime
+  address    String
+
+  teacherId String
+  teacher   User      @relation("TeacherClass", fields: [teacherId], references: [id])
+  students  User[]    @relation("StudentClass")
+  session   Session[]
+
+  @@map("classes")
+}
+
+model Session {
+  id           String         @id @default(uuid())
+  name         String
+  start        DateTime
+  duration     Int
+  repeat       RepeatType
+  classId      String
+  class        Class          @relation(fields: [classId], references: [id])
+  SessionCycle SessionCycle[]
+
+  @@map("sessions")
+}
+
+model SessionCycle {
+  id         String       @id @default(uuid())
+  sessionId  String
+  session    Session      @relation(fields: [sessionId], references: [id])
+  Attendance Attendance[]
+
+  @@map("session_cycles")
+}
+
+model Attendance {
+  id             String           @id @default(uuid())
+  time           DateTime
+  status         AttendanceStatus
+  deviceId       String
+  attendantId    String
+  attendant      User             @relation(fields: [attendantId], references: [id])
+  sessionCycleId String
+  sessionCycle   SessionCycle     @relation(fields: [sessionCycleId], references: [id])
+
+  @@map("attendance")
 }

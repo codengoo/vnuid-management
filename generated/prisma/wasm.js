@@ -121,7 +121,42 @@ exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
-  age: 'age'
+  age: 'age',
+  type: 'type'
+};
+
+exports.Prisma.ClassScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  name: 'name',
+  openingDay: 'openingDay',
+  startTime: 'startTime',
+  endTime: 'endTime',
+  address: 'address',
+  teacherId: 'teacherId'
+};
+
+exports.Prisma.SessionScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  start: 'start',
+  duration: 'duration',
+  repeat: 'repeat',
+  classId: 'classId'
+};
+
+exports.Prisma.SessionCycleScalarFieldEnum = {
+  id: 'id',
+  sessionId: 'sessionId'
+};
+
+exports.Prisma.AttendanceScalarFieldEnum = {
+  id: 'id',
+  time: 'time',
+  status: 'status',
+  deviceId: 'deviceId',
+  attendantId: 'attendantId',
+  sessionCycleId: 'sessionCycleId'
 };
 
 exports.Prisma.SortOrder = {
@@ -138,10 +173,27 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.UserType = exports.$Enums.UserType = {
+  Student: 'Student',
+  Teacher: 'Teacher'
+};
 
+exports.RepeatType = exports.$Enums.RepeatType = {
+  Weekly: 'Weekly'
+};
+
+exports.AttendanceStatus = exports.$Enums.AttendanceStatus = {
+  Valid: 'Valid',
+  Invalid: 'Invalid',
+  Pending: 'Pending'
+};
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Class: 'Class',
+  Session: 'Session',
+  SessionCycle: 'SessionCycle',
+  Attendance: 'Attendance'
 };
 
 /**
