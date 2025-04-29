@@ -38,8 +38,9 @@ model User {
   name           String
   dob            DateTime
   official_class String
-  authenticator  String
-  biometric_key  String
+  authenticator  String?
+  biometric_key  String?
+  faceData       String?
   createdAt      DateTime @updatedAt
   updateAt       DateTime @updatedAt
 
@@ -52,13 +53,14 @@ model User {
 }
 
 model Class {
-  id         String   @id @default(uuid())
-  code       String
-  name       String
-  openingDay DateTime
-  startTime  DateTime
-  endTime    DateTime
-  address    String
+  id          String   @id @default(uuid())
+  code        String
+  name        String
+  description String?
+  openingDay  DateTime
+  startTime   DateTime
+  endTime     DateTime
+  address     String
 
   teacherId String
   teacher   User      @relation("TeacherClass", fields: [teacherId], references: [id])

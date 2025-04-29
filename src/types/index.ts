@@ -5,7 +5,8 @@ export type ILocal = {
 };
 
 export type IResBody = {
-  data: any;
+  message?: string
+  data?: any;
 };
 
 export type IAuth = {

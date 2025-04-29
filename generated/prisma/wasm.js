@@ -128,6 +128,7 @@ exports.Prisma.UserScalarFieldEnum = {
   official_class: 'official_class',
   authenticator: 'authenticator',
   biometric_key: 'biometric_key',
+  faceData: 'faceData',
   createdAt: 'createdAt',
   updateAt: 'updateAt',
   type: 'type'
@@ -137,6 +138,7 @@ exports.Prisma.ClassScalarFieldEnum = {
   id: 'id',
   code: 'code',
   name: 'name',
+  description: 'description',
   openingDay: 'openingDay',
   startTime: 'startTime',
   endTime: 'endTime',
@@ -176,6 +178,11 @@ exports.Prisma.SortOrder = {
 exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
 };
 exports.UserType = exports.$Enums.UserType = {
   Student: 'Student',

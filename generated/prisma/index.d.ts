@@ -1445,6 +1445,7 @@ export namespace Prisma {
     official_class: string | null
     authenticator: string | null
     biometric_key: string | null
+    faceData: string | null
     createdAt: Date | null
     updateAt: Date | null
     type: $Enums.UserType | null
@@ -1461,6 +1462,7 @@ export namespace Prisma {
     official_class: string | null
     authenticator: string | null
     biometric_key: string | null
+    faceData: string | null
     createdAt: Date | null
     updateAt: Date | null
     type: $Enums.UserType | null
@@ -1477,6 +1479,7 @@ export namespace Prisma {
     official_class: number
     authenticator: number
     biometric_key: number
+    faceData: number
     createdAt: number
     updateAt: number
     type: number
@@ -1495,6 +1498,7 @@ export namespace Prisma {
     official_class?: true
     authenticator?: true
     biometric_key?: true
+    faceData?: true
     createdAt?: true
     updateAt?: true
     type?: true
@@ -1511,6 +1515,7 @@ export namespace Prisma {
     official_class?: true
     authenticator?: true
     biometric_key?: true
+    faceData?: true
     createdAt?: true
     updateAt?: true
     type?: true
@@ -1527,6 +1532,7 @@ export namespace Prisma {
     official_class?: true
     authenticator?: true
     biometric_key?: true
+    faceData?: true
     createdAt?: true
     updateAt?: true
     type?: true
@@ -1614,8 +1620,9 @@ export namespace Prisma {
     name: string
     dob: Date
     official_class: string
-    authenticator: string
-    biometric_key: string
+    authenticator: string | null
+    biometric_key: string | null
+    faceData: string | null
     createdAt: Date
     updateAt: Date
     type: $Enums.UserType
@@ -1649,6 +1656,7 @@ export namespace Prisma {
     official_class?: boolean
     authenticator?: boolean
     biometric_key?: boolean
+    faceData?: boolean
     createdAt?: boolean
     updateAt?: boolean
     type?: boolean
@@ -1669,6 +1677,7 @@ export namespace Prisma {
     official_class?: boolean
     authenticator?: boolean
     biometric_key?: boolean
+    faceData?: boolean
     createdAt?: boolean
     updateAt?: boolean
     type?: boolean
@@ -1685,6 +1694,7 @@ export namespace Prisma {
     official_class?: boolean
     authenticator?: boolean
     biometric_key?: boolean
+    faceData?: boolean
     createdAt?: boolean
     updateAt?: boolean
     type?: boolean
@@ -1701,12 +1711,13 @@ export namespace Prisma {
     official_class?: boolean
     authenticator?: boolean
     biometric_key?: boolean
+    faceData?: boolean
     createdAt?: boolean
     updateAt?: boolean
     type?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "sid" | "gid" | "password" | "name" | "dob" | "official_class" | "authenticator" | "biometric_key" | "createdAt" | "updateAt" | "type", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "sid" | "gid" | "password" | "name" | "dob" | "official_class" | "authenticator" | "biometric_key" | "faceData" | "createdAt" | "updateAt" | "type", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     host?: boolean | User$hostArgs<ExtArgs>
     join?: boolean | User$joinArgs<ExtArgs>
@@ -1732,8 +1743,9 @@ export namespace Prisma {
       name: string
       dob: Date
       official_class: string
-      authenticator: string
-      biometric_key: string
+      authenticator: string | null
+      biometric_key: string | null
+      faceData: string | null
       createdAt: Date
       updateAt: Date
       type: $Enums.UserType
@@ -2173,6 +2185,7 @@ export namespace Prisma {
     readonly official_class: FieldRef<"User", 'String'>
     readonly authenticator: FieldRef<"User", 'String'>
     readonly biometric_key: FieldRef<"User", 'String'>
+    readonly faceData: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updateAt: FieldRef<"User", 'DateTime'>
     readonly type: FieldRef<"User", 'UserType'>
@@ -2668,6 +2681,7 @@ export namespace Prisma {
     id: string | null
     code: string | null
     name: string | null
+    description: string | null
     openingDay: Date | null
     startTime: Date | null
     endTime: Date | null
@@ -2679,6 +2693,7 @@ export namespace Prisma {
     id: string | null
     code: string | null
     name: string | null
+    description: string | null
     openingDay: Date | null
     startTime: Date | null
     endTime: Date | null
@@ -2690,6 +2705,7 @@ export namespace Prisma {
     id: number
     code: number
     name: number
+    description: number
     openingDay: number
     startTime: number
     endTime: number
@@ -2703,6 +2719,7 @@ export namespace Prisma {
     id?: true
     code?: true
     name?: true
+    description?: true
     openingDay?: true
     startTime?: true
     endTime?: true
@@ -2714,6 +2731,7 @@ export namespace Prisma {
     id?: true
     code?: true
     name?: true
+    description?: true
     openingDay?: true
     startTime?: true
     endTime?: true
@@ -2725,6 +2743,7 @@ export namespace Prisma {
     id?: true
     code?: true
     name?: true
+    description?: true
     openingDay?: true
     startTime?: true
     endTime?: true
@@ -2809,6 +2828,7 @@ export namespace Prisma {
     id: string
     code: string
     name: string
+    description: string | null
     openingDay: Date
     startTime: Date
     endTime: Date
@@ -2837,6 +2857,7 @@ export namespace Prisma {
     id?: boolean
     code?: boolean
     name?: boolean
+    description?: boolean
     openingDay?: boolean
     startTime?: boolean
     endTime?: boolean
@@ -2852,6 +2873,7 @@ export namespace Prisma {
     id?: boolean
     code?: boolean
     name?: boolean
+    description?: boolean
     openingDay?: boolean
     startTime?: boolean
     endTime?: boolean
@@ -2864,6 +2886,7 @@ export namespace Prisma {
     id?: boolean
     code?: boolean
     name?: boolean
+    description?: boolean
     openingDay?: boolean
     startTime?: boolean
     endTime?: boolean
@@ -2876,6 +2899,7 @@ export namespace Prisma {
     id?: boolean
     code?: boolean
     name?: boolean
+    description?: boolean
     openingDay?: boolean
     startTime?: boolean
     endTime?: boolean
@@ -2883,7 +2907,7 @@ export namespace Prisma {
     teacherId?: boolean
   }
 
-  export type ClassOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "code" | "name" | "openingDay" | "startTime" | "endTime" | "address" | "teacherId", ExtArgs["result"]["class"]>
+  export type ClassOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "code" | "name" | "description" | "openingDay" | "startTime" | "endTime" | "address" | "teacherId", ExtArgs["result"]["class"]>
   export type ClassInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     teacher?: boolean | UserDefaultArgs<ExtArgs>
     students?: boolean | Class$studentsArgs<ExtArgs>
@@ -2908,6 +2932,7 @@ export namespace Prisma {
       id: string
       code: string
       name: string
+      description: string | null
       openingDay: Date
       startTime: Date
       endTime: Date
@@ -3342,6 +3367,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Class", 'String'>
     readonly code: FieldRef<"Class", 'String'>
     readonly name: FieldRef<"Class", 'String'>
+    readonly description: FieldRef<"Class", 'String'>
     readonly openingDay: FieldRef<"Class", 'DateTime'>
     readonly startTime: FieldRef<"Class", 'DateTime'>
     readonly endTime: FieldRef<"Class", 'DateTime'>
@@ -7110,6 +7136,7 @@ export namespace Prisma {
     official_class: 'official_class',
     authenticator: 'authenticator',
     biometric_key: 'biometric_key',
+    faceData: 'faceData',
     createdAt: 'createdAt',
     updateAt: 'updateAt',
     type: 'type'
@@ -7122,6 +7149,7 @@ export namespace Prisma {
     id: 'id',
     code: 'code',
     name: 'name',
+    description: 'description',
     openingDay: 'openingDay',
     startTime: 'startTime',
     endTime: 'endTime',
@@ -7179,6 +7207,14 @@ export namespace Prisma {
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -7299,8 +7335,9 @@ export namespace Prisma {
     name?: StringFilter<"User"> | string
     dob?: DateTimeFilter<"User"> | Date | string
     official_class?: StringFilter<"User"> | string
-    authenticator?: StringFilter<"User"> | string
-    biometric_key?: StringFilter<"User"> | string
+    authenticator?: StringNullableFilter<"User"> | string | null
+    biometric_key?: StringNullableFilter<"User"> | string | null
+    faceData?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updateAt?: DateTimeFilter<"User"> | Date | string
     type?: EnumUserTypeFilter<"User"> | $Enums.UserType
@@ -7318,8 +7355,9 @@ export namespace Prisma {
     name?: SortOrder
     dob?: SortOrder
     official_class?: SortOrder
-    authenticator?: SortOrder
-    biometric_key?: SortOrder
+    authenticator?: SortOrderInput | SortOrder
+    biometric_key?: SortOrderInput | SortOrder
+    faceData?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updateAt?: SortOrder
     type?: SortOrder
@@ -7340,8 +7378,9 @@ export namespace Prisma {
     name?: StringFilter<"User"> | string
     dob?: DateTimeFilter<"User"> | Date | string
     official_class?: StringFilter<"User"> | string
-    authenticator?: StringFilter<"User"> | string
-    biometric_key?: StringFilter<"User"> | string
+    authenticator?: StringNullableFilter<"User"> | string | null
+    biometric_key?: StringNullableFilter<"User"> | string | null
+    faceData?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updateAt?: DateTimeFilter<"User"> | Date | string
     type?: EnumUserTypeFilter<"User"> | $Enums.UserType
@@ -7359,8 +7398,9 @@ export namespace Prisma {
     name?: SortOrder
     dob?: SortOrder
     official_class?: SortOrder
-    authenticator?: SortOrder
-    biometric_key?: SortOrder
+    authenticator?: SortOrderInput | SortOrder
+    biometric_key?: SortOrderInput | SortOrder
+    faceData?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updateAt?: SortOrder
     type?: SortOrder
@@ -7381,8 +7421,9 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"User"> | string
     dob?: DateTimeWithAggregatesFilter<"User"> | Date | string
     official_class?: StringWithAggregatesFilter<"User"> | string
-    authenticator?: StringWithAggregatesFilter<"User"> | string
-    biometric_key?: StringWithAggregatesFilter<"User"> | string
+    authenticator?: StringNullableWithAggregatesFilter<"User"> | string | null
+    biometric_key?: StringNullableWithAggregatesFilter<"User"> | string | null
+    faceData?: StringNullableWithAggregatesFilter<"User"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updateAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     type?: EnumUserTypeWithAggregatesFilter<"User"> | $Enums.UserType
@@ -7395,6 +7436,7 @@ export namespace Prisma {
     id?: StringFilter<"Class"> | string
     code?: StringFilter<"Class"> | string
     name?: StringFilter<"Class"> | string
+    description?: StringNullableFilter<"Class"> | string | null
     openingDay?: DateTimeFilter<"Class"> | Date | string
     startTime?: DateTimeFilter<"Class"> | Date | string
     endTime?: DateTimeFilter<"Class"> | Date | string
@@ -7409,6 +7451,7 @@ export namespace Prisma {
     id?: SortOrder
     code?: SortOrder
     name?: SortOrder
+    description?: SortOrderInput | SortOrder
     openingDay?: SortOrder
     startTime?: SortOrder
     endTime?: SortOrder
@@ -7426,6 +7469,7 @@ export namespace Prisma {
     NOT?: ClassWhereInput | ClassWhereInput[]
     code?: StringFilter<"Class"> | string
     name?: StringFilter<"Class"> | string
+    description?: StringNullableFilter<"Class"> | string | null
     openingDay?: DateTimeFilter<"Class"> | Date | string
     startTime?: DateTimeFilter<"Class"> | Date | string
     endTime?: DateTimeFilter<"Class"> | Date | string
@@ -7440,6 +7484,7 @@ export namespace Prisma {
     id?: SortOrder
     code?: SortOrder
     name?: SortOrder
+    description?: SortOrderInput | SortOrder
     openingDay?: SortOrder
     startTime?: SortOrder
     endTime?: SortOrder
@@ -7457,6 +7502,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Class"> | string
     code?: StringWithAggregatesFilter<"Class"> | string
     name?: StringWithAggregatesFilter<"Class"> | string
+    description?: StringNullableWithAggregatesFilter<"Class"> | string | null
     openingDay?: DateTimeWithAggregatesFilter<"Class"> | Date | string
     startTime?: DateTimeWithAggregatesFilter<"Class"> | Date | string
     endTime?: DateTimeWithAggregatesFilter<"Class"> | Date | string
@@ -7649,8 +7695,9 @@ export namespace Prisma {
     name: string
     dob: Date | string
     official_class: string
-    authenticator: string
-    biometric_key: string
+    authenticator?: string | null
+    biometric_key?: string | null
+    faceData?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -7668,8 +7715,9 @@ export namespace Prisma {
     name: string
     dob: Date | string
     official_class: string
-    authenticator: string
-    biometric_key: string
+    authenticator?: string | null
+    biometric_key?: string | null
+    faceData?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -7687,8 +7735,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: StringFieldUpdateOperationsInput | string
-    biometric_key?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -7706,8 +7755,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: StringFieldUpdateOperationsInput | string
-    biometric_key?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -7725,8 +7775,9 @@ export namespace Prisma {
     name: string
     dob: Date | string
     official_class: string
-    authenticator: string
-    biometric_key: string
+    authenticator?: string | null
+    biometric_key?: string | null
+    faceData?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -7741,8 +7792,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: StringFieldUpdateOperationsInput | string
-    biometric_key?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -7757,8 +7809,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: StringFieldUpdateOperationsInput | string
-    biometric_key?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -7768,6 +7821,7 @@ export namespace Prisma {
     id?: string
     code: string
     name: string
+    description?: string | null
     openingDay: Date | string
     startTime: Date | string
     endTime: Date | string
@@ -7781,6 +7835,7 @@ export namespace Prisma {
     id?: string
     code: string
     name: string
+    description?: string | null
     openingDay: Date | string
     startTime: Date | string
     endTime: Date | string
@@ -7794,6 +7849,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7807,6 +7863,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7820,6 +7877,7 @@ export namespace Prisma {
     id?: string
     code: string
     name: string
+    description?: string | null
     openingDay: Date | string
     startTime: Date | string
     endTime: Date | string
@@ -7831,6 +7889,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7841,6 +7900,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8046,6 +8106,21 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type EnumUserTypeFilter<$PrismaModel = never> = {
     equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
     in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
@@ -8063,6 +8138,11 @@ export namespace Prisma {
     every?: AttendanceWhereInput
     some?: AttendanceWhereInput
     none?: AttendanceWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
   }
 
   export type ClassOrderByRelationAggregateInput = {
@@ -8084,6 +8164,7 @@ export namespace Prisma {
     official_class?: SortOrder
     authenticator?: SortOrder
     biometric_key?: SortOrder
+    faceData?: SortOrder
     createdAt?: SortOrder
     updateAt?: SortOrder
     type?: SortOrder
@@ -8100,6 +8181,7 @@ export namespace Prisma {
     official_class?: SortOrder
     authenticator?: SortOrder
     biometric_key?: SortOrder
+    faceData?: SortOrder
     createdAt?: SortOrder
     updateAt?: SortOrder
     type?: SortOrder
@@ -8116,6 +8198,7 @@ export namespace Prisma {
     official_class?: SortOrder
     authenticator?: SortOrder
     biometric_key?: SortOrder
+    faceData?: SortOrder
     createdAt?: SortOrder
     updateAt?: SortOrder
     type?: SortOrder
@@ -8151,6 +8234,24 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type EnumUserTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -8192,6 +8293,7 @@ export namespace Prisma {
     id?: SortOrder
     code?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     openingDay?: SortOrder
     startTime?: SortOrder
     endTime?: SortOrder
@@ -8203,6 +8305,7 @@ export namespace Prisma {
     id?: SortOrder
     code?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     openingDay?: SortOrder
     startTime?: SortOrder
     endTime?: SortOrder
@@ -8214,6 +8317,7 @@ export namespace Prisma {
     id?: SortOrder
     code?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     openingDay?: SortOrder
     startTime?: SortOrder
     endTime?: SortOrder
@@ -8433,6 +8537,10 @@ export namespace Prisma {
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type EnumUserTypeFieldUpdateOperationsInput = {
@@ -8796,6 +8904,20 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedEnumUserTypeFilter<$PrismaModel = never> = {
     equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
     in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
@@ -8843,6 +8965,34 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedEnumUserTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -8920,6 +9070,7 @@ export namespace Prisma {
     id?: string
     code: string
     name: string
+    description?: string | null
     openingDay: Date | string
     startTime: Date | string
     endTime: Date | string
@@ -8932,6 +9083,7 @@ export namespace Prisma {
     id?: string
     code: string
     name: string
+    description?: string | null
     openingDay: Date | string
     startTime: Date | string
     endTime: Date | string
@@ -8954,6 +9106,7 @@ export namespace Prisma {
     id?: string
     code: string
     name: string
+    description?: string | null
     openingDay: Date | string
     startTime: Date | string
     endTime: Date | string
@@ -8966,6 +9119,7 @@ export namespace Prisma {
     id?: string
     code: string
     name: string
+    description?: string | null
     openingDay: Date | string
     startTime: Date | string
     endTime: Date | string
@@ -9028,6 +9182,7 @@ export namespace Prisma {
     id?: StringFilter<"Class"> | string
     code?: StringFilter<"Class"> | string
     name?: StringFilter<"Class"> | string
+    description?: StringNullableFilter<"Class"> | string | null
     openingDay?: DateTimeFilter<"Class"> | Date | string
     startTime?: DateTimeFilter<"Class"> | Date | string
     endTime?: DateTimeFilter<"Class"> | Date | string
@@ -9088,8 +9243,9 @@ export namespace Prisma {
     name: string
     dob: Date | string
     official_class: string
-    authenticator: string
-    biometric_key: string
+    authenticator?: string | null
+    biometric_key?: string | null
+    faceData?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -9106,8 +9262,9 @@ export namespace Prisma {
     name: string
     dob: Date | string
     official_class: string
-    authenticator: string
-    biometric_key: string
+    authenticator?: string | null
+    biometric_key?: string | null
+    faceData?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -9129,8 +9286,9 @@ export namespace Prisma {
     name: string
     dob: Date | string
     official_class: string
-    authenticator: string
-    biometric_key: string
+    authenticator?: string | null
+    biometric_key?: string | null
+    faceData?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -9147,8 +9305,9 @@ export namespace Prisma {
     name: string
     dob: Date | string
     official_class: string
-    authenticator: string
-    biometric_key: string
+    authenticator?: string | null
+    biometric_key?: string | null
+    faceData?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -9209,8 +9368,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: StringFieldUpdateOperationsInput | string
-    biometric_key?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -9227,8 +9387,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: StringFieldUpdateOperationsInput | string
-    biometric_key?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -9264,8 +9425,9 @@ export namespace Prisma {
     name?: StringFilter<"User"> | string
     dob?: DateTimeFilter<"User"> | Date | string
     official_class?: StringFilter<"User"> | string
-    authenticator?: StringFilter<"User"> | string
-    biometric_key?: StringFilter<"User"> | string
+    authenticator?: StringNullableFilter<"User"> | string | null
+    biometric_key?: StringNullableFilter<"User"> | string | null
+    faceData?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updateAt?: DateTimeFilter<"User"> | Date | string
     type?: EnumUserTypeFilter<"User"> | $Enums.UserType
@@ -9303,6 +9465,7 @@ export namespace Prisma {
     id?: string
     code: string
     name: string
+    description?: string | null
     openingDay: Date | string
     startTime: Date | string
     endTime: Date | string
@@ -9315,6 +9478,7 @@ export namespace Prisma {
     id?: string
     code: string
     name: string
+    description?: string | null
     openingDay: Date | string
     startTime: Date | string
     endTime: Date | string
@@ -9365,6 +9529,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9377,6 +9542,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9513,8 +9679,9 @@ export namespace Prisma {
     name: string
     dob: Date | string
     official_class: string
-    authenticator: string
-    biometric_key: string
+    authenticator?: string | null
+    biometric_key?: string | null
+    faceData?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -9531,8 +9698,9 @@ export namespace Prisma {
     name: string
     dob: Date | string
     official_class: string
-    authenticator: string
-    biometric_key: string
+    authenticator?: string | null
+    biometric_key?: string | null
+    faceData?: string | null
     createdAt?: Date | string
     updateAt?: Date | string
     type: $Enums.UserType
@@ -9582,8 +9750,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: StringFieldUpdateOperationsInput | string
-    biometric_key?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -9600,8 +9769,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: StringFieldUpdateOperationsInput | string
-    biometric_key?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -9636,6 +9806,7 @@ export namespace Prisma {
     id?: string
     code: string
     name: string
+    description?: string | null
     openingDay: Date | string
     startTime: Date | string
     endTime: Date | string
@@ -9654,6 +9825,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9666,6 +9838,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9678,6 +9851,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9688,6 +9862,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9700,6 +9875,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9712,6 +9888,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9760,8 +9937,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: StringFieldUpdateOperationsInput | string
-    biometric_key?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -9778,8 +9956,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: StringFieldUpdateOperationsInput | string
-    biometric_key?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
@@ -9796,8 +9975,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: StringFieldUpdateOperationsInput | string
-    biometric_key?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType

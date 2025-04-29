@@ -20,6 +20,20 @@ class ClassModel {
 
     return result;
   }
+
+  async getAllClassesByStudent(studentId: string) {
+    const result = await prisma.class.findMany({
+      where: {
+        students: {
+          some: {
+            id: studentId,
+          },
+        },
+      },
+    });
+
+    return result;
+  }
 }
 
 export default new ClassModel();
