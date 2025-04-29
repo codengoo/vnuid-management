@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { UserType } from "generated/prisma";
 
 function authMidBuilder(req: Request, res: Response, next: Function) {
   const UserId = req.headers["x-user-id"];
@@ -14,20 +15,21 @@ function authMidBuilder(req: Request, res: Response, next: Function) {
   }
 }
 
-export function authMid(roles: string[] = []) {
+export function authMid(roles: UserType[] = []) {
   return (req: Request, res: Response, next: Function) => {
     const UserId = req.headers["x-user-id"];
     const Role = req.headers["x-user-role"] as string;
     const Token = req.headers["x-user-token"];
     const InternalKey = process.env["INTERNAL_KEY"];
-
+    const refRoles = roles.map((role) => role.toString().toLowerCase());
     // console.log(UserId, Role, Token, InternalKey);
+
     if (
       UserId &&
       Role &&
       Token &&
       Token === InternalKey &&
-      (roles.length === 0 || roles.includes(Role.toLowerCase()))
+      (roles.length === 0 || refRoles.includes(Role.toLowerCase()))
     ) {
       res.locals.user = { id: UserId, role: Role };
       next();

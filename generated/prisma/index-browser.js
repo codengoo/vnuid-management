@@ -127,9 +127,9 @@ exports.Prisma.UserScalarFieldEnum = {
   dob: 'dob',
   official_class: 'official_class',
   authenticator: 'authenticator',
-  Biometric_key: 'Biometric_key',
+  biometric_key: 'biometric_key',
   createdAt: 'createdAt',
-  UpdateAt: 'UpdateAt',
+  updateAt: 'updateAt',
   type: 'type'
 };
 

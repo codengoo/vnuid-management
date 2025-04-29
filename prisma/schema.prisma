@@ -39,9 +39,9 @@ model User {
   dob            DateTime
   official_class String
   authenticator  String
-  Biometric_key  String
-  createdAt      DateTime
-  UpdateAt       DateTime
+  biometric_key  String
+  createdAt      DateTime @updatedAt
+  updateAt       DateTime @updatedAt
 
   host        Class[]      @relation("TeacherClass")
   join        Class[]      @relation("StudentClass")

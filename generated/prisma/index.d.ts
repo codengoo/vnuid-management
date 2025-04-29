@@ -1444,9 +1444,9 @@ export namespace Prisma {
     dob: Date | null
     official_class: string | null
     authenticator: string | null
-    Biometric_key: string | null
+    biometric_key: string | null
     createdAt: Date | null
-    UpdateAt: Date | null
+    updateAt: Date | null
     type: $Enums.UserType | null
   }
 
@@ -1460,9 +1460,9 @@ export namespace Prisma {
     dob: Date | null
     official_class: string | null
     authenticator: string | null
-    Biometric_key: string | null
+    biometric_key: string | null
     createdAt: Date | null
-    UpdateAt: Date | null
+    updateAt: Date | null
     type: $Enums.UserType | null
   }
 
@@ -1476,9 +1476,9 @@ export namespace Prisma {
     dob: number
     official_class: number
     authenticator: number
-    Biometric_key: number
+    biometric_key: number
     createdAt: number
-    UpdateAt: number
+    updateAt: number
     type: number
     _all: number
   }
@@ -1494,9 +1494,9 @@ export namespace Prisma {
     dob?: true
     official_class?: true
     authenticator?: true
-    Biometric_key?: true
+    biometric_key?: true
     createdAt?: true
-    UpdateAt?: true
+    updateAt?: true
     type?: true
   }
 
@@ -1510,9 +1510,9 @@ export namespace Prisma {
     dob?: true
     official_class?: true
     authenticator?: true
-    Biometric_key?: true
+    biometric_key?: true
     createdAt?: true
-    UpdateAt?: true
+    updateAt?: true
     type?: true
   }
 
@@ -1526,9 +1526,9 @@ export namespace Prisma {
     dob?: true
     official_class?: true
     authenticator?: true
-    Biometric_key?: true
+    biometric_key?: true
     createdAt?: true
-    UpdateAt?: true
+    updateAt?: true
     type?: true
     _all?: true
   }
@@ -1615,9 +1615,9 @@ export namespace Prisma {
     dob: Date
     official_class: string
     authenticator: string
-    Biometric_key: string
+    biometric_key: string
     createdAt: Date
-    UpdateAt: Date
+    updateAt: Date
     type: $Enums.UserType
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
@@ -1648,9 +1648,9 @@ export namespace Prisma {
     dob?: boolean
     official_class?: boolean
     authenticator?: boolean
-    Biometric_key?: boolean
+    biometric_key?: boolean
     createdAt?: boolean
-    UpdateAt?: boolean
+    updateAt?: boolean
     type?: boolean
     host?: boolean | User$hostArgs<ExtArgs>
     join?: boolean | User$joinArgs<ExtArgs>
@@ -1668,9 +1668,9 @@ export namespace Prisma {
     dob?: boolean
     official_class?: boolean
     authenticator?: boolean
-    Biometric_key?: boolean
+    biometric_key?: boolean
     createdAt?: boolean
-    UpdateAt?: boolean
+    updateAt?: boolean
     type?: boolean
   }, ExtArgs["result"]["user"]>
 
@@ -1684,9 +1684,9 @@ export namespace Prisma {
     dob?: boolean
     official_class?: boolean
     authenticator?: boolean
-    Biometric_key?: boolean
+    biometric_key?: boolean
     createdAt?: boolean
-    UpdateAt?: boolean
+    updateAt?: boolean
     type?: boolean
   }, ExtArgs["result"]["user"]>
 
@@ -1700,13 +1700,13 @@ export namespace Prisma {
     dob?: boolean
     official_class?: boolean
     authenticator?: boolean
-    Biometric_key?: boolean
+    biometric_key?: boolean
     createdAt?: boolean
-    UpdateAt?: boolean
+    updateAt?: boolean
     type?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "sid" | "gid" | "password" | "name" | "dob" | "official_class" | "authenticator" | "Biometric_key" | "createdAt" | "UpdateAt" | "type", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "sid" | "gid" | "password" | "name" | "dob" | "official_class" | "authenticator" | "biometric_key" | "createdAt" | "updateAt" | "type", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     host?: boolean | User$hostArgs<ExtArgs>
     join?: boolean | User$joinArgs<ExtArgs>
@@ -1733,9 +1733,9 @@ export namespace Prisma {
       dob: Date
       official_class: string
       authenticator: string
-      Biometric_key: string
+      biometric_key: string
       createdAt: Date
-      UpdateAt: Date
+      updateAt: Date
       type: $Enums.UserType
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -2172,9 +2172,9 @@ export namespace Prisma {
     readonly dob: FieldRef<"User", 'DateTime'>
     readonly official_class: FieldRef<"User", 'String'>
     readonly authenticator: FieldRef<"User", 'String'>
-    readonly Biometric_key: FieldRef<"User", 'String'>
+    readonly biometric_key: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
-    readonly UpdateAt: FieldRef<"User", 'DateTime'>
+    readonly updateAt: FieldRef<"User", 'DateTime'>
     readonly type: FieldRef<"User", 'UserType'>
   }
     
@@ -7109,9 +7109,9 @@ export namespace Prisma {
     dob: 'dob',
     official_class: 'official_class',
     authenticator: 'authenticator',
-    Biometric_key: 'Biometric_key',
+    biometric_key: 'biometric_key',
     createdAt: 'createdAt',
-    UpdateAt: 'UpdateAt',
+    updateAt: 'updateAt',
     type: 'type'
   };
 
@@ -7300,9 +7300,9 @@ export namespace Prisma {
     dob?: DateTimeFilter<"User"> | Date | string
     official_class?: StringFilter<"User"> | string
     authenticator?: StringFilter<"User"> | string
-    Biometric_key?: StringFilter<"User"> | string
+    biometric_key?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
-    UpdateAt?: DateTimeFilter<"User"> | Date | string
+    updateAt?: DateTimeFilter<"User"> | Date | string
     type?: EnumUserTypeFilter<"User"> | $Enums.UserType
     host?: ClassListRelationFilter
     join?: ClassListRelationFilter
@@ -7319,9 +7319,9 @@ export namespace Prisma {
     dob?: SortOrder
     official_class?: SortOrder
     authenticator?: SortOrder
-    Biometric_key?: SortOrder
+    biometric_key?: SortOrder
     createdAt?: SortOrder
-    UpdateAt?: SortOrder
+    updateAt?: SortOrder
     type?: SortOrder
     host?: ClassOrderByRelationAggregateInput
     join?: ClassOrderByRelationAggregateInput
@@ -7341,9 +7341,9 @@ export namespace Prisma {
     dob?: DateTimeFilter<"User"> | Date | string
     official_class?: StringFilter<"User"> | string
     authenticator?: StringFilter<"User"> | string
-    Biometric_key?: StringFilter<"User"> | string
+    biometric_key?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
-    UpdateAt?: DateTimeFilter<"User"> | Date | string
+    updateAt?: DateTimeFilter<"User"> | Date | string
     type?: EnumUserTypeFilter<"User"> | $Enums.UserType
     host?: ClassListRelationFilter
     join?: ClassListRelationFilter
@@ -7360,9 +7360,9 @@ export namespace Prisma {
     dob?: SortOrder
     official_class?: SortOrder
     authenticator?: SortOrder
-    Biometric_key?: SortOrder
+    biometric_key?: SortOrder
     createdAt?: SortOrder
-    UpdateAt?: SortOrder
+    updateAt?: SortOrder
     type?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -7382,9 +7382,9 @@ export namespace Prisma {
     dob?: DateTimeWithAggregatesFilter<"User"> | Date | string
     official_class?: StringWithAggregatesFilter<"User"> | string
     authenticator?: StringWithAggregatesFilter<"User"> | string
-    Biometric_key?: StringWithAggregatesFilter<"User"> | string
+    biometric_key?: StringWithAggregatesFilter<"User"> | string
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    UpdateAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    updateAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     type?: EnumUserTypeWithAggregatesFilter<"User"> | $Enums.UserType
   }
 
@@ -7650,9 +7650,9 @@ export namespace Prisma {
     dob: Date | string
     official_class: string
     authenticator: string
-    Biometric_key: string
-    createdAt: Date | string
-    UpdateAt: Date | string
+    biometric_key: string
+    createdAt?: Date | string
+    updateAt?: Date | string
     type: $Enums.UserType
     host?: ClassCreateNestedManyWithoutTeacherInput
     join?: ClassCreateNestedManyWithoutStudentsInput
@@ -7669,9 +7669,9 @@ export namespace Prisma {
     dob: Date | string
     official_class: string
     authenticator: string
-    Biometric_key: string
-    createdAt: Date | string
-    UpdateAt: Date | string
+    biometric_key: string
+    createdAt?: Date | string
+    updateAt?: Date | string
     type: $Enums.UserType
     host?: ClassUncheckedCreateNestedManyWithoutTeacherInput
     join?: ClassUncheckedCreateNestedManyWithoutStudentsInput
@@ -7688,9 +7688,9 @@ export namespace Prisma {
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
     authenticator?: StringFieldUpdateOperationsInput | string
-    Biometric_key?: StringFieldUpdateOperationsInput | string
+    biometric_key?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: ClassUpdateManyWithoutTeacherNestedInput
     join?: ClassUpdateManyWithoutStudentsNestedInput
@@ -7707,9 +7707,9 @@ export namespace Prisma {
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
     authenticator?: StringFieldUpdateOperationsInput | string
-    Biometric_key?: StringFieldUpdateOperationsInput | string
+    biometric_key?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: ClassUncheckedUpdateManyWithoutTeacherNestedInput
     join?: ClassUncheckedUpdateManyWithoutStudentsNestedInput
@@ -7726,9 +7726,9 @@ export namespace Prisma {
     dob: Date | string
     official_class: string
     authenticator: string
-    Biometric_key: string
-    createdAt: Date | string
-    UpdateAt: Date | string
+    biometric_key: string
+    createdAt?: Date | string
+    updateAt?: Date | string
     type: $Enums.UserType
   }
 
@@ -7742,9 +7742,9 @@ export namespace Prisma {
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
     authenticator?: StringFieldUpdateOperationsInput | string
-    Biometric_key?: StringFieldUpdateOperationsInput | string
+    biometric_key?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
   }
 
@@ -7758,9 +7758,9 @@ export namespace Prisma {
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
     authenticator?: StringFieldUpdateOperationsInput | string
-    Biometric_key?: StringFieldUpdateOperationsInput | string
+    biometric_key?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
   }
 
@@ -8083,9 +8083,9 @@ export namespace Prisma {
     dob?: SortOrder
     official_class?: SortOrder
     authenticator?: SortOrder
-    Biometric_key?: SortOrder
+    biometric_key?: SortOrder
     createdAt?: SortOrder
-    UpdateAt?: SortOrder
+    updateAt?: SortOrder
     type?: SortOrder
   }
 
@@ -8099,9 +8099,9 @@ export namespace Prisma {
     dob?: SortOrder
     official_class?: SortOrder
     authenticator?: SortOrder
-    Biometric_key?: SortOrder
+    biometric_key?: SortOrder
     createdAt?: SortOrder
-    UpdateAt?: SortOrder
+    updateAt?: SortOrder
     type?: SortOrder
   }
 
@@ -8115,9 +8115,9 @@ export namespace Prisma {
     dob?: SortOrder
     official_class?: SortOrder
     authenticator?: SortOrder
-    Biometric_key?: SortOrder
+    biometric_key?: SortOrder
     createdAt?: SortOrder
-    UpdateAt?: SortOrder
+    updateAt?: SortOrder
     type?: SortOrder
   }
 
@@ -9089,9 +9089,9 @@ export namespace Prisma {
     dob: Date | string
     official_class: string
     authenticator: string
-    Biometric_key: string
-    createdAt: Date | string
-    UpdateAt: Date | string
+    biometric_key: string
+    createdAt?: Date | string
+    updateAt?: Date | string
     type: $Enums.UserType
     join?: ClassCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceCreateNestedManyWithoutAttendantInput
@@ -9107,9 +9107,9 @@ export namespace Prisma {
     dob: Date | string
     official_class: string
     authenticator: string
-    Biometric_key: string
-    createdAt: Date | string
-    UpdateAt: Date | string
+    biometric_key: string
+    createdAt?: Date | string
+    updateAt?: Date | string
     type: $Enums.UserType
     join?: ClassUncheckedCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
@@ -9130,9 +9130,9 @@ export namespace Prisma {
     dob: Date | string
     official_class: string
     authenticator: string
-    Biometric_key: string
-    createdAt: Date | string
-    UpdateAt: Date | string
+    biometric_key: string
+    createdAt?: Date | string
+    updateAt?: Date | string
     type: $Enums.UserType
     host?: ClassCreateNestedManyWithoutTeacherInput
     attendances?: AttendanceCreateNestedManyWithoutAttendantInput
@@ -9148,9 +9148,9 @@ export namespace Prisma {
     dob: Date | string
     official_class: string
     authenticator: string
-    Biometric_key: string
-    createdAt: Date | string
-    UpdateAt: Date | string
+    biometric_key: string
+    createdAt?: Date | string
+    updateAt?: Date | string
     type: $Enums.UserType
     host?: ClassUncheckedCreateNestedManyWithoutTeacherInput
     attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
@@ -9210,9 +9210,9 @@ export namespace Prisma {
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
     authenticator?: StringFieldUpdateOperationsInput | string
-    Biometric_key?: StringFieldUpdateOperationsInput | string
+    biometric_key?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     join?: ClassUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
@@ -9228,9 +9228,9 @@ export namespace Prisma {
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
     authenticator?: StringFieldUpdateOperationsInput | string
-    Biometric_key?: StringFieldUpdateOperationsInput | string
+    biometric_key?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     join?: ClassUncheckedUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
@@ -9265,9 +9265,9 @@ export namespace Prisma {
     dob?: DateTimeFilter<"User"> | Date | string
     official_class?: StringFilter<"User"> | string
     authenticator?: StringFilter<"User"> | string
-    Biometric_key?: StringFilter<"User"> | string
+    biometric_key?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
-    UpdateAt?: DateTimeFilter<"User"> | Date | string
+    updateAt?: DateTimeFilter<"User"> | Date | string
     type?: EnumUserTypeFilter<"User"> | $Enums.UserType
   }
 
@@ -9514,9 +9514,9 @@ export namespace Prisma {
     dob: Date | string
     official_class: string
     authenticator: string
-    Biometric_key: string
-    createdAt: Date | string
-    UpdateAt: Date | string
+    biometric_key: string
+    createdAt?: Date | string
+    updateAt?: Date | string
     type: $Enums.UserType
     host?: ClassCreateNestedManyWithoutTeacherInput
     join?: ClassCreateNestedManyWithoutStudentsInput
@@ -9532,9 +9532,9 @@ export namespace Prisma {
     dob: Date | string
     official_class: string
     authenticator: string
-    Biometric_key: string
-    createdAt: Date | string
-    UpdateAt: Date | string
+    biometric_key: string
+    createdAt?: Date | string
+    updateAt?: Date | string
     type: $Enums.UserType
     host?: ClassUncheckedCreateNestedManyWithoutTeacherInput
     join?: ClassUncheckedCreateNestedManyWithoutStudentsInput
@@ -9583,9 +9583,9 @@ export namespace Prisma {
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
     authenticator?: StringFieldUpdateOperationsInput | string
-    Biometric_key?: StringFieldUpdateOperationsInput | string
+    biometric_key?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: ClassUpdateManyWithoutTeacherNestedInput
     join?: ClassUpdateManyWithoutStudentsNestedInput
@@ -9601,9 +9601,9 @@ export namespace Prisma {
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
     authenticator?: StringFieldUpdateOperationsInput | string
-    Biometric_key?: StringFieldUpdateOperationsInput | string
+    biometric_key?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: ClassUncheckedUpdateManyWithoutTeacherNestedInput
     join?: ClassUncheckedUpdateManyWithoutStudentsNestedInput
@@ -9761,9 +9761,9 @@ export namespace Prisma {
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
     authenticator?: StringFieldUpdateOperationsInput | string
-    Biometric_key?: StringFieldUpdateOperationsInput | string
+    biometric_key?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: ClassUpdateManyWithoutTeacherNestedInput
     attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
@@ -9779,9 +9779,9 @@ export namespace Prisma {
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
     authenticator?: StringFieldUpdateOperationsInput | string
-    Biometric_key?: StringFieldUpdateOperationsInput | string
+    biometric_key?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: ClassUncheckedUpdateManyWithoutTeacherNestedInput
     attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
@@ -9797,9 +9797,9 @@ export namespace Prisma {
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     official_class?: StringFieldUpdateOperationsInput | string
     authenticator?: StringFieldUpdateOperationsInput | string
-    Biometric_key?: StringFieldUpdateOperationsInput | string
+    biometric_key?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
   }
 
