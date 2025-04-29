@@ -39,12 +39,12 @@ class ClassController {
       start: yup.date().required(),
       duration: yup.number().required(),
       repeat: yup.string().oneOf(Object.values(RepeatType)).required(),
-      classId: yup.string().uuid().required(),
+      subjectId: yup.string().uuid().required(),
     });
 
     await catcher(res, async () => {
-      await schema.validate(data);
-      const result = await SessionModel.insertSession(data, uid);
+      const filteredData = await schema.validate(data);
+      const result = await SessionModel.insertSession(filteredData, uid);
       res.json({ data: result }).end();
     });
   }
@@ -76,6 +76,15 @@ class ClassController {
     await catcher(res, async () => {
       await SessionModel.triggerSessionCycle(id);
       res.json({ message: "Success" }).end();
+    });
+  }
+
+  async getSessionCycle(req: Request, res: Response<IResBody, ILocal>) {
+    const { id } = res.locals.user;
+    
+    await catcher(res, async () => {
+      const result = await SessionModel.getAllSessionCycles(id);
+      res.json({ data: result }).end();
     });
   }
 

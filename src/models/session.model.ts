@@ -5,7 +5,7 @@ class SessionModel {
   async insertSession(session: Partial<SessionAttendance>, uid: string) {
     // Check class
     const classObj = await prisma.subject.findFirst({
-      where: { id: session.classId },
+      where: { id: session.subjectId },
     });
     if (!classObj) throw new Error("Class not found");
     if (classObj.teacherId !== uid) throw new Error("You are not teacher of this class");
@@ -21,16 +21,16 @@ class SessionModel {
 
   async updateSession(
     id: string,
-    { id: _, classId: __, ...session }: Partial<SessionAttendance>,
+    { id: _, subjectId: __, ...session }: Partial<SessionAttendance>,
     uid: string,
   ) {
     // Check class
     const ses = await prisma.sessionAttendance.findFirst({
       where: { id },
-      include: { class: true },
+      include: { subject: true },
     });
     if (!ses) throw new Error("Session not found");
-    if (ses.class.teacherId !== uid) throw new Error("You are not teacher of this class");
+    if (ses.subject.teacherId !== uid) throw new Error("You are not teacher of this class");
 
     // Update
     const result = await prisma.sessionAttendance.update({
@@ -46,10 +46,10 @@ class SessionModel {
     // Check class
     const session = await prisma.sessionAttendance.findFirst({
       where: { id },
-      include: { class: true },
+      include: { subject: true },
     });
     if (!session) throw new Error("Session not found");
-    if (session.class.teacherId !== uid) throw new Error("You are not teacher of this class");
+    if (session.subject.teacherId !== uid) throw new Error("You are not teacher of this class");
 
     // Remove
     const result = await prisma.sessionAttendance.delete({ where: { id } });
@@ -57,16 +57,44 @@ class SessionModel {
     return result;
   }
 
-  async triggerSessionCycle(id: string){
+  async triggerSessionCycle(id: string) {
     // Check
+    const session = await prisma.sessionAttendance.findFirst({ where: { id } });
+    if (!session) throw new Error("Session not found");
+    const subjectId = session.subjectId;
 
     // Create
-    const result = await prisma.sessionCycle.create({data: {
-      start: new Date(),
-      sessionId: id
-    }})
+    const result = await prisma.sessionCycle.create({
+      data: {
+        start: new Date(),
+        sessionId: id,
+        subjectId,
+      },
+    });
 
     return result;
+  }
+
+  async getAllSessionCycles(uid: string) {
+    // List all class
+    const subjects = await prisma.subject.findMany({ where: { students: { some: { id: uid } } } });
+    const subjectIds = subjects.map((s) => s.id);
+
+    // List all session cycles
+    const cycles = await prisma.sessionCycle.findMany({
+      where: {
+        subjectId: { in: subjectIds },
+      },
+      include: { session: true, subject: true },
+    });
+
+    const now = new Date();
+    const filtered = cycles.filter((cycle) => {
+      const end = new Date(cycle.start.getTime() + cycle.session.duration * 60000);
+      return end >= now;
+    });
+
+    return filtered;
   }
 }
 

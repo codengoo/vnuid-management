@@ -78,8 +78,8 @@ model SessionAttendance {
   duration Int
   repeat   RepeatType
 
-  classId      String
-  class        Subject        @relation(fields: [classId], references: [id])
+  subjectId    String
+  subject      Subject        @relation(fields: [subjectId], references: [id])
   SessionCycle SessionCycle[]
 
   @@map("session_attendances")
@@ -91,9 +91,9 @@ model SessionCycle {
 
   sessionId   String
   session     SessionAttendance @relation(fields: [sessionId], references: [id])
-  attendances Attendance[]
   subject     Subject?          @relation(fields: [subjectId], references: [id])
   subjectId   String?
+  attendances Attendance[]
 
   @@map("session_cycles")
 }

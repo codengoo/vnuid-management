@@ -3898,7 +3898,7 @@ export namespace Prisma {
     start: Date | null
     duration: number | null
     repeat: $Enums.RepeatType | null
-    classId: string | null
+    subjectId: string | null
   }
 
   export type SessionAttendanceMaxAggregateOutputType = {
@@ -3907,7 +3907,7 @@ export namespace Prisma {
     start: Date | null
     duration: number | null
     repeat: $Enums.RepeatType | null
-    classId: string | null
+    subjectId: string | null
   }
 
   export type SessionAttendanceCountAggregateOutputType = {
@@ -3916,7 +3916,7 @@ export namespace Prisma {
     start: number
     duration: number
     repeat: number
-    classId: number
+    subjectId: number
     _all: number
   }
 
@@ -3935,7 +3935,7 @@ export namespace Prisma {
     start?: true
     duration?: true
     repeat?: true
-    classId?: true
+    subjectId?: true
   }
 
   export type SessionAttendanceMaxAggregateInputType = {
@@ -3944,7 +3944,7 @@ export namespace Prisma {
     start?: true
     duration?: true
     repeat?: true
-    classId?: true
+    subjectId?: true
   }
 
   export type SessionAttendanceCountAggregateInputType = {
@@ -3953,7 +3953,7 @@ export namespace Prisma {
     start?: true
     duration?: true
     repeat?: true
-    classId?: true
+    subjectId?: true
     _all?: true
   }
 
@@ -4049,7 +4049,7 @@ export namespace Prisma {
     start: Date
     duration: number
     repeat: $Enums.RepeatType
-    classId: string
+    subjectId: string
     _count: SessionAttendanceCountAggregateOutputType | null
     _avg: SessionAttendanceAvgAggregateOutputType | null
     _sum: SessionAttendanceSumAggregateOutputType | null
@@ -4077,8 +4077,8 @@ export namespace Prisma {
     start?: boolean
     duration?: boolean
     repeat?: boolean
-    classId?: boolean
-    class?: boolean | SubjectDefaultArgs<ExtArgs>
+    subjectId?: boolean
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
     SessionCycle?: boolean | SessionAttendance$SessionCycleArgs<ExtArgs>
     _count?: boolean | SessionAttendanceCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sessionAttendance"]>
@@ -4089,8 +4089,8 @@ export namespace Prisma {
     start?: boolean
     duration?: boolean
     repeat?: boolean
-    classId?: boolean
-    class?: boolean | SubjectDefaultArgs<ExtArgs>
+    subjectId?: boolean
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sessionAttendance"]>
 
   export type SessionAttendanceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4099,8 +4099,8 @@ export namespace Prisma {
     start?: boolean
     duration?: boolean
     repeat?: boolean
-    classId?: boolean
-    class?: boolean | SubjectDefaultArgs<ExtArgs>
+    subjectId?: boolean
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sessionAttendance"]>
 
   export type SessionAttendanceSelectScalar = {
@@ -4109,26 +4109,26 @@ export namespace Prisma {
     start?: boolean
     duration?: boolean
     repeat?: boolean
-    classId?: boolean
+    subjectId?: boolean
   }
 
-  export type SessionAttendanceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "start" | "duration" | "repeat" | "classId", ExtArgs["result"]["sessionAttendance"]>
+  export type SessionAttendanceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "start" | "duration" | "repeat" | "subjectId", ExtArgs["result"]["sessionAttendance"]>
   export type SessionAttendanceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    class?: boolean | SubjectDefaultArgs<ExtArgs>
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
     SessionCycle?: boolean | SessionAttendance$SessionCycleArgs<ExtArgs>
     _count?: boolean | SessionAttendanceCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type SessionAttendanceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    class?: boolean | SubjectDefaultArgs<ExtArgs>
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
   }
   export type SessionAttendanceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    class?: boolean | SubjectDefaultArgs<ExtArgs>
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
   }
 
   export type $SessionAttendancePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "SessionAttendance"
     objects: {
-      class: Prisma.$SubjectPayload<ExtArgs>
+      subject: Prisma.$SubjectPayload<ExtArgs>
       SessionCycle: Prisma.$SessionCyclePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -4137,7 +4137,7 @@ export namespace Prisma {
       start: Date
       duration: number
       repeat: $Enums.RepeatType
-      classId: string
+      subjectId: string
     }, ExtArgs["result"]["sessionAttendance"]>
     composites: {}
   }
@@ -4532,7 +4532,7 @@ export namespace Prisma {
    */
   export interface Prisma__SessionAttendanceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    class<T extends SubjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SubjectDefaultArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    subject<T extends SubjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SubjectDefaultArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     SessionCycle<T extends SessionAttendance$SessionCycleArgs<ExtArgs> = {}>(args?: Subset<T, SessionAttendance$SessionCycleArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionCyclePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -4568,7 +4568,7 @@ export namespace Prisma {
     readonly start: FieldRef<"SessionAttendance", 'DateTime'>
     readonly duration: FieldRef<"SessionAttendance", 'Int'>
     readonly repeat: FieldRef<"SessionAttendance", 'RepeatType'>
-    readonly classId: FieldRef<"SessionAttendance", 'String'>
+    readonly subjectId: FieldRef<"SessionAttendance", 'String'>
   }
     
 
@@ -5164,8 +5164,8 @@ export namespace Prisma {
     sessionId?: boolean
     subjectId?: boolean
     session?: boolean | SessionAttendanceDefaultArgs<ExtArgs>
-    attendances?: boolean | SessionCycle$attendancesArgs<ExtArgs>
     subject?: boolean | SessionCycle$subjectArgs<ExtArgs>
+    attendances?: boolean | SessionCycle$attendancesArgs<ExtArgs>
     _count?: boolean | SessionCycleCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sessionCycle"]>
 
@@ -5197,8 +5197,8 @@ export namespace Prisma {
   export type SessionCycleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "start" | "sessionId" | "subjectId", ExtArgs["result"]["sessionCycle"]>
   export type SessionCycleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     session?: boolean | SessionAttendanceDefaultArgs<ExtArgs>
-    attendances?: boolean | SessionCycle$attendancesArgs<ExtArgs>
     subject?: boolean | SessionCycle$subjectArgs<ExtArgs>
+    attendances?: boolean | SessionCycle$attendancesArgs<ExtArgs>
     _count?: boolean | SessionCycleCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type SessionCycleIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5214,8 +5214,8 @@ export namespace Prisma {
     name: "SessionCycle"
     objects: {
       session: Prisma.$SessionAttendancePayload<ExtArgs>
-      attendances: Prisma.$AttendancePayload<ExtArgs>[]
       subject: Prisma.$SubjectPayload<ExtArgs> | null
+      attendances: Prisma.$AttendancePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -5617,8 +5617,8 @@ export namespace Prisma {
   export interface Prisma__SessionCycleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     session<T extends SessionAttendanceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SessionAttendanceDefaultArgs<ExtArgs>>): Prisma__SessionAttendanceClient<$Result.GetResult<Prisma.$SessionAttendancePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    attendances<T extends SessionCycle$attendancesArgs<ExtArgs> = {}>(args?: Subset<T, SessionCycle$attendancesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AttendancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     subject<T extends SessionCycle$subjectArgs<ExtArgs> = {}>(args?: Subset<T, SessionCycle$subjectArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    attendances<T extends SessionCycle$attendancesArgs<ExtArgs> = {}>(args?: Subset<T, SessionCycle$attendancesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AttendancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6048,6 +6048,25 @@ export namespace Prisma {
   }
 
   /**
+   * SessionCycle.subject
+   */
+  export type SessionCycle$subjectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subject
+     */
+    select?: SubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subject
+     */
+    omit?: SubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectInclude<ExtArgs> | null
+    where?: SubjectWhereInput
+  }
+
+  /**
    * SessionCycle.attendances
    */
   export type SessionCycle$attendancesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6069,25 +6088,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: AttendanceScalarFieldEnum | AttendanceScalarFieldEnum[]
-  }
-
-  /**
-   * SessionCycle.subject
-   */
-  export type SessionCycle$subjectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Subject
-     */
-    select?: SubjectSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Subject
-     */
-    omit?: SubjectOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SubjectInclude<ExtArgs> | null
-    where?: SubjectWhereInput
   }
 
   /**
@@ -7243,7 +7243,7 @@ export namespace Prisma {
     start: 'start',
     duration: 'duration',
     repeat: 'repeat',
-    classId: 'classId'
+    subjectId: 'subjectId'
   };
 
   export type SessionAttendanceScalarFieldEnum = (typeof SessionAttendanceScalarFieldEnum)[keyof typeof SessionAttendanceScalarFieldEnum]
@@ -7600,8 +7600,8 @@ export namespace Prisma {
     start?: DateTimeFilter<"SessionAttendance"> | Date | string
     duration?: IntFilter<"SessionAttendance"> | number
     repeat?: EnumRepeatTypeFilter<"SessionAttendance"> | $Enums.RepeatType
-    classId?: StringFilter<"SessionAttendance"> | string
-    class?: XOR<SubjectScalarRelationFilter, SubjectWhereInput>
+    subjectId?: StringFilter<"SessionAttendance"> | string
+    subject?: XOR<SubjectScalarRelationFilter, SubjectWhereInput>
     SessionCycle?: SessionCycleListRelationFilter
   }
 
@@ -7611,8 +7611,8 @@ export namespace Prisma {
     start?: SortOrder
     duration?: SortOrder
     repeat?: SortOrder
-    classId?: SortOrder
-    class?: SubjectOrderByWithRelationInput
+    subjectId?: SortOrder
+    subject?: SubjectOrderByWithRelationInput
     SessionCycle?: SessionCycleOrderByRelationAggregateInput
   }
 
@@ -7625,8 +7625,8 @@ export namespace Prisma {
     start?: DateTimeFilter<"SessionAttendance"> | Date | string
     duration?: IntFilter<"SessionAttendance"> | number
     repeat?: EnumRepeatTypeFilter<"SessionAttendance"> | $Enums.RepeatType
-    classId?: StringFilter<"SessionAttendance"> | string
-    class?: XOR<SubjectScalarRelationFilter, SubjectWhereInput>
+    subjectId?: StringFilter<"SessionAttendance"> | string
+    subject?: XOR<SubjectScalarRelationFilter, SubjectWhereInput>
     SessionCycle?: SessionCycleListRelationFilter
   }, "id">
 
@@ -7636,7 +7636,7 @@ export namespace Prisma {
     start?: SortOrder
     duration?: SortOrder
     repeat?: SortOrder
-    classId?: SortOrder
+    subjectId?: SortOrder
     _count?: SessionAttendanceCountOrderByAggregateInput
     _avg?: SessionAttendanceAvgOrderByAggregateInput
     _max?: SessionAttendanceMaxOrderByAggregateInput
@@ -7653,7 +7653,7 @@ export namespace Prisma {
     start?: DateTimeWithAggregatesFilter<"SessionAttendance"> | Date | string
     duration?: IntWithAggregatesFilter<"SessionAttendance"> | number
     repeat?: EnumRepeatTypeWithAggregatesFilter<"SessionAttendance"> | $Enums.RepeatType
-    classId?: StringWithAggregatesFilter<"SessionAttendance"> | string
+    subjectId?: StringWithAggregatesFilter<"SessionAttendance"> | string
   }
 
   export type SessionCycleWhereInput = {
@@ -7665,8 +7665,8 @@ export namespace Prisma {
     sessionId?: StringFilter<"SessionCycle"> | string
     subjectId?: StringNullableFilter<"SessionCycle"> | string | null
     session?: XOR<SessionAttendanceScalarRelationFilter, SessionAttendanceWhereInput>
-    attendances?: AttendanceListRelationFilter
     subject?: XOR<SubjectNullableScalarRelationFilter, SubjectWhereInput> | null
+    attendances?: AttendanceListRelationFilter
   }
 
   export type SessionCycleOrderByWithRelationInput = {
@@ -7675,8 +7675,8 @@ export namespace Prisma {
     sessionId?: SortOrder
     subjectId?: SortOrderInput | SortOrder
     session?: SessionAttendanceOrderByWithRelationInput
-    attendances?: AttendanceOrderByRelationAggregateInput
     subject?: SubjectOrderByWithRelationInput
+    attendances?: AttendanceOrderByRelationAggregateInput
   }
 
   export type SessionCycleWhereUniqueInput = Prisma.AtLeast<{
@@ -7688,8 +7688,8 @@ export namespace Prisma {
     sessionId?: StringFilter<"SessionCycle"> | string
     subjectId?: StringNullableFilter<"SessionCycle"> | string | null
     session?: XOR<SessionAttendanceScalarRelationFilter, SessionAttendanceWhereInput>
-    attendances?: AttendanceListRelationFilter
     subject?: XOR<SubjectNullableScalarRelationFilter, SubjectWhereInput> | null
+    attendances?: AttendanceListRelationFilter
   }, "id">
 
   export type SessionCycleOrderByWithAggregationInput = {
@@ -7917,7 +7917,7 @@ export namespace Prisma {
     address: string
     teacher: UserCreateNestedOneWithoutHostInput
     students?: UserCreateNestedManyWithoutJoinInput
-    session?: SessionAttendanceCreateNestedManyWithoutClassInput
+    session?: SessionAttendanceCreateNestedManyWithoutSubjectInput
     sessionCycle?: SessionCycleCreateNestedManyWithoutSubjectInput
   }
 
@@ -7932,7 +7932,7 @@ export namespace Prisma {
     address: string
     teacherId: string
     students?: UserUncheckedCreateNestedManyWithoutJoinInput
-    session?: SessionAttendanceUncheckedCreateNestedManyWithoutClassInput
+    session?: SessionAttendanceUncheckedCreateNestedManyWithoutSubjectInput
     sessionCycle?: SessionCycleUncheckedCreateNestedManyWithoutSubjectInput
   }
 
@@ -7947,7 +7947,7 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     teacher?: UserUpdateOneRequiredWithoutHostNestedInput
     students?: UserUpdateManyWithoutJoinNestedInput
-    session?: SessionAttendanceUpdateManyWithoutClassNestedInput
+    session?: SessionAttendanceUpdateManyWithoutSubjectNestedInput
     sessionCycle?: SessionCycleUpdateManyWithoutSubjectNestedInput
   }
 
@@ -7962,7 +7962,7 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     teacherId?: StringFieldUpdateOperationsInput | string
     students?: UserUncheckedUpdateManyWithoutJoinNestedInput
-    session?: SessionAttendanceUncheckedUpdateManyWithoutClassNestedInput
+    session?: SessionAttendanceUncheckedUpdateManyWithoutSubjectNestedInput
     sessionCycle?: SessionCycleUncheckedUpdateManyWithoutSubjectNestedInput
   }
 
@@ -8007,7 +8007,7 @@ export namespace Prisma {
     start: Date | string
     duration: number
     repeat: $Enums.RepeatType
-    class: SubjectCreateNestedOneWithoutSessionInput
+    subject: SubjectCreateNestedOneWithoutSessionInput
     SessionCycle?: SessionCycleCreateNestedManyWithoutSessionInput
   }
 
@@ -8017,7 +8017,7 @@ export namespace Prisma {
     start: Date | string
     duration: number
     repeat: $Enums.RepeatType
-    classId: string
+    subjectId: string
     SessionCycle?: SessionCycleUncheckedCreateNestedManyWithoutSessionInput
   }
 
@@ -8027,7 +8027,7 @@ export namespace Prisma {
     start?: DateTimeFieldUpdateOperationsInput | Date | string
     duration?: IntFieldUpdateOperationsInput | number
     repeat?: EnumRepeatTypeFieldUpdateOperationsInput | $Enums.RepeatType
-    class?: SubjectUpdateOneRequiredWithoutSessionNestedInput
+    subject?: SubjectUpdateOneRequiredWithoutSessionNestedInput
     SessionCycle?: SessionCycleUpdateManyWithoutSessionNestedInput
   }
 
@@ -8037,7 +8037,7 @@ export namespace Prisma {
     start?: DateTimeFieldUpdateOperationsInput | Date | string
     duration?: IntFieldUpdateOperationsInput | number
     repeat?: EnumRepeatTypeFieldUpdateOperationsInput | $Enums.RepeatType
-    classId?: StringFieldUpdateOperationsInput | string
+    subjectId?: StringFieldUpdateOperationsInput | string
     SessionCycle?: SessionCycleUncheckedUpdateManyWithoutSessionNestedInput
   }
 
@@ -8047,7 +8047,7 @@ export namespace Prisma {
     start: Date | string
     duration: number
     repeat: $Enums.RepeatType
-    classId: string
+    subjectId: string
   }
 
   export type SessionAttendanceUpdateManyMutationInput = {
@@ -8064,15 +8064,15 @@ export namespace Prisma {
     start?: DateTimeFieldUpdateOperationsInput | Date | string
     duration?: IntFieldUpdateOperationsInput | number
     repeat?: EnumRepeatTypeFieldUpdateOperationsInput | $Enums.RepeatType
-    classId?: StringFieldUpdateOperationsInput | string
+    subjectId?: StringFieldUpdateOperationsInput | string
   }
 
   export type SessionCycleCreateInput = {
     id?: string
     start: Date | string
     session: SessionAttendanceCreateNestedOneWithoutSessionCycleInput
-    attendances?: AttendanceCreateNestedManyWithoutSessionCycleInput
     subject?: SubjectCreateNestedOneWithoutSessionCycleInput
+    attendances?: AttendanceCreateNestedManyWithoutSessionCycleInput
   }
 
   export type SessionCycleUncheckedCreateInput = {
@@ -8087,8 +8087,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     start?: DateTimeFieldUpdateOperationsInput | Date | string
     session?: SessionAttendanceUpdateOneRequiredWithoutSessionCycleNestedInput
-    attendances?: AttendanceUpdateManyWithoutSessionCycleNestedInput
     subject?: SubjectUpdateOneWithoutSessionCycleNestedInput
+    attendances?: AttendanceUpdateManyWithoutSessionCycleNestedInput
   }
 
   export type SessionCycleUncheckedUpdateInput = {
@@ -8463,7 +8463,7 @@ export namespace Prisma {
     start?: SortOrder
     duration?: SortOrder
     repeat?: SortOrder
-    classId?: SortOrder
+    subjectId?: SortOrder
   }
 
   export type SessionAttendanceAvgOrderByAggregateInput = {
@@ -8476,7 +8476,7 @@ export namespace Prisma {
     start?: SortOrder
     duration?: SortOrder
     repeat?: SortOrder
-    classId?: SortOrder
+    subjectId?: SortOrder
   }
 
   export type SessionAttendanceMinOrderByAggregateInput = {
@@ -8485,7 +8485,7 @@ export namespace Prisma {
     start?: SortOrder
     duration?: SortOrder
     repeat?: SortOrder
-    classId?: SortOrder
+    subjectId?: SortOrder
   }
 
   export type SessionAttendanceSumOrderByAggregateInput = {
@@ -8748,10 +8748,10 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
   }
 
-  export type SessionAttendanceCreateNestedManyWithoutClassInput = {
-    create?: XOR<SessionAttendanceCreateWithoutClassInput, SessionAttendanceUncheckedCreateWithoutClassInput> | SessionAttendanceCreateWithoutClassInput[] | SessionAttendanceUncheckedCreateWithoutClassInput[]
-    connectOrCreate?: SessionAttendanceCreateOrConnectWithoutClassInput | SessionAttendanceCreateOrConnectWithoutClassInput[]
-    createMany?: SessionAttendanceCreateManyClassInputEnvelope
+  export type SessionAttendanceCreateNestedManyWithoutSubjectInput = {
+    create?: XOR<SessionAttendanceCreateWithoutSubjectInput, SessionAttendanceUncheckedCreateWithoutSubjectInput> | SessionAttendanceCreateWithoutSubjectInput[] | SessionAttendanceUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: SessionAttendanceCreateOrConnectWithoutSubjectInput | SessionAttendanceCreateOrConnectWithoutSubjectInput[]
+    createMany?: SessionAttendanceCreateManySubjectInputEnvelope
     connect?: SessionAttendanceWhereUniqueInput | SessionAttendanceWhereUniqueInput[]
   }
 
@@ -8768,10 +8768,10 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
   }
 
-  export type SessionAttendanceUncheckedCreateNestedManyWithoutClassInput = {
-    create?: XOR<SessionAttendanceCreateWithoutClassInput, SessionAttendanceUncheckedCreateWithoutClassInput> | SessionAttendanceCreateWithoutClassInput[] | SessionAttendanceUncheckedCreateWithoutClassInput[]
-    connectOrCreate?: SessionAttendanceCreateOrConnectWithoutClassInput | SessionAttendanceCreateOrConnectWithoutClassInput[]
-    createMany?: SessionAttendanceCreateManyClassInputEnvelope
+  export type SessionAttendanceUncheckedCreateNestedManyWithoutSubjectInput = {
+    create?: XOR<SessionAttendanceCreateWithoutSubjectInput, SessionAttendanceUncheckedCreateWithoutSubjectInput> | SessionAttendanceCreateWithoutSubjectInput[] | SessionAttendanceUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: SessionAttendanceCreateOrConnectWithoutSubjectInput | SessionAttendanceCreateOrConnectWithoutSubjectInput[]
+    createMany?: SessionAttendanceCreateManySubjectInputEnvelope
     connect?: SessionAttendanceWhereUniqueInput | SessionAttendanceWhereUniqueInput[]
   }
 
@@ -8803,17 +8803,17 @@ export namespace Prisma {
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
-  export type SessionAttendanceUpdateManyWithoutClassNestedInput = {
-    create?: XOR<SessionAttendanceCreateWithoutClassInput, SessionAttendanceUncheckedCreateWithoutClassInput> | SessionAttendanceCreateWithoutClassInput[] | SessionAttendanceUncheckedCreateWithoutClassInput[]
-    connectOrCreate?: SessionAttendanceCreateOrConnectWithoutClassInput | SessionAttendanceCreateOrConnectWithoutClassInput[]
-    upsert?: SessionAttendanceUpsertWithWhereUniqueWithoutClassInput | SessionAttendanceUpsertWithWhereUniqueWithoutClassInput[]
-    createMany?: SessionAttendanceCreateManyClassInputEnvelope
+  export type SessionAttendanceUpdateManyWithoutSubjectNestedInput = {
+    create?: XOR<SessionAttendanceCreateWithoutSubjectInput, SessionAttendanceUncheckedCreateWithoutSubjectInput> | SessionAttendanceCreateWithoutSubjectInput[] | SessionAttendanceUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: SessionAttendanceCreateOrConnectWithoutSubjectInput | SessionAttendanceCreateOrConnectWithoutSubjectInput[]
+    upsert?: SessionAttendanceUpsertWithWhereUniqueWithoutSubjectInput | SessionAttendanceUpsertWithWhereUniqueWithoutSubjectInput[]
+    createMany?: SessionAttendanceCreateManySubjectInputEnvelope
     set?: SessionAttendanceWhereUniqueInput | SessionAttendanceWhereUniqueInput[]
     disconnect?: SessionAttendanceWhereUniqueInput | SessionAttendanceWhereUniqueInput[]
     delete?: SessionAttendanceWhereUniqueInput | SessionAttendanceWhereUniqueInput[]
     connect?: SessionAttendanceWhereUniqueInput | SessionAttendanceWhereUniqueInput[]
-    update?: SessionAttendanceUpdateWithWhereUniqueWithoutClassInput | SessionAttendanceUpdateWithWhereUniqueWithoutClassInput[]
-    updateMany?: SessionAttendanceUpdateManyWithWhereWithoutClassInput | SessionAttendanceUpdateManyWithWhereWithoutClassInput[]
+    update?: SessionAttendanceUpdateWithWhereUniqueWithoutSubjectInput | SessionAttendanceUpdateWithWhereUniqueWithoutSubjectInput[]
+    updateMany?: SessionAttendanceUpdateManyWithWhereWithoutSubjectInput | SessionAttendanceUpdateManyWithWhereWithoutSubjectInput[]
     deleteMany?: SessionAttendanceScalarWhereInput | SessionAttendanceScalarWhereInput[]
   }
 
@@ -8844,17 +8844,17 @@ export namespace Prisma {
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
-  export type SessionAttendanceUncheckedUpdateManyWithoutClassNestedInput = {
-    create?: XOR<SessionAttendanceCreateWithoutClassInput, SessionAttendanceUncheckedCreateWithoutClassInput> | SessionAttendanceCreateWithoutClassInput[] | SessionAttendanceUncheckedCreateWithoutClassInput[]
-    connectOrCreate?: SessionAttendanceCreateOrConnectWithoutClassInput | SessionAttendanceCreateOrConnectWithoutClassInput[]
-    upsert?: SessionAttendanceUpsertWithWhereUniqueWithoutClassInput | SessionAttendanceUpsertWithWhereUniqueWithoutClassInput[]
-    createMany?: SessionAttendanceCreateManyClassInputEnvelope
+  export type SessionAttendanceUncheckedUpdateManyWithoutSubjectNestedInput = {
+    create?: XOR<SessionAttendanceCreateWithoutSubjectInput, SessionAttendanceUncheckedCreateWithoutSubjectInput> | SessionAttendanceCreateWithoutSubjectInput[] | SessionAttendanceUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: SessionAttendanceCreateOrConnectWithoutSubjectInput | SessionAttendanceCreateOrConnectWithoutSubjectInput[]
+    upsert?: SessionAttendanceUpsertWithWhereUniqueWithoutSubjectInput | SessionAttendanceUpsertWithWhereUniqueWithoutSubjectInput[]
+    createMany?: SessionAttendanceCreateManySubjectInputEnvelope
     set?: SessionAttendanceWhereUniqueInput | SessionAttendanceWhereUniqueInput[]
     disconnect?: SessionAttendanceWhereUniqueInput | SessionAttendanceWhereUniqueInput[]
     delete?: SessionAttendanceWhereUniqueInput | SessionAttendanceWhereUniqueInput[]
     connect?: SessionAttendanceWhereUniqueInput | SessionAttendanceWhereUniqueInput[]
-    update?: SessionAttendanceUpdateWithWhereUniqueWithoutClassInput | SessionAttendanceUpdateWithWhereUniqueWithoutClassInput[]
-    updateMany?: SessionAttendanceUpdateManyWithWhereWithoutClassInput | SessionAttendanceUpdateManyWithWhereWithoutClassInput[]
+    update?: SessionAttendanceUpdateWithWhereUniqueWithoutSubjectInput | SessionAttendanceUpdateWithWhereUniqueWithoutSubjectInput[]
+    updateMany?: SessionAttendanceUpdateManyWithWhereWithoutSubjectInput | SessionAttendanceUpdateManyWithWhereWithoutSubjectInput[]
     deleteMany?: SessionAttendanceScalarWhereInput | SessionAttendanceScalarWhereInput[]
   }
 
@@ -8946,17 +8946,17 @@ export namespace Prisma {
     connect?: SessionAttendanceWhereUniqueInput
   }
 
+  export type SubjectCreateNestedOneWithoutSessionCycleInput = {
+    create?: XOR<SubjectCreateWithoutSessionCycleInput, SubjectUncheckedCreateWithoutSessionCycleInput>
+    connectOrCreate?: SubjectCreateOrConnectWithoutSessionCycleInput
+    connect?: SubjectWhereUniqueInput
+  }
+
   export type AttendanceCreateNestedManyWithoutSessionCycleInput = {
     create?: XOR<AttendanceCreateWithoutSessionCycleInput, AttendanceUncheckedCreateWithoutSessionCycleInput> | AttendanceCreateWithoutSessionCycleInput[] | AttendanceUncheckedCreateWithoutSessionCycleInput[]
     connectOrCreate?: AttendanceCreateOrConnectWithoutSessionCycleInput | AttendanceCreateOrConnectWithoutSessionCycleInput[]
     createMany?: AttendanceCreateManySessionCycleInputEnvelope
     connect?: AttendanceWhereUniqueInput | AttendanceWhereUniqueInput[]
-  }
-
-  export type SubjectCreateNestedOneWithoutSessionCycleInput = {
-    create?: XOR<SubjectCreateWithoutSessionCycleInput, SubjectUncheckedCreateWithoutSessionCycleInput>
-    connectOrCreate?: SubjectCreateOrConnectWithoutSessionCycleInput
-    connect?: SubjectWhereUniqueInput
   }
 
   export type AttendanceUncheckedCreateNestedManyWithoutSessionCycleInput = {
@@ -8974,6 +8974,16 @@ export namespace Prisma {
     update?: XOR<XOR<SessionAttendanceUpdateToOneWithWhereWithoutSessionCycleInput, SessionAttendanceUpdateWithoutSessionCycleInput>, SessionAttendanceUncheckedUpdateWithoutSessionCycleInput>
   }
 
+  export type SubjectUpdateOneWithoutSessionCycleNestedInput = {
+    create?: XOR<SubjectCreateWithoutSessionCycleInput, SubjectUncheckedCreateWithoutSessionCycleInput>
+    connectOrCreate?: SubjectCreateOrConnectWithoutSessionCycleInput
+    upsert?: SubjectUpsertWithoutSessionCycleInput
+    disconnect?: SubjectWhereInput | boolean
+    delete?: SubjectWhereInput | boolean
+    connect?: SubjectWhereUniqueInput
+    update?: XOR<XOR<SubjectUpdateToOneWithWhereWithoutSessionCycleInput, SubjectUpdateWithoutSessionCycleInput>, SubjectUncheckedUpdateWithoutSessionCycleInput>
+  }
+
   export type AttendanceUpdateManyWithoutSessionCycleNestedInput = {
     create?: XOR<AttendanceCreateWithoutSessionCycleInput, AttendanceUncheckedCreateWithoutSessionCycleInput> | AttendanceCreateWithoutSessionCycleInput[] | AttendanceUncheckedCreateWithoutSessionCycleInput[]
     connectOrCreate?: AttendanceCreateOrConnectWithoutSessionCycleInput | AttendanceCreateOrConnectWithoutSessionCycleInput[]
@@ -8986,16 +8996,6 @@ export namespace Prisma {
     update?: AttendanceUpdateWithWhereUniqueWithoutSessionCycleInput | AttendanceUpdateWithWhereUniqueWithoutSessionCycleInput[]
     updateMany?: AttendanceUpdateManyWithWhereWithoutSessionCycleInput | AttendanceUpdateManyWithWhereWithoutSessionCycleInput[]
     deleteMany?: AttendanceScalarWhereInput | AttendanceScalarWhereInput[]
-  }
-
-  export type SubjectUpdateOneWithoutSessionCycleNestedInput = {
-    create?: XOR<SubjectCreateWithoutSessionCycleInput, SubjectUncheckedCreateWithoutSessionCycleInput>
-    connectOrCreate?: SubjectCreateOrConnectWithoutSessionCycleInput
-    upsert?: SubjectUpsertWithoutSessionCycleInput
-    disconnect?: SubjectWhereInput | boolean
-    delete?: SubjectWhereInput | boolean
-    connect?: SubjectWhereUniqueInput
-    update?: XOR<XOR<SubjectUpdateToOneWithWhereWithoutSessionCycleInput, SubjectUpdateWithoutSessionCycleInput>, SubjectUncheckedUpdateWithoutSessionCycleInput>
   }
 
   export type AttendanceUncheckedUpdateManyWithoutSessionCycleNestedInput = {
@@ -9241,7 +9241,7 @@ export namespace Prisma {
     endTime: Date | string
     address: string
     students?: UserCreateNestedManyWithoutJoinInput
-    session?: SessionAttendanceCreateNestedManyWithoutClassInput
+    session?: SessionAttendanceCreateNestedManyWithoutSubjectInput
     sessionCycle?: SessionCycleCreateNestedManyWithoutSubjectInput
   }
 
@@ -9255,7 +9255,7 @@ export namespace Prisma {
     endTime: Date | string
     address: string
     students?: UserUncheckedCreateNestedManyWithoutJoinInput
-    session?: SessionAttendanceUncheckedCreateNestedManyWithoutClassInput
+    session?: SessionAttendanceUncheckedCreateNestedManyWithoutSubjectInput
     sessionCycle?: SessionCycleUncheckedCreateNestedManyWithoutSubjectInput
   }
 
@@ -9279,7 +9279,7 @@ export namespace Prisma {
     endTime: Date | string
     address: string
     teacher: UserCreateNestedOneWithoutHostInput
-    session?: SessionAttendanceCreateNestedManyWithoutClassInput
+    session?: SessionAttendanceCreateNestedManyWithoutSubjectInput
     sessionCycle?: SessionCycleCreateNestedManyWithoutSubjectInput
   }
 
@@ -9293,7 +9293,7 @@ export namespace Prisma {
     endTime: Date | string
     address: string
     teacherId: string
-    session?: SessionAttendanceUncheckedCreateNestedManyWithoutClassInput
+    session?: SessionAttendanceUncheckedCreateNestedManyWithoutSubjectInput
     sessionCycle?: SessionCycleUncheckedCreateNestedManyWithoutSubjectInput
   }
 
@@ -9489,7 +9489,7 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutJoinInput, UserUncheckedCreateWithoutJoinInput>
   }
 
-  export type SessionAttendanceCreateWithoutClassInput = {
+  export type SessionAttendanceCreateWithoutSubjectInput = {
     id?: string
     name: string
     start: Date | string
@@ -9498,7 +9498,7 @@ export namespace Prisma {
     SessionCycle?: SessionCycleCreateNestedManyWithoutSessionInput
   }
 
-  export type SessionAttendanceUncheckedCreateWithoutClassInput = {
+  export type SessionAttendanceUncheckedCreateWithoutSubjectInput = {
     id?: string
     name: string
     start: Date | string
@@ -9507,13 +9507,13 @@ export namespace Prisma {
     SessionCycle?: SessionCycleUncheckedCreateNestedManyWithoutSessionInput
   }
 
-  export type SessionAttendanceCreateOrConnectWithoutClassInput = {
+  export type SessionAttendanceCreateOrConnectWithoutSubjectInput = {
     where: SessionAttendanceWhereUniqueInput
-    create: XOR<SessionAttendanceCreateWithoutClassInput, SessionAttendanceUncheckedCreateWithoutClassInput>
+    create: XOR<SessionAttendanceCreateWithoutSubjectInput, SessionAttendanceUncheckedCreateWithoutSubjectInput>
   }
 
-  export type SessionAttendanceCreateManyClassInputEnvelope = {
-    data: SessionAttendanceCreateManyClassInput | SessionAttendanceCreateManyClassInput[]
+  export type SessionAttendanceCreateManySubjectInputEnvelope = {
+    data: SessionAttendanceCreateManySubjectInput | SessionAttendanceCreateManySubjectInput[]
     skipDuplicates?: boolean
   }
 
@@ -9626,20 +9626,20 @@ export namespace Prisma {
     type?: EnumUserTypeFilter<"User"> | $Enums.UserType
   }
 
-  export type SessionAttendanceUpsertWithWhereUniqueWithoutClassInput = {
+  export type SessionAttendanceUpsertWithWhereUniqueWithoutSubjectInput = {
     where: SessionAttendanceWhereUniqueInput
-    update: XOR<SessionAttendanceUpdateWithoutClassInput, SessionAttendanceUncheckedUpdateWithoutClassInput>
-    create: XOR<SessionAttendanceCreateWithoutClassInput, SessionAttendanceUncheckedCreateWithoutClassInput>
+    update: XOR<SessionAttendanceUpdateWithoutSubjectInput, SessionAttendanceUncheckedUpdateWithoutSubjectInput>
+    create: XOR<SessionAttendanceCreateWithoutSubjectInput, SessionAttendanceUncheckedCreateWithoutSubjectInput>
   }
 
-  export type SessionAttendanceUpdateWithWhereUniqueWithoutClassInput = {
+  export type SessionAttendanceUpdateWithWhereUniqueWithoutSubjectInput = {
     where: SessionAttendanceWhereUniqueInput
-    data: XOR<SessionAttendanceUpdateWithoutClassInput, SessionAttendanceUncheckedUpdateWithoutClassInput>
+    data: XOR<SessionAttendanceUpdateWithoutSubjectInput, SessionAttendanceUncheckedUpdateWithoutSubjectInput>
   }
 
-  export type SessionAttendanceUpdateManyWithWhereWithoutClassInput = {
+  export type SessionAttendanceUpdateManyWithWhereWithoutSubjectInput = {
     where: SessionAttendanceScalarWhereInput
-    data: XOR<SessionAttendanceUpdateManyMutationInput, SessionAttendanceUncheckedUpdateManyWithoutClassInput>
+    data: XOR<SessionAttendanceUpdateManyMutationInput, SessionAttendanceUncheckedUpdateManyWithoutSubjectInput>
   }
 
   export type SessionAttendanceScalarWhereInput = {
@@ -9651,7 +9651,7 @@ export namespace Prisma {
     start?: DateTimeFilter<"SessionAttendance"> | Date | string
     duration?: IntFilter<"SessionAttendance"> | number
     repeat?: EnumRepeatTypeFilter<"SessionAttendance"> | $Enums.RepeatType
-    classId?: StringFilter<"SessionAttendance"> | string
+    subjectId?: StringFilter<"SessionAttendance"> | string
   }
 
   export type SessionCycleUpsertWithWhereUniqueWithoutSubjectInput = {
@@ -9716,8 +9716,8 @@ export namespace Prisma {
   export type SessionCycleCreateWithoutSessionInput = {
     id?: string
     start: Date | string
-    attendances?: AttendanceCreateNestedManyWithoutSessionCycleInput
     subject?: SubjectCreateNestedOneWithoutSessionCycleInput
+    attendances?: AttendanceCreateNestedManyWithoutSessionCycleInput
   }
 
   export type SessionCycleUncheckedCreateWithoutSessionInput = {
@@ -9798,7 +9798,7 @@ export namespace Prisma {
     start: Date | string
     duration: number
     repeat: $Enums.RepeatType
-    class: SubjectCreateNestedOneWithoutSessionInput
+    subject: SubjectCreateNestedOneWithoutSessionInput
   }
 
   export type SessionAttendanceUncheckedCreateWithoutSessionCycleInput = {
@@ -9807,12 +9807,45 @@ export namespace Prisma {
     start: Date | string
     duration: number
     repeat: $Enums.RepeatType
-    classId: string
+    subjectId: string
   }
 
   export type SessionAttendanceCreateOrConnectWithoutSessionCycleInput = {
     where: SessionAttendanceWhereUniqueInput
     create: XOR<SessionAttendanceCreateWithoutSessionCycleInput, SessionAttendanceUncheckedCreateWithoutSessionCycleInput>
+  }
+
+  export type SubjectCreateWithoutSessionCycleInput = {
+    id?: string
+    code: string
+    name: string
+    description?: string | null
+    openingDay: Date | string
+    startTime: Date | string
+    endTime: Date | string
+    address: string
+    teacher: UserCreateNestedOneWithoutHostInput
+    students?: UserCreateNestedManyWithoutJoinInput
+    session?: SessionAttendanceCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectUncheckedCreateWithoutSessionCycleInput = {
+    id?: string
+    code: string
+    name: string
+    description?: string | null
+    openingDay: Date | string
+    startTime: Date | string
+    endTime: Date | string
+    address: string
+    teacherId: string
+    students?: UserUncheckedCreateNestedManyWithoutJoinInput
+    session?: SessionAttendanceUncheckedCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectCreateOrConnectWithoutSessionCycleInput = {
+    where: SubjectWhereUniqueInput
+    create: XOR<SubjectCreateWithoutSessionCycleInput, SubjectUncheckedCreateWithoutSessionCycleInput>
   }
 
   export type AttendanceCreateWithoutSessionCycleInput = {
@@ -9841,39 +9874,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type SubjectCreateWithoutSessionCycleInput = {
-    id?: string
-    code: string
-    name: string
-    description?: string | null
-    openingDay: Date | string
-    startTime: Date | string
-    endTime: Date | string
-    address: string
-    teacher: UserCreateNestedOneWithoutHostInput
-    students?: UserCreateNestedManyWithoutJoinInput
-    session?: SessionAttendanceCreateNestedManyWithoutClassInput
-  }
-
-  export type SubjectUncheckedCreateWithoutSessionCycleInput = {
-    id?: string
-    code: string
-    name: string
-    description?: string | null
-    openingDay: Date | string
-    startTime: Date | string
-    endTime: Date | string
-    address: string
-    teacherId: string
-    students?: UserUncheckedCreateNestedManyWithoutJoinInput
-    session?: SessionAttendanceUncheckedCreateNestedManyWithoutClassInput
-  }
-
-  export type SubjectCreateOrConnectWithoutSessionCycleInput = {
-    where: SubjectWhereUniqueInput
-    create: XOR<SubjectCreateWithoutSessionCycleInput, SubjectUncheckedCreateWithoutSessionCycleInput>
-  }
-
   export type SessionAttendanceUpsertWithoutSessionCycleInput = {
     update: XOR<SessionAttendanceUpdateWithoutSessionCycleInput, SessionAttendanceUncheckedUpdateWithoutSessionCycleInput>
     create: XOR<SessionAttendanceCreateWithoutSessionCycleInput, SessionAttendanceUncheckedCreateWithoutSessionCycleInput>
@@ -9891,7 +9891,7 @@ export namespace Prisma {
     start?: DateTimeFieldUpdateOperationsInput | Date | string
     duration?: IntFieldUpdateOperationsInput | number
     repeat?: EnumRepeatTypeFieldUpdateOperationsInput | $Enums.RepeatType
-    class?: SubjectUpdateOneRequiredWithoutSessionNestedInput
+    subject?: SubjectUpdateOneRequiredWithoutSessionNestedInput
   }
 
   export type SessionAttendanceUncheckedUpdateWithoutSessionCycleInput = {
@@ -9900,23 +9900,7 @@ export namespace Prisma {
     start?: DateTimeFieldUpdateOperationsInput | Date | string
     duration?: IntFieldUpdateOperationsInput | number
     repeat?: EnumRepeatTypeFieldUpdateOperationsInput | $Enums.RepeatType
-    classId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type AttendanceUpsertWithWhereUniqueWithoutSessionCycleInput = {
-    where: AttendanceWhereUniqueInput
-    update: XOR<AttendanceUpdateWithoutSessionCycleInput, AttendanceUncheckedUpdateWithoutSessionCycleInput>
-    create: XOR<AttendanceCreateWithoutSessionCycleInput, AttendanceUncheckedCreateWithoutSessionCycleInput>
-  }
-
-  export type AttendanceUpdateWithWhereUniqueWithoutSessionCycleInput = {
-    where: AttendanceWhereUniqueInput
-    data: XOR<AttendanceUpdateWithoutSessionCycleInput, AttendanceUncheckedUpdateWithoutSessionCycleInput>
-  }
-
-  export type AttendanceUpdateManyWithWhereWithoutSessionCycleInput = {
-    where: AttendanceScalarWhereInput
-    data: XOR<AttendanceUpdateManyMutationInput, AttendanceUncheckedUpdateManyWithoutSessionCycleInput>
+    subjectId?: StringFieldUpdateOperationsInput | string
   }
 
   export type SubjectUpsertWithoutSessionCycleInput = {
@@ -9941,7 +9925,7 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     teacher?: UserUpdateOneRequiredWithoutHostNestedInput
     students?: UserUpdateManyWithoutJoinNestedInput
-    session?: SessionAttendanceUpdateManyWithoutClassNestedInput
+    session?: SessionAttendanceUpdateManyWithoutSubjectNestedInput
   }
 
   export type SubjectUncheckedUpdateWithoutSessionCycleInput = {
@@ -9955,7 +9939,23 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     teacherId?: StringFieldUpdateOperationsInput | string
     students?: UserUncheckedUpdateManyWithoutJoinNestedInput
-    session?: SessionAttendanceUncheckedUpdateManyWithoutClassNestedInput
+    session?: SessionAttendanceUncheckedUpdateManyWithoutSubjectNestedInput
+  }
+
+  export type AttendanceUpsertWithWhereUniqueWithoutSessionCycleInput = {
+    where: AttendanceWhereUniqueInput
+    update: XOR<AttendanceUpdateWithoutSessionCycleInput, AttendanceUncheckedUpdateWithoutSessionCycleInput>
+    create: XOR<AttendanceCreateWithoutSessionCycleInput, AttendanceUncheckedCreateWithoutSessionCycleInput>
+  }
+
+  export type AttendanceUpdateWithWhereUniqueWithoutSessionCycleInput = {
+    where: AttendanceWhereUniqueInput
+    data: XOR<AttendanceUpdateWithoutSessionCycleInput, AttendanceUncheckedUpdateWithoutSessionCycleInput>
+  }
+
+  export type AttendanceUpdateManyWithWhereWithoutSessionCycleInput = {
+    where: AttendanceScalarWhereInput
+    data: XOR<AttendanceUpdateManyMutationInput, AttendanceUncheckedUpdateManyWithoutSessionCycleInput>
   }
 
   export type UserCreateWithoutAttendancesInput = {
@@ -10123,7 +10123,7 @@ export namespace Prisma {
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
     students?: UserUpdateManyWithoutJoinNestedInput
-    session?: SessionAttendanceUpdateManyWithoutClassNestedInput
+    session?: SessionAttendanceUpdateManyWithoutSubjectNestedInput
     sessionCycle?: SessionCycleUpdateManyWithoutSubjectNestedInput
   }
 
@@ -10137,7 +10137,7 @@ export namespace Prisma {
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
     students?: UserUncheckedUpdateManyWithoutJoinNestedInput
-    session?: SessionAttendanceUncheckedUpdateManyWithoutClassNestedInput
+    session?: SessionAttendanceUncheckedUpdateManyWithoutSubjectNestedInput
     sessionCycle?: SessionCycleUncheckedUpdateManyWithoutSubjectNestedInput
   }
 
@@ -10162,7 +10162,7 @@ export namespace Prisma {
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
     teacher?: UserUpdateOneRequiredWithoutHostNestedInput
-    session?: SessionAttendanceUpdateManyWithoutClassNestedInput
+    session?: SessionAttendanceUpdateManyWithoutSubjectNestedInput
     sessionCycle?: SessionCycleUpdateManyWithoutSubjectNestedInput
   }
 
@@ -10176,7 +10176,7 @@ export namespace Prisma {
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
     teacherId?: StringFieldUpdateOperationsInput | string
-    session?: SessionAttendanceUncheckedUpdateManyWithoutClassNestedInput
+    session?: SessionAttendanceUncheckedUpdateManyWithoutSubjectNestedInput
     sessionCycle?: SessionCycleUncheckedUpdateManyWithoutSubjectNestedInput
   }
 
@@ -10216,7 +10216,7 @@ export namespace Prisma {
     sessionCycleId?: StringFieldUpdateOperationsInput | string
   }
 
-  export type SessionAttendanceCreateManyClassInput = {
+  export type SessionAttendanceCreateManySubjectInput = {
     id?: string
     name: string
     start: Date | string
@@ -10285,7 +10285,7 @@ export namespace Prisma {
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
   }
 
-  export type SessionAttendanceUpdateWithoutClassInput = {
+  export type SessionAttendanceUpdateWithoutSubjectInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     start?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10294,7 +10294,7 @@ export namespace Prisma {
     SessionCycle?: SessionCycleUpdateManyWithoutSessionNestedInput
   }
 
-  export type SessionAttendanceUncheckedUpdateWithoutClassInput = {
+  export type SessionAttendanceUncheckedUpdateWithoutSubjectInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     start?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10303,7 +10303,7 @@ export namespace Prisma {
     SessionCycle?: SessionCycleUncheckedUpdateManyWithoutSessionNestedInput
   }
 
-  export type SessionAttendanceUncheckedUpdateManyWithoutClassInput = {
+  export type SessionAttendanceUncheckedUpdateManyWithoutSubjectInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     start?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10340,8 +10340,8 @@ export namespace Prisma {
   export type SessionCycleUpdateWithoutSessionInput = {
     id?: StringFieldUpdateOperationsInput | string
     start?: DateTimeFieldUpdateOperationsInput | Date | string
-    attendances?: AttendanceUpdateManyWithoutSessionCycleNestedInput
     subject?: SubjectUpdateOneWithoutSessionCycleNestedInput
+    attendances?: AttendanceUpdateManyWithoutSessionCycleNestedInput
   }
 
   export type SessionCycleUncheckedUpdateWithoutSessionInput = {

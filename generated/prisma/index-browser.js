@@ -152,7 +152,7 @@ exports.Prisma.SessionAttendanceScalarFieldEnum = {
   start: 'start',
   duration: 'duration',
   repeat: 'repeat',
-  classId: 'classId'
+  subjectId: 'subjectId'
 };
 
 exports.Prisma.SessionCycleScalarFieldEnum = {

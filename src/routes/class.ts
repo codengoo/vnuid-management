@@ -12,6 +12,7 @@ router.delete("/session/:id", authMid(["Teacher"]), ClassController.deleteSessio
 router.put("/session/:id", authMid(["Teacher"]), ClassController.updateSession);
 router.post("/fire/:id", authMid(["Teacher"]), ClassController.triggerSession);
 
+router.get("/checkin/list", authMid(["Student"]), ClassController.getSessionCycle);
 router.post("/checkin", authMid(["Student"]), ClassController.checkin);
 
 export default router;
