@@ -1,9 +1,9 @@
 import { prisma } from "@/configs";
-import { Class } from "generated/prisma";
+import { Subject } from "generated/prisma";
 
 class ClassModel {
-  async insertClass(classes: Partial<Class>[]) {
-    const result = await prisma.class.createMany({
+  async insertClass(classes: Partial<Subject>[]) {
+    const result = await prisma.subject.createMany({
       // @ts-ignore
       data: classes,
     });
@@ -12,7 +12,7 @@ class ClassModel {
   }
 
   async getAllClassesByTeacher(teacherId: string) {
-    const result = await prisma.class.findMany({
+    const result = await prisma.subject.findMany({
       where: {
         teacherId: teacherId,
       },
@@ -22,7 +22,7 @@ class ClassModel {
   }
 
   async getAllClassesByStudent(studentId: string) {
-    const result = await prisma.class.findMany({
+    const result = await prisma.subject.findMany({
       where: {
         students: {
           some: {
@@ -36,7 +36,7 @@ class ClassModel {
   }
 
   async getClass(id: string, userId: string) {
-    const result = await prisma.class.findFirst({
+    const result = await prisma.subject.findFirst({
       where: { id },
       include: { students: true, session: true },
     });

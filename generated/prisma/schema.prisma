@@ -44,15 +44,15 @@ model User {
   createdAt      DateTime @updatedAt
   updateAt       DateTime @updatedAt
 
-  host        Class[]      @relation("TeacherClass")
-  join        Class[]      @relation("StudentClass")
+  host        Subject[]    @relation("TeacherClass")
+  join        Subject[]    @relation("StudentClass")
   type        UserType
   attendances Attendance[]
 
   @@map("users")
 }
 
-model Class {
+model Subject {
   id          String   @id @default(uuid())
   code        String
   name        String
@@ -62,12 +62,13 @@ model Class {
   endTime     DateTime
   address     String
 
-  teacherId String
-  teacher   User      @relation("TeacherClass", fields: [teacherId], references: [id])
-  students  User[]    @relation("StudentClass")
-  session   Session[]
+  teacherId    String
+  teacher      User           @relation("TeacherClass", fields: [teacherId], references: [id])
+  students     User[]         @relation("StudentClass")
+  session      Session[]
+  sessionCirle SessionCycle[]
 
-  @@map("classes")
+  @@map("subjects")
 }
 
 model Session {
@@ -78,7 +79,7 @@ model Session {
   repeat   RepeatType
 
   classId      String
-  class        Class          @relation(fields: [classId], references: [id])
+  class        Subject        @relation(fields: [classId], references: [id])
   SessionCycle SessionCycle[]
 
   @@map("sessions")
@@ -88,9 +89,11 @@ model SessionCycle {
   id    String   @id @default(uuid())
   start DateTime
 
-  sessionId  String
-  session    Session      @relation(fields: [sessionId], references: [id])
-  Attendance Attendance[]
+  sessionId   String
+  session     Session      @relation(fields: [sessionId], references: [id])
+  attendances Attendance[]
+  subject     Subject?     @relation(fields: [subjectId], references: [id])
+  subjectId   String?
 
   @@map("session_cycles")
 }

@@ -134,7 +134,7 @@ exports.Prisma.UserScalarFieldEnum = {
   type: 'type'
 };
 
-exports.Prisma.ClassScalarFieldEnum = {
+exports.Prisma.SubjectScalarFieldEnum = {
   id: 'id',
   code: 'code',
   name: 'name',
@@ -158,7 +158,8 @@ exports.Prisma.SessionScalarFieldEnum = {
 exports.Prisma.SessionCycleScalarFieldEnum = {
   id: 'id',
   start: 'start',
-  sessionId: 'sessionId'
+  sessionId: 'sessionId',
+  subjectId: 'subjectId'
 };
 
 exports.Prisma.AttendanceScalarFieldEnum = {
@@ -201,7 +202,7 @@ exports.AttendanceStatus = exports.$Enums.AttendanceStatus = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Class: 'Class',
+  Subject: 'Subject',
   Session: 'Session',
   SessionCycle: 'SessionCycle',
   Attendance: 'Attendance'

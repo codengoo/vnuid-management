@@ -1,5 +1,5 @@
 import { catcher } from "@/helpers";
-import { ClassModel, SessionModel } from "@/models";
+import { AttendanceModel, ClassModel, SessionModel } from "@/models";
 import { ILocal, IResBody } from "@/types";
 import { Request, Response } from "express";
 import { RepeatType, UserType } from "generated/prisma";
@@ -66,6 +66,27 @@ class ClassController {
 
     await catcher(res, async () => {
       await SessionModel.updateSession(id, data, uid);
+      res.json({ message: "Success" }).end();
+    });
+  }
+
+  async checkin(req: Request, res: Response<IResBody, ILocal>) {
+    const { id: sid } = req.params;
+    const { id: uid } = res.locals.user;
+    const data = req.body;
+
+    const schema = yup.object({
+      time: yup.date().required(),
+      deviceId: yup.string().required(),
+      isVerified: yup.boolean().required(),
+      // image: later
+      token: yup.string().required(),
+    })
+
+    await catcher(res, async () => {
+      await schema.validate(data);
+
+      await AttendanceModel.checkin(sid, uid, data);
       res.json({ message: "Success" }).end();
     });
   }

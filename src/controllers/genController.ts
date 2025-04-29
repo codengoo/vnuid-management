@@ -1,7 +1,7 @@
 import { ClassModel, UserModel } from "@/models";
 import { ILocal } from "@/types";
 import { Request, Response } from "express";
-import { Class, User } from "generated/prisma";
+import { Subject, User } from "generated/prisma";
 
 class GenController {
   async generateUser(req: Request, res: Response<any, ILocal>) {
@@ -30,7 +30,7 @@ class GenController {
 
   async generateClass(req: Request, res: Response<any, ILocal>) {
     const num = 2;
-    var classes: Partial<Class>[] = [];
+    var classes: Partial<Subject>[] = [];
 
     for (let i = 0; i < num; i++) {
       classes.push({

@@ -4,7 +4,7 @@ import { Session } from "generated/prisma";
 class SessionModel {
   async insertSession(session: Partial<Session>, uid: string) {
     // Check class
-    const classObj = await prisma.class.findFirst({
+    const classObj = await prisma.subject.findFirst({
       where: { id: session.classId },
     });
     if (!classObj) throw new Error("Class not found");
