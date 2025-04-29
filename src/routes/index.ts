@@ -12,6 +12,6 @@ router.use("/data", DataRouter);
 router.use("/gen", authMid(), GenRouter);
 router.use("/teacher", authMid(["Teacher"]), TeacherRouter);
 router.use("/student", authMid(["Student"]), StudentRouter);
-router.use("/class", authMid(), ClassRouter);
+router.use("/class", ClassRouter);
 
 export default router;

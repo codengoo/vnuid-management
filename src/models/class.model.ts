@@ -38,7 +38,7 @@ class ClassModel {
   async getClass(id: string, userId: string) {
     const result = await prisma.class.findFirst({
       where: { id },
-      include: { students: true },
+      include: { students: true, session: true },
     });
 
     if (!result) throw new Error("Class not found");

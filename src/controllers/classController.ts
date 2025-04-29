@@ -1,9 +1,9 @@
 import { catcher } from "@/helpers";
-import { ClassModel } from "@/models";
+import { ClassModel, SessionModel } from "@/models";
 import { ILocal, IResBody } from "@/types";
 import { Request, Response } from "express";
-import { UserType } from "generated/prisma";
-
+import { RepeatType, UserType } from "generated/prisma";
+import * as yup from "yup";
 class ClassController {
   async getAllClasses(req: Request, res: Response<IResBody, ILocal>) {
     const { id, role } = res.locals.user;
@@ -27,6 +27,46 @@ class ClassController {
     await catcher(res, async () => {
       const result = await ClassModel.getClass(id, uid);
       res.json({ data: result }).end();
+    });
+  }
+
+  async createSession(req: Request, res: Response<IResBody, ILocal>) {
+    const { id: uid } = res.locals.user;
+    const data = req.body;
+
+    const schema = yup.object({
+      name: yup.string().required(),
+      start: yup.date().required(),
+      duration: yup.number().required(),
+      repeat: yup.string().oneOf(Object.values(RepeatType)).required(),
+      classId: yup.string().uuid().required(),
+    });
+
+    await catcher(res, async () => {
+      await schema.validate(data);
+      const result = await SessionModel.insertSession(data, uid);
+      res.json({ data: result }).end();
+    });
+  }
+
+  async deleteSession(req: Request, res: Response<IResBody, ILocal>) {
+    const { id } = req.params;
+    const { id: uid } = res.locals.user;
+
+    await catcher(res, async () => {
+      await SessionModel.deleteSession(id, uid);
+      res.json({ message: "Success" }).end();
+    });
+  }
+
+  async updateSession(req: Request, res: Response<IResBody, ILocal>) {
+    const { id } = req.params;
+    const { id: uid } = res.locals.user;
+    const data = req.body;
+
+    await catcher(res, async () => {
+      await SessionModel.updateSession(id, data, uid);
+      res.json({ message: "Success" }).end();
     });
   }
 }
