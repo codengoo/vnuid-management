@@ -119,9 +119,17 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
-  name: 'name',
   email: 'email',
-  age: 'age',
+  sid: 'sid',
+  gid: 'gid',
+  password: 'password',
+  name: 'name',
+  dob: 'dob',
+  official_class: 'official_class',
+  authenticator: 'authenticator',
+  Biometric_key: 'Biometric_key',
+  createdAt: 'createdAt',
+  UpdateAt: 'UpdateAt',
   type: 'type'
 };
 
@@ -147,6 +155,7 @@ exports.Prisma.SessionScalarFieldEnum = {
 
 exports.Prisma.SessionCycleScalarFieldEnum = {
   id: 'id',
+  start: 'start',
   sessionId: 'sessionId'
 };
 
@@ -167,11 +176,6 @@ exports.Prisma.SortOrder = {
 exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
-};
-
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
 };
 exports.UserType = exports.$Enums.UserType = {
   Student: 'Student',

@@ -1430,75 +1430,105 @@ export namespace Prisma {
 
   export type AggregateUser = {
     _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
   }
 
-  export type UserAvgAggregateOutputType = {
-    age: number | null
-  }
-
-  export type UserSumAggregateOutputType = {
-    age: number | null
-  }
-
   export type UserMinAggregateOutputType = {
     id: string | null
-    name: string | null
     email: string | null
-    age: number | null
+    sid: string | null
+    gid: string | null
+    password: string | null
+    name: string | null
+    dob: Date | null
+    official_class: string | null
+    authenticator: string | null
+    Biometric_key: string | null
+    createdAt: Date | null
+    UpdateAt: Date | null
     type: $Enums.UserType | null
   }
 
   export type UserMaxAggregateOutputType = {
     id: string | null
-    name: string | null
     email: string | null
-    age: number | null
+    sid: string | null
+    gid: string | null
+    password: string | null
+    name: string | null
+    dob: Date | null
+    official_class: string | null
+    authenticator: string | null
+    Biometric_key: string | null
+    createdAt: Date | null
+    UpdateAt: Date | null
     type: $Enums.UserType | null
   }
 
   export type UserCountAggregateOutputType = {
     id: number
-    name: number
     email: number
-    age: number
+    sid: number
+    gid: number
+    password: number
+    name: number
+    dob: number
+    official_class: number
+    authenticator: number
+    Biometric_key: number
+    createdAt: number
+    UpdateAt: number
     type: number
     _all: number
   }
 
 
-  export type UserAvgAggregateInputType = {
-    age?: true
-  }
-
-  export type UserSumAggregateInputType = {
-    age?: true
-  }
-
   export type UserMinAggregateInputType = {
     id?: true
-    name?: true
     email?: true
-    age?: true
+    sid?: true
+    gid?: true
+    password?: true
+    name?: true
+    dob?: true
+    official_class?: true
+    authenticator?: true
+    Biometric_key?: true
+    createdAt?: true
+    UpdateAt?: true
     type?: true
   }
 
   export type UserMaxAggregateInputType = {
     id?: true
-    name?: true
     email?: true
-    age?: true
+    sid?: true
+    gid?: true
+    password?: true
+    name?: true
+    dob?: true
+    official_class?: true
+    authenticator?: true
+    Biometric_key?: true
+    createdAt?: true
+    UpdateAt?: true
     type?: true
   }
 
   export type UserCountAggregateInputType = {
     id?: true
-    name?: true
     email?: true
-    age?: true
+    sid?: true
+    gid?: true
+    password?: true
+    name?: true
+    dob?: true
+    official_class?: true
+    authenticator?: true
+    Biometric_key?: true
+    createdAt?: true
+    UpdateAt?: true
     type?: true
     _all?: true
   }
@@ -1541,18 +1571,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: UserAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: UserSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: UserMinAggregateInputType
@@ -1583,21 +1601,25 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: UserCountAggregateInputType | true
-    _avg?: UserAvgAggregateInputType
-    _sum?: UserSumAggregateInputType
     _min?: UserMinAggregateInputType
     _max?: UserMaxAggregateInputType
   }
 
   export type UserGroupByOutputType = {
     id: string
-    name: string
     email: string
-    age: number | null
+    sid: string
+    gid: string
+    password: string
+    name: string
+    dob: Date
+    official_class: string
+    authenticator: string
+    Biometric_key: string
+    createdAt: Date
+    UpdateAt: Date
     type: $Enums.UserType
     _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
   }
@@ -1618,9 +1640,17 @@ export namespace Prisma {
 
   export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
     email?: boolean
-    age?: boolean
+    sid?: boolean
+    gid?: boolean
+    password?: boolean
+    name?: boolean
+    dob?: boolean
+    official_class?: boolean
+    authenticator?: boolean
+    Biometric_key?: boolean
+    createdAt?: boolean
+    UpdateAt?: boolean
     type?: boolean
     host?: boolean | User$hostArgs<ExtArgs>
     join?: boolean | User$joinArgs<ExtArgs>
@@ -1630,29 +1660,53 @@ export namespace Prisma {
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
     email?: boolean
-    age?: boolean
+    sid?: boolean
+    gid?: boolean
+    password?: boolean
+    name?: boolean
+    dob?: boolean
+    official_class?: boolean
+    authenticator?: boolean
+    Biometric_key?: boolean
+    createdAt?: boolean
+    UpdateAt?: boolean
     type?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
     email?: boolean
-    age?: boolean
+    sid?: boolean
+    gid?: boolean
+    password?: boolean
+    name?: boolean
+    dob?: boolean
+    official_class?: boolean
+    authenticator?: boolean
+    Biometric_key?: boolean
+    createdAt?: boolean
+    UpdateAt?: boolean
     type?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
     id?: boolean
-    name?: boolean
     email?: boolean
-    age?: boolean
+    sid?: boolean
+    gid?: boolean
+    password?: boolean
+    name?: boolean
+    dob?: boolean
+    official_class?: boolean
+    authenticator?: boolean
+    Biometric_key?: boolean
+    createdAt?: boolean
+    UpdateAt?: boolean
     type?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "age" | "type", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "sid" | "gid" | "password" | "name" | "dob" | "official_class" | "authenticator" | "Biometric_key" | "createdAt" | "UpdateAt" | "type", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     host?: boolean | User$hostArgs<ExtArgs>
     join?: boolean | User$joinArgs<ExtArgs>
@@ -1671,9 +1725,17 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      name: string
       email: string
-      age: number | null
+      sid: string
+      gid: string
+      password: string
+      name: string
+      dob: Date
+      official_class: string
+      authenticator: string
+      Biometric_key: string
+      createdAt: Date
+      UpdateAt: Date
       type: $Enums.UserType
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -2102,9 +2164,17 @@ export namespace Prisma {
    */
   interface UserFieldRefs {
     readonly id: FieldRef<"User", 'String'>
-    readonly name: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
-    readonly age: FieldRef<"User", 'Int'>
+    readonly sid: FieldRef<"User", 'String'>
+    readonly gid: FieldRef<"User", 'String'>
+    readonly password: FieldRef<"User", 'String'>
+    readonly name: FieldRef<"User", 'String'>
+    readonly dob: FieldRef<"User", 'DateTime'>
+    readonly official_class: FieldRef<"User", 'String'>
+    readonly authenticator: FieldRef<"User", 'String'>
+    readonly Biometric_key: FieldRef<"User", 'String'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
+    readonly UpdateAt: FieldRef<"User", 'DateTime'>
     readonly type: FieldRef<"User", 'UserType'>
   }
     
@@ -4886,16 +4956,19 @@ export namespace Prisma {
 
   export type SessionCycleMinAggregateOutputType = {
     id: string | null
+    start: Date | null
     sessionId: string | null
   }
 
   export type SessionCycleMaxAggregateOutputType = {
     id: string | null
+    start: Date | null
     sessionId: string | null
   }
 
   export type SessionCycleCountAggregateOutputType = {
     id: number
+    start: number
     sessionId: number
     _all: number
   }
@@ -4903,16 +4976,19 @@ export namespace Prisma {
 
   export type SessionCycleMinAggregateInputType = {
     id?: true
+    start?: true
     sessionId?: true
   }
 
   export type SessionCycleMaxAggregateInputType = {
     id?: true
+    start?: true
     sessionId?: true
   }
 
   export type SessionCycleCountAggregateInputType = {
     id?: true
+    start?: true
     sessionId?: true
     _all?: true
   }
@@ -4991,6 +5067,7 @@ export namespace Prisma {
 
   export type SessionCycleGroupByOutputType = {
     id: string
+    start: Date
     sessionId: string
     _count: SessionCycleCountAggregateOutputType | null
     _min: SessionCycleMinAggregateOutputType | null
@@ -5013,6 +5090,7 @@ export namespace Prisma {
 
   export type SessionCycleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    start?: boolean
     sessionId?: boolean
     session?: boolean | SessionDefaultArgs<ExtArgs>
     Attendance?: boolean | SessionCycle$AttendanceArgs<ExtArgs>
@@ -5021,22 +5099,25 @@ export namespace Prisma {
 
   export type SessionCycleSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    start?: boolean
     sessionId?: boolean
     session?: boolean | SessionDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sessionCycle"]>
 
   export type SessionCycleSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    start?: boolean
     sessionId?: boolean
     session?: boolean | SessionDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sessionCycle"]>
 
   export type SessionCycleSelectScalar = {
     id?: boolean
+    start?: boolean
     sessionId?: boolean
   }
 
-  export type SessionCycleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sessionId", ExtArgs["result"]["sessionCycle"]>
+  export type SessionCycleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "start" | "sessionId", ExtArgs["result"]["sessionCycle"]>
   export type SessionCycleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     session?: boolean | SessionDefaultArgs<ExtArgs>
     Attendance?: boolean | SessionCycle$AttendanceArgs<ExtArgs>
@@ -5057,6 +5138,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      start: Date
       sessionId: string
     }, ExtArgs["result"]["sessionCycle"]>
     composites: {}
@@ -5484,6 +5566,7 @@ export namespace Prisma {
    */
   interface SessionCycleFieldRefs {
     readonly id: FieldRef<"SessionCycle", 'String'>
+    readonly start: FieldRef<"SessionCycle", 'DateTime'>
     readonly sessionId: FieldRef<"SessionCycle", 'String'>
   }
     
@@ -7018,9 +7101,17 @@ export namespace Prisma {
 
   export const UserScalarFieldEnum: {
     id: 'id',
-    name: 'name',
     email: 'email',
-    age: 'age',
+    sid: 'sid',
+    gid: 'gid',
+    password: 'password',
+    name: 'name',
+    dob: 'dob',
+    official_class: 'official_class',
+    authenticator: 'authenticator',
+    Biometric_key: 'Biometric_key',
+    createdAt: 'createdAt',
+    UpdateAt: 'UpdateAt',
     type: 'type'
   };
 
@@ -7055,6 +7146,7 @@ export namespace Prisma {
 
   export const SessionCycleScalarFieldEnum: {
     id: 'id',
+    start: 'start',
     sessionId: 'sessionId'
   };
 
@@ -7089,14 +7181,6 @@ export namespace Prisma {
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
-  export const NullsOrder: {
-    first: 'first',
-    last: 'last'
-  };
-
-  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
-
-
   /**
    * Field references
    */
@@ -7117,16 +7201,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Int'
+   * Reference to a field of type 'DateTime'
    */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
     
 
 
   /**
-   * Reference to a field of type 'Int[]'
+   * Reference to a field of type 'DateTime[]'
    */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
 
 
@@ -7145,16 +7229,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'DateTime'
+   * Reference to a field of type 'Int'
    */
-  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
     
 
 
   /**
-   * Reference to a field of type 'DateTime[]'
+   * Reference to a field of type 'Int[]'
    */
-  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -7208,9 +7292,17 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     id?: StringFilter<"User"> | string
-    name?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
-    age?: IntNullableFilter<"User"> | number | null
+    sid?: StringFilter<"User"> | string
+    gid?: StringFilter<"User"> | string
+    password?: StringFilter<"User"> | string
+    name?: StringFilter<"User"> | string
+    dob?: DateTimeFilter<"User"> | Date | string
+    official_class?: StringFilter<"User"> | string
+    authenticator?: StringFilter<"User"> | string
+    Biometric_key?: StringFilter<"User"> | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    UpdateAt?: DateTimeFilter<"User"> | Date | string
     type?: EnumUserTypeFilter<"User"> | $Enums.UserType
     host?: ClassListRelationFilter
     join?: ClassListRelationFilter
@@ -7219,9 +7311,17 @@ export namespace Prisma {
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrder
     email?: SortOrder
-    age?: SortOrderInput | SortOrder
+    sid?: SortOrder
+    gid?: SortOrder
+    password?: SortOrder
+    name?: SortOrder
+    dob?: SortOrder
+    official_class?: SortOrder
+    authenticator?: SortOrder
+    Biometric_key?: SortOrder
+    createdAt?: SortOrder
+    UpdateAt?: SortOrder
     type?: SortOrder
     host?: ClassOrderByRelationAggregateInput
     join?: ClassOrderByRelationAggregateInput
@@ -7231,28 +7331,42 @@ export namespace Prisma {
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: string
     email?: string
+    sid?: string
+    gid?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
+    password?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
-    age?: IntNullableFilter<"User"> | number | null
+    dob?: DateTimeFilter<"User"> | Date | string
+    official_class?: StringFilter<"User"> | string
+    authenticator?: StringFilter<"User"> | string
+    Biometric_key?: StringFilter<"User"> | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    UpdateAt?: DateTimeFilter<"User"> | Date | string
     type?: EnumUserTypeFilter<"User"> | $Enums.UserType
     host?: ClassListRelationFilter
     join?: ClassListRelationFilter
     attendances?: AttendanceListRelationFilter
-  }, "id" | "email">
+  }, "id" | "email" | "sid" | "gid">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrder
     email?: SortOrder
-    age?: SortOrderInput | SortOrder
+    sid?: SortOrder
+    gid?: SortOrder
+    password?: SortOrder
+    name?: SortOrder
+    dob?: SortOrder
+    official_class?: SortOrder
+    authenticator?: SortOrder
+    Biometric_key?: SortOrder
+    createdAt?: SortOrder
+    UpdateAt?: SortOrder
     type?: SortOrder
     _count?: UserCountOrderByAggregateInput
-    _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
-    _sum?: UserSumOrderByAggregateInput
   }
 
   export type UserScalarWhereWithAggregatesInput = {
@@ -7260,9 +7374,17 @@ export namespace Prisma {
     OR?: UserScalarWhereWithAggregatesInput[]
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"User"> | string
-    name?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
-    age?: IntNullableWithAggregatesFilter<"User"> | number | null
+    sid?: StringWithAggregatesFilter<"User"> | string
+    gid?: StringWithAggregatesFilter<"User"> | string
+    password?: StringWithAggregatesFilter<"User"> | string
+    name?: StringWithAggregatesFilter<"User"> | string
+    dob?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    official_class?: StringWithAggregatesFilter<"User"> | string
+    authenticator?: StringWithAggregatesFilter<"User"> | string
+    Biometric_key?: StringWithAggregatesFilter<"User"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    UpdateAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     type?: EnumUserTypeWithAggregatesFilter<"User"> | $Enums.UserType
   }
 
@@ -7412,6 +7534,7 @@ export namespace Prisma {
     OR?: SessionCycleWhereInput[]
     NOT?: SessionCycleWhereInput | SessionCycleWhereInput[]
     id?: StringFilter<"SessionCycle"> | string
+    start?: DateTimeFilter<"SessionCycle"> | Date | string
     sessionId?: StringFilter<"SessionCycle"> | string
     session?: XOR<SessionScalarRelationFilter, SessionWhereInput>
     Attendance?: AttendanceListRelationFilter
@@ -7419,6 +7542,7 @@ export namespace Prisma {
 
   export type SessionCycleOrderByWithRelationInput = {
     id?: SortOrder
+    start?: SortOrder
     sessionId?: SortOrder
     session?: SessionOrderByWithRelationInput
     Attendance?: AttendanceOrderByRelationAggregateInput
@@ -7429,6 +7553,7 @@ export namespace Prisma {
     AND?: SessionCycleWhereInput | SessionCycleWhereInput[]
     OR?: SessionCycleWhereInput[]
     NOT?: SessionCycleWhereInput | SessionCycleWhereInput[]
+    start?: DateTimeFilter<"SessionCycle"> | Date | string
     sessionId?: StringFilter<"SessionCycle"> | string
     session?: XOR<SessionScalarRelationFilter, SessionWhereInput>
     Attendance?: AttendanceListRelationFilter
@@ -7436,6 +7561,7 @@ export namespace Prisma {
 
   export type SessionCycleOrderByWithAggregationInput = {
     id?: SortOrder
+    start?: SortOrder
     sessionId?: SortOrder
     _count?: SessionCycleCountOrderByAggregateInput
     _max?: SessionCycleMaxOrderByAggregateInput
@@ -7447,6 +7573,7 @@ export namespace Prisma {
     OR?: SessionCycleScalarWhereWithAggregatesInput[]
     NOT?: SessionCycleScalarWhereWithAggregatesInput | SessionCycleScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"SessionCycle"> | string
+    start?: DateTimeWithAggregatesFilter<"SessionCycle"> | Date | string
     sessionId?: StringWithAggregatesFilter<"SessionCycle"> | string
   }
 
@@ -7515,9 +7642,17 @@ export namespace Prisma {
 
   export type UserCreateInput = {
     id?: string
-    name: string
     email: string
-    age?: number | null
+    sid: string
+    gid: string
+    password: string
+    name: string
+    dob: Date | string
+    official_class: string
+    authenticator: string
+    Biometric_key: string
+    createdAt: Date | string
+    UpdateAt: Date | string
     type: $Enums.UserType
     host?: ClassCreateNestedManyWithoutTeacherInput
     join?: ClassCreateNestedManyWithoutStudentsInput
@@ -7526,9 +7661,17 @@ export namespace Prisma {
 
   export type UserUncheckedCreateInput = {
     id?: string
-    name: string
     email: string
-    age?: number | null
+    sid: string
+    gid: string
+    password: string
+    name: string
+    dob: Date | string
+    official_class: string
+    authenticator: string
+    Biometric_key: string
+    createdAt: Date | string
+    UpdateAt: Date | string
     type: $Enums.UserType
     host?: ClassUncheckedCreateNestedManyWithoutTeacherInput
     join?: ClassUncheckedCreateNestedManyWithoutStudentsInput
@@ -7537,9 +7680,17 @@ export namespace Prisma {
 
   export type UserUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    age?: NullableIntFieldUpdateOperationsInput | number | null
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    official_class?: StringFieldUpdateOperationsInput | string
+    authenticator?: StringFieldUpdateOperationsInput | string
+    Biometric_key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: ClassUpdateManyWithoutTeacherNestedInput
     join?: ClassUpdateManyWithoutStudentsNestedInput
@@ -7548,9 +7699,17 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    age?: NullableIntFieldUpdateOperationsInput | number | null
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    official_class?: StringFieldUpdateOperationsInput | string
+    authenticator?: StringFieldUpdateOperationsInput | string
+    Biometric_key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: ClassUncheckedUpdateManyWithoutTeacherNestedInput
     join?: ClassUncheckedUpdateManyWithoutStudentsNestedInput
@@ -7559,25 +7718,49 @@ export namespace Prisma {
 
   export type UserCreateManyInput = {
     id?: string
-    name: string
     email: string
-    age?: number | null
+    sid: string
+    gid: string
+    password: string
+    name: string
+    dob: Date | string
+    official_class: string
+    authenticator: string
+    Biometric_key: string
+    createdAt: Date | string
+    UpdateAt: Date | string
     type: $Enums.UserType
   }
 
   export type UserUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    age?: NullableIntFieldUpdateOperationsInput | number | null
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    official_class?: StringFieldUpdateOperationsInput | string
+    authenticator?: StringFieldUpdateOperationsInput | string
+    Biometric_key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    age?: NullableIntFieldUpdateOperationsInput | number | null
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    official_class?: StringFieldUpdateOperationsInput | string
+    authenticator?: StringFieldUpdateOperationsInput | string
+    Biometric_key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
   }
 
@@ -7733,39 +7916,46 @@ export namespace Prisma {
 
   export type SessionCycleCreateInput = {
     id?: string
+    start: Date | string
     session: SessionCreateNestedOneWithoutSessionCycleInput
     Attendance?: AttendanceCreateNestedManyWithoutSessionCycleInput
   }
 
   export type SessionCycleUncheckedCreateInput = {
     id?: string
+    start: Date | string
     sessionId: string
     Attendance?: AttendanceUncheckedCreateNestedManyWithoutSessionCycleInput
   }
 
   export type SessionCycleUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    start?: DateTimeFieldUpdateOperationsInput | Date | string
     session?: SessionUpdateOneRequiredWithoutSessionCycleNestedInput
     Attendance?: AttendanceUpdateManyWithoutSessionCycleNestedInput
   }
 
   export type SessionCycleUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    start?: DateTimeFieldUpdateOperationsInput | Date | string
     sessionId?: StringFieldUpdateOperationsInput | string
     Attendance?: AttendanceUncheckedUpdateManyWithoutSessionCycleNestedInput
   }
 
   export type SessionCycleCreateManyInput = {
     id?: string
+    start: Date | string
     sessionId: string
   }
 
   export type SessionCycleUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    start?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SessionCycleUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    start?: DateTimeFieldUpdateOperationsInput | Date | string
     sessionId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -7845,15 +8035,15 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type EnumUserTypeFilter<$PrismaModel = never> = {
@@ -7875,11 +8065,6 @@ export namespace Prisma {
     none?: AttendanceWhereInput
   }
 
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
-  }
-
   export type ClassOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -7890,34 +8075,50 @@ export namespace Prisma {
 
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
     email?: SortOrder
-    age?: SortOrder
+    sid?: SortOrder
+    gid?: SortOrder
+    password?: SortOrder
+    name?: SortOrder
+    dob?: SortOrder
+    official_class?: SortOrder
+    authenticator?: SortOrder
+    Biometric_key?: SortOrder
+    createdAt?: SortOrder
+    UpdateAt?: SortOrder
     type?: SortOrder
-  }
-
-  export type UserAvgOrderByAggregateInput = {
-    age?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
     email?: SortOrder
-    age?: SortOrder
+    sid?: SortOrder
+    gid?: SortOrder
+    password?: SortOrder
+    name?: SortOrder
+    dob?: SortOrder
+    official_class?: SortOrder
+    authenticator?: SortOrder
+    Biometric_key?: SortOrder
+    createdAt?: SortOrder
+    UpdateAt?: SortOrder
     type?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
     email?: SortOrder
-    age?: SortOrder
+    sid?: SortOrder
+    gid?: SortOrder
+    password?: SortOrder
+    name?: SortOrder
+    dob?: SortOrder
+    official_class?: SortOrder
+    authenticator?: SortOrder
+    Biometric_key?: SortOrder
+    createdAt?: SortOrder
+    UpdateAt?: SortOrder
     type?: SortOrder
-  }
-
-  export type UserSumOrderByAggregateInput = {
-    age?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -7938,20 +8139,18 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type EnumUserTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -7962,17 +8161,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumUserTypeFilter<$PrismaModel>
     _max?: NestedEnumUserTypeFilter<$PrismaModel>
-  }
-
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type UserScalarRelationFilter = {
@@ -8031,20 +8219,6 @@ export namespace Prisma {
     endTime?: SortOrder
     address?: SortOrder
     teacherId?: SortOrder
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -8148,16 +8322,19 @@ export namespace Prisma {
 
   export type SessionCycleCountOrderByAggregateInput = {
     id?: SortOrder
+    start?: SortOrder
     sessionId?: SortOrder
   }
 
   export type SessionCycleMaxOrderByAggregateInput = {
     id?: SortOrder
+    start?: SortOrder
     sessionId?: SortOrder
   }
 
   export type SessionCycleMinOrderByAggregateInput = {
     id?: SortOrder
+    start?: SortOrder
     sessionId?: SortOrder
   }
 
@@ -8254,12 +8431,8 @@ export namespace Prisma {
     set?: string
   }
 
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type EnumUserTypeFieldUpdateOperationsInput = {
@@ -8378,10 +8551,6 @@ export namespace Prisma {
     connectOrCreate?: SessionCreateOrConnectWithoutClassInput | SessionCreateOrConnectWithoutClassInput[]
     createMany?: SessionCreateManyClassInputEnvelope
     connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-  }
-
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
   }
 
   export type UserUpdateOneRequiredWithoutHostNestedInput = {
@@ -8616,15 +8785,15 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedEnumUserTypeFilter<$PrismaModel = never> = {
@@ -8662,54 +8831,6 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedEnumUserTypeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumUserTypeWithAggregatesFilter<$PrismaModel> | $Enums.UserType
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumUserTypeFilter<$PrismaModel>
-    _max?: NestedEnumUserTypeFilter<$PrismaModel>
-  }
-
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -8722,6 +8843,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumUserTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserTypeWithAggregatesFilter<$PrismaModel> | $Enums.UserType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumUserTypeFilter<$PrismaModel>
+    _max?: NestedEnumUserTypeFilter<$PrismaModel>
   }
 
   export type NestedEnumRepeatTypeFilter<$PrismaModel = never> = {
@@ -8950,9 +9081,17 @@ export namespace Prisma {
 
   export type UserCreateWithoutHostInput = {
     id?: string
-    name: string
     email: string
-    age?: number | null
+    sid: string
+    gid: string
+    password: string
+    name: string
+    dob: Date | string
+    official_class: string
+    authenticator: string
+    Biometric_key: string
+    createdAt: Date | string
+    UpdateAt: Date | string
     type: $Enums.UserType
     join?: ClassCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceCreateNestedManyWithoutAttendantInput
@@ -8960,9 +9099,17 @@ export namespace Prisma {
 
   export type UserUncheckedCreateWithoutHostInput = {
     id?: string
-    name: string
     email: string
-    age?: number | null
+    sid: string
+    gid: string
+    password: string
+    name: string
+    dob: Date | string
+    official_class: string
+    authenticator: string
+    Biometric_key: string
+    createdAt: Date | string
+    UpdateAt: Date | string
     type: $Enums.UserType
     join?: ClassUncheckedCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
@@ -8975,9 +9122,17 @@ export namespace Prisma {
 
   export type UserCreateWithoutJoinInput = {
     id?: string
-    name: string
     email: string
-    age?: number | null
+    sid: string
+    gid: string
+    password: string
+    name: string
+    dob: Date | string
+    official_class: string
+    authenticator: string
+    Biometric_key: string
+    createdAt: Date | string
+    UpdateAt: Date | string
     type: $Enums.UserType
     host?: ClassCreateNestedManyWithoutTeacherInput
     attendances?: AttendanceCreateNestedManyWithoutAttendantInput
@@ -8985,9 +9140,17 @@ export namespace Prisma {
 
   export type UserUncheckedCreateWithoutJoinInput = {
     id?: string
-    name: string
     email: string
-    age?: number | null
+    sid: string
+    gid: string
+    password: string
+    name: string
+    dob: Date | string
+    official_class: string
+    authenticator: string
+    Biometric_key: string
+    createdAt: Date | string
+    UpdateAt: Date | string
     type: $Enums.UserType
     host?: ClassUncheckedCreateNestedManyWithoutTeacherInput
     attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
@@ -9039,9 +9202,17 @@ export namespace Prisma {
 
   export type UserUpdateWithoutHostInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    age?: NullableIntFieldUpdateOperationsInput | number | null
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    official_class?: StringFieldUpdateOperationsInput | string
+    authenticator?: StringFieldUpdateOperationsInput | string
+    Biometric_key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     join?: ClassUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
@@ -9049,9 +9220,17 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateWithoutHostInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    age?: NullableIntFieldUpdateOperationsInput | number | null
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    official_class?: StringFieldUpdateOperationsInput | string
+    authenticator?: StringFieldUpdateOperationsInput | string
+    Biometric_key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     join?: ClassUncheckedUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
@@ -9078,9 +9257,17 @@ export namespace Prisma {
     OR?: UserScalarWhereInput[]
     NOT?: UserScalarWhereInput | UserScalarWhereInput[]
     id?: StringFilter<"User"> | string
-    name?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
-    age?: IntNullableFilter<"User"> | number | null
+    sid?: StringFilter<"User"> | string
+    gid?: StringFilter<"User"> | string
+    password?: StringFilter<"User"> | string
+    name?: StringFilter<"User"> | string
+    dob?: DateTimeFilter<"User"> | Date | string
+    official_class?: StringFilter<"User"> | string
+    authenticator?: StringFilter<"User"> | string
+    Biometric_key?: StringFilter<"User"> | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    UpdateAt?: DateTimeFilter<"User"> | Date | string
     type?: EnumUserTypeFilter<"User"> | $Enums.UserType
   }
 
@@ -9143,11 +9330,13 @@ export namespace Prisma {
 
   export type SessionCycleCreateWithoutSessionInput = {
     id?: string
+    start: Date | string
     Attendance?: AttendanceCreateNestedManyWithoutSessionCycleInput
   }
 
   export type SessionCycleUncheckedCreateWithoutSessionInput = {
     id?: string
+    start: Date | string
     Attendance?: AttendanceUncheckedCreateNestedManyWithoutSessionCycleInput
   }
 
@@ -9217,6 +9406,7 @@ export namespace Prisma {
     OR?: SessionCycleScalarWhereInput[]
     NOT?: SessionCycleScalarWhereInput | SessionCycleScalarWhereInput[]
     id?: StringFilter<"SessionCycle"> | string
+    start?: DateTimeFilter<"SessionCycle"> | Date | string
     sessionId?: StringFilter<"SessionCycle"> | string
   }
 
@@ -9316,9 +9506,17 @@ export namespace Prisma {
 
   export type UserCreateWithoutAttendancesInput = {
     id?: string
-    name: string
     email: string
-    age?: number | null
+    sid: string
+    gid: string
+    password: string
+    name: string
+    dob: Date | string
+    official_class: string
+    authenticator: string
+    Biometric_key: string
+    createdAt: Date | string
+    UpdateAt: Date | string
     type: $Enums.UserType
     host?: ClassCreateNestedManyWithoutTeacherInput
     join?: ClassCreateNestedManyWithoutStudentsInput
@@ -9326,9 +9524,17 @@ export namespace Prisma {
 
   export type UserUncheckedCreateWithoutAttendancesInput = {
     id?: string
-    name: string
     email: string
-    age?: number | null
+    sid: string
+    gid: string
+    password: string
+    name: string
+    dob: Date | string
+    official_class: string
+    authenticator: string
+    Biometric_key: string
+    createdAt: Date | string
+    UpdateAt: Date | string
     type: $Enums.UserType
     host?: ClassUncheckedCreateNestedManyWithoutTeacherInput
     join?: ClassUncheckedCreateNestedManyWithoutStudentsInput
@@ -9341,11 +9547,13 @@ export namespace Prisma {
 
   export type SessionCycleCreateWithoutAttendanceInput = {
     id?: string
+    start: Date | string
     session: SessionCreateNestedOneWithoutSessionCycleInput
   }
 
   export type SessionCycleUncheckedCreateWithoutAttendanceInput = {
     id?: string
+    start: Date | string
     sessionId: string
   }
 
@@ -9367,9 +9575,17 @@ export namespace Prisma {
 
   export type UserUpdateWithoutAttendancesInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    age?: NullableIntFieldUpdateOperationsInput | number | null
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    official_class?: StringFieldUpdateOperationsInput | string
+    authenticator?: StringFieldUpdateOperationsInput | string
+    Biometric_key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: ClassUpdateManyWithoutTeacherNestedInput
     join?: ClassUpdateManyWithoutStudentsNestedInput
@@ -9377,9 +9593,17 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateWithoutAttendancesInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    age?: NullableIntFieldUpdateOperationsInput | number | null
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    official_class?: StringFieldUpdateOperationsInput | string
+    authenticator?: StringFieldUpdateOperationsInput | string
+    Biometric_key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: ClassUncheckedUpdateManyWithoutTeacherNestedInput
     join?: ClassUncheckedUpdateManyWithoutStudentsNestedInput
@@ -9398,11 +9622,13 @@ export namespace Prisma {
 
   export type SessionCycleUpdateWithoutAttendanceInput = {
     id?: StringFieldUpdateOperationsInput | string
+    start?: DateTimeFieldUpdateOperationsInput | Date | string
     session?: SessionUpdateOneRequiredWithoutSessionCycleNestedInput
   }
 
   export type SessionCycleUncheckedUpdateWithoutAttendanceInput = {
     id?: StringFieldUpdateOperationsInput | string
+    start?: DateTimeFieldUpdateOperationsInput | Date | string
     sessionId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -9527,9 +9753,17 @@ export namespace Prisma {
 
   export type UserUpdateWithoutJoinInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    age?: NullableIntFieldUpdateOperationsInput | number | null
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    official_class?: StringFieldUpdateOperationsInput | string
+    authenticator?: StringFieldUpdateOperationsInput | string
+    Biometric_key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: ClassUpdateManyWithoutTeacherNestedInput
     attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
@@ -9537,9 +9771,17 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateWithoutJoinInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    age?: NullableIntFieldUpdateOperationsInput | number | null
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    official_class?: StringFieldUpdateOperationsInput | string
+    authenticator?: StringFieldUpdateOperationsInput | string
+    Biometric_key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: ClassUncheckedUpdateManyWithoutTeacherNestedInput
     attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
@@ -9547,9 +9789,17 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateManyWithoutJoinInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    age?: NullableIntFieldUpdateOperationsInput | number | null
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    official_class?: StringFieldUpdateOperationsInput | string
+    authenticator?: StringFieldUpdateOperationsInput | string
+    Biometric_key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
   }
 
@@ -9581,20 +9831,24 @@ export namespace Prisma {
 
   export type SessionCycleCreateManySessionInput = {
     id?: string
+    start: Date | string
   }
 
   export type SessionCycleUpdateWithoutSessionInput = {
     id?: StringFieldUpdateOperationsInput | string
+    start?: DateTimeFieldUpdateOperationsInput | Date | string
     Attendance?: AttendanceUpdateManyWithoutSessionCycleNestedInput
   }
 
   export type SessionCycleUncheckedUpdateWithoutSessionInput = {
     id?: StringFieldUpdateOperationsInput | string
+    start?: DateTimeFieldUpdateOperationsInput | Date | string
     Attendance?: AttendanceUncheckedUpdateManyWithoutSessionCycleNestedInput
   }
 
   export type SessionCycleUncheckedUpdateManyWithoutSessionInput = {
     id?: StringFieldUpdateOperationsInput | string
+    start?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AttendanceCreateManySessionCycleInput = {

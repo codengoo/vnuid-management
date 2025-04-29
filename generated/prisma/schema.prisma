@@ -30,10 +30,19 @@ enum AttendanceStatus {
 }
 
 model User {
-  id          String       @id @default(uuid())
-  name        String
-  email       String       @unique
-  age         Int?
+  id             String   @id @default(uuid())
+  email          String   @unique
+  sid            String   @unique
+  gid            String   @unique
+  password       String
+  name           String
+  dob            DateTime
+  official_class String
+  authenticator  String
+  Biometric_key  String
+  createdAt      DateTime
+  UpdateAt       DateTime
+
   host        Class[]      @relation("TeacherClass")
   join        Class[]      @relation("StudentClass")
   type        UserType
@@ -60,11 +69,12 @@ model Class {
 }
 
 model Session {
-  id           String         @id @default(uuid())
-  name         String
-  start        DateTime
-  duration     Int
-  repeat       RepeatType
+  id       String     @id @default(uuid())
+  name     String
+  start    DateTime
+  duration Int
+  repeat   RepeatType
+
   classId      String
   class        Class          @relation(fields: [classId], references: [id])
   SessionCycle SessionCycle[]
@@ -73,7 +83,9 @@ model Session {
 }
 
 model SessionCycle {
-  id         String       @id @default(uuid())
+  id    String   @id @default(uuid())
+  start DateTime
+
   sessionId  String
   session    Session      @relation(fields: [sessionId], references: [id])
   Attendance Attendance[]
@@ -82,14 +94,15 @@ model SessionCycle {
 }
 
 model Attendance {
-  id             String           @id @default(uuid())
-  time           DateTime
-  status         AttendanceStatus
-  deviceId       String
+  id       String           @id @default(uuid())
+  time     DateTime
+  status   AttendanceStatus
+  deviceId String
+
   attendantId    String
-  attendant      User             @relation(fields: [attendantId], references: [id])
+  attendant      User         @relation(fields: [attendantId], references: [id])
   sessionCycleId String
-  sessionCycle   SessionCycle     @relation(fields: [sessionCycleId], references: [id])
+  sessionCycle   SessionCycle @relation(fields: [sessionCycleId], references: [id])
 
   @@map("attendance")
 }
