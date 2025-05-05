@@ -1,8 +1,8 @@
-import { catcher } from "@/helpers";
+import { catcher, saveTokenToRedis, validatePayload } from "@/helpers";
 import { AttendanceModel, UserModel } from "@/models";
 import { ILocal, IResBody } from "@/types";
+import { computeSharedSecret, generateECDHKeyPair, getPublicKey } from "@/utils";
 import { Request, Response } from "express";
-import crypto from "node:crypto";
 import * as yup from "yup";
 
 class AttendanceController {
@@ -36,7 +36,7 @@ class AttendanceController {
   async checkin(req: Request, res: Response<IResBody, ILocal>) {
     const { id: sid } = req.params;
     const { id: uid } = res.locals.user;
-    const data = req.body;
+    const raw = req.body;
 
     const schema = yup.object({
       time: yup.date().required(),
@@ -47,9 +47,11 @@ class AttendanceController {
     });
 
     await catcher(res, async () => {
-      await schema.validate(data);
+      const { time, deviceId, isVerified, token } = await schema.validate(raw);
+      const isValidData = validatePayload({ time, deviceId, isVerified }, uid, token);
+      if (!isValidData) throw new Error("Invalid payload");
 
-      await AttendanceModel.checkin(sid, uid, data);
+      await AttendanceModel.checkin(sid, uid, raw);
       res.json({ message: "Success" }).end();
     });
   }
@@ -64,26 +66,18 @@ class AttendanceController {
 
     await catcher(res, async () => {
       const { key } = await schema.validate(data);
-
-      // Create key pair
-      const curveName = "secp256k1";
-      const alice = crypto.createECDH(curveName);
-      alice.generateKeys();
-
-      // Alice's public key
-      const alicePublicKey = alice.getPublicKey().toString("hex");
-
-      // Generate shared secret
-      const aliceSecret = alice.computeSecret(Buffer.from(key, "hex"));
+      const myKeyPair = generateECDHKeyPair();
+      const myPublicKey = getPublicKey(myKeyPair);
+      const sharedKey = computeSharedSecret(myKeyPair, key);
 
       // Save key
-      await UserModel.updateUserKey(uid, aliceSecret.toString("hex"));
+      await saveTokenToRedis(uid, sharedKey);
 
       res
         .json({
           message: "Success",
           data: {
-            key: alicePublicKey,
+            key: myPublicKey,
             expire: Date.now() + 7 * 24 * 60 * 60 * 1000, // 7 days
           },
         })
