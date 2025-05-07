@@ -2918,7 +2918,7 @@ export namespace Prisma {
     name: string | null
     dob: Date | null
     official_class: string | null
-    faceData: string | null
+    face_data: string | null
   }
 
   export type ProfileMaxAggregateOutputType = {
@@ -2928,7 +2928,7 @@ export namespace Prisma {
     name: string | null
     dob: Date | null
     official_class: string | null
-    faceData: string | null
+    face_data: string | null
   }
 
   export type ProfileCountAggregateOutputType = {
@@ -2938,7 +2938,7 @@ export namespace Prisma {
     name: number
     dob: number
     official_class: number
-    faceData: number
+    face_data: number
     _all: number
   }
 
@@ -2950,7 +2950,7 @@ export namespace Prisma {
     name?: true
     dob?: true
     official_class?: true
-    faceData?: true
+    face_data?: true
   }
 
   export type ProfileMaxAggregateInputType = {
@@ -2960,7 +2960,7 @@ export namespace Prisma {
     name?: true
     dob?: true
     official_class?: true
-    faceData?: true
+    face_data?: true
   }
 
   export type ProfileCountAggregateInputType = {
@@ -2970,7 +2970,7 @@ export namespace Prisma {
     name?: true
     dob?: true
     official_class?: true
-    faceData?: true
+    face_data?: true
     _all?: true
   }
 
@@ -3053,7 +3053,7 @@ export namespace Prisma {
     name: string
     dob: Date | null
     official_class: string
-    faceData: string | null
+    face_data: string | null
     _count: ProfileCountAggregateOutputType | null
     _min: ProfileMinAggregateOutputType | null
     _max: ProfileMaxAggregateOutputType | null
@@ -3080,7 +3080,7 @@ export namespace Prisma {
     name?: boolean
     dob?: boolean
     official_class?: boolean
-    faceData?: boolean
+    face_data?: boolean
     host?: boolean | Profile$hostArgs<ExtArgs>
     join?: boolean | Profile$joinArgs<ExtArgs>
     attendances?: boolean | Profile$attendancesArgs<ExtArgs>
@@ -3095,7 +3095,7 @@ export namespace Prisma {
     name?: boolean
     dob?: boolean
     official_class?: boolean
-    faceData?: boolean
+    face_data?: boolean
   }, ExtArgs["result"]["profile"]>
 
   export type ProfileSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3105,7 +3105,7 @@ export namespace Prisma {
     name?: boolean
     dob?: boolean
     official_class?: boolean
-    faceData?: boolean
+    face_data?: boolean
   }, ExtArgs["result"]["profile"]>
 
   export type ProfileSelectScalar = {
@@ -3115,10 +3115,10 @@ export namespace Prisma {
     name?: boolean
     dob?: boolean
     official_class?: boolean
-    faceData?: boolean
+    face_data?: boolean
   }
 
-  export type ProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sid" | "email" | "name" | "dob" | "official_class" | "faceData", ExtArgs["result"]["profile"]>
+  export type ProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sid" | "email" | "name" | "dob" | "official_class" | "face_data", ExtArgs["result"]["profile"]>
   export type ProfileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     host?: boolean | Profile$hostArgs<ExtArgs>
     join?: boolean | Profile$joinArgs<ExtArgs>
@@ -3144,7 +3144,7 @@ export namespace Prisma {
       name: string
       dob: Date | null
       official_class: string
-      faceData: string | null
+      face_data: string | null
     }, ExtArgs["result"]["profile"]>
     composites: {}
   }
@@ -3578,7 +3578,7 @@ export namespace Prisma {
     readonly name: FieldRef<"Profile", 'String'>
     readonly dob: FieldRef<"Profile", 'DateTime'>
     readonly official_class: FieldRef<"Profile", 'String'>
-    readonly faceData: FieldRef<"Profile", 'String'>
+    readonly face_data: FieldRef<"Profile", 'String'>
   }
     
 
@@ -10772,7 +10772,7 @@ export namespace Prisma {
     name: 'name',
     dob: 'dob',
     official_class: 'official_class',
-    faceData: 'faceData'
+    face_data: 'face_data'
   };
 
   export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
@@ -11050,7 +11050,7 @@ export namespace Prisma {
     name?: StringFilter<"Profile"> | string
     dob?: DateTimeNullableFilter<"Profile"> | Date | string | null
     official_class?: StringFilter<"Profile"> | string
-    faceData?: StringNullableFilter<"Profile"> | string | null
+    face_data?: StringNullableFilter<"Profile"> | string | null
     host?: SubjectListRelationFilter
     join?: SubjectListRelationFilter
     attendances?: AttendanceListRelationFilter
@@ -11064,7 +11064,7 @@ export namespace Prisma {
     name?: SortOrder
     dob?: SortOrderInput | SortOrder
     official_class?: SortOrder
-    faceData?: SortOrderInput | SortOrder
+    face_data?: SortOrderInput | SortOrder
     host?: SubjectOrderByRelationAggregateInput
     join?: SubjectOrderByRelationAggregateInput
     attendances?: AttendanceOrderByRelationAggregateInput
@@ -11081,7 +11081,7 @@ export namespace Prisma {
     name?: StringFilter<"Profile"> | string
     dob?: DateTimeNullableFilter<"Profile"> | Date | string | null
     official_class?: StringFilter<"Profile"> | string
-    faceData?: StringNullableFilter<"Profile"> | string | null
+    face_data?: StringNullableFilter<"Profile"> | string | null
     host?: SubjectListRelationFilter
     join?: SubjectListRelationFilter
     attendances?: AttendanceListRelationFilter
@@ -11095,7 +11095,7 @@ export namespace Prisma {
     name?: SortOrder
     dob?: SortOrderInput | SortOrder
     official_class?: SortOrder
-    faceData?: SortOrderInput | SortOrder
+    face_data?: SortOrderInput | SortOrder
     _count?: ProfileCountOrderByAggregateInput
     _max?: ProfileMaxOrderByAggregateInput
     _min?: ProfileMinOrderByAggregateInput
@@ -11111,7 +11111,7 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Profile"> | string
     dob?: DateTimeNullableWithAggregatesFilter<"Profile"> | Date | string | null
     official_class?: StringWithAggregatesFilter<"Profile"> | string
-    faceData?: StringNullableWithAggregatesFilter<"Profile"> | string | null
+    face_data?: StringNullableWithAggregatesFilter<"Profile"> | string | null
   }
 
   export type SessionWhereInput = {
@@ -11596,7 +11596,7 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
-    faceData?: string | null
+    face_data?: string | null
     host?: SubjectCreateNestedManyWithoutTeacherInput
     join?: SubjectCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceCreateNestedManyWithoutAttendantInput
@@ -11610,7 +11610,7 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
-    faceData?: string | null
+    face_data?: string | null
     host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
     join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
@@ -11624,7 +11624,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUpdateManyWithoutTeacherNestedInput
     join?: SubjectUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
@@ -11638,7 +11638,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
     join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
@@ -11652,7 +11652,7 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
-    faceData?: string | null
+    face_data?: string | null
   }
 
   export type ProfileUpdateManyMutationInput = {
@@ -11662,7 +11662,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    face_data?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ProfileUncheckedUpdateManyInput = {
@@ -11672,7 +11672,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    face_data?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SessionCreateInput = {
@@ -12240,7 +12240,7 @@ export namespace Prisma {
     name?: SortOrder
     dob?: SortOrder
     official_class?: SortOrder
-    faceData?: SortOrder
+    face_data?: SortOrder
   }
 
   export type ProfileMaxOrderByAggregateInput = {
@@ -12250,7 +12250,7 @@ export namespace Prisma {
     name?: SortOrder
     dob?: SortOrder
     official_class?: SortOrder
-    faceData?: SortOrder
+    face_data?: SortOrder
   }
 
   export type ProfileMinOrderByAggregateInput = {
@@ -12260,7 +12260,7 @@ export namespace Prisma {
     name?: SortOrder
     dob?: SortOrder
     official_class?: SortOrder
-    faceData?: SortOrder
+    face_data?: SortOrder
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -13443,7 +13443,7 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
-    faceData?: string | null
+    face_data?: string | null
     host?: SubjectCreateNestedManyWithoutTeacherInput
     join?: SubjectCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceCreateNestedManyWithoutAttendantInput
@@ -13456,7 +13456,7 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
-    faceData?: string | null
+    face_data?: string | null
     host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
     join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
@@ -13540,7 +13540,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUpdateManyWithoutTeacherNestedInput
     join?: SubjectUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
@@ -13553,7 +13553,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
     join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
@@ -13942,7 +13942,7 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
-    faceData?: string | null
+    face_data?: string | null
     join?: SubjectCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceCreateNestedManyWithoutAttendantInput
     User?: UserCreateNestedOneWithoutProfileInput
@@ -13955,7 +13955,7 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
-    faceData?: string | null
+    face_data?: string | null
     join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
     User?: UserUncheckedCreateNestedOneWithoutProfileInput
@@ -13973,7 +13973,7 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
-    faceData?: string | null
+    face_data?: string | null
     host?: SubjectCreateNestedManyWithoutTeacherInput
     attendances?: AttendanceCreateNestedManyWithoutAttendantInput
     User?: UserCreateNestedOneWithoutProfileInput
@@ -13986,7 +13986,7 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
-    faceData?: string | null
+    face_data?: string | null
     host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
     attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
     User?: UserUncheckedCreateNestedOneWithoutProfileInput
@@ -14067,7 +14067,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    face_data?: NullableStringFieldUpdateOperationsInput | string | null
     join?: SubjectUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
     User?: UserUpdateOneWithoutProfileNestedInput
@@ -14080,7 +14080,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    face_data?: NullableStringFieldUpdateOperationsInput | string | null
     join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
     User?: UserUncheckedUpdateOneWithoutProfileNestedInput
@@ -14112,7 +14112,7 @@ export namespace Prisma {
     name?: StringFilter<"Profile"> | string
     dob?: DateTimeNullableFilter<"Profile"> | Date | string | null
     official_class?: StringFilter<"Profile"> | string
-    faceData?: StringNullableFilter<"Profile"> | string | null
+    face_data?: StringNullableFilter<"Profile"> | string | null
   }
 
   export type SessionAttendanceUpsertWithWhereUniqueWithoutSubjectInput = {
@@ -14454,7 +14454,7 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
-    faceData?: string | null
+    face_data?: string | null
     host?: SubjectCreateNestedManyWithoutTeacherInput
     join?: SubjectCreateNestedManyWithoutStudentsInput
     User?: UserCreateNestedOneWithoutProfileInput
@@ -14467,7 +14467,7 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
-    faceData?: string | null
+    face_data?: string | null
     host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
     join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
     User?: UserUncheckedCreateNestedOneWithoutProfileInput
@@ -14515,7 +14515,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUpdateManyWithoutTeacherNestedInput
     join?: SubjectUpdateManyWithoutStudentsNestedInput
     User?: UserUpdateOneWithoutProfileNestedInput
@@ -14528,7 +14528,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
     join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
     User?: UserUncheckedUpdateOneWithoutProfileNestedInput
@@ -14762,7 +14762,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUpdateManyWithoutTeacherNestedInput
     attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
     User?: UserUpdateOneWithoutProfileNestedInput
@@ -14775,7 +14775,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
     attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
     User?: UserUncheckedUpdateOneWithoutProfileNestedInput
@@ -14788,7 +14788,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    face_data?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SessionAttendanceUpdateWithoutSubjectInput = {

@@ -32,6 +32,10 @@ class AttendanceModel {
     const previousOccurrence = rule.before(now, true);
     if (!previousOccurrence) throw new Error("Session is not started yet");
 
+    const diff = (now.getTime() - previousOccurrence.getTime()) / (1000 * 60);
+    if (diff < session.duration)
+      throw new Error("Out of session time or session is not started yet");
+
     const sessionCycle = await prisma.sessionCycle.upsert({
       where: {
         session_id_start: {

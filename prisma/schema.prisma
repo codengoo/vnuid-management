@@ -49,7 +49,7 @@ model Profile {
   name           String
   dob            DateTime?
   official_class String
-  face_data       String?
+  face_data      String?
 
   host        Subject[]    @relation("TeacherClass")
   join        Subject[]    @relation("StudentClass")
@@ -118,8 +118,8 @@ model SessionAttendance {
 }
 
 model SessionCycle {
-  id    String   @id @default(uuid())
-  start DateTime
+  id          String            @id @default(uuid())
+  start       DateTime
   session_id  String
   session     SessionAttendance @relation(fields: [session_id], references: [id])
   subject     Subject?          @relation(fields: [subject_id], references: [id])

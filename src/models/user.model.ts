@@ -13,12 +13,12 @@ class UserModel {
     const user = await this.getUser(userId);
 
     if (!user) throw new Error("User not found");
-    if (user.faceData) throw new Error("User already has face data");
+    if (user.face_data) throw new Error("User already has face data");
 
     const result = await prisma.profile.update({
       where: { id: userId },
       data: {
-        faceData: facePath,
+        face_data: facePath,
       },
     });
 
@@ -31,7 +31,7 @@ class UserModel {
         id: userId,
       },
       data: {
-        faceData: null,
+        face_data: null,
       },
     });
   }

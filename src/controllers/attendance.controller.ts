@@ -23,13 +23,19 @@ class AttendanceController {
 
   async getFace(req: Request, res: Response<IResBody, ILocal>) {
     const { id } = res.locals.user;
+    console.log(res.locals);
 
     await catcher(res, async () => {
       const user = await UserModel.getUser(id);
       if (!user) throw new Error("User not found");
-      if (!user.faceData) throw new Error("User has not registered face");
-
-      res.json({ message: "Success", data: JSON.parse(user.faceData) }).end();
+      if (!user.face_data) {
+        res.status(404).json({ message: "Face data not found", data: null }).end();
+      } else {
+        const data = {
+          face_data: JSON.parse(user.face_data),
+        };
+        res.json({ message: "Success", data }).end();
+      }
     });
   }
 

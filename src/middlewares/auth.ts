@@ -16,19 +16,21 @@ function authMidBuilder(req: Request, res: Response, next: Function) {
 }
 
 export function authMid(roles: UserType[] = []) {
-  return (req: Request, res: Response, next: Function) => {
+  return (req: Request, res: Response, next: Function) => { 
+    console.log(req.headers);
+    
     const UserId = req.headers["x-user-id"];
     const Role = req.headers["x-user-role"] as string;
-    const Token = req.headers["x-user-token"];
+    const Key = req.headers["x-user-key"];
     const InternalKey = process.env["INTERNAL_KEY"];
     const refRoles = roles.map((role) => role.toString().toLowerCase());
-    // console.log(UserId, Role, Token, InternalKey);
+    // console.log(UserId, Role, Key, InternalKey);
 
     if (
       UserId &&
       Role &&
-      Token &&
-      Token === InternalKey &&
+      Key &&
+      Key === InternalKey &&
       (roles.length === 0 || refRoles.includes(Role.toLowerCase()))
     ) {
       res.locals.user = { id: UserId, role: Role.toLowerCase() };

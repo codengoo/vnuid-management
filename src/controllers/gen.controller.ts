@@ -8,20 +8,20 @@ class GenController {
     const num = 2;
     var users: Partial<User>[] = [];
 
-    for (let i = 0; i < num; i++) {
-      users.push({
-        type: "Teacher",
-        sid: "2102000" + i,
-        gid: "214453423" + i,
-        name: "Nguyen Van A" + i,
-        email: "a" + i + "@gmail.com",
-        password: "123456",
-        dob: new Date(),
-        official_class: "K66CB",
-        authenticator: "",
-        biometric_key: "",
-      });
-    }
+    // for (let i = 0; i < num; i++) {
+    //   users.push({
+    //     type: "Teacher",
+    //     sid: "2102000" + i,
+    //     gid: "214453423" + i,
+    //     name: "Nguyen Van A" + i,
+    //     email: "a" + i + "@gmail.com",
+    //     password: "123456",
+    //     dob: new Date(),
+    //     official_class: "K66CB",
+    //     authenticator: "",
+    //     biometric_key: "",
+    //   });
+    // }
 
     await UserModel.insertUser(users);
 

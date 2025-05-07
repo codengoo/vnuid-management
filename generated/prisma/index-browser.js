@@ -136,7 +136,7 @@ exports.Prisma.ProfileScalarFieldEnum = {
   name: 'name',
   dob: 'dob',
   official_class: 'official_class',
-  faceData: 'faceData'
+  face_data: 'face_data'
 };
 
 exports.Prisma.SessionScalarFieldEnum = {
