@@ -24,27 +24,64 @@ enum RepeatType {
 }
 
 model User {
-  id             String   @id @default(uuid())
-  email          String   @unique
-  sid            String   @unique
-  gid            String   @unique
-  password       String
+  id            String  @id @default(uuid())
+  email         String  @unique
+  sid           String  @unique
+  gid           String  @unique
+  password      String?
+  type          String
+  authenticator String?
+  biometric_key String?
+  profile_id    String  @unique
+
+  // Relations
+  sessions Session[]
+  nfcs     NFC[]
+  profile  Profile   @relation(fields: [profile_id], references: [id], onDelete: Cascade)
+
+  @@map("users")
+}
+
+model Profile {
+  id             String    @id @default(uuid())
+  sid            String
+  email          String
   name           String
-  dob            DateTime
+  dob            DateTime?
   official_class String
-  authenticator  String?
-  biometric_key  String?
   faceData       String?
-  bobKey         String?
-  createdAt      DateTime @updatedAt
-  updateAt       DateTime @updatedAt
 
   host        Subject[]    @relation("TeacherClass")
   join        Subject[]    @relation("StudentClass")
-  type        UserType
   attendances Attendance[]
+  User        User?
 
-  @@map("users")
+  @@map("profiles")
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  device_id    String
+  device_name  String
+  user_id      String?
+  login_method String
+  saved_device Boolean
+  created_at   DateTime
+
+  user User? @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model NFC {
+  id      String  @id @default(uuid())
+  user_id String
+  active  Boolean
+  status  String
+
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("nfcs")
 }
 
 model Subject {
@@ -58,8 +95,8 @@ model Subject {
   address     String
 
   teacherId    String
-  teacher      User                @relation("TeacherClass", fields: [teacherId], references: [id])
-  students     User[]              @relation("StudentClass")
+  teacher      Profile             @relation("TeacherClass", fields: [teacherId], references: [id])
+  students     Profile[]           @relation("StudentClass")
   session      SessionAttendance[]
   sessionCycle SessionCycle[]
 
@@ -100,7 +137,7 @@ model Attendance {
   deviceId   String
 
   attendantId    String
-  attendant      User         @relation(fields: [attendantId], references: [id])
+  attendant      Profile      @relation(fields: [attendantId], references: [id])
   sessionCycleId String
   sessionCycle   SessionCycle @relation(fields: [sessionCycleId], references: [id])
 

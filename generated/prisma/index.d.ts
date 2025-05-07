@@ -19,6 +19,21 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
+ * Model Profile
+ * 
+ */
+export type Profile = $Result.DefaultSelection<Prisma.$ProfilePayload>
+/**
+ * Model Session
+ * 
+ */
+export type Session = $Result.DefaultSelection<Prisma.$SessionPayload>
+/**
+ * Model NFC
+ * 
+ */
+export type NFC = $Result.DefaultSelection<Prisma.$NFCPayload>
+/**
  * Model Subject
  * 
  */
@@ -201,6 +216,36 @@ export class PrismaClient<
     * ```
     */
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.profile`: Exposes CRUD operations for the **Profile** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Profiles
+    * const profiles = await prisma.profile.findMany()
+    * ```
+    */
+  get profile(): Prisma.ProfileDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.session`: Exposes CRUD operations for the **Session** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Sessions
+    * const sessions = await prisma.session.findMany()
+    * ```
+    */
+  get session(): Prisma.SessionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.nFC`: Exposes CRUD operations for the **NFC** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NFCS
+    * const nFCS = await prisma.nFC.findMany()
+    * ```
+    */
+  get nFC(): Prisma.NFCDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.subject`: Exposes CRUD operations for the **Subject** model.
@@ -682,6 +727,9 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
+    Profile: 'Profile',
+    Session: 'Session',
+    NFC: 'NFC',
     Subject: 'Subject',
     SessionAttendance: 'SessionAttendance',
     SessionCycle: 'SessionCycle',
@@ -704,7 +752,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "subject" | "sessionAttendance" | "sessionCycle" | "attendance"
+      modelProps: "user" | "profile" | "session" | "nFC" | "subject" | "sessionAttendance" | "sessionCycle" | "attendance"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -779,6 +827,228 @@ export namespace Prisma {
           count: {
             args: Prisma.UserCountArgs<ExtArgs>
             result: $Utils.Optional<UserCountAggregateOutputType> | number
+          }
+        }
+      }
+      Profile: {
+        payload: Prisma.$ProfilePayload<ExtArgs>
+        fields: Prisma.ProfileFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProfileFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProfileFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
+          }
+          findFirst: {
+            args: Prisma.ProfileFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProfileFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
+          }
+          findMany: {
+            args: Prisma.ProfileFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>[]
+          }
+          create: {
+            args: Prisma.ProfileCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
+          }
+          createMany: {
+            args: Prisma.ProfileCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProfileCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>[]
+          }
+          delete: {
+            args: Prisma.ProfileDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
+          }
+          update: {
+            args: Prisma.ProfileUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
+          }
+          deleteMany: {
+            args: Prisma.ProfileDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProfileUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProfileUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>[]
+          }
+          upsert: {
+            args: Prisma.ProfileUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
+          }
+          aggregate: {
+            args: Prisma.ProfileAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProfile>
+          }
+          groupBy: {
+            args: Prisma.ProfileGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProfileGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProfileCountArgs<ExtArgs>
+            result: $Utils.Optional<ProfileCountAggregateOutputType> | number
+          }
+        }
+      }
+      Session: {
+        payload: Prisma.$SessionPayload<ExtArgs>
+        fields: Prisma.SessionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SessionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SessionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>
+          }
+          findFirst: {
+            args: Prisma.SessionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SessionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>
+          }
+          findMany: {
+            args: Prisma.SessionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>[]
+          }
+          create: {
+            args: Prisma.SessionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>
+          }
+          createMany: {
+            args: Prisma.SessionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SessionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>[]
+          }
+          delete: {
+            args: Prisma.SessionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>
+          }
+          update: {
+            args: Prisma.SessionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>
+          }
+          deleteMany: {
+            args: Prisma.SessionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SessionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SessionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>[]
+          }
+          upsert: {
+            args: Prisma.SessionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>
+          }
+          aggregate: {
+            args: Prisma.SessionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSession>
+          }
+          groupBy: {
+            args: Prisma.SessionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SessionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SessionCountArgs<ExtArgs>
+            result: $Utils.Optional<SessionCountAggregateOutputType> | number
+          }
+        }
+      }
+      NFC: {
+        payload: Prisma.$NFCPayload<ExtArgs>
+        fields: Prisma.NFCFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NFCFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NFCPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NFCFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NFCPayload>
+          }
+          findFirst: {
+            args: Prisma.NFCFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NFCPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NFCFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NFCPayload>
+          }
+          findMany: {
+            args: Prisma.NFCFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NFCPayload>[]
+          }
+          create: {
+            args: Prisma.NFCCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NFCPayload>
+          }
+          createMany: {
+            args: Prisma.NFCCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NFCCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NFCPayload>[]
+          }
+          delete: {
+            args: Prisma.NFCDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NFCPayload>
+          }
+          update: {
+            args: Prisma.NFCUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NFCPayload>
+          }
+          deleteMany: {
+            args: Prisma.NFCDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NFCUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.NFCUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NFCPayload>[]
+          }
+          upsert: {
+            args: Prisma.NFCUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NFCPayload>
+          }
+          aggregate: {
+            args: Prisma.NFCAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNFC>
+          }
+          groupBy: {
+            args: Prisma.NFCGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NFCGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NFCCountArgs<ExtArgs>
+            result: $Utils.Optional<NFCCountAggregateOutputType> | number
           }
         }
       }
@@ -1163,6 +1433,9 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     user?: UserOmit
+    profile?: ProfileOmit
+    session?: SessionOmit
+    nFC?: NFCOmit
     subject?: SubjectOmit
     sessionAttendance?: SessionAttendanceOmit
     sessionCycle?: SessionCycleOmit
@@ -1261,15 +1534,13 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    host: number
-    join: number
-    attendances: number
+    sessions: number
+    nfcs: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    host?: boolean | UserCountOutputTypeCountHostArgs
-    join?: boolean | UserCountOutputTypeCountJoinArgs
-    attendances?: boolean | UserCountOutputTypeCountAttendancesArgs
+    sessions?: boolean | UserCountOutputTypeCountSessionsArgs
+    nfcs?: boolean | UserCountOutputTypeCountNfcsArgs
   }
 
   // Custom InputTypes
@@ -1286,21 +1557,63 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountHostArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: SubjectWhereInput
+  export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SessionWhereInput
   }
 
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountJoinArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCountOutputTypeCountNfcsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NFCWhereInput
+  }
+
+
+  /**
+   * Count Type ProfileCountOutputType
+   */
+
+  export type ProfileCountOutputType = {
+    host: number
+    join: number
+    attendances: number
+  }
+
+  export type ProfileCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    host?: boolean | ProfileCountOutputTypeCountHostArgs
+    join?: boolean | ProfileCountOutputTypeCountJoinArgs
+    attendances?: boolean | ProfileCountOutputTypeCountAttendancesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ProfileCountOutputType without action
+   */
+  export type ProfileCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileCountOutputType
+     */
+    select?: ProfileCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ProfileCountOutputType without action
+   */
+  export type ProfileCountOutputTypeCountHostArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: SubjectWhereInput
   }
 
   /**
-   * UserCountOutputType without action
+   * ProfileCountOutputType without action
    */
-  export type UserCountOutputTypeCountAttendancesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileCountOutputTypeCountJoinArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SubjectWhereInput
+  }
+
+  /**
+   * ProfileCountOutputType without action
+   */
+  export type ProfileCountOutputTypeCountAttendancesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AttendanceWhereInput
   }
 
@@ -1336,7 +1649,7 @@ export namespace Prisma {
    * SubjectCountOutputType without action
    */
   export type SubjectCountOutputTypeCountStudentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
+    where?: ProfileWhereInput
   }
 
   /**
@@ -1436,16 +1749,10 @@ export namespace Prisma {
     sid: string | null
     gid: string | null
     password: string | null
-    name: string | null
-    dob: Date | null
-    official_class: string | null
+    type: string | null
     authenticator: string | null
     biometric_key: string | null
-    faceData: string | null
-    bobKey: string | null
-    createdAt: Date | null
-    updateAt: Date | null
-    type: $Enums.UserType | null
+    profile_id: string | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1454,16 +1761,10 @@ export namespace Prisma {
     sid: string | null
     gid: string | null
     password: string | null
-    name: string | null
-    dob: Date | null
-    official_class: string | null
+    type: string | null
     authenticator: string | null
     biometric_key: string | null
-    faceData: string | null
-    bobKey: string | null
-    createdAt: Date | null
-    updateAt: Date | null
-    type: $Enums.UserType | null
+    profile_id: string | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1472,16 +1773,10 @@ export namespace Prisma {
     sid: number
     gid: number
     password: number
-    name: number
-    dob: number
-    official_class: number
+    type: number
     authenticator: number
     biometric_key: number
-    faceData: number
-    bobKey: number
-    createdAt: number
-    updateAt: number
-    type: number
+    profile_id: number
     _all: number
   }
 
@@ -1492,16 +1787,10 @@ export namespace Prisma {
     sid?: true
     gid?: true
     password?: true
-    name?: true
-    dob?: true
-    official_class?: true
+    type?: true
     authenticator?: true
     biometric_key?: true
-    faceData?: true
-    bobKey?: true
-    createdAt?: true
-    updateAt?: true
-    type?: true
+    profile_id?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1510,16 +1799,10 @@ export namespace Prisma {
     sid?: true
     gid?: true
     password?: true
-    name?: true
-    dob?: true
-    official_class?: true
+    type?: true
     authenticator?: true
     biometric_key?: true
-    faceData?: true
-    bobKey?: true
-    createdAt?: true
-    updateAt?: true
-    type?: true
+    profile_id?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1528,16 +1811,10 @@ export namespace Prisma {
     sid?: true
     gid?: true
     password?: true
-    name?: true
-    dob?: true
-    official_class?: true
+    type?: true
     authenticator?: true
     biometric_key?: true
-    faceData?: true
-    bobKey?: true
-    createdAt?: true
-    updateAt?: true
-    type?: true
+    profile_id?: true
     _all?: true
   }
 
@@ -1618,17 +1895,11 @@ export namespace Prisma {
     email: string
     sid: string
     gid: string
-    password: string
-    name: string
-    dob: Date
-    official_class: string
+    password: string | null
+    type: string
     authenticator: string | null
     biometric_key: string | null
-    faceData: string | null
-    bobKey: string | null
-    createdAt: Date
-    updateAt: Date
-    type: $Enums.UserType
+    profile_id: string
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -1654,19 +1925,13 @@ export namespace Prisma {
     sid?: boolean
     gid?: boolean
     password?: boolean
-    name?: boolean
-    dob?: boolean
-    official_class?: boolean
+    type?: boolean
     authenticator?: boolean
     biometric_key?: boolean
-    faceData?: boolean
-    bobKey?: boolean
-    createdAt?: boolean
-    updateAt?: boolean
-    type?: boolean
-    host?: boolean | User$hostArgs<ExtArgs>
-    join?: boolean | User$joinArgs<ExtArgs>
-    attendances?: boolean | User$attendancesArgs<ExtArgs>
+    profile_id?: boolean
+    sessions?: boolean | User$sessionsArgs<ExtArgs>
+    nfcs?: boolean | User$nfcsArgs<ExtArgs>
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1676,16 +1941,11 @@ export namespace Prisma {
     sid?: boolean
     gid?: boolean
     password?: boolean
-    name?: boolean
-    dob?: boolean
-    official_class?: boolean
+    type?: boolean
     authenticator?: boolean
     biometric_key?: boolean
-    faceData?: boolean
-    bobKey?: boolean
-    createdAt?: boolean
-    updateAt?: boolean
-    type?: boolean
+    profile_id?: boolean
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1694,16 +1954,11 @@ export namespace Prisma {
     sid?: boolean
     gid?: boolean
     password?: boolean
-    name?: boolean
-    dob?: boolean
-    official_class?: boolean
+    type?: boolean
     authenticator?: boolean
     biometric_key?: boolean
-    faceData?: boolean
-    bobKey?: boolean
-    createdAt?: boolean
-    updateAt?: boolean
-    type?: boolean
+    profile_id?: boolean
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -1712,51 +1967,43 @@ export namespace Prisma {
     sid?: boolean
     gid?: boolean
     password?: boolean
-    name?: boolean
-    dob?: boolean
-    official_class?: boolean
+    type?: boolean
     authenticator?: boolean
     biometric_key?: boolean
-    faceData?: boolean
-    bobKey?: boolean
-    createdAt?: boolean
-    updateAt?: boolean
-    type?: boolean
+    profile_id?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "sid" | "gid" | "password" | "name" | "dob" | "official_class" | "authenticator" | "biometric_key" | "faceData" | "bobKey" | "createdAt" | "updateAt" | "type", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "sid" | "gid" | "password" | "type" | "authenticator" | "biometric_key" | "profile_id", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    host?: boolean | User$hostArgs<ExtArgs>
-    join?: boolean | User$joinArgs<ExtArgs>
-    attendances?: boolean | User$attendancesArgs<ExtArgs>
+    sessions?: boolean | User$sessionsArgs<ExtArgs>
+    nfcs?: boolean | User$nfcsArgs<ExtArgs>
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
+  }
+  export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
+  }
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      host: Prisma.$SubjectPayload<ExtArgs>[]
-      join: Prisma.$SubjectPayload<ExtArgs>[]
-      attendances: Prisma.$AttendancePayload<ExtArgs>[]
+      sessions: Prisma.$SessionPayload<ExtArgs>[]
+      nfcs: Prisma.$NFCPayload<ExtArgs>[]
+      profile: Prisma.$ProfilePayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       email: string
       sid: string
       gid: string
-      password: string
-      name: string
-      dob: Date
-      official_class: string
+      password: string | null
+      type: string
       authenticator: string | null
       biometric_key: string | null
-      faceData: string | null
-      bobKey: string | null
-      createdAt: Date
-      updateAt: Date
-      type: $Enums.UserType
+      profile_id: string
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2151,9 +2398,9 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    host<T extends User$hostArgs<ExtArgs> = {}>(args?: Subset<T, User$hostArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    join<T extends User$joinArgs<ExtArgs> = {}>(args?: Subset<T, User$joinArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    attendances<T extends User$attendancesArgs<ExtArgs> = {}>(args?: Subset<T, User$attendancesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AttendancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    nfcs<T extends User$nfcsArgs<ExtArgs> = {}>(args?: Subset<T, User$nfcsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NFCPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    profile<T extends ProfileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfileDefaultArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2188,16 +2435,10 @@ export namespace Prisma {
     readonly sid: FieldRef<"User", 'String'>
     readonly gid: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
-    readonly name: FieldRef<"User", 'String'>
-    readonly dob: FieldRef<"User", 'DateTime'>
-    readonly official_class: FieldRef<"User", 'String'>
+    readonly type: FieldRef<"User", 'String'>
     readonly authenticator: FieldRef<"User", 'String'>
     readonly biometric_key: FieldRef<"User", 'String'>
-    readonly faceData: FieldRef<"User", 'String'>
-    readonly bobKey: FieldRef<"User", 'String'>
-    readonly createdAt: FieldRef<"User", 'DateTime'>
-    readonly updateAt: FieldRef<"User", 'DateTime'>
-    readonly type: FieldRef<"User", 'UserType'>
+    readonly profile_id: FieldRef<"User", 'String'>
   }
     
 
@@ -2447,6 +2688,10 @@ export namespace Prisma {
      */
     data: UserCreateManyInput | UserCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -2517,6 +2762,10 @@ export namespace Prisma {
      * Limit how many Users to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -2586,9 +2835,1141 @@ export namespace Prisma {
   }
 
   /**
-   * User.host
+   * User.sessions
    */
-  export type User$hostArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    where?: SessionWhereInput
+    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
+    cursor?: SessionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
+  }
+
+  /**
+   * User.nfcs
+   */
+  export type User$nfcsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NFC
+     */
+    select?: NFCSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NFC
+     */
+    omit?: NFCOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NFCInclude<ExtArgs> | null
+    where?: NFCWhereInput
+    orderBy?: NFCOrderByWithRelationInput | NFCOrderByWithRelationInput[]
+    cursor?: NFCWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NFCScalarFieldEnum | NFCScalarFieldEnum[]
+  }
+
+  /**
+   * User without action
+   */
+  export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Profile
+   */
+
+  export type AggregateProfile = {
+    _count: ProfileCountAggregateOutputType | null
+    _min: ProfileMinAggregateOutputType | null
+    _max: ProfileMaxAggregateOutputType | null
+  }
+
+  export type ProfileMinAggregateOutputType = {
+    id: string | null
+    sid: string | null
+    email: string | null
+    name: string | null
+    dob: Date | null
+    official_class: string | null
+    faceData: string | null
+  }
+
+  export type ProfileMaxAggregateOutputType = {
+    id: string | null
+    sid: string | null
+    email: string | null
+    name: string | null
+    dob: Date | null
+    official_class: string | null
+    faceData: string | null
+  }
+
+  export type ProfileCountAggregateOutputType = {
+    id: number
+    sid: number
+    email: number
+    name: number
+    dob: number
+    official_class: number
+    faceData: number
+    _all: number
+  }
+
+
+  export type ProfileMinAggregateInputType = {
+    id?: true
+    sid?: true
+    email?: true
+    name?: true
+    dob?: true
+    official_class?: true
+    faceData?: true
+  }
+
+  export type ProfileMaxAggregateInputType = {
+    id?: true
+    sid?: true
+    email?: true
+    name?: true
+    dob?: true
+    official_class?: true
+    faceData?: true
+  }
+
+  export type ProfileCountAggregateInputType = {
+    id?: true
+    sid?: true
+    email?: true
+    name?: true
+    dob?: true
+    official_class?: true
+    faceData?: true
+    _all?: true
+  }
+
+  export type ProfileAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Profile to aggregate.
+     */
+    where?: ProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Profiles to fetch.
+     */
+    orderBy?: ProfileOrderByWithRelationInput | ProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Profiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Profiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Profiles
+    **/
+    _count?: true | ProfileCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProfileMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProfileMaxAggregateInputType
+  }
+
+  export type GetProfileAggregateType<T extends ProfileAggregateArgs> = {
+        [P in keyof T & keyof AggregateProfile]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProfile[P]>
+      : GetScalarType<T[P], AggregateProfile[P]>
+  }
+
+
+
+
+  export type ProfileGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfileWhereInput
+    orderBy?: ProfileOrderByWithAggregationInput | ProfileOrderByWithAggregationInput[]
+    by: ProfileScalarFieldEnum[] | ProfileScalarFieldEnum
+    having?: ProfileScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProfileCountAggregateInputType | true
+    _min?: ProfileMinAggregateInputType
+    _max?: ProfileMaxAggregateInputType
+  }
+
+  export type ProfileGroupByOutputType = {
+    id: string
+    sid: string
+    email: string
+    name: string
+    dob: Date | null
+    official_class: string
+    faceData: string | null
+    _count: ProfileCountAggregateOutputType | null
+    _min: ProfileMinAggregateOutputType | null
+    _max: ProfileMaxAggregateOutputType | null
+  }
+
+  type GetProfileGroupByPayload<T extends ProfileGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProfileGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProfileGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProfileGroupByOutputType[P]>
+            : GetScalarType<T[P], ProfileGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProfileSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sid?: boolean
+    email?: boolean
+    name?: boolean
+    dob?: boolean
+    official_class?: boolean
+    faceData?: boolean
+    host?: boolean | Profile$hostArgs<ExtArgs>
+    join?: boolean | Profile$joinArgs<ExtArgs>
+    attendances?: boolean | Profile$attendancesArgs<ExtArgs>
+    User?: boolean | Profile$UserArgs<ExtArgs>
+    _count?: boolean | ProfileCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profile"]>
+
+  export type ProfileSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sid?: boolean
+    email?: boolean
+    name?: boolean
+    dob?: boolean
+    official_class?: boolean
+    faceData?: boolean
+  }, ExtArgs["result"]["profile"]>
+
+  export type ProfileSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sid?: boolean
+    email?: boolean
+    name?: boolean
+    dob?: boolean
+    official_class?: boolean
+    faceData?: boolean
+  }, ExtArgs["result"]["profile"]>
+
+  export type ProfileSelectScalar = {
+    id?: boolean
+    sid?: boolean
+    email?: boolean
+    name?: boolean
+    dob?: boolean
+    official_class?: boolean
+    faceData?: boolean
+  }
+
+  export type ProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sid" | "email" | "name" | "dob" | "official_class" | "faceData", ExtArgs["result"]["profile"]>
+  export type ProfileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    host?: boolean | Profile$hostArgs<ExtArgs>
+    join?: boolean | Profile$joinArgs<ExtArgs>
+    attendances?: boolean | Profile$attendancesArgs<ExtArgs>
+    User?: boolean | Profile$UserArgs<ExtArgs>
+    _count?: boolean | ProfileCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ProfileIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ProfileIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $ProfilePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Profile"
+    objects: {
+      host: Prisma.$SubjectPayload<ExtArgs>[]
+      join: Prisma.$SubjectPayload<ExtArgs>[]
+      attendances: Prisma.$AttendancePayload<ExtArgs>[]
+      User: Prisma.$UserPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      sid: string
+      email: string
+      name: string
+      dob: Date | null
+      official_class: string
+      faceData: string | null
+    }, ExtArgs["result"]["profile"]>
+    composites: {}
+  }
+
+  type ProfileGetPayload<S extends boolean | null | undefined | ProfileDefaultArgs> = $Result.GetResult<Prisma.$ProfilePayload, S>
+
+  type ProfileCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProfileFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProfileCountAggregateInputType | true
+    }
+
+  export interface ProfileDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Profile'], meta: { name: 'Profile' } }
+    /**
+     * Find zero or one Profile that matches the filter.
+     * @param {ProfileFindUniqueArgs} args - Arguments to find a Profile
+     * @example
+     * // Get one Profile
+     * const profile = await prisma.profile.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProfileFindUniqueArgs>(args: SelectSubset<T, ProfileFindUniqueArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Profile that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProfileFindUniqueOrThrowArgs} args - Arguments to find a Profile
+     * @example
+     * // Get one Profile
+     * const profile = await prisma.profile.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProfileFindUniqueOrThrowArgs>(args: SelectSubset<T, ProfileFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Profile that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileFindFirstArgs} args - Arguments to find a Profile
+     * @example
+     * // Get one Profile
+     * const profile = await prisma.profile.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProfileFindFirstArgs>(args?: SelectSubset<T, ProfileFindFirstArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Profile that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileFindFirstOrThrowArgs} args - Arguments to find a Profile
+     * @example
+     * // Get one Profile
+     * const profile = await prisma.profile.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProfileFindFirstOrThrowArgs>(args?: SelectSubset<T, ProfileFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Profiles that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Profiles
+     * const profiles = await prisma.profile.findMany()
+     * 
+     * // Get first 10 Profiles
+     * const profiles = await prisma.profile.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const profileWithIdOnly = await prisma.profile.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProfileFindManyArgs>(args?: SelectSubset<T, ProfileFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Profile.
+     * @param {ProfileCreateArgs} args - Arguments to create a Profile.
+     * @example
+     * // Create one Profile
+     * const Profile = await prisma.profile.create({
+     *   data: {
+     *     // ... data to create a Profile
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProfileCreateArgs>(args: SelectSubset<T, ProfileCreateArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Profiles.
+     * @param {ProfileCreateManyArgs} args - Arguments to create many Profiles.
+     * @example
+     * // Create many Profiles
+     * const profile = await prisma.profile.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProfileCreateManyArgs>(args?: SelectSubset<T, ProfileCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Profiles and returns the data saved in the database.
+     * @param {ProfileCreateManyAndReturnArgs} args - Arguments to create many Profiles.
+     * @example
+     * // Create many Profiles
+     * const profile = await prisma.profile.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Profiles and only return the `id`
+     * const profileWithIdOnly = await prisma.profile.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProfileCreateManyAndReturnArgs>(args?: SelectSubset<T, ProfileCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Profile.
+     * @param {ProfileDeleteArgs} args - Arguments to delete one Profile.
+     * @example
+     * // Delete one Profile
+     * const Profile = await prisma.profile.delete({
+     *   where: {
+     *     // ... filter to delete one Profile
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProfileDeleteArgs>(args: SelectSubset<T, ProfileDeleteArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Profile.
+     * @param {ProfileUpdateArgs} args - Arguments to update one Profile.
+     * @example
+     * // Update one Profile
+     * const profile = await prisma.profile.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProfileUpdateArgs>(args: SelectSubset<T, ProfileUpdateArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Profiles.
+     * @param {ProfileDeleteManyArgs} args - Arguments to filter Profiles to delete.
+     * @example
+     * // Delete a few Profiles
+     * const { count } = await prisma.profile.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProfileDeleteManyArgs>(args?: SelectSubset<T, ProfileDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Profiles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Profiles
+     * const profile = await prisma.profile.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProfileUpdateManyArgs>(args: SelectSubset<T, ProfileUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Profiles and returns the data updated in the database.
+     * @param {ProfileUpdateManyAndReturnArgs} args - Arguments to update many Profiles.
+     * @example
+     * // Update many Profiles
+     * const profile = await prisma.profile.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Profiles and only return the `id`
+     * const profileWithIdOnly = await prisma.profile.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProfileUpdateManyAndReturnArgs>(args: SelectSubset<T, ProfileUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Profile.
+     * @param {ProfileUpsertArgs} args - Arguments to update or create a Profile.
+     * @example
+     * // Update or create a Profile
+     * const profile = await prisma.profile.upsert({
+     *   create: {
+     *     // ... data to create a Profile
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Profile we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProfileUpsertArgs>(args: SelectSubset<T, ProfileUpsertArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Profiles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileCountArgs} args - Arguments to filter Profiles to count.
+     * @example
+     * // Count the number of Profiles
+     * const count = await prisma.profile.count({
+     *   where: {
+     *     // ... the filter for the Profiles we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProfileCountArgs>(
+      args?: Subset<T, ProfileCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProfileCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Profile.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProfileAggregateArgs>(args: Subset<T, ProfileAggregateArgs>): Prisma.PrismaPromise<GetProfileAggregateType<T>>
+
+    /**
+     * Group by Profile.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProfileGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProfileGroupByArgs['orderBy'] }
+        : { orderBy?: ProfileGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProfileGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProfileGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Profile model
+   */
+  readonly fields: ProfileFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Profile.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProfileClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    host<T extends Profile$hostArgs<ExtArgs> = {}>(args?: Subset<T, Profile$hostArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    join<T extends Profile$joinArgs<ExtArgs> = {}>(args?: Subset<T, Profile$joinArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    attendances<T extends Profile$attendancesArgs<ExtArgs> = {}>(args?: Subset<T, Profile$attendancesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AttendancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    User<T extends Profile$UserArgs<ExtArgs> = {}>(args?: Subset<T, Profile$UserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Profile model
+   */
+  interface ProfileFieldRefs {
+    readonly id: FieldRef<"Profile", 'String'>
+    readonly sid: FieldRef<"Profile", 'String'>
+    readonly email: FieldRef<"Profile", 'String'>
+    readonly name: FieldRef<"Profile", 'String'>
+    readonly dob: FieldRef<"Profile", 'DateTime'>
+    readonly official_class: FieldRef<"Profile", 'String'>
+    readonly faceData: FieldRef<"Profile", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Profile findUnique
+   */
+  export type ProfileFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which Profile to fetch.
+     */
+    where: ProfileWhereUniqueInput
+  }
+
+  /**
+   * Profile findUniqueOrThrow
+   */
+  export type ProfileFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which Profile to fetch.
+     */
+    where: ProfileWhereUniqueInput
+  }
+
+  /**
+   * Profile findFirst
+   */
+  export type ProfileFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which Profile to fetch.
+     */
+    where?: ProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Profiles to fetch.
+     */
+    orderBy?: ProfileOrderByWithRelationInput | ProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Profiles.
+     */
+    cursor?: ProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Profiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Profiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Profiles.
+     */
+    distinct?: ProfileScalarFieldEnum | ProfileScalarFieldEnum[]
+  }
+
+  /**
+   * Profile findFirstOrThrow
+   */
+  export type ProfileFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which Profile to fetch.
+     */
+    where?: ProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Profiles to fetch.
+     */
+    orderBy?: ProfileOrderByWithRelationInput | ProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Profiles.
+     */
+    cursor?: ProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Profiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Profiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Profiles.
+     */
+    distinct?: ProfileScalarFieldEnum | ProfileScalarFieldEnum[]
+  }
+
+  /**
+   * Profile findMany
+   */
+  export type ProfileFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which Profiles to fetch.
+     */
+    where?: ProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Profiles to fetch.
+     */
+    orderBy?: ProfileOrderByWithRelationInput | ProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Profiles.
+     */
+    cursor?: ProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Profiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Profiles.
+     */
+    skip?: number
+    distinct?: ProfileScalarFieldEnum | ProfileScalarFieldEnum[]
+  }
+
+  /**
+   * Profile create
+   */
+  export type ProfileCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Profile.
+     */
+    data: XOR<ProfileCreateInput, ProfileUncheckedCreateInput>
+  }
+
+  /**
+   * Profile createMany
+   */
+  export type ProfileCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Profiles.
+     */
+    data: ProfileCreateManyInput | ProfileCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Profile createManyAndReturn
+   */
+  export type ProfileCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * The data used to create many Profiles.
+     */
+    data: ProfileCreateManyInput | ProfileCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Profile update
+   */
+  export type ProfileUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Profile.
+     */
+    data: XOR<ProfileUpdateInput, ProfileUncheckedUpdateInput>
+    /**
+     * Choose, which Profile to update.
+     */
+    where: ProfileWhereUniqueInput
+  }
+
+  /**
+   * Profile updateMany
+   */
+  export type ProfileUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Profiles.
+     */
+    data: XOR<ProfileUpdateManyMutationInput, ProfileUncheckedUpdateManyInput>
+    /**
+     * Filter which Profiles to update
+     */
+    where?: ProfileWhereInput
+    /**
+     * Limit how many Profiles to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Profile updateManyAndReturn
+   */
+  export type ProfileUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * The data used to update Profiles.
+     */
+    data: XOR<ProfileUpdateManyMutationInput, ProfileUncheckedUpdateManyInput>
+    /**
+     * Filter which Profiles to update
+     */
+    where?: ProfileWhereInput
+    /**
+     * Limit how many Profiles to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Profile upsert
+   */
+  export type ProfileUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Profile to update in case it exists.
+     */
+    where: ProfileWhereUniqueInput
+    /**
+     * In case the Profile found by the `where` argument doesn't exist, create a new Profile with this data.
+     */
+    create: XOR<ProfileCreateInput, ProfileUncheckedCreateInput>
+    /**
+     * In case the Profile was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProfileUpdateInput, ProfileUncheckedUpdateInput>
+  }
+
+  /**
+   * Profile delete
+   */
+  export type ProfileDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * Filter which Profile to delete.
+     */
+    where: ProfileWhereUniqueInput
+  }
+
+  /**
+   * Profile deleteMany
+   */
+  export type ProfileDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Profiles to delete
+     */
+    where?: ProfileWhereInput
+    /**
+     * Limit how many Profiles to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Profile.host
+   */
+  export type Profile$hostArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Subject
      */
@@ -2610,9 +3991,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.join
+   * Profile.join
    */
-  export type User$joinArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Profile$joinArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Subject
      */
@@ -2634,9 +4015,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.attendances
+   * Profile.attendances
    */
-  export type User$attendancesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Profile$attendancesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Attendance
      */
@@ -2658,9 +4039,9 @@ export namespace Prisma {
   }
 
   /**
-   * User without action
+   * Profile.User
    */
-  export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Profile$UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the User
      */
@@ -2673,6 +4054,2173 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * Profile without action
+   */
+  export type ProfileDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Session
+   */
+
+  export type AggregateSession = {
+    _count: SessionCountAggregateOutputType | null
+    _min: SessionMinAggregateOutputType | null
+    _max: SessionMaxAggregateOutputType | null
+  }
+
+  export type SessionMinAggregateOutputType = {
+    id: string | null
+    device_id: string | null
+    device_name: string | null
+    user_id: string | null
+    login_method: string | null
+    saved_device: boolean | null
+    created_at: Date | null
+  }
+
+  export type SessionMaxAggregateOutputType = {
+    id: string | null
+    device_id: string | null
+    device_name: string | null
+    user_id: string | null
+    login_method: string | null
+    saved_device: boolean | null
+    created_at: Date | null
+  }
+
+  export type SessionCountAggregateOutputType = {
+    id: number
+    device_id: number
+    device_name: number
+    user_id: number
+    login_method: number
+    saved_device: number
+    created_at: number
+    _all: number
+  }
+
+
+  export type SessionMinAggregateInputType = {
+    id?: true
+    device_id?: true
+    device_name?: true
+    user_id?: true
+    login_method?: true
+    saved_device?: true
+    created_at?: true
+  }
+
+  export type SessionMaxAggregateInputType = {
+    id?: true
+    device_id?: true
+    device_name?: true
+    user_id?: true
+    login_method?: true
+    saved_device?: true
+    created_at?: true
+  }
+
+  export type SessionCountAggregateInputType = {
+    id?: true
+    device_id?: true
+    device_name?: true
+    user_id?: true
+    login_method?: true
+    saved_device?: true
+    created_at?: true
+    _all?: true
+  }
+
+  export type SessionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Session to aggregate.
+     */
+    where?: SessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sessions to fetch.
+     */
+    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Sessions
+    **/
+    _count?: true | SessionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SessionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SessionMaxAggregateInputType
+  }
+
+  export type GetSessionAggregateType<T extends SessionAggregateArgs> = {
+        [P in keyof T & keyof AggregateSession]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSession[P]>
+      : GetScalarType<T[P], AggregateSession[P]>
+  }
+
+
+
+
+  export type SessionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SessionWhereInput
+    orderBy?: SessionOrderByWithAggregationInput | SessionOrderByWithAggregationInput[]
+    by: SessionScalarFieldEnum[] | SessionScalarFieldEnum
+    having?: SessionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SessionCountAggregateInputType | true
+    _min?: SessionMinAggregateInputType
+    _max?: SessionMaxAggregateInputType
+  }
+
+  export type SessionGroupByOutputType = {
+    id: string
+    device_id: string
+    device_name: string
+    user_id: string | null
+    login_method: string
+    saved_device: boolean
+    created_at: Date
+    _count: SessionCountAggregateOutputType | null
+    _min: SessionMinAggregateOutputType | null
+    _max: SessionMaxAggregateOutputType | null
+  }
+
+  type GetSessionGroupByPayload<T extends SessionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SessionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SessionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SessionGroupByOutputType[P]>
+            : GetScalarType<T[P], SessionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SessionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    device_id?: boolean
+    device_name?: boolean
+    user_id?: boolean
+    login_method?: boolean
+    saved_device?: boolean
+    created_at?: boolean
+    user?: boolean | Session$userArgs<ExtArgs>
+  }, ExtArgs["result"]["session"]>
+
+  export type SessionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    device_id?: boolean
+    device_name?: boolean
+    user_id?: boolean
+    login_method?: boolean
+    saved_device?: boolean
+    created_at?: boolean
+    user?: boolean | Session$userArgs<ExtArgs>
+  }, ExtArgs["result"]["session"]>
+
+  export type SessionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    device_id?: boolean
+    device_name?: boolean
+    user_id?: boolean
+    login_method?: boolean
+    saved_device?: boolean
+    created_at?: boolean
+    user?: boolean | Session$userArgs<ExtArgs>
+  }, ExtArgs["result"]["session"]>
+
+  export type SessionSelectScalar = {
+    id?: boolean
+    device_id?: boolean
+    device_name?: boolean
+    user_id?: boolean
+    login_method?: boolean
+    saved_device?: boolean
+    created_at?: boolean
+  }
+
+  export type SessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "device_id" | "device_name" | "user_id" | "login_method" | "saved_device" | "created_at", ExtArgs["result"]["session"]>
+  export type SessionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | Session$userArgs<ExtArgs>
+  }
+  export type SessionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | Session$userArgs<ExtArgs>
+  }
+  export type SessionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | Session$userArgs<ExtArgs>
+  }
+
+  export type $SessionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Session"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      device_id: string
+      device_name: string
+      user_id: string | null
+      login_method: string
+      saved_device: boolean
+      created_at: Date
+    }, ExtArgs["result"]["session"]>
+    composites: {}
+  }
+
+  type SessionGetPayload<S extends boolean | null | undefined | SessionDefaultArgs> = $Result.GetResult<Prisma.$SessionPayload, S>
+
+  type SessionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SessionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SessionCountAggregateInputType | true
+    }
+
+  export interface SessionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Session'], meta: { name: 'Session' } }
+    /**
+     * Find zero or one Session that matches the filter.
+     * @param {SessionFindUniqueArgs} args - Arguments to find a Session
+     * @example
+     * // Get one Session
+     * const session = await prisma.session.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SessionFindUniqueArgs>(args: SelectSubset<T, SessionFindUniqueArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Session that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SessionFindUniqueOrThrowArgs} args - Arguments to find a Session
+     * @example
+     * // Get one Session
+     * const session = await prisma.session.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SessionFindUniqueOrThrowArgs>(args: SelectSubset<T, SessionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Session that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SessionFindFirstArgs} args - Arguments to find a Session
+     * @example
+     * // Get one Session
+     * const session = await prisma.session.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SessionFindFirstArgs>(args?: SelectSubset<T, SessionFindFirstArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Session that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SessionFindFirstOrThrowArgs} args - Arguments to find a Session
+     * @example
+     * // Get one Session
+     * const session = await prisma.session.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SessionFindFirstOrThrowArgs>(args?: SelectSubset<T, SessionFindFirstOrThrowArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Sessions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SessionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Sessions
+     * const sessions = await prisma.session.findMany()
+     * 
+     * // Get first 10 Sessions
+     * const sessions = await prisma.session.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const sessionWithIdOnly = await prisma.session.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SessionFindManyArgs>(args?: SelectSubset<T, SessionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Session.
+     * @param {SessionCreateArgs} args - Arguments to create a Session.
+     * @example
+     * // Create one Session
+     * const Session = await prisma.session.create({
+     *   data: {
+     *     // ... data to create a Session
+     *   }
+     * })
+     * 
+     */
+    create<T extends SessionCreateArgs>(args: SelectSubset<T, SessionCreateArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Sessions.
+     * @param {SessionCreateManyArgs} args - Arguments to create many Sessions.
+     * @example
+     * // Create many Sessions
+     * const session = await prisma.session.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SessionCreateManyArgs>(args?: SelectSubset<T, SessionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Sessions and returns the data saved in the database.
+     * @param {SessionCreateManyAndReturnArgs} args - Arguments to create many Sessions.
+     * @example
+     * // Create many Sessions
+     * const session = await prisma.session.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Sessions and only return the `id`
+     * const sessionWithIdOnly = await prisma.session.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SessionCreateManyAndReturnArgs>(args?: SelectSubset<T, SessionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Session.
+     * @param {SessionDeleteArgs} args - Arguments to delete one Session.
+     * @example
+     * // Delete one Session
+     * const Session = await prisma.session.delete({
+     *   where: {
+     *     // ... filter to delete one Session
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SessionDeleteArgs>(args: SelectSubset<T, SessionDeleteArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Session.
+     * @param {SessionUpdateArgs} args - Arguments to update one Session.
+     * @example
+     * // Update one Session
+     * const session = await prisma.session.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SessionUpdateArgs>(args: SelectSubset<T, SessionUpdateArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Sessions.
+     * @param {SessionDeleteManyArgs} args - Arguments to filter Sessions to delete.
+     * @example
+     * // Delete a few Sessions
+     * const { count } = await prisma.session.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SessionDeleteManyArgs>(args?: SelectSubset<T, SessionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Sessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SessionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Sessions
+     * const session = await prisma.session.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SessionUpdateManyArgs>(args: SelectSubset<T, SessionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Sessions and returns the data updated in the database.
+     * @param {SessionUpdateManyAndReturnArgs} args - Arguments to update many Sessions.
+     * @example
+     * // Update many Sessions
+     * const session = await prisma.session.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Sessions and only return the `id`
+     * const sessionWithIdOnly = await prisma.session.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SessionUpdateManyAndReturnArgs>(args: SelectSubset<T, SessionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Session.
+     * @param {SessionUpsertArgs} args - Arguments to update or create a Session.
+     * @example
+     * // Update or create a Session
+     * const session = await prisma.session.upsert({
+     *   create: {
+     *     // ... data to create a Session
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Session we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SessionUpsertArgs>(args: SelectSubset<T, SessionUpsertArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Sessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SessionCountArgs} args - Arguments to filter Sessions to count.
+     * @example
+     * // Count the number of Sessions
+     * const count = await prisma.session.count({
+     *   where: {
+     *     // ... the filter for the Sessions we want to count
+     *   }
+     * })
+    **/
+    count<T extends SessionCountArgs>(
+      args?: Subset<T, SessionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SessionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Session.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SessionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SessionAggregateArgs>(args: Subset<T, SessionAggregateArgs>): Prisma.PrismaPromise<GetSessionAggregateType<T>>
+
+    /**
+     * Group by Session.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SessionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SessionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SessionGroupByArgs['orderBy'] }
+        : { orderBy?: SessionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SessionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSessionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Session model
+   */
+  readonly fields: SessionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Session.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SessionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends Session$userArgs<ExtArgs> = {}>(args?: Subset<T, Session$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Session model
+   */
+  interface SessionFieldRefs {
+    readonly id: FieldRef<"Session", 'String'>
+    readonly device_id: FieldRef<"Session", 'String'>
+    readonly device_name: FieldRef<"Session", 'String'>
+    readonly user_id: FieldRef<"Session", 'String'>
+    readonly login_method: FieldRef<"Session", 'String'>
+    readonly saved_device: FieldRef<"Session", 'Boolean'>
+    readonly created_at: FieldRef<"Session", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Session findUnique
+   */
+  export type SessionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * Filter, which Session to fetch.
+     */
+    where: SessionWhereUniqueInput
+  }
+
+  /**
+   * Session findUniqueOrThrow
+   */
+  export type SessionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * Filter, which Session to fetch.
+     */
+    where: SessionWhereUniqueInput
+  }
+
+  /**
+   * Session findFirst
+   */
+  export type SessionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * Filter, which Session to fetch.
+     */
+    where?: SessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sessions to fetch.
+     */
+    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Sessions.
+     */
+    cursor?: SessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Sessions.
+     */
+    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
+  }
+
+  /**
+   * Session findFirstOrThrow
+   */
+  export type SessionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * Filter, which Session to fetch.
+     */
+    where?: SessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sessions to fetch.
+     */
+    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Sessions.
+     */
+    cursor?: SessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Sessions.
+     */
+    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
+  }
+
+  /**
+   * Session findMany
+   */
+  export type SessionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * Filter, which Sessions to fetch.
+     */
+    where?: SessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sessions to fetch.
+     */
+    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Sessions.
+     */
+    cursor?: SessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sessions.
+     */
+    skip?: number
+    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
+  }
+
+  /**
+   * Session create
+   */
+  export type SessionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Session.
+     */
+    data: XOR<SessionCreateInput, SessionUncheckedCreateInput>
+  }
+
+  /**
+   * Session createMany
+   */
+  export type SessionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Sessions.
+     */
+    data: SessionCreateManyInput | SessionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Session createManyAndReturn
+   */
+  export type SessionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * The data used to create many Sessions.
+     */
+    data: SessionCreateManyInput | SessionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Session update
+   */
+  export type SessionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Session.
+     */
+    data: XOR<SessionUpdateInput, SessionUncheckedUpdateInput>
+    /**
+     * Choose, which Session to update.
+     */
+    where: SessionWhereUniqueInput
+  }
+
+  /**
+   * Session updateMany
+   */
+  export type SessionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Sessions.
+     */
+    data: XOR<SessionUpdateManyMutationInput, SessionUncheckedUpdateManyInput>
+    /**
+     * Filter which Sessions to update
+     */
+    where?: SessionWhereInput
+    /**
+     * Limit how many Sessions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Session updateManyAndReturn
+   */
+  export type SessionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * The data used to update Sessions.
+     */
+    data: XOR<SessionUpdateManyMutationInput, SessionUncheckedUpdateManyInput>
+    /**
+     * Filter which Sessions to update
+     */
+    where?: SessionWhereInput
+    /**
+     * Limit how many Sessions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Session upsert
+   */
+  export type SessionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Session to update in case it exists.
+     */
+    where: SessionWhereUniqueInput
+    /**
+     * In case the Session found by the `where` argument doesn't exist, create a new Session with this data.
+     */
+    create: XOR<SessionCreateInput, SessionUncheckedCreateInput>
+    /**
+     * In case the Session was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SessionUpdateInput, SessionUncheckedUpdateInput>
+  }
+
+  /**
+   * Session delete
+   */
+  export type SessionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * Filter which Session to delete.
+     */
+    where: SessionWhereUniqueInput
+  }
+
+  /**
+   * Session deleteMany
+   */
+  export type SessionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Sessions to delete
+     */
+    where?: SessionWhereInput
+    /**
+     * Limit how many Sessions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Session.user
+   */
+  export type Session$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * Session without action
+   */
+  export type SessionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model NFC
+   */
+
+  export type AggregateNFC = {
+    _count: NFCCountAggregateOutputType | null
+    _min: NFCMinAggregateOutputType | null
+    _max: NFCMaxAggregateOutputType | null
+  }
+
+  export type NFCMinAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    active: boolean | null
+    status: string | null
+  }
+
+  export type NFCMaxAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    active: boolean | null
+    status: string | null
+  }
+
+  export type NFCCountAggregateOutputType = {
+    id: number
+    user_id: number
+    active: number
+    status: number
+    _all: number
+  }
+
+
+  export type NFCMinAggregateInputType = {
+    id?: true
+    user_id?: true
+    active?: true
+    status?: true
+  }
+
+  export type NFCMaxAggregateInputType = {
+    id?: true
+    user_id?: true
+    active?: true
+    status?: true
+  }
+
+  export type NFCCountAggregateInputType = {
+    id?: true
+    user_id?: true
+    active?: true
+    status?: true
+    _all?: true
+  }
+
+  export type NFCAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NFC to aggregate.
+     */
+    where?: NFCWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NFCS to fetch.
+     */
+    orderBy?: NFCOrderByWithRelationInput | NFCOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NFCWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NFCS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NFCS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NFCS
+    **/
+    _count?: true | NFCCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NFCMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NFCMaxAggregateInputType
+  }
+
+  export type GetNFCAggregateType<T extends NFCAggregateArgs> = {
+        [P in keyof T & keyof AggregateNFC]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNFC[P]>
+      : GetScalarType<T[P], AggregateNFC[P]>
+  }
+
+
+
+
+  export type NFCGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NFCWhereInput
+    orderBy?: NFCOrderByWithAggregationInput | NFCOrderByWithAggregationInput[]
+    by: NFCScalarFieldEnum[] | NFCScalarFieldEnum
+    having?: NFCScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NFCCountAggregateInputType | true
+    _min?: NFCMinAggregateInputType
+    _max?: NFCMaxAggregateInputType
+  }
+
+  export type NFCGroupByOutputType = {
+    id: string
+    user_id: string
+    active: boolean
+    status: string
+    _count: NFCCountAggregateOutputType | null
+    _min: NFCMinAggregateOutputType | null
+    _max: NFCMaxAggregateOutputType | null
+  }
+
+  type GetNFCGroupByPayload<T extends NFCGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NFCGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NFCGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NFCGroupByOutputType[P]>
+            : GetScalarType<T[P], NFCGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NFCSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    active?: boolean
+    status?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["nFC"]>
+
+  export type NFCSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    active?: boolean
+    status?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["nFC"]>
+
+  export type NFCSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    active?: boolean
+    status?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["nFC"]>
+
+  export type NFCSelectScalar = {
+    id?: boolean
+    user_id?: boolean
+    active?: boolean
+    status?: boolean
+  }
+
+  export type NFCOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "active" | "status", ExtArgs["result"]["nFC"]>
+  export type NFCInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type NFCIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type NFCIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $NFCPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NFC"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      user_id: string
+      active: boolean
+      status: string
+    }, ExtArgs["result"]["nFC"]>
+    composites: {}
+  }
+
+  type NFCGetPayload<S extends boolean | null | undefined | NFCDefaultArgs> = $Result.GetResult<Prisma.$NFCPayload, S>
+
+  type NFCCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<NFCFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: NFCCountAggregateInputType | true
+    }
+
+  export interface NFCDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NFC'], meta: { name: 'NFC' } }
+    /**
+     * Find zero or one NFC that matches the filter.
+     * @param {NFCFindUniqueArgs} args - Arguments to find a NFC
+     * @example
+     * // Get one NFC
+     * const nFC = await prisma.nFC.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NFCFindUniqueArgs>(args: SelectSubset<T, NFCFindUniqueArgs<ExtArgs>>): Prisma__NFCClient<$Result.GetResult<Prisma.$NFCPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one NFC that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {NFCFindUniqueOrThrowArgs} args - Arguments to find a NFC
+     * @example
+     * // Get one NFC
+     * const nFC = await prisma.nFC.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NFCFindUniqueOrThrowArgs>(args: SelectSubset<T, NFCFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NFCClient<$Result.GetResult<Prisma.$NFCPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first NFC that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NFCFindFirstArgs} args - Arguments to find a NFC
+     * @example
+     * // Get one NFC
+     * const nFC = await prisma.nFC.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NFCFindFirstArgs>(args?: SelectSubset<T, NFCFindFirstArgs<ExtArgs>>): Prisma__NFCClient<$Result.GetResult<Prisma.$NFCPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first NFC that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NFCFindFirstOrThrowArgs} args - Arguments to find a NFC
+     * @example
+     * // Get one NFC
+     * const nFC = await prisma.nFC.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NFCFindFirstOrThrowArgs>(args?: SelectSubset<T, NFCFindFirstOrThrowArgs<ExtArgs>>): Prisma__NFCClient<$Result.GetResult<Prisma.$NFCPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more NFCS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NFCFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NFCS
+     * const nFCS = await prisma.nFC.findMany()
+     * 
+     * // Get first 10 NFCS
+     * const nFCS = await prisma.nFC.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const nFCWithIdOnly = await prisma.nFC.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NFCFindManyArgs>(args?: SelectSubset<T, NFCFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NFCPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a NFC.
+     * @param {NFCCreateArgs} args - Arguments to create a NFC.
+     * @example
+     * // Create one NFC
+     * const NFC = await prisma.nFC.create({
+     *   data: {
+     *     // ... data to create a NFC
+     *   }
+     * })
+     * 
+     */
+    create<T extends NFCCreateArgs>(args: SelectSubset<T, NFCCreateArgs<ExtArgs>>): Prisma__NFCClient<$Result.GetResult<Prisma.$NFCPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many NFCS.
+     * @param {NFCCreateManyArgs} args - Arguments to create many NFCS.
+     * @example
+     * // Create many NFCS
+     * const nFC = await prisma.nFC.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NFCCreateManyArgs>(args?: SelectSubset<T, NFCCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many NFCS and returns the data saved in the database.
+     * @param {NFCCreateManyAndReturnArgs} args - Arguments to create many NFCS.
+     * @example
+     * // Create many NFCS
+     * const nFC = await prisma.nFC.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many NFCS and only return the `id`
+     * const nFCWithIdOnly = await prisma.nFC.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NFCCreateManyAndReturnArgs>(args?: SelectSubset<T, NFCCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NFCPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a NFC.
+     * @param {NFCDeleteArgs} args - Arguments to delete one NFC.
+     * @example
+     * // Delete one NFC
+     * const NFC = await prisma.nFC.delete({
+     *   where: {
+     *     // ... filter to delete one NFC
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NFCDeleteArgs>(args: SelectSubset<T, NFCDeleteArgs<ExtArgs>>): Prisma__NFCClient<$Result.GetResult<Prisma.$NFCPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one NFC.
+     * @param {NFCUpdateArgs} args - Arguments to update one NFC.
+     * @example
+     * // Update one NFC
+     * const nFC = await prisma.nFC.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NFCUpdateArgs>(args: SelectSubset<T, NFCUpdateArgs<ExtArgs>>): Prisma__NFCClient<$Result.GetResult<Prisma.$NFCPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more NFCS.
+     * @param {NFCDeleteManyArgs} args - Arguments to filter NFCS to delete.
+     * @example
+     * // Delete a few NFCS
+     * const { count } = await prisma.nFC.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NFCDeleteManyArgs>(args?: SelectSubset<T, NFCDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NFCS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NFCUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NFCS
+     * const nFC = await prisma.nFC.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NFCUpdateManyArgs>(args: SelectSubset<T, NFCUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NFCS and returns the data updated in the database.
+     * @param {NFCUpdateManyAndReturnArgs} args - Arguments to update many NFCS.
+     * @example
+     * // Update many NFCS
+     * const nFC = await prisma.nFC.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more NFCS and only return the `id`
+     * const nFCWithIdOnly = await prisma.nFC.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends NFCUpdateManyAndReturnArgs>(args: SelectSubset<T, NFCUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NFCPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one NFC.
+     * @param {NFCUpsertArgs} args - Arguments to update or create a NFC.
+     * @example
+     * // Update or create a NFC
+     * const nFC = await prisma.nFC.upsert({
+     *   create: {
+     *     // ... data to create a NFC
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NFC we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NFCUpsertArgs>(args: SelectSubset<T, NFCUpsertArgs<ExtArgs>>): Prisma__NFCClient<$Result.GetResult<Prisma.$NFCPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of NFCS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NFCCountArgs} args - Arguments to filter NFCS to count.
+     * @example
+     * // Count the number of NFCS
+     * const count = await prisma.nFC.count({
+     *   where: {
+     *     // ... the filter for the NFCS we want to count
+     *   }
+     * })
+    **/
+    count<T extends NFCCountArgs>(
+      args?: Subset<T, NFCCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NFCCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NFC.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NFCAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NFCAggregateArgs>(args: Subset<T, NFCAggregateArgs>): Prisma.PrismaPromise<GetNFCAggregateType<T>>
+
+    /**
+     * Group by NFC.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NFCGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NFCGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NFCGroupByArgs['orderBy'] }
+        : { orderBy?: NFCGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NFCGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNFCGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NFC model
+   */
+  readonly fields: NFCFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NFC.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NFCClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NFC model
+   */
+  interface NFCFieldRefs {
+    readonly id: FieldRef<"NFC", 'String'>
+    readonly user_id: FieldRef<"NFC", 'String'>
+    readonly active: FieldRef<"NFC", 'Boolean'>
+    readonly status: FieldRef<"NFC", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NFC findUnique
+   */
+  export type NFCFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NFC
+     */
+    select?: NFCSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NFC
+     */
+    omit?: NFCOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NFCInclude<ExtArgs> | null
+    /**
+     * Filter, which NFC to fetch.
+     */
+    where: NFCWhereUniqueInput
+  }
+
+  /**
+   * NFC findUniqueOrThrow
+   */
+  export type NFCFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NFC
+     */
+    select?: NFCSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NFC
+     */
+    omit?: NFCOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NFCInclude<ExtArgs> | null
+    /**
+     * Filter, which NFC to fetch.
+     */
+    where: NFCWhereUniqueInput
+  }
+
+  /**
+   * NFC findFirst
+   */
+  export type NFCFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NFC
+     */
+    select?: NFCSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NFC
+     */
+    omit?: NFCOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NFCInclude<ExtArgs> | null
+    /**
+     * Filter, which NFC to fetch.
+     */
+    where?: NFCWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NFCS to fetch.
+     */
+    orderBy?: NFCOrderByWithRelationInput | NFCOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NFCS.
+     */
+    cursor?: NFCWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NFCS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NFCS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NFCS.
+     */
+    distinct?: NFCScalarFieldEnum | NFCScalarFieldEnum[]
+  }
+
+  /**
+   * NFC findFirstOrThrow
+   */
+  export type NFCFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NFC
+     */
+    select?: NFCSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NFC
+     */
+    omit?: NFCOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NFCInclude<ExtArgs> | null
+    /**
+     * Filter, which NFC to fetch.
+     */
+    where?: NFCWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NFCS to fetch.
+     */
+    orderBy?: NFCOrderByWithRelationInput | NFCOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NFCS.
+     */
+    cursor?: NFCWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NFCS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NFCS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NFCS.
+     */
+    distinct?: NFCScalarFieldEnum | NFCScalarFieldEnum[]
+  }
+
+  /**
+   * NFC findMany
+   */
+  export type NFCFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NFC
+     */
+    select?: NFCSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NFC
+     */
+    omit?: NFCOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NFCInclude<ExtArgs> | null
+    /**
+     * Filter, which NFCS to fetch.
+     */
+    where?: NFCWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NFCS to fetch.
+     */
+    orderBy?: NFCOrderByWithRelationInput | NFCOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NFCS.
+     */
+    cursor?: NFCWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NFCS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NFCS.
+     */
+    skip?: number
+    distinct?: NFCScalarFieldEnum | NFCScalarFieldEnum[]
+  }
+
+  /**
+   * NFC create
+   */
+  export type NFCCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NFC
+     */
+    select?: NFCSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NFC
+     */
+    omit?: NFCOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NFCInclude<ExtArgs> | null
+    /**
+     * The data needed to create a NFC.
+     */
+    data: XOR<NFCCreateInput, NFCUncheckedCreateInput>
+  }
+
+  /**
+   * NFC createMany
+   */
+  export type NFCCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NFCS.
+     */
+    data: NFCCreateManyInput | NFCCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NFC createManyAndReturn
+   */
+  export type NFCCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NFC
+     */
+    select?: NFCSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the NFC
+     */
+    omit?: NFCOmit<ExtArgs> | null
+    /**
+     * The data used to create many NFCS.
+     */
+    data: NFCCreateManyInput | NFCCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NFCIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * NFC update
+   */
+  export type NFCUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NFC
+     */
+    select?: NFCSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NFC
+     */
+    omit?: NFCOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NFCInclude<ExtArgs> | null
+    /**
+     * The data needed to update a NFC.
+     */
+    data: XOR<NFCUpdateInput, NFCUncheckedUpdateInput>
+    /**
+     * Choose, which NFC to update.
+     */
+    where: NFCWhereUniqueInput
+  }
+
+  /**
+   * NFC updateMany
+   */
+  export type NFCUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NFCS.
+     */
+    data: XOR<NFCUpdateManyMutationInput, NFCUncheckedUpdateManyInput>
+    /**
+     * Filter which NFCS to update
+     */
+    where?: NFCWhereInput
+    /**
+     * Limit how many NFCS to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * NFC updateManyAndReturn
+   */
+  export type NFCUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NFC
+     */
+    select?: NFCSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the NFC
+     */
+    omit?: NFCOmit<ExtArgs> | null
+    /**
+     * The data used to update NFCS.
+     */
+    data: XOR<NFCUpdateManyMutationInput, NFCUncheckedUpdateManyInput>
+    /**
+     * Filter which NFCS to update
+     */
+    where?: NFCWhereInput
+    /**
+     * Limit how many NFCS to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NFCIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * NFC upsert
+   */
+  export type NFCUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NFC
+     */
+    select?: NFCSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NFC
+     */
+    omit?: NFCOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NFCInclude<ExtArgs> | null
+    /**
+     * The filter to search for the NFC to update in case it exists.
+     */
+    where: NFCWhereUniqueInput
+    /**
+     * In case the NFC found by the `where` argument doesn't exist, create a new NFC with this data.
+     */
+    create: XOR<NFCCreateInput, NFCUncheckedCreateInput>
+    /**
+     * In case the NFC was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NFCUpdateInput, NFCUncheckedUpdateInput>
+  }
+
+  /**
+   * NFC delete
+   */
+  export type NFCDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NFC
+     */
+    select?: NFCSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NFC
+     */
+    omit?: NFCOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NFCInclude<ExtArgs> | null
+    /**
+     * Filter which NFC to delete.
+     */
+    where: NFCWhereUniqueInput
+  }
+
+  /**
+   * NFC deleteMany
+   */
+  export type NFCDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NFCS to delete
+     */
+    where?: NFCWhereInput
+    /**
+     * Limit how many NFCS to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * NFC without action
+   */
+  export type NFCDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NFC
+     */
+    select?: NFCSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NFC
+     */
+    omit?: NFCOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NFCInclude<ExtArgs> | null
   }
 
 
@@ -2872,7 +6420,7 @@ export namespace Prisma {
     endTime?: boolean
     address?: boolean
     teacherId?: boolean
-    teacher?: boolean | UserDefaultArgs<ExtArgs>
+    teacher?: boolean | ProfileDefaultArgs<ExtArgs>
     students?: boolean | Subject$studentsArgs<ExtArgs>
     session?: boolean | Subject$sessionArgs<ExtArgs>
     sessionCycle?: boolean | Subject$sessionCycleArgs<ExtArgs>
@@ -2889,7 +6437,7 @@ export namespace Prisma {
     endTime?: boolean
     address?: boolean
     teacherId?: boolean
-    teacher?: boolean | UserDefaultArgs<ExtArgs>
+    teacher?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["subject"]>
 
   export type SubjectSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2902,7 +6450,7 @@ export namespace Prisma {
     endTime?: boolean
     address?: boolean
     teacherId?: boolean
-    teacher?: boolean | UserDefaultArgs<ExtArgs>
+    teacher?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["subject"]>
 
   export type SubjectSelectScalar = {
@@ -2919,24 +6467,24 @@ export namespace Prisma {
 
   export type SubjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "code" | "name" | "description" | "openingDay" | "startTime" | "endTime" | "address" | "teacherId", ExtArgs["result"]["subject"]>
   export type SubjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    teacher?: boolean | UserDefaultArgs<ExtArgs>
+    teacher?: boolean | ProfileDefaultArgs<ExtArgs>
     students?: boolean | Subject$studentsArgs<ExtArgs>
     session?: boolean | Subject$sessionArgs<ExtArgs>
     sessionCycle?: boolean | Subject$sessionCycleArgs<ExtArgs>
     _count?: boolean | SubjectCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type SubjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    teacher?: boolean | UserDefaultArgs<ExtArgs>
+    teacher?: boolean | ProfileDefaultArgs<ExtArgs>
   }
   export type SubjectIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    teacher?: boolean | UserDefaultArgs<ExtArgs>
+    teacher?: boolean | ProfileDefaultArgs<ExtArgs>
   }
 
   export type $SubjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Subject"
     objects: {
-      teacher: Prisma.$UserPayload<ExtArgs>
-      students: Prisma.$UserPayload<ExtArgs>[]
+      teacher: Prisma.$ProfilePayload<ExtArgs>
+      students: Prisma.$ProfilePayload<ExtArgs>[]
       session: Prisma.$SessionAttendancePayload<ExtArgs>[]
       sessionCycle: Prisma.$SessionCyclePayload<ExtArgs>[]
     }
@@ -3344,8 +6892,8 @@ export namespace Prisma {
    */
   export interface Prisma__SubjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    teacher<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    students<T extends Subject$studentsArgs<ExtArgs> = {}>(args?: Subset<T, Subject$studentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    teacher<T extends ProfileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfileDefaultArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    students<T extends Subject$studentsArgs<ExtArgs> = {}>(args?: Subset<T, Subject$studentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     session<T extends Subject$sessionArgs<ExtArgs> = {}>(args?: Subset<T, Subject$sessionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionAttendancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sessionCycle<T extends Subject$sessionCycleArgs<ExtArgs> = {}>(args?: Subset<T, Subject$sessionCycleArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionCyclePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -3786,23 +7334,23 @@ export namespace Prisma {
    */
   export type Subject$studentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Profile
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: ProfileSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Profile
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: ProfileOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
-    cursor?: UserWhereUniqueInput
+    include?: ProfileInclude<ExtArgs> | null
+    where?: ProfileWhereInput
+    orderBy?: ProfileOrderByWithRelationInput | ProfileOrderByWithRelationInput[]
+    cursor?: ProfileWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: ProfileScalarFieldEnum | ProfileScalarFieldEnum[]
   }
 
   /**
@@ -6281,7 +9829,7 @@ export namespace Prisma {
     deviceId?: boolean
     attendantId?: boolean
     sessionCycleId?: boolean
-    attendant?: boolean | UserDefaultArgs<ExtArgs>
+    attendant?: boolean | ProfileDefaultArgs<ExtArgs>
     sessionCycle?: boolean | SessionCycleDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["attendance"]>
 
@@ -6292,7 +9840,7 @@ export namespace Prisma {
     deviceId?: boolean
     attendantId?: boolean
     sessionCycleId?: boolean
-    attendant?: boolean | UserDefaultArgs<ExtArgs>
+    attendant?: boolean | ProfileDefaultArgs<ExtArgs>
     sessionCycle?: boolean | SessionCycleDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["attendance"]>
 
@@ -6303,7 +9851,7 @@ export namespace Prisma {
     deviceId?: boolean
     attendantId?: boolean
     sessionCycleId?: boolean
-    attendant?: boolean | UserDefaultArgs<ExtArgs>
+    attendant?: boolean | ProfileDefaultArgs<ExtArgs>
     sessionCycle?: boolean | SessionCycleDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["attendance"]>
 
@@ -6318,22 +9866,22 @@ export namespace Prisma {
 
   export type AttendanceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "time" | "isVerified" | "deviceId" | "attendantId" | "sessionCycleId", ExtArgs["result"]["attendance"]>
   export type AttendanceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    attendant?: boolean | UserDefaultArgs<ExtArgs>
+    attendant?: boolean | ProfileDefaultArgs<ExtArgs>
     sessionCycle?: boolean | SessionCycleDefaultArgs<ExtArgs>
   }
   export type AttendanceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    attendant?: boolean | UserDefaultArgs<ExtArgs>
+    attendant?: boolean | ProfileDefaultArgs<ExtArgs>
     sessionCycle?: boolean | SessionCycleDefaultArgs<ExtArgs>
   }
   export type AttendanceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    attendant?: boolean | UserDefaultArgs<ExtArgs>
+    attendant?: boolean | ProfileDefaultArgs<ExtArgs>
     sessionCycle?: boolean | SessionCycleDefaultArgs<ExtArgs>
   }
 
   export type $AttendancePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Attendance"
     objects: {
-      attendant: Prisma.$UserPayload<ExtArgs>
+      attendant: Prisma.$ProfilePayload<ExtArgs>
       sessionCycle: Prisma.$SessionCyclePayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -6737,7 +10285,7 @@ export namespace Prisma {
    */
   export interface Prisma__AttendanceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    attendant<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    attendant<T extends ProfileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfileDefaultArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     sessionCycle<T extends SessionCycleDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SessionCycleDefaultArgs<ExtArgs>>): Prisma__SessionCycleClient<$Result.GetResult<Prisma.$SessionCyclePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -7208,19 +10756,49 @@ export namespace Prisma {
     sid: 'sid',
     gid: 'gid',
     password: 'password',
-    name: 'name',
-    dob: 'dob',
-    official_class: 'official_class',
+    type: 'type',
     authenticator: 'authenticator',
     biometric_key: 'biometric_key',
-    faceData: 'faceData',
-    bobKey: 'bobKey',
-    createdAt: 'createdAt',
-    updateAt: 'updateAt',
-    type: 'type'
+    profile_id: 'profile_id'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+  export const ProfileScalarFieldEnum: {
+    id: 'id',
+    sid: 'sid',
+    email: 'email',
+    name: 'name',
+    dob: 'dob',
+    official_class: 'official_class',
+    faceData: 'faceData'
+  };
+
+  export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
+
+
+  export const SessionScalarFieldEnum: {
+    id: 'id',
+    device_id: 'device_id',
+    device_name: 'device_name',
+    user_id: 'user_id',
+    login_method: 'login_method',
+    saved_device: 'saved_device',
+    created_at: 'created_at'
+  };
+
+  export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
+
+
+  export const NFCScalarFieldEnum: {
+    id: 'id',
+    user_id: 'user_id',
+    active: 'active',
+    status: 'status'
+  };
+
+  export type NFCScalarFieldEnum = (typeof NFCScalarFieldEnum)[keyof typeof NFCScalarFieldEnum]
 
 
   export const SubjectScalarFieldEnum: {
@@ -7330,16 +10908,9 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'UserType'
+   * Reference to a field of type 'Boolean'
    */
-  export type EnumUserTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserType'>
-    
-
-
-  /**
-   * Reference to a field of type 'UserType[]'
-   */
-  export type ListEnumUserTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserType[]'>
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -7372,13 +10943,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -7403,20 +10967,14 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     sid?: StringFilter<"User"> | string
     gid?: StringFilter<"User"> | string
-    password?: StringFilter<"User"> | string
-    name?: StringFilter<"User"> | string
-    dob?: DateTimeFilter<"User"> | Date | string
-    official_class?: StringFilter<"User"> | string
+    password?: StringNullableFilter<"User"> | string | null
+    type?: StringFilter<"User"> | string
     authenticator?: StringNullableFilter<"User"> | string | null
     biometric_key?: StringNullableFilter<"User"> | string | null
-    faceData?: StringNullableFilter<"User"> | string | null
-    bobKey?: StringNullableFilter<"User"> | string | null
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updateAt?: DateTimeFilter<"User"> | Date | string
-    type?: EnumUserTypeFilter<"User"> | $Enums.UserType
-    host?: SubjectListRelationFilter
-    join?: SubjectListRelationFilter
-    attendances?: AttendanceListRelationFilter
+    profile_id?: StringFilter<"User"> | string
+    sessions?: SessionListRelationFilter
+    nfcs?: NFCListRelationFilter
+    profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
   }
 
   export type UserOrderByWithRelationInput = {
@@ -7424,20 +10982,14 @@ export namespace Prisma {
     email?: SortOrder
     sid?: SortOrder
     gid?: SortOrder
-    password?: SortOrder
-    name?: SortOrder
-    dob?: SortOrder
-    official_class?: SortOrder
+    password?: SortOrderInput | SortOrder
+    type?: SortOrder
     authenticator?: SortOrderInput | SortOrder
     biometric_key?: SortOrderInput | SortOrder
-    faceData?: SortOrderInput | SortOrder
-    bobKey?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updateAt?: SortOrder
-    type?: SortOrder
-    host?: SubjectOrderByRelationAggregateInput
-    join?: SubjectOrderByRelationAggregateInput
-    attendances?: AttendanceOrderByRelationAggregateInput
+    profile_id?: SortOrder
+    sessions?: SessionOrderByRelationAggregateInput
+    nfcs?: NFCOrderByRelationAggregateInput
+    profile?: ProfileOrderByWithRelationInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -7445,41 +10997,29 @@ export namespace Prisma {
     email?: string
     sid?: string
     gid?: string
+    profile_id?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    password?: StringFilter<"User"> | string
-    name?: StringFilter<"User"> | string
-    dob?: DateTimeFilter<"User"> | Date | string
-    official_class?: StringFilter<"User"> | string
+    password?: StringNullableFilter<"User"> | string | null
+    type?: StringFilter<"User"> | string
     authenticator?: StringNullableFilter<"User"> | string | null
     biometric_key?: StringNullableFilter<"User"> | string | null
-    faceData?: StringNullableFilter<"User"> | string | null
-    bobKey?: StringNullableFilter<"User"> | string | null
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updateAt?: DateTimeFilter<"User"> | Date | string
-    type?: EnumUserTypeFilter<"User"> | $Enums.UserType
-    host?: SubjectListRelationFilter
-    join?: SubjectListRelationFilter
-    attendances?: AttendanceListRelationFilter
-  }, "id" | "email" | "sid" | "gid">
+    sessions?: SessionListRelationFilter
+    nfcs?: NFCListRelationFilter
+    profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
+  }, "id" | "email" | "sid" | "gid" | "profile_id">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
     email?: SortOrder
     sid?: SortOrder
     gid?: SortOrder
-    password?: SortOrder
-    name?: SortOrder
-    dob?: SortOrder
-    official_class?: SortOrder
+    password?: SortOrderInput | SortOrder
+    type?: SortOrder
     authenticator?: SortOrderInput | SortOrder
     biometric_key?: SortOrderInput | SortOrder
-    faceData?: SortOrderInput | SortOrder
-    bobKey?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updateAt?: SortOrder
-    type?: SortOrder
+    profile_id?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -7493,17 +11033,200 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     sid?: StringWithAggregatesFilter<"User"> | string
     gid?: StringWithAggregatesFilter<"User"> | string
-    password?: StringWithAggregatesFilter<"User"> | string
-    name?: StringWithAggregatesFilter<"User"> | string
-    dob?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    official_class?: StringWithAggregatesFilter<"User"> | string
+    password?: StringNullableWithAggregatesFilter<"User"> | string | null
+    type?: StringWithAggregatesFilter<"User"> | string
     authenticator?: StringNullableWithAggregatesFilter<"User"> | string | null
     biometric_key?: StringNullableWithAggregatesFilter<"User"> | string | null
-    faceData?: StringNullableWithAggregatesFilter<"User"> | string | null
-    bobKey?: StringNullableWithAggregatesFilter<"User"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    updateAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    type?: EnumUserTypeWithAggregatesFilter<"User"> | $Enums.UserType
+    profile_id?: StringWithAggregatesFilter<"User"> | string
+  }
+
+  export type ProfileWhereInput = {
+    AND?: ProfileWhereInput | ProfileWhereInput[]
+    OR?: ProfileWhereInput[]
+    NOT?: ProfileWhereInput | ProfileWhereInput[]
+    id?: StringFilter<"Profile"> | string
+    sid?: StringFilter<"Profile"> | string
+    email?: StringFilter<"Profile"> | string
+    name?: StringFilter<"Profile"> | string
+    dob?: DateTimeNullableFilter<"Profile"> | Date | string | null
+    official_class?: StringFilter<"Profile"> | string
+    faceData?: StringNullableFilter<"Profile"> | string | null
+    host?: SubjectListRelationFilter
+    join?: SubjectListRelationFilter
+    attendances?: AttendanceListRelationFilter
+    User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+  }
+
+  export type ProfileOrderByWithRelationInput = {
+    id?: SortOrder
+    sid?: SortOrder
+    email?: SortOrder
+    name?: SortOrder
+    dob?: SortOrderInput | SortOrder
+    official_class?: SortOrder
+    faceData?: SortOrderInput | SortOrder
+    host?: SubjectOrderByRelationAggregateInput
+    join?: SubjectOrderByRelationAggregateInput
+    attendances?: AttendanceOrderByRelationAggregateInput
+    User?: UserOrderByWithRelationInput
+  }
+
+  export type ProfileWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ProfileWhereInput | ProfileWhereInput[]
+    OR?: ProfileWhereInput[]
+    NOT?: ProfileWhereInput | ProfileWhereInput[]
+    sid?: StringFilter<"Profile"> | string
+    email?: StringFilter<"Profile"> | string
+    name?: StringFilter<"Profile"> | string
+    dob?: DateTimeNullableFilter<"Profile"> | Date | string | null
+    official_class?: StringFilter<"Profile"> | string
+    faceData?: StringNullableFilter<"Profile"> | string | null
+    host?: SubjectListRelationFilter
+    join?: SubjectListRelationFilter
+    attendances?: AttendanceListRelationFilter
+    User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+  }, "id">
+
+  export type ProfileOrderByWithAggregationInput = {
+    id?: SortOrder
+    sid?: SortOrder
+    email?: SortOrder
+    name?: SortOrder
+    dob?: SortOrderInput | SortOrder
+    official_class?: SortOrder
+    faceData?: SortOrderInput | SortOrder
+    _count?: ProfileCountOrderByAggregateInput
+    _max?: ProfileMaxOrderByAggregateInput
+    _min?: ProfileMinOrderByAggregateInput
+  }
+
+  export type ProfileScalarWhereWithAggregatesInput = {
+    AND?: ProfileScalarWhereWithAggregatesInput | ProfileScalarWhereWithAggregatesInput[]
+    OR?: ProfileScalarWhereWithAggregatesInput[]
+    NOT?: ProfileScalarWhereWithAggregatesInput | ProfileScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Profile"> | string
+    sid?: StringWithAggregatesFilter<"Profile"> | string
+    email?: StringWithAggregatesFilter<"Profile"> | string
+    name?: StringWithAggregatesFilter<"Profile"> | string
+    dob?: DateTimeNullableWithAggregatesFilter<"Profile"> | Date | string | null
+    official_class?: StringWithAggregatesFilter<"Profile"> | string
+    faceData?: StringNullableWithAggregatesFilter<"Profile"> | string | null
+  }
+
+  export type SessionWhereInput = {
+    AND?: SessionWhereInput | SessionWhereInput[]
+    OR?: SessionWhereInput[]
+    NOT?: SessionWhereInput | SessionWhereInput[]
+    id?: StringFilter<"Session"> | string
+    device_id?: StringFilter<"Session"> | string
+    device_name?: StringFilter<"Session"> | string
+    user_id?: StringNullableFilter<"Session"> | string | null
+    login_method?: StringFilter<"Session"> | string
+    saved_device?: BoolFilter<"Session"> | boolean
+    created_at?: DateTimeFilter<"Session"> | Date | string
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+  }
+
+  export type SessionOrderByWithRelationInput = {
+    id?: SortOrder
+    device_id?: SortOrder
+    device_name?: SortOrder
+    user_id?: SortOrderInput | SortOrder
+    login_method?: SortOrder
+    saved_device?: SortOrder
+    created_at?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type SessionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SessionWhereInput | SessionWhereInput[]
+    OR?: SessionWhereInput[]
+    NOT?: SessionWhereInput | SessionWhereInput[]
+    device_id?: StringFilter<"Session"> | string
+    device_name?: StringFilter<"Session"> | string
+    user_id?: StringNullableFilter<"Session"> | string | null
+    login_method?: StringFilter<"Session"> | string
+    saved_device?: BoolFilter<"Session"> | boolean
+    created_at?: DateTimeFilter<"Session"> | Date | string
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+  }, "id">
+
+  export type SessionOrderByWithAggregationInput = {
+    id?: SortOrder
+    device_id?: SortOrder
+    device_name?: SortOrder
+    user_id?: SortOrderInput | SortOrder
+    login_method?: SortOrder
+    saved_device?: SortOrder
+    created_at?: SortOrder
+    _count?: SessionCountOrderByAggregateInput
+    _max?: SessionMaxOrderByAggregateInput
+    _min?: SessionMinOrderByAggregateInput
+  }
+
+  export type SessionScalarWhereWithAggregatesInput = {
+    AND?: SessionScalarWhereWithAggregatesInput | SessionScalarWhereWithAggregatesInput[]
+    OR?: SessionScalarWhereWithAggregatesInput[]
+    NOT?: SessionScalarWhereWithAggregatesInput | SessionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Session"> | string
+    device_id?: StringWithAggregatesFilter<"Session"> | string
+    device_name?: StringWithAggregatesFilter<"Session"> | string
+    user_id?: StringNullableWithAggregatesFilter<"Session"> | string | null
+    login_method?: StringWithAggregatesFilter<"Session"> | string
+    saved_device?: BoolWithAggregatesFilter<"Session"> | boolean
+    created_at?: DateTimeWithAggregatesFilter<"Session"> | Date | string
+  }
+
+  export type NFCWhereInput = {
+    AND?: NFCWhereInput | NFCWhereInput[]
+    OR?: NFCWhereInput[]
+    NOT?: NFCWhereInput | NFCWhereInput[]
+    id?: StringFilter<"NFC"> | string
+    user_id?: StringFilter<"NFC"> | string
+    active?: BoolFilter<"NFC"> | boolean
+    status?: StringFilter<"NFC"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type NFCOrderByWithRelationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    active?: SortOrder
+    status?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type NFCWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: NFCWhereInput | NFCWhereInput[]
+    OR?: NFCWhereInput[]
+    NOT?: NFCWhereInput | NFCWhereInput[]
+    user_id?: StringFilter<"NFC"> | string
+    active?: BoolFilter<"NFC"> | boolean
+    status?: StringFilter<"NFC"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type NFCOrderByWithAggregationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    active?: SortOrder
+    status?: SortOrder
+    _count?: NFCCountOrderByAggregateInput
+    _max?: NFCMaxOrderByAggregateInput
+    _min?: NFCMinOrderByAggregateInput
+  }
+
+  export type NFCScalarWhereWithAggregatesInput = {
+    AND?: NFCScalarWhereWithAggregatesInput | NFCScalarWhereWithAggregatesInput[]
+    OR?: NFCScalarWhereWithAggregatesInput[]
+    NOT?: NFCScalarWhereWithAggregatesInput | NFCScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"NFC"> | string
+    user_id?: StringWithAggregatesFilter<"NFC"> | string
+    active?: BoolWithAggregatesFilter<"NFC"> | boolean
+    status?: StringWithAggregatesFilter<"NFC"> | string
   }
 
   export type SubjectWhereInput = {
@@ -7519,8 +11242,8 @@ export namespace Prisma {
     endTime?: DateTimeFilter<"Subject"> | Date | string
     address?: StringFilter<"Subject"> | string
     teacherId?: StringFilter<"Subject"> | string
-    teacher?: XOR<UserScalarRelationFilter, UserWhereInput>
-    students?: UserListRelationFilter
+    teacher?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
+    students?: ProfileListRelationFilter
     session?: SessionAttendanceListRelationFilter
     sessionCycle?: SessionCycleListRelationFilter
   }
@@ -7535,8 +11258,8 @@ export namespace Prisma {
     endTime?: SortOrder
     address?: SortOrder
     teacherId?: SortOrder
-    teacher?: UserOrderByWithRelationInput
-    students?: UserOrderByRelationAggregateInput
+    teacher?: ProfileOrderByWithRelationInput
+    students?: ProfileOrderByRelationAggregateInput
     session?: SessionAttendanceOrderByRelationAggregateInput
     sessionCycle?: SessionCycleOrderByRelationAggregateInput
   }
@@ -7554,8 +11277,8 @@ export namespace Prisma {
     endTime?: DateTimeFilter<"Subject"> | Date | string
     address?: StringFilter<"Subject"> | string
     teacherId?: StringFilter<"Subject"> | string
-    teacher?: XOR<UserScalarRelationFilter, UserWhereInput>
-    students?: UserListRelationFilter
+    teacher?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
+    students?: ProfileListRelationFilter
     session?: SessionAttendanceListRelationFilter
     sessionCycle?: SessionCycleListRelationFilter
   }, "id">
@@ -7721,7 +11444,7 @@ export namespace Prisma {
     deviceId?: StringFilter<"Attendance"> | string
     attendantId?: StringFilter<"Attendance"> | string
     sessionCycleId?: StringFilter<"Attendance"> | string
-    attendant?: XOR<UserScalarRelationFilter, UserWhereInput>
+    attendant?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
     sessionCycle?: XOR<SessionCycleScalarRelationFilter, SessionCycleWhereInput>
   }
 
@@ -7732,7 +11455,7 @@ export namespace Prisma {
     deviceId?: SortOrder
     attendantId?: SortOrder
     sessionCycleId?: SortOrder
-    attendant?: UserOrderByWithRelationInput
+    attendant?: ProfileOrderByWithRelationInput
     sessionCycle?: SessionCycleOrderByWithRelationInput
   }
 
@@ -7746,7 +11469,7 @@ export namespace Prisma {
     deviceId?: StringFilter<"Attendance"> | string
     attendantId?: StringFilter<"Attendance"> | string
     sessionCycleId?: StringFilter<"Attendance"> | string
-    attendant?: XOR<UserScalarRelationFilter, UserWhereInput>
+    attendant?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
     sessionCycle?: XOR<SessionCycleScalarRelationFilter, SessionCycleWhereInput>
   }, "id">
 
@@ -7779,20 +11502,13 @@ export namespace Prisma {
     email: string
     sid: string
     gid: string
-    password: string
-    name: string
-    dob: Date | string
-    official_class: string
+    password?: string | null
+    type: string
     authenticator?: string | null
     biometric_key?: string | null
-    faceData?: string | null
-    bobKey?: string | null
-    createdAt?: Date | string
-    updateAt?: Date | string
-    type: $Enums.UserType
-    host?: SubjectCreateNestedManyWithoutTeacherInput
-    join?: SubjectCreateNestedManyWithoutStudentsInput
-    attendances?: AttendanceCreateNestedManyWithoutAttendantInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    nfcs?: NFCCreateNestedManyWithoutUserInput
+    profile: ProfileCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -7800,20 +11516,13 @@ export namespace Prisma {
     email: string
     sid: string
     gid: string
-    password: string
-    name: string
-    dob: Date | string
-    official_class: string
+    password?: string | null
+    type: string
     authenticator?: string | null
     biometric_key?: string | null
-    faceData?: string | null
-    bobKey?: string | null
-    createdAt?: Date | string
-    updateAt?: Date | string
-    type: $Enums.UserType
-    host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
-    join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
-    attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
+    profile_id: string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    nfcs?: NFCUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -7821,20 +11530,13 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     sid?: StringFieldUpdateOperationsInput | string
     gid?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    official_class?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
     authenticator?: NullableStringFieldUpdateOperationsInput | string | null
     biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
-    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
-    host?: SubjectUpdateManyWithoutTeacherNestedInput
-    join?: SubjectUpdateManyWithoutStudentsNestedInput
-    attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    nfcs?: NFCUpdateManyWithoutUserNestedInput
+    profile?: ProfileUpdateOneRequiredWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -7842,20 +11544,13 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     sid?: StringFieldUpdateOperationsInput | string
     gid?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    official_class?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
     authenticator?: NullableStringFieldUpdateOperationsInput | string | null
     biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
-    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
-    host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
-    join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
-    attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
+    profile_id?: StringFieldUpdateOperationsInput | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    nfcs?: NFCUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -7863,17 +11558,11 @@ export namespace Prisma {
     email: string
     sid: string
     gid: string
-    password: string
-    name: string
-    dob: Date | string
-    official_class: string
+    password?: string | null
+    type: string
     authenticator?: string | null
     biometric_key?: string | null
-    faceData?: string | null
-    bobKey?: string | null
-    createdAt?: Date | string
-    updateAt?: Date | string
-    type: $Enums.UserType
+    profile_id: string
   }
 
   export type UserUpdateManyMutationInput = {
@@ -7881,17 +11570,10 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     sid?: StringFieldUpdateOperationsInput | string
     gid?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    official_class?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
     authenticator?: NullableStringFieldUpdateOperationsInput | string | null
     biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
-    faceData?: NullableStringFieldUpdateOperationsInput | string | null
-    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -7899,17 +11581,214 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     sid?: StringFieldUpdateOperationsInput | string
     gid?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    official_class?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
     authenticator?: NullableStringFieldUpdateOperationsInput | string | null
     biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    profile_id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProfileCreateInput = {
+    id?: string
+    sid: string
+    email: string
+    name: string
+    dob?: Date | string | null
+    official_class: string
+    faceData?: string | null
+    host?: SubjectCreateNestedManyWithoutTeacherInput
+    join?: SubjectCreateNestedManyWithoutStudentsInput
+    attendances?: AttendanceCreateNestedManyWithoutAttendantInput
+    User?: UserCreateNestedOneWithoutProfileInput
+  }
+
+  export type ProfileUncheckedCreateInput = {
+    id?: string
+    sid: string
+    email: string
+    name: string
+    dob?: Date | string | null
+    official_class: string
+    faceData?: string | null
+    host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
+    join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
+    attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
+    User?: UserUncheckedCreateNestedOneWithoutProfileInput
+  }
+
+  export type ProfileUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sid?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    official_class?: StringFieldUpdateOperationsInput | string
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
-    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    host?: SubjectUpdateManyWithoutTeacherNestedInput
+    join?: SubjectUpdateManyWithoutStudentsNestedInput
+    attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
+    User?: UserUpdateOneWithoutProfileNestedInput
+  }
+
+  export type ProfileUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sid?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    official_class?: StringFieldUpdateOperationsInput | string
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
+    join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
+    attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
+    User?: UserUncheckedUpdateOneWithoutProfileNestedInput
+  }
+
+  export type ProfileCreateManyInput = {
+    id?: string
+    sid: string
+    email: string
+    name: string
+    dob?: Date | string | null
+    official_class: string
+    faceData?: string | null
+  }
+
+  export type ProfileUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sid?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    official_class?: StringFieldUpdateOperationsInput | string
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ProfileUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sid?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    official_class?: StringFieldUpdateOperationsInput | string
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SessionCreateInput = {
+    id?: string
+    device_id: string
+    device_name: string
+    login_method: string
+    saved_device: boolean
+    created_at: Date | string
+    user?: UserCreateNestedOneWithoutSessionsInput
+  }
+
+  export type SessionUncheckedCreateInput = {
+    id?: string
+    device_id: string
+    device_name: string
+    user_id?: string | null
+    login_method: string
+    saved_device: boolean
+    created_at: Date | string
+  }
+
+  export type SessionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    device_id?: StringFieldUpdateOperationsInput | string
+    device_name?: StringFieldUpdateOperationsInput | string
+    login_method?: StringFieldUpdateOperationsInput | string
+    saved_device?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneWithoutSessionsNestedInput
+  }
+
+  export type SessionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    device_id?: StringFieldUpdateOperationsInput | string
+    device_name?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    login_method?: StringFieldUpdateOperationsInput | string
+    saved_device?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionCreateManyInput = {
+    id?: string
+    device_id: string
+    device_name: string
+    user_id?: string | null
+    login_method: string
+    saved_device: boolean
+    created_at: Date | string
+  }
+
+  export type SessionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    device_id?: StringFieldUpdateOperationsInput | string
+    device_name?: StringFieldUpdateOperationsInput | string
+    login_method?: StringFieldUpdateOperationsInput | string
+    saved_device?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    device_id?: StringFieldUpdateOperationsInput | string
+    device_name?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    login_method?: StringFieldUpdateOperationsInput | string
+    saved_device?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NFCCreateInput = {
+    id?: string
+    active: boolean
+    status: string
+    user: UserCreateNestedOneWithoutNfcsInput
+  }
+
+  export type NFCUncheckedCreateInput = {
+    id?: string
+    user_id: string
+    active: boolean
+    status: string
+  }
+
+  export type NFCUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    status?: StringFieldUpdateOperationsInput | string
+    user?: UserUpdateOneRequiredWithoutNfcsNestedInput
+  }
+
+  export type NFCUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    status?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type NFCCreateManyInput = {
+    id?: string
+    user_id: string
+    active: boolean
+    status: string
+  }
+
+  export type NFCUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    status?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type NFCUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type SubjectCreateInput = {
@@ -7921,8 +11800,8 @@ export namespace Prisma {
     startTime: Date | string
     endTime: Date | string
     address: string
-    teacher: UserCreateNestedOneWithoutHostInput
-    students?: UserCreateNestedManyWithoutJoinInput
+    teacher: ProfileCreateNestedOneWithoutHostInput
+    students?: ProfileCreateNestedManyWithoutJoinInput
     session?: SessionAttendanceCreateNestedManyWithoutSubjectInput
     sessionCycle?: SessionCycleCreateNestedManyWithoutSubjectInput
   }
@@ -7937,7 +11816,7 @@ export namespace Prisma {
     endTime: Date | string
     address: string
     teacherId: string
-    students?: UserUncheckedCreateNestedManyWithoutJoinInput
+    students?: ProfileUncheckedCreateNestedManyWithoutJoinInput
     session?: SessionAttendanceUncheckedCreateNestedManyWithoutSubjectInput
     sessionCycle?: SessionCycleUncheckedCreateNestedManyWithoutSubjectInput
   }
@@ -7951,8 +11830,8 @@ export namespace Prisma {
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
-    teacher?: UserUpdateOneRequiredWithoutHostNestedInput
-    students?: UserUpdateManyWithoutJoinNestedInput
+    teacher?: ProfileUpdateOneRequiredWithoutHostNestedInput
+    students?: ProfileUpdateManyWithoutJoinNestedInput
     session?: SessionAttendanceUpdateManyWithoutSubjectNestedInput
     sessionCycle?: SessionCycleUpdateManyWithoutSubjectNestedInput
   }
@@ -7967,7 +11846,7 @@ export namespace Prisma {
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
     teacherId?: StringFieldUpdateOperationsInput | string
-    students?: UserUncheckedUpdateManyWithoutJoinNestedInput
+    students?: ProfileUncheckedUpdateManyWithoutJoinNestedInput
     session?: SessionAttendanceUncheckedUpdateManyWithoutSubjectNestedInput
     sessionCycle?: SessionCycleUncheckedUpdateManyWithoutSubjectNestedInput
   }
@@ -8129,7 +12008,7 @@ export namespace Prisma {
     time: Date | string
     isVerified: boolean
     deviceId: string
-    attendant: UserCreateNestedOneWithoutAttendancesInput
+    attendant: ProfileCreateNestedOneWithoutAttendancesInput
     sessionCycle: SessionCycleCreateNestedOneWithoutAttendancesInput
   }
 
@@ -8147,7 +12026,7 @@ export namespace Prisma {
     time?: DateTimeFieldUpdateOperationsInput | Date | string
     isVerified?: BoolFieldUpdateOperationsInput | boolean
     deviceId?: StringFieldUpdateOperationsInput | string
-    attendant?: UserUpdateOneRequiredWithoutAttendancesNestedInput
+    attendant?: ProfileUpdateOneRequiredWithoutAttendancesNestedInput
     sessionCycle?: SessionCycleUpdateOneRequiredWithoutAttendancesNestedInput
   }
 
@@ -8200,17 +12079,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -8226,23 +12094,21 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type EnumUserTypeFilter<$PrismaModel = never> = {
-    equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumUserTypeFilter<$PrismaModel> | $Enums.UserType
+  export type SessionListRelationFilter = {
+    every?: SessionWhereInput
+    some?: SessionWhereInput
+    none?: SessionWhereInput
   }
 
-  export type SubjectListRelationFilter = {
-    every?: SubjectWhereInput
-    some?: SubjectWhereInput
-    none?: SubjectWhereInput
+  export type NFCListRelationFilter = {
+    every?: NFCWhereInput
+    some?: NFCWhereInput
+    none?: NFCWhereInput
   }
 
-  export type AttendanceListRelationFilter = {
-    every?: AttendanceWhereInput
-    some?: AttendanceWhereInput
-    none?: AttendanceWhereInput
+  export type ProfileScalarRelationFilter = {
+    is?: ProfileWhereInput
+    isNot?: ProfileWhereInput
   }
 
   export type SortOrderInput = {
@@ -8250,11 +12116,11 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type SubjectOrderByRelationAggregateInput = {
+  export type SessionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type AttendanceOrderByRelationAggregateInput = {
+  export type NFCOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -8264,16 +12130,10 @@ export namespace Prisma {
     sid?: SortOrder
     gid?: SortOrder
     password?: SortOrder
-    name?: SortOrder
-    dob?: SortOrder
-    official_class?: SortOrder
+    type?: SortOrder
     authenticator?: SortOrder
     biometric_key?: SortOrder
-    faceData?: SortOrder
-    bobKey?: SortOrder
-    createdAt?: SortOrder
-    updateAt?: SortOrder
-    type?: SortOrder
+    profile_id?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -8282,16 +12142,10 @@ export namespace Prisma {
     sid?: SortOrder
     gid?: SortOrder
     password?: SortOrder
-    name?: SortOrder
-    dob?: SortOrder
-    official_class?: SortOrder
+    type?: SortOrder
     authenticator?: SortOrder
     biometric_key?: SortOrder
-    faceData?: SortOrder
-    bobKey?: SortOrder
-    createdAt?: SortOrder
-    updateAt?: SortOrder
-    type?: SortOrder
+    profile_id?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -8300,16 +12154,10 @@ export namespace Prisma {
     sid?: SortOrder
     gid?: SortOrder
     password?: SortOrder
-    name?: SortOrder
-    dob?: SortOrder
-    official_class?: SortOrder
+    type?: SortOrder
     authenticator?: SortOrder
     biometric_key?: SortOrder
-    faceData?: SortOrder
-    bobKey?: SortOrder
-    createdAt?: SortOrder
-    updateAt?: SortOrder
-    type?: SortOrder
+    profile_id?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -8330,20 +12178,6 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -8362,14 +12196,152 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type EnumUserTypeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumUserTypeWithAggregatesFilter<$PrismaModel> | $Enums.UserType
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type SubjectListRelationFilter = {
+    every?: SubjectWhereInput
+    some?: SubjectWhereInput
+    none?: SubjectWhereInput
+  }
+
+  export type AttendanceListRelationFilter = {
+    every?: AttendanceWhereInput
+    some?: AttendanceWhereInput
+    none?: AttendanceWhereInput
+  }
+
+  export type UserNullableScalarRelationFilter = {
+    is?: UserWhereInput | null
+    isNot?: UserWhereInput | null
+  }
+
+  export type SubjectOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AttendanceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProfileCountOrderByAggregateInput = {
+    id?: SortOrder
+    sid?: SortOrder
+    email?: SortOrder
+    name?: SortOrder
+    dob?: SortOrder
+    official_class?: SortOrder
+    faceData?: SortOrder
+  }
+
+  export type ProfileMaxOrderByAggregateInput = {
+    id?: SortOrder
+    sid?: SortOrder
+    email?: SortOrder
+    name?: SortOrder
+    dob?: SortOrder
+    official_class?: SortOrder
+    faceData?: SortOrder
+  }
+
+  export type ProfileMinOrderByAggregateInput = {
+    id?: SortOrder
+    sid?: SortOrder
+    email?: SortOrder
+    name?: SortOrder
+    dob?: SortOrder
+    official_class?: SortOrder
+    faceData?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type SessionCountOrderByAggregateInput = {
+    id?: SortOrder
+    device_id?: SortOrder
+    device_name?: SortOrder
+    user_id?: SortOrder
+    login_method?: SortOrder
+    saved_device?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type SessionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    device_id?: SortOrder
+    device_name?: SortOrder
+    user_id?: SortOrder
+    login_method?: SortOrder
+    saved_device?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type SessionMinOrderByAggregateInput = {
+    id?: SortOrder
+    device_id?: SortOrder
+    device_name?: SortOrder
+    user_id?: SortOrder
+    login_method?: SortOrder
+    saved_device?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumUserTypeFilter<$PrismaModel>
-    _max?: NestedEnumUserTypeFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type UserScalarRelationFilter = {
@@ -8377,10 +12349,31 @@ export namespace Prisma {
     isNot?: UserWhereInput
   }
 
-  export type UserListRelationFilter = {
-    every?: UserWhereInput
-    some?: UserWhereInput
-    none?: UserWhereInput
+  export type NFCCountOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    active?: SortOrder
+    status?: SortOrder
+  }
+
+  export type NFCMaxOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    active?: SortOrder
+    status?: SortOrder
+  }
+
+  export type NFCMinOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    active?: SortOrder
+    status?: SortOrder
+  }
+
+  export type ProfileListRelationFilter = {
+    every?: ProfileWhereInput
+    some?: ProfileWhereInput
+    none?: ProfileWhereInput
   }
 
   export type SessionAttendanceListRelationFilter = {
@@ -8395,7 +12388,7 @@ export namespace Prisma {
     none?: SessionCycleWhereInput
   }
 
-  export type UserOrderByRelationAggregateInput = {
+  export type ProfileOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -8558,11 +12551,6 @@ export namespace Prisma {
     subjectId?: SortOrder
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type SessionCycleScalarRelationFilter = {
     is?: SessionCycleWhereInput
     isNot?: SessionCycleWhereInput
@@ -8595,12 +12583,110 @@ export namespace Prisma {
     sessionCycleId?: SortOrder
   }
 
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
+  export type SessionCreateNestedManyWithoutUserInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  }
+
+  export type NFCCreateNestedManyWithoutUserInput = {
+    create?: XOR<NFCCreateWithoutUserInput, NFCUncheckedCreateWithoutUserInput> | NFCCreateWithoutUserInput[] | NFCUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NFCCreateOrConnectWithoutUserInput | NFCCreateOrConnectWithoutUserInput[]
+    createMany?: NFCCreateManyUserInputEnvelope
+    connect?: NFCWhereUniqueInput | NFCWhereUniqueInput[]
+  }
+
+  export type ProfileCreateNestedOneWithoutUserInput = {
+    create?: XOR<ProfileCreateWithoutUserInput, ProfileUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutUserInput
+    connect?: ProfileWhereUniqueInput
+  }
+
+  export type SessionUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  }
+
+  export type NFCUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<NFCCreateWithoutUserInput, NFCUncheckedCreateWithoutUserInput> | NFCCreateWithoutUserInput[] | NFCUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NFCCreateOrConnectWithoutUserInput | NFCCreateOrConnectWithoutUserInput[]
+    createMany?: NFCCreateManyUserInputEnvelope
+    connect?: NFCWhereUniqueInput | NFCWhereUniqueInput[]
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type SessionUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
+  }
+
+  export type NFCUpdateManyWithoutUserNestedInput = {
+    create?: XOR<NFCCreateWithoutUserInput, NFCUncheckedCreateWithoutUserInput> | NFCCreateWithoutUserInput[] | NFCUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NFCCreateOrConnectWithoutUserInput | NFCCreateOrConnectWithoutUserInput[]
+    upsert?: NFCUpsertWithWhereUniqueWithoutUserInput | NFCUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: NFCCreateManyUserInputEnvelope
+    set?: NFCWhereUniqueInput | NFCWhereUniqueInput[]
+    disconnect?: NFCWhereUniqueInput | NFCWhereUniqueInput[]
+    delete?: NFCWhereUniqueInput | NFCWhereUniqueInput[]
+    connect?: NFCWhereUniqueInput | NFCWhereUniqueInput[]
+    update?: NFCUpdateWithWhereUniqueWithoutUserInput | NFCUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: NFCUpdateManyWithWhereWithoutUserInput | NFCUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: NFCScalarWhereInput | NFCScalarWhereInput[]
+  }
+
+  export type ProfileUpdateOneRequiredWithoutUserNestedInput = {
+    create?: XOR<ProfileCreateWithoutUserInput, ProfileUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutUserInput
+    upsert?: ProfileUpsertWithoutUserInput
+    connect?: ProfileWhereUniqueInput
+    update?: XOR<XOR<ProfileUpdateToOneWithWhereWithoutUserInput, ProfileUpdateWithoutUserInput>, ProfileUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
+  }
+
+  export type NFCUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<NFCCreateWithoutUserInput, NFCUncheckedCreateWithoutUserInput> | NFCCreateWithoutUserInput[] | NFCUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NFCCreateOrConnectWithoutUserInput | NFCCreateOrConnectWithoutUserInput[]
+    upsert?: NFCUpsertWithWhereUniqueWithoutUserInput | NFCUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: NFCCreateManyUserInputEnvelope
+    set?: NFCWhereUniqueInput | NFCWhereUniqueInput[]
+    disconnect?: NFCWhereUniqueInput | NFCWhereUniqueInput[]
+    delete?: NFCWhereUniqueInput | NFCWhereUniqueInput[]
+    connect?: NFCWhereUniqueInput | NFCWhereUniqueInput[]
+    update?: NFCUpdateWithWhereUniqueWithoutUserInput | NFCUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: NFCUpdateManyWithWhereWithoutUserInput | NFCUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: NFCScalarWhereInput | NFCScalarWhereInput[]
   }
 
   export type SubjectCreateNestedManyWithoutTeacherInput = {
@@ -8623,6 +12709,12 @@ export namespace Prisma {
     connect?: AttendanceWhereUniqueInput | AttendanceWhereUniqueInput[]
   }
 
+  export type UserCreateNestedOneWithoutProfileInput = {
+    create?: XOR<UserCreateWithoutProfileInput, UserUncheckedCreateWithoutProfileInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProfileInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type SubjectUncheckedCreateNestedManyWithoutTeacherInput = {
     create?: XOR<SubjectCreateWithoutTeacherInput, SubjectUncheckedCreateWithoutTeacherInput> | SubjectCreateWithoutTeacherInput[] | SubjectUncheckedCreateWithoutTeacherInput[]
     connectOrCreate?: SubjectCreateOrConnectWithoutTeacherInput | SubjectCreateOrConnectWithoutTeacherInput[]
@@ -8643,20 +12735,14 @@ export namespace Prisma {
     connect?: AttendanceWhereUniqueInput | AttendanceWhereUniqueInput[]
   }
 
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
+  export type UserUncheckedCreateNestedOneWithoutProfileInput = {
+    create?: XOR<UserCreateWithoutProfileInput, UserUncheckedCreateWithoutProfileInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProfileInput
+    connect?: UserWhereUniqueInput
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-  }
-
-  export type EnumUserTypeFieldUpdateOperationsInput = {
-    set?: $Enums.UserType
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type SubjectUpdateManyWithoutTeacherNestedInput = {
@@ -8700,6 +12786,16 @@ export namespace Prisma {
     deleteMany?: AttendanceScalarWhereInput | AttendanceScalarWhereInput[]
   }
 
+  export type UserUpdateOneWithoutProfileNestedInput = {
+    create?: XOR<UserCreateWithoutProfileInput, UserUncheckedCreateWithoutProfileInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProfileInput
+    upsert?: UserUpsertWithoutProfileInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProfileInput, UserUpdateWithoutProfileInput>, UserUncheckedUpdateWithoutProfileInput>
+  }
+
   export type SubjectUncheckedUpdateManyWithoutTeacherNestedInput = {
     create?: XOR<SubjectCreateWithoutTeacherInput, SubjectUncheckedCreateWithoutTeacherInput> | SubjectCreateWithoutTeacherInput[] | SubjectUncheckedCreateWithoutTeacherInput[]
     connectOrCreate?: SubjectCreateOrConnectWithoutTeacherInput | SubjectCreateOrConnectWithoutTeacherInput[]
@@ -8741,16 +12837,64 @@ export namespace Prisma {
     deleteMany?: AttendanceScalarWhereInput | AttendanceScalarWhereInput[]
   }
 
-  export type UserCreateNestedOneWithoutHostInput = {
-    create?: XOR<UserCreateWithoutHostInput, UserUncheckedCreateWithoutHostInput>
-    connectOrCreate?: UserCreateOrConnectWithoutHostInput
+  export type UserUncheckedUpdateOneWithoutProfileNestedInput = {
+    create?: XOR<UserCreateWithoutProfileInput, UserUncheckedCreateWithoutProfileInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProfileInput
+    upsert?: UserUpsertWithoutProfileInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProfileInput, UserUpdateWithoutProfileInput>, UserUncheckedUpdateWithoutProfileInput>
+  }
+
+  export type UserCreateNestedOneWithoutSessionsInput = {
+    create?: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSessionsInput
     connect?: UserWhereUniqueInput
   }
 
-  export type UserCreateNestedManyWithoutJoinInput = {
-    create?: XOR<UserCreateWithoutJoinInput, UserUncheckedCreateWithoutJoinInput> | UserCreateWithoutJoinInput[] | UserUncheckedCreateWithoutJoinInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutJoinInput | UserCreateOrConnectWithoutJoinInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type UserUpdateOneWithoutSessionsNestedInput = {
+    create?: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSessionsInput
+    upsert?: UserUpsertWithoutSessionsInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSessionsInput, UserUpdateWithoutSessionsInput>, UserUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type UserCreateNestedOneWithoutNfcsInput = {
+    create?: XOR<UserCreateWithoutNfcsInput, UserUncheckedCreateWithoutNfcsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutNfcsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutNfcsNestedInput = {
+    create?: XOR<UserCreateWithoutNfcsInput, UserUncheckedCreateWithoutNfcsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutNfcsInput
+    upsert?: UserUpsertWithoutNfcsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutNfcsInput, UserUpdateWithoutNfcsInput>, UserUncheckedUpdateWithoutNfcsInput>
+  }
+
+  export type ProfileCreateNestedOneWithoutHostInput = {
+    create?: XOR<ProfileCreateWithoutHostInput, ProfileUncheckedCreateWithoutHostInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutHostInput
+    connect?: ProfileWhereUniqueInput
+  }
+
+  export type ProfileCreateNestedManyWithoutJoinInput = {
+    create?: XOR<ProfileCreateWithoutJoinInput, ProfileUncheckedCreateWithoutJoinInput> | ProfileCreateWithoutJoinInput[] | ProfileUncheckedCreateWithoutJoinInput[]
+    connectOrCreate?: ProfileCreateOrConnectWithoutJoinInput | ProfileCreateOrConnectWithoutJoinInput[]
+    connect?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
   }
 
   export type SessionAttendanceCreateNestedManyWithoutSubjectInput = {
@@ -8767,10 +12911,10 @@ export namespace Prisma {
     connect?: SessionCycleWhereUniqueInput | SessionCycleWhereUniqueInput[]
   }
 
-  export type UserUncheckedCreateNestedManyWithoutJoinInput = {
-    create?: XOR<UserCreateWithoutJoinInput, UserUncheckedCreateWithoutJoinInput> | UserCreateWithoutJoinInput[] | UserUncheckedCreateWithoutJoinInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutJoinInput | UserCreateOrConnectWithoutJoinInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  export type ProfileUncheckedCreateNestedManyWithoutJoinInput = {
+    create?: XOR<ProfileCreateWithoutJoinInput, ProfileUncheckedCreateWithoutJoinInput> | ProfileCreateWithoutJoinInput[] | ProfileUncheckedCreateWithoutJoinInput[]
+    connectOrCreate?: ProfileCreateOrConnectWithoutJoinInput | ProfileCreateOrConnectWithoutJoinInput[]
+    connect?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
   }
 
   export type SessionAttendanceUncheckedCreateNestedManyWithoutSubjectInput = {
@@ -8787,25 +12931,25 @@ export namespace Prisma {
     connect?: SessionCycleWhereUniqueInput | SessionCycleWhereUniqueInput[]
   }
 
-  export type UserUpdateOneRequiredWithoutHostNestedInput = {
-    create?: XOR<UserCreateWithoutHostInput, UserUncheckedCreateWithoutHostInput>
-    connectOrCreate?: UserCreateOrConnectWithoutHostInput
-    upsert?: UserUpsertWithoutHostInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutHostInput, UserUpdateWithoutHostInput>, UserUncheckedUpdateWithoutHostInput>
+  export type ProfileUpdateOneRequiredWithoutHostNestedInput = {
+    create?: XOR<ProfileCreateWithoutHostInput, ProfileUncheckedCreateWithoutHostInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutHostInput
+    upsert?: ProfileUpsertWithoutHostInput
+    connect?: ProfileWhereUniqueInput
+    update?: XOR<XOR<ProfileUpdateToOneWithWhereWithoutHostInput, ProfileUpdateWithoutHostInput>, ProfileUncheckedUpdateWithoutHostInput>
   }
 
-  export type UserUpdateManyWithoutJoinNestedInput = {
-    create?: XOR<UserCreateWithoutJoinInput, UserUncheckedCreateWithoutJoinInput> | UserCreateWithoutJoinInput[] | UserUncheckedCreateWithoutJoinInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutJoinInput | UserCreateOrConnectWithoutJoinInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutJoinInput | UserUpsertWithWhereUniqueWithoutJoinInput[]
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutJoinInput | UserUpdateWithWhereUniqueWithoutJoinInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutJoinInput | UserUpdateManyWithWhereWithoutJoinInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  export type ProfileUpdateManyWithoutJoinNestedInput = {
+    create?: XOR<ProfileCreateWithoutJoinInput, ProfileUncheckedCreateWithoutJoinInput> | ProfileCreateWithoutJoinInput[] | ProfileUncheckedCreateWithoutJoinInput[]
+    connectOrCreate?: ProfileCreateOrConnectWithoutJoinInput | ProfileCreateOrConnectWithoutJoinInput[]
+    upsert?: ProfileUpsertWithWhereUniqueWithoutJoinInput | ProfileUpsertWithWhereUniqueWithoutJoinInput[]
+    set?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    disconnect?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    delete?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    connect?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    update?: ProfileUpdateWithWhereUniqueWithoutJoinInput | ProfileUpdateWithWhereUniqueWithoutJoinInput[]
+    updateMany?: ProfileUpdateManyWithWhereWithoutJoinInput | ProfileUpdateManyWithWhereWithoutJoinInput[]
+    deleteMany?: ProfileScalarWhereInput | ProfileScalarWhereInput[]
   }
 
   export type SessionAttendanceUpdateManyWithoutSubjectNestedInput = {
@@ -8836,17 +12980,17 @@ export namespace Prisma {
     deleteMany?: SessionCycleScalarWhereInput | SessionCycleScalarWhereInput[]
   }
 
-  export type UserUncheckedUpdateManyWithoutJoinNestedInput = {
-    create?: XOR<UserCreateWithoutJoinInput, UserUncheckedCreateWithoutJoinInput> | UserCreateWithoutJoinInput[] | UserUncheckedCreateWithoutJoinInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutJoinInput | UserCreateOrConnectWithoutJoinInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutJoinInput | UserUpsertWithWhereUniqueWithoutJoinInput[]
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutJoinInput | UserUpdateWithWhereUniqueWithoutJoinInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutJoinInput | UserUpdateManyWithWhereWithoutJoinInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  export type ProfileUncheckedUpdateManyWithoutJoinNestedInput = {
+    create?: XOR<ProfileCreateWithoutJoinInput, ProfileUncheckedCreateWithoutJoinInput> | ProfileCreateWithoutJoinInput[] | ProfileUncheckedCreateWithoutJoinInput[]
+    connectOrCreate?: ProfileCreateOrConnectWithoutJoinInput | ProfileCreateOrConnectWithoutJoinInput[]
+    upsert?: ProfileUpsertWithWhereUniqueWithoutJoinInput | ProfileUpsertWithWhereUniqueWithoutJoinInput[]
+    set?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    disconnect?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    delete?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    connect?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    update?: ProfileUpdateWithWhereUniqueWithoutJoinInput | ProfileUpdateWithWhereUniqueWithoutJoinInput[]
+    updateMany?: ProfileUpdateManyWithWhereWithoutJoinInput | ProfileUpdateManyWithWhereWithoutJoinInput[]
+    deleteMany?: ProfileScalarWhereInput | ProfileScalarWhereInput[]
   }
 
   export type SessionAttendanceUncheckedUpdateManyWithoutSubjectNestedInput = {
@@ -9017,10 +13161,10 @@ export namespace Prisma {
     deleteMany?: AttendanceScalarWhereInput | AttendanceScalarWhereInput[]
   }
 
-  export type UserCreateNestedOneWithoutAttendancesInput = {
-    create?: XOR<UserCreateWithoutAttendancesInput, UserUncheckedCreateWithoutAttendancesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutAttendancesInput
-    connect?: UserWhereUniqueInput
+  export type ProfileCreateNestedOneWithoutAttendancesInput = {
+    create?: XOR<ProfileCreateWithoutAttendancesInput, ProfileUncheckedCreateWithoutAttendancesInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutAttendancesInput
+    connect?: ProfileWhereUniqueInput
   }
 
   export type SessionCycleCreateNestedOneWithoutAttendancesInput = {
@@ -9029,16 +13173,12 @@ export namespace Prisma {
     connect?: SessionCycleWhereUniqueInput
   }
 
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
-  }
-
-  export type UserUpdateOneRequiredWithoutAttendancesNestedInput = {
-    create?: XOR<UserCreateWithoutAttendancesInput, UserUncheckedCreateWithoutAttendancesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutAttendancesInput
-    upsert?: UserUpsertWithoutAttendancesInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAttendancesInput, UserUpdateWithoutAttendancesInput>, UserUncheckedUpdateWithoutAttendancesInput>
+  export type ProfileUpdateOneRequiredWithoutAttendancesNestedInput = {
+    create?: XOR<ProfileCreateWithoutAttendancesInput, ProfileUncheckedCreateWithoutAttendancesInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutAttendancesInput
+    upsert?: ProfileUpsertWithoutAttendancesInput
+    connect?: ProfileWhereUniqueInput
+    update?: XOR<XOR<ProfileUpdateToOneWithWhereWithoutAttendancesInput, ProfileUpdateWithoutAttendancesInput>, ProfileUncheckedUpdateWithoutAttendancesInput>
   }
 
   export type SessionCycleUpdateOneRequiredWithoutAttendancesNestedInput = {
@@ -9063,17 +13203,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -9086,13 +13215,6 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedEnumUserTypeFilter<$PrismaModel = never> = {
-    equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumUserTypeFilter<$PrismaModel> | $Enums.UserType
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -9123,20 +13245,6 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -9165,14 +13273,67 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedEnumUserTypeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumUserTypeWithAggregatesFilter<$PrismaModel> | $Enums.UserType
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumUserTypeFilter<$PrismaModel>
-    _max?: NestedEnumUserTypeFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedEnumRepeatTypeFilter<$PrismaModel = never> = {
@@ -9219,17 +13380,177 @@ export namespace Prisma {
     _max?: NestedEnumRepeatTypeFilter<$PrismaModel>
   }
 
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
+  export type SessionCreateWithoutUserInput = {
+    id?: string
+    device_id: string
+    device_name: string
+    login_method: string
+    saved_device: boolean
+    created_at: Date | string
   }
 
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
+  export type SessionUncheckedCreateWithoutUserInput = {
+    id?: string
+    device_id: string
+    device_name: string
+    login_method: string
+    saved_device: boolean
+    created_at: Date | string
+  }
+
+  export type SessionCreateOrConnectWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type SessionCreateManyUserInputEnvelope = {
+    data: SessionCreateManyUserInput | SessionCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type NFCCreateWithoutUserInput = {
+    id?: string
+    active: boolean
+    status: string
+  }
+
+  export type NFCUncheckedCreateWithoutUserInput = {
+    id?: string
+    active: boolean
+    status: string
+  }
+
+  export type NFCCreateOrConnectWithoutUserInput = {
+    where: NFCWhereUniqueInput
+    create: XOR<NFCCreateWithoutUserInput, NFCUncheckedCreateWithoutUserInput>
+  }
+
+  export type NFCCreateManyUserInputEnvelope = {
+    data: NFCCreateManyUserInput | NFCCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProfileCreateWithoutUserInput = {
+    id?: string
+    sid: string
+    email: string
+    name: string
+    dob?: Date | string | null
+    official_class: string
+    faceData?: string | null
+    host?: SubjectCreateNestedManyWithoutTeacherInput
+    join?: SubjectCreateNestedManyWithoutStudentsInput
+    attendances?: AttendanceCreateNestedManyWithoutAttendantInput
+  }
+
+  export type ProfileUncheckedCreateWithoutUserInput = {
+    id?: string
+    sid: string
+    email: string
+    name: string
+    dob?: Date | string | null
+    official_class: string
+    faceData?: string | null
+    host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
+    join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
+    attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
+  }
+
+  export type ProfileCreateOrConnectWithoutUserInput = {
+    where: ProfileWhereUniqueInput
+    create: XOR<ProfileCreateWithoutUserInput, ProfileUncheckedCreateWithoutUserInput>
+  }
+
+  export type SessionUpsertWithWhereUniqueWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
+    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type SessionUpdateWithWhereUniqueWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    data: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SessionUpdateManyWithWhereWithoutUserInput = {
+    where: SessionScalarWhereInput
+    data: XOR<SessionUpdateManyMutationInput, SessionUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type SessionScalarWhereInput = {
+    AND?: SessionScalarWhereInput | SessionScalarWhereInput[]
+    OR?: SessionScalarWhereInput[]
+    NOT?: SessionScalarWhereInput | SessionScalarWhereInput[]
+    id?: StringFilter<"Session"> | string
+    device_id?: StringFilter<"Session"> | string
+    device_name?: StringFilter<"Session"> | string
+    user_id?: StringNullableFilter<"Session"> | string | null
+    login_method?: StringFilter<"Session"> | string
+    saved_device?: BoolFilter<"Session"> | boolean
+    created_at?: DateTimeFilter<"Session"> | Date | string
+  }
+
+  export type NFCUpsertWithWhereUniqueWithoutUserInput = {
+    where: NFCWhereUniqueInput
+    update: XOR<NFCUpdateWithoutUserInput, NFCUncheckedUpdateWithoutUserInput>
+    create: XOR<NFCCreateWithoutUserInput, NFCUncheckedCreateWithoutUserInput>
+  }
+
+  export type NFCUpdateWithWhereUniqueWithoutUserInput = {
+    where: NFCWhereUniqueInput
+    data: XOR<NFCUpdateWithoutUserInput, NFCUncheckedUpdateWithoutUserInput>
+  }
+
+  export type NFCUpdateManyWithWhereWithoutUserInput = {
+    where: NFCScalarWhereInput
+    data: XOR<NFCUpdateManyMutationInput, NFCUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type NFCScalarWhereInput = {
+    AND?: NFCScalarWhereInput | NFCScalarWhereInput[]
+    OR?: NFCScalarWhereInput[]
+    NOT?: NFCScalarWhereInput | NFCScalarWhereInput[]
+    id?: StringFilter<"NFC"> | string
+    user_id?: StringFilter<"NFC"> | string
+    active?: BoolFilter<"NFC"> | boolean
+    status?: StringFilter<"NFC"> | string
+  }
+
+  export type ProfileUpsertWithoutUserInput = {
+    update: XOR<ProfileUpdateWithoutUserInput, ProfileUncheckedUpdateWithoutUserInput>
+    create: XOR<ProfileCreateWithoutUserInput, ProfileUncheckedCreateWithoutUserInput>
+    where?: ProfileWhereInput
+  }
+
+  export type ProfileUpdateToOneWithWhereWithoutUserInput = {
+    where?: ProfileWhereInput
+    data: XOR<ProfileUpdateWithoutUserInput, ProfileUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ProfileUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sid?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    official_class?: StringFieldUpdateOperationsInput | string
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    host?: SubjectUpdateManyWithoutTeacherNestedInput
+    join?: SubjectUpdateManyWithoutStudentsNestedInput
+    attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
+  }
+
+  export type ProfileUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sid?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    official_class?: StringFieldUpdateOperationsInput | string
+    faceData?: NullableStringFieldUpdateOperationsInput | string | null
+    host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
+    join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
+    attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
   }
 
   export type SubjectCreateWithoutTeacherInput = {
@@ -9241,7 +13562,7 @@ export namespace Prisma {
     startTime: Date | string
     endTime: Date | string
     address: string
-    students?: UserCreateNestedManyWithoutJoinInput
+    students?: ProfileCreateNestedManyWithoutJoinInput
     session?: SessionAttendanceCreateNestedManyWithoutSubjectInput
     sessionCycle?: SessionCycleCreateNestedManyWithoutSubjectInput
   }
@@ -9255,7 +13576,7 @@ export namespace Prisma {
     startTime: Date | string
     endTime: Date | string
     address: string
-    students?: UserUncheckedCreateNestedManyWithoutJoinInput
+    students?: ProfileUncheckedCreateNestedManyWithoutJoinInput
     session?: SessionAttendanceUncheckedCreateNestedManyWithoutSubjectInput
     sessionCycle?: SessionCycleUncheckedCreateNestedManyWithoutSubjectInput
   }
@@ -9279,7 +13600,7 @@ export namespace Prisma {
     startTime: Date | string
     endTime: Date | string
     address: string
-    teacher: UserCreateNestedOneWithoutHostInput
+    teacher: ProfileCreateNestedOneWithoutHostInput
     session?: SessionAttendanceCreateNestedManyWithoutSubjectInput
     sessionCycle?: SessionCycleCreateNestedManyWithoutSubjectInput
   }
@@ -9327,6 +13648,37 @@ export namespace Prisma {
   export type AttendanceCreateManyAttendantInputEnvelope = {
     data: AttendanceCreateManyAttendantInput | AttendanceCreateManyAttendantInput[]
     skipDuplicates?: boolean
+  }
+
+  export type UserCreateWithoutProfileInput = {
+    id?: string
+    email: string
+    sid: string
+    gid: string
+    password?: string | null
+    type: string
+    authenticator?: string | null
+    biometric_key?: string | null
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    nfcs?: NFCCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutProfileInput = {
+    id?: string
+    email: string
+    sid: string
+    gid: string
+    password?: string | null
+    type: string
+    authenticator?: string | null
+    biometric_key?: string | null
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    nfcs?: NFCUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutProfileInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutProfileInput, UserUncheckedCreateWithoutProfileInput>
   }
 
   export type SubjectUpsertWithWhereUniqueWithoutTeacherInput = {
@@ -9404,94 +13756,239 @@ export namespace Prisma {
     sessionCycleId?: StringFilter<"Attendance"> | string
   }
 
-  export type UserCreateWithoutHostInput = {
+  export type UserUpsertWithoutProfileInput = {
+    update: XOR<UserUpdateWithoutProfileInput, UserUncheckedUpdateWithoutProfileInput>
+    create: XOR<UserCreateWithoutProfileInput, UserUncheckedCreateWithoutProfileInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutProfileInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutProfileInput, UserUncheckedUpdateWithoutProfileInput>
+  }
+
+  export type UserUpdateWithoutProfileInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    nfcs?: NFCUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutProfileInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    nfcs?: NFCUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutSessionsInput = {
     id?: string
     email: string
     sid: string
     gid: string
-    password: string
-    name: string
-    dob: Date | string
-    official_class: string
+    password?: string | null
+    type: string
     authenticator?: string | null
     biometric_key?: string | null
+    nfcs?: NFCCreateNestedManyWithoutUserInput
+    profile: ProfileCreateNestedOneWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutSessionsInput = {
+    id?: string
+    email: string
+    sid: string
+    gid: string
+    password?: string | null
+    type: string
+    authenticator?: string | null
+    biometric_key?: string | null
+    profile_id: string
+    nfcs?: NFCUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutSessionsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
+  }
+
+  export type UserUpsertWithoutSessionsInput = {
+    update: XOR<UserUpdateWithoutSessionsInput, UserUncheckedUpdateWithoutSessionsInput>
+    create: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutSessionsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutSessionsInput, UserUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type UserUpdateWithoutSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    nfcs?: NFCUpdateManyWithoutUserNestedInput
+    profile?: ProfileUpdateOneRequiredWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    profile_id?: StringFieldUpdateOperationsInput | string
+    nfcs?: NFCUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutNfcsInput = {
+    id?: string
+    email: string
+    sid: string
+    gid: string
+    password?: string | null
+    type: string
+    authenticator?: string | null
+    biometric_key?: string | null
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    profile: ProfileCreateNestedOneWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutNfcsInput = {
+    id?: string
+    email: string
+    sid: string
+    gid: string
+    password?: string | null
+    type: string
+    authenticator?: string | null
+    biometric_key?: string | null
+    profile_id: string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutNfcsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutNfcsInput, UserUncheckedCreateWithoutNfcsInput>
+  }
+
+  export type UserUpsertWithoutNfcsInput = {
+    update: XOR<UserUpdateWithoutNfcsInput, UserUncheckedUpdateWithoutNfcsInput>
+    create: XOR<UserCreateWithoutNfcsInput, UserUncheckedCreateWithoutNfcsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutNfcsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutNfcsInput, UserUncheckedUpdateWithoutNfcsInput>
+  }
+
+  export type UserUpdateWithoutNfcsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    profile?: ProfileUpdateOneRequiredWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutNfcsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    sid?: StringFieldUpdateOperationsInput | string
+    gid?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
+    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
+    profile_id?: StringFieldUpdateOperationsInput | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ProfileCreateWithoutHostInput = {
+    id?: string
+    sid: string
+    email: string
+    name: string
+    dob?: Date | string | null
+    official_class: string
     faceData?: string | null
-    bobKey?: string | null
-    createdAt?: Date | string
-    updateAt?: Date | string
-    type: $Enums.UserType
     join?: SubjectCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceCreateNestedManyWithoutAttendantInput
+    User?: UserCreateNestedOneWithoutProfileInput
   }
 
-  export type UserUncheckedCreateWithoutHostInput = {
+  export type ProfileUncheckedCreateWithoutHostInput = {
     id?: string
-    email: string
     sid: string
-    gid: string
-    password: string
+    email: string
     name: string
-    dob: Date | string
+    dob?: Date | string | null
     official_class: string
-    authenticator?: string | null
-    biometric_key?: string | null
     faceData?: string | null
-    bobKey?: string | null
-    createdAt?: Date | string
-    updateAt?: Date | string
-    type: $Enums.UserType
     join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
+    User?: UserUncheckedCreateNestedOneWithoutProfileInput
   }
 
-  export type UserCreateOrConnectWithoutHostInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutHostInput, UserUncheckedCreateWithoutHostInput>
+  export type ProfileCreateOrConnectWithoutHostInput = {
+    where: ProfileWhereUniqueInput
+    create: XOR<ProfileCreateWithoutHostInput, ProfileUncheckedCreateWithoutHostInput>
   }
 
-  export type UserCreateWithoutJoinInput = {
+  export type ProfileCreateWithoutJoinInput = {
     id?: string
-    email: string
     sid: string
-    gid: string
-    password: string
+    email: string
     name: string
-    dob: Date | string
+    dob?: Date | string | null
     official_class: string
-    authenticator?: string | null
-    biometric_key?: string | null
     faceData?: string | null
-    bobKey?: string | null
-    createdAt?: Date | string
-    updateAt?: Date | string
-    type: $Enums.UserType
     host?: SubjectCreateNestedManyWithoutTeacherInput
     attendances?: AttendanceCreateNestedManyWithoutAttendantInput
+    User?: UserCreateNestedOneWithoutProfileInput
   }
 
-  export type UserUncheckedCreateWithoutJoinInput = {
+  export type ProfileUncheckedCreateWithoutJoinInput = {
     id?: string
-    email: string
     sid: string
-    gid: string
-    password: string
+    email: string
     name: string
-    dob: Date | string
+    dob?: Date | string | null
     official_class: string
-    authenticator?: string | null
-    biometric_key?: string | null
     faceData?: string | null
-    bobKey?: string | null
-    createdAt?: Date | string
-    updateAt?: Date | string
-    type: $Enums.UserType
     host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
     attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
+    User?: UserUncheckedCreateNestedOneWithoutProfileInput
   }
 
-  export type UserCreateOrConnectWithoutJoinInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutJoinInput, UserUncheckedCreateWithoutJoinInput>
+  export type ProfileCreateOrConnectWithoutJoinInput = {
+    where: ProfileWhereUniqueInput
+    create: XOR<ProfileCreateWithoutJoinInput, ProfileUncheckedCreateWithoutJoinInput>
   }
 
   export type SessionAttendanceCreateWithoutSubjectInput = {
@@ -9546,92 +14043,70 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type UserUpsertWithoutHostInput = {
-    update: XOR<UserUpdateWithoutHostInput, UserUncheckedUpdateWithoutHostInput>
-    create: XOR<UserCreateWithoutHostInput, UserUncheckedCreateWithoutHostInput>
-    where?: UserWhereInput
+  export type ProfileUpsertWithoutHostInput = {
+    update: XOR<ProfileUpdateWithoutHostInput, ProfileUncheckedUpdateWithoutHostInput>
+    create: XOR<ProfileCreateWithoutHostInput, ProfileUncheckedCreateWithoutHostInput>
+    where?: ProfileWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutHostInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutHostInput, UserUncheckedUpdateWithoutHostInput>
+  export type ProfileUpdateToOneWithWhereWithoutHostInput = {
+    where?: ProfileWhereInput
+    data: XOR<ProfileUpdateWithoutHostInput, ProfileUncheckedUpdateWithoutHostInput>
   }
 
-  export type UserUpdateWithoutHostInput = {
+  export type ProfileUpdateWithoutHostInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     sid?: StringFieldUpdateOperationsInput | string
-    gid?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
-    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
-    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     join?: SubjectUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
+    User?: UserUpdateOneWithoutProfileNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutHostInput = {
+  export type ProfileUncheckedUpdateWithoutHostInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     sid?: StringFieldUpdateOperationsInput | string
-    gid?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
-    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
-    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
+    User?: UserUncheckedUpdateOneWithoutProfileNestedInput
   }
 
-  export type UserUpsertWithWhereUniqueWithoutJoinInput = {
-    where: UserWhereUniqueInput
-    update: XOR<UserUpdateWithoutJoinInput, UserUncheckedUpdateWithoutJoinInput>
-    create: XOR<UserCreateWithoutJoinInput, UserUncheckedCreateWithoutJoinInput>
+  export type ProfileUpsertWithWhereUniqueWithoutJoinInput = {
+    where: ProfileWhereUniqueInput
+    update: XOR<ProfileUpdateWithoutJoinInput, ProfileUncheckedUpdateWithoutJoinInput>
+    create: XOR<ProfileCreateWithoutJoinInput, ProfileUncheckedCreateWithoutJoinInput>
   }
 
-  export type UserUpdateWithWhereUniqueWithoutJoinInput = {
-    where: UserWhereUniqueInput
-    data: XOR<UserUpdateWithoutJoinInput, UserUncheckedUpdateWithoutJoinInput>
+  export type ProfileUpdateWithWhereUniqueWithoutJoinInput = {
+    where: ProfileWhereUniqueInput
+    data: XOR<ProfileUpdateWithoutJoinInput, ProfileUncheckedUpdateWithoutJoinInput>
   }
 
-  export type UserUpdateManyWithWhereWithoutJoinInput = {
-    where: UserScalarWhereInput
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutJoinInput>
+  export type ProfileUpdateManyWithWhereWithoutJoinInput = {
+    where: ProfileScalarWhereInput
+    data: XOR<ProfileUpdateManyMutationInput, ProfileUncheckedUpdateManyWithoutJoinInput>
   }
 
-  export type UserScalarWhereInput = {
-    AND?: UserScalarWhereInput | UserScalarWhereInput[]
-    OR?: UserScalarWhereInput[]
-    NOT?: UserScalarWhereInput | UserScalarWhereInput[]
-    id?: StringFilter<"User"> | string
-    email?: StringFilter<"User"> | string
-    sid?: StringFilter<"User"> | string
-    gid?: StringFilter<"User"> | string
-    password?: StringFilter<"User"> | string
-    name?: StringFilter<"User"> | string
-    dob?: DateTimeFilter<"User"> | Date | string
-    official_class?: StringFilter<"User"> | string
-    authenticator?: StringNullableFilter<"User"> | string | null
-    biometric_key?: StringNullableFilter<"User"> | string | null
-    faceData?: StringNullableFilter<"User"> | string | null
-    bobKey?: StringNullableFilter<"User"> | string | null
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updateAt?: DateTimeFilter<"User"> | Date | string
-    type?: EnumUserTypeFilter<"User"> | $Enums.UserType
+  export type ProfileScalarWhereInput = {
+    AND?: ProfileScalarWhereInput | ProfileScalarWhereInput[]
+    OR?: ProfileScalarWhereInput[]
+    NOT?: ProfileScalarWhereInput | ProfileScalarWhereInput[]
+    id?: StringFilter<"Profile"> | string
+    sid?: StringFilter<"Profile"> | string
+    email?: StringFilter<"Profile"> | string
+    name?: StringFilter<"Profile"> | string
+    dob?: DateTimeNullableFilter<"Profile"> | Date | string | null
+    official_class?: StringFilter<"Profile"> | string
+    faceData?: StringNullableFilter<"Profile"> | string | null
   }
 
   export type SessionAttendanceUpsertWithWhereUniqueWithoutSubjectInput = {
@@ -9697,8 +14172,8 @@ export namespace Prisma {
     startTime: Date | string
     endTime: Date | string
     address: string
-    teacher: UserCreateNestedOneWithoutHostInput
-    students?: UserCreateNestedManyWithoutJoinInput
+    teacher: ProfileCreateNestedOneWithoutHostInput
+    students?: ProfileCreateNestedManyWithoutJoinInput
     sessionCycle?: SessionCycleCreateNestedManyWithoutSubjectInput
   }
 
@@ -9712,7 +14187,7 @@ export namespace Prisma {
     endTime: Date | string
     address: string
     teacherId: string
-    students?: UserUncheckedCreateNestedManyWithoutJoinInput
+    students?: ProfileUncheckedCreateNestedManyWithoutJoinInput
     sessionCycle?: SessionCycleUncheckedCreateNestedManyWithoutSubjectInput
   }
 
@@ -9765,8 +14240,8 @@ export namespace Prisma {
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
-    teacher?: UserUpdateOneRequiredWithoutHostNestedInput
-    students?: UserUpdateManyWithoutJoinNestedInput
+    teacher?: ProfileUpdateOneRequiredWithoutHostNestedInput
+    students?: ProfileUpdateManyWithoutJoinNestedInput
     sessionCycle?: SessionCycleUpdateManyWithoutSubjectNestedInput
   }
 
@@ -9780,7 +14255,7 @@ export namespace Prisma {
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
     teacherId?: StringFieldUpdateOperationsInput | string
-    students?: UserUncheckedUpdateManyWithoutJoinNestedInput
+    students?: ProfileUncheckedUpdateManyWithoutJoinNestedInput
     sessionCycle?: SessionCycleUncheckedUpdateManyWithoutSubjectNestedInput
   }
 
@@ -9832,8 +14307,8 @@ export namespace Prisma {
     startTime: Date | string
     endTime: Date | string
     address: string
-    teacher: UserCreateNestedOneWithoutHostInput
-    students?: UserCreateNestedManyWithoutJoinInput
+    teacher: ProfileCreateNestedOneWithoutHostInput
+    students?: ProfileCreateNestedManyWithoutJoinInput
     session?: SessionAttendanceCreateNestedManyWithoutSubjectInput
   }
 
@@ -9847,7 +14322,7 @@ export namespace Prisma {
     endTime: Date | string
     address: string
     teacherId: string
-    students?: UserUncheckedCreateNestedManyWithoutJoinInput
+    students?: ProfileUncheckedCreateNestedManyWithoutJoinInput
     session?: SessionAttendanceUncheckedCreateNestedManyWithoutSubjectInput
   }
 
@@ -9861,7 +14336,7 @@ export namespace Prisma {
     time: Date | string
     isVerified: boolean
     deviceId: string
-    attendant: UserCreateNestedOneWithoutAttendancesInput
+    attendant: ProfileCreateNestedOneWithoutAttendancesInput
   }
 
   export type AttendanceUncheckedCreateWithoutSessionCycleInput = {
@@ -9931,8 +14406,8 @@ export namespace Prisma {
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
-    teacher?: UserUpdateOneRequiredWithoutHostNestedInput
-    students?: UserUpdateManyWithoutJoinNestedInput
+    teacher?: ProfileUpdateOneRequiredWithoutHostNestedInput
+    students?: ProfileUpdateManyWithoutJoinNestedInput
     session?: SessionAttendanceUpdateManyWithoutSubjectNestedInput
   }
 
@@ -9946,7 +14421,7 @@ export namespace Prisma {
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
     teacherId?: StringFieldUpdateOperationsInput | string
-    students?: UserUncheckedUpdateManyWithoutJoinNestedInput
+    students?: ProfileUncheckedUpdateManyWithoutJoinNestedInput
     session?: SessionAttendanceUncheckedUpdateManyWithoutSubjectNestedInput
   }
 
@@ -9966,49 +14441,35 @@ export namespace Prisma {
     data: XOR<AttendanceUpdateManyMutationInput, AttendanceUncheckedUpdateManyWithoutSessionCycleInput>
   }
 
-  export type UserCreateWithoutAttendancesInput = {
+  export type ProfileCreateWithoutAttendancesInput = {
     id?: string
-    email: string
     sid: string
-    gid: string
-    password: string
+    email: string
     name: string
-    dob: Date | string
+    dob?: Date | string | null
     official_class: string
-    authenticator?: string | null
-    biometric_key?: string | null
     faceData?: string | null
-    bobKey?: string | null
-    createdAt?: Date | string
-    updateAt?: Date | string
-    type: $Enums.UserType
     host?: SubjectCreateNestedManyWithoutTeacherInput
     join?: SubjectCreateNestedManyWithoutStudentsInput
+    User?: UserCreateNestedOneWithoutProfileInput
   }
 
-  export type UserUncheckedCreateWithoutAttendancesInput = {
+  export type ProfileUncheckedCreateWithoutAttendancesInput = {
     id?: string
-    email: string
     sid: string
-    gid: string
-    password: string
+    email: string
     name: string
-    dob: Date | string
+    dob?: Date | string | null
     official_class: string
-    authenticator?: string | null
-    biometric_key?: string | null
     faceData?: string | null
-    bobKey?: string | null
-    createdAt?: Date | string
-    updateAt?: Date | string
-    type: $Enums.UserType
     host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
     join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
+    User?: UserUncheckedCreateNestedOneWithoutProfileInput
   }
 
-  export type UserCreateOrConnectWithoutAttendancesInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutAttendancesInput, UserUncheckedCreateWithoutAttendancesInput>
+  export type ProfileCreateOrConnectWithoutAttendancesInput = {
+    where: ProfileWhereUniqueInput
+    create: XOR<ProfileCreateWithoutAttendancesInput, ProfileUncheckedCreateWithoutAttendancesInput>
   }
 
   export type SessionCycleCreateWithoutAttendancesInput = {
@@ -10030,55 +14491,41 @@ export namespace Prisma {
     create: XOR<SessionCycleCreateWithoutAttendancesInput, SessionCycleUncheckedCreateWithoutAttendancesInput>
   }
 
-  export type UserUpsertWithoutAttendancesInput = {
-    update: XOR<UserUpdateWithoutAttendancesInput, UserUncheckedUpdateWithoutAttendancesInput>
-    create: XOR<UserCreateWithoutAttendancesInput, UserUncheckedCreateWithoutAttendancesInput>
-    where?: UserWhereInput
+  export type ProfileUpsertWithoutAttendancesInput = {
+    update: XOR<ProfileUpdateWithoutAttendancesInput, ProfileUncheckedUpdateWithoutAttendancesInput>
+    create: XOR<ProfileCreateWithoutAttendancesInput, ProfileUncheckedCreateWithoutAttendancesInput>
+    where?: ProfileWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutAttendancesInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutAttendancesInput, UserUncheckedUpdateWithoutAttendancesInput>
+  export type ProfileUpdateToOneWithWhereWithoutAttendancesInput = {
+    where?: ProfileWhereInput
+    data: XOR<ProfileUpdateWithoutAttendancesInput, ProfileUncheckedUpdateWithoutAttendancesInput>
   }
 
-  export type UserUpdateWithoutAttendancesInput = {
+  export type ProfileUpdateWithoutAttendancesInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     sid?: StringFieldUpdateOperationsInput | string
-    gid?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
-    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
-    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: SubjectUpdateManyWithoutTeacherNestedInput
     join?: SubjectUpdateManyWithoutStudentsNestedInput
+    User?: UserUpdateOneWithoutProfileNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutAttendancesInput = {
+  export type ProfileUncheckedUpdateWithoutAttendancesInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     sid?: StringFieldUpdateOperationsInput | string
-    gid?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
-    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
-    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
     join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
+    User?: UserUncheckedUpdateOneWithoutProfileNestedInput
   }
 
   export type SessionCycleUpsertWithoutAttendancesInput = {
@@ -10104,6 +14551,66 @@ export namespace Prisma {
     start?: DateTimeFieldUpdateOperationsInput | Date | string
     sessionId?: StringFieldUpdateOperationsInput | string
     subjectId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SessionCreateManyUserInput = {
+    id?: string
+    device_id: string
+    device_name: string
+    login_method: string
+    saved_device: boolean
+    created_at: Date | string
+  }
+
+  export type NFCCreateManyUserInput = {
+    id?: string
+    active: boolean
+    status: string
+  }
+
+  export type SessionUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    device_id?: StringFieldUpdateOperationsInput | string
+    device_name?: StringFieldUpdateOperationsInput | string
+    login_method?: StringFieldUpdateOperationsInput | string
+    saved_device?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    device_id?: StringFieldUpdateOperationsInput | string
+    device_name?: StringFieldUpdateOperationsInput | string
+    login_method?: StringFieldUpdateOperationsInput | string
+    saved_device?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    device_id?: StringFieldUpdateOperationsInput | string
+    device_name?: StringFieldUpdateOperationsInput | string
+    login_method?: StringFieldUpdateOperationsInput | string
+    saved_device?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NFCUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    status?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type NFCUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    status?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type NFCUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type SubjectCreateManyTeacherInput = {
@@ -10134,7 +14641,7 @@ export namespace Prisma {
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
-    students?: UserUpdateManyWithoutJoinNestedInput
+    students?: ProfileUpdateManyWithoutJoinNestedInput
     session?: SessionAttendanceUpdateManyWithoutSubjectNestedInput
     sessionCycle?: SessionCycleUpdateManyWithoutSubjectNestedInput
   }
@@ -10148,7 +14655,7 @@ export namespace Prisma {
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
-    students?: UserUncheckedUpdateManyWithoutJoinNestedInput
+    students?: ProfileUncheckedUpdateManyWithoutJoinNestedInput
     session?: SessionAttendanceUncheckedUpdateManyWithoutSubjectNestedInput
     sessionCycle?: SessionCycleUncheckedUpdateManyWithoutSubjectNestedInput
   }
@@ -10173,7 +14680,7 @@ export namespace Prisma {
     startTime?: DateTimeFieldUpdateOperationsInput | Date | string
     endTime?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
-    teacher?: UserUpdateOneRequiredWithoutHostNestedInput
+    teacher?: ProfileUpdateOneRequiredWithoutHostNestedInput
     session?: SessionAttendanceUpdateManyWithoutSubjectNestedInput
     sessionCycle?: SessionCycleUpdateManyWithoutSubjectNestedInput
   }
@@ -10242,62 +14749,40 @@ export namespace Prisma {
     sessionId: string
   }
 
-  export type UserUpdateWithoutJoinInput = {
+  export type ProfileUpdateWithoutJoinInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     sid?: StringFieldUpdateOperationsInput | string
-    gid?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
-    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
-    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: SubjectUpdateManyWithoutTeacherNestedInput
     attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
+    User?: UserUpdateOneWithoutProfileNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutJoinInput = {
+  export type ProfileUncheckedUpdateWithoutJoinInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     sid?: StringFieldUpdateOperationsInput | string
-    gid?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
-    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
-    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
     attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
+    User?: UserUncheckedUpdateOneWithoutProfileNestedInput
   }
 
-  export type UserUncheckedUpdateManyWithoutJoinInput = {
+  export type ProfileUncheckedUpdateManyWithoutJoinInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     sid?: StringFieldUpdateOperationsInput | string
-    gid?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
-    authenticator?: NullableStringFieldUpdateOperationsInput | string | null
-    biometric_key?: NullableStringFieldUpdateOperationsInput | string | null
     faceData?: NullableStringFieldUpdateOperationsInput | string | null
-    bobKey?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
   }
 
   export type SessionAttendanceUpdateWithoutSubjectInput = {
@@ -10385,7 +14870,7 @@ export namespace Prisma {
     time?: DateTimeFieldUpdateOperationsInput | Date | string
     isVerified?: BoolFieldUpdateOperationsInput | boolean
     deviceId?: StringFieldUpdateOperationsInput | string
-    attendant?: UserUpdateOneRequiredWithoutAttendancesNestedInput
+    attendant?: ProfileUpdateOneRequiredWithoutAttendancesNestedInput
   }
 
   export type AttendanceUncheckedUpdateWithoutSessionCycleInput = {

@@ -123,16 +123,37 @@ exports.Prisma.UserScalarFieldEnum = {
   sid: 'sid',
   gid: 'gid',
   password: 'password',
+  type: 'type',
+  authenticator: 'authenticator',
+  biometric_key: 'biometric_key',
+  profile_id: 'profile_id'
+};
+
+exports.Prisma.ProfileScalarFieldEnum = {
+  id: 'id',
+  sid: 'sid',
+  email: 'email',
   name: 'name',
   dob: 'dob',
   official_class: 'official_class',
-  authenticator: 'authenticator',
-  biometric_key: 'biometric_key',
-  faceData: 'faceData',
-  bobKey: 'bobKey',
-  createdAt: 'createdAt',
-  updateAt: 'updateAt',
-  type: 'type'
+  faceData: 'faceData'
+};
+
+exports.Prisma.SessionScalarFieldEnum = {
+  id: 'id',
+  device_id: 'device_id',
+  device_name: 'device_name',
+  user_id: 'user_id',
+  login_method: 'login_method',
+  saved_device: 'saved_device',
+  created_at: 'created_at'
+};
+
+exports.Prisma.NFCScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  active: 'active',
+  status: 'status'
 };
 
 exports.Prisma.SubjectScalarFieldEnum = {
@@ -186,17 +207,15 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-exports.UserType = exports.$Enums.UserType = {
-  Student: 'Student',
-  Teacher: 'Teacher'
-};
-
 exports.RepeatType = exports.$Enums.RepeatType = {
   Weekly: 'Weekly'
 };
 
 exports.Prisma.ModelName = {
   User: 'User',
+  Profile: 'Profile',
+  Session: 'Session',
+  NFC: 'NFC',
   Subject: 'Subject',
   SessionAttendance: 'SessionAttendance',
   SessionCycle: 'SessionCycle',
