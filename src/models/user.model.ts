@@ -15,10 +15,8 @@ class UserModel {
     if (!user) throw new Error("User not found");
     if (user.faceData) throw new Error("User already has face data");
 
-    const result = await prisma.user.update({
-      where: {
-        id: userId,
-      },
+    const result = await prisma.profile.update({
+      where: { id: userId },
       data: {
         faceData: facePath,
       },
@@ -28,7 +26,7 @@ class UserModel {
   }
 
   async removeFaceData(userId: string) {
-    const user = await prisma.user.update({
+    const user = await prisma.profile.update({
       where: {
         id: userId,
       },
@@ -39,20 +37,8 @@ class UserModel {
   }
 
   async getUser(id: string) {
-    const result = await prisma.user.findUnique({
-      where: {
-        id,
-      },
-    });
-    return result;
-  }
-
-  async updateUserKey(uid: string, key: string) {
-    console.log(uid, key);
-    
-    const result = await prisma.user.update({
-      where: { id: uid },
-      data: { bobKey: key },
+    const result = await prisma.profile.findUnique({
+      where: { id },
     });
     return result;
   }

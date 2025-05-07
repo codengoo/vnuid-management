@@ -67,8 +67,8 @@ class SessionModel {
     const result = await prisma.sessionCycle.create({
       data: {
         start: new Date(),
-        sessionId: id,
-        subjectId,
+        session_id: id,
+        subject_id: subjectId,
       },
     });
 
@@ -83,7 +83,7 @@ class SessionModel {
     // List all session cycles
     const cycles = await prisma.sessionCycle.findMany({
       where: {
-        subjectId: { in: subjectIds },
+        subject_id: { in: subjectIds },
       },
       include: { session: true, subject: true },
     });

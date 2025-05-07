@@ -180,8 +180,8 @@ exports.Prisma.SessionAttendanceScalarFieldEnum = {
 exports.Prisma.SessionCycleScalarFieldEnum = {
   id: 'id',
   start: 'start',
-  sessionId: 'sessionId',
-  subjectId: 'subjectId'
+  session_id: 'session_id',
+  subject_id: 'subject_id'
 };
 
 exports.Prisma.AttendanceScalarFieldEnum = {

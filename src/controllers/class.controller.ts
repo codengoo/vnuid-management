@@ -1,9 +1,8 @@
 import { catcher } from "@/helpers";
-import { AttendanceModel, ClassModel, SessionModel, UserModel } from "@/models";
+import { ClassModel, SessionModel } from "@/models";
 import { ILocal, IResBody } from "@/types";
 import { Request, Response } from "express";
 import { RepeatType, UserType } from "generated/prisma";
-import crypto from "node:crypto";
 import * as yup from "yup";
 
 class ClassController {

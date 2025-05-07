@@ -8568,22 +8568,22 @@ export namespace Prisma {
   export type SessionCycleMinAggregateOutputType = {
     id: string | null
     start: Date | null
-    sessionId: string | null
-    subjectId: string | null
+    session_id: string | null
+    subject_id: string | null
   }
 
   export type SessionCycleMaxAggregateOutputType = {
     id: string | null
     start: Date | null
-    sessionId: string | null
-    subjectId: string | null
+    session_id: string | null
+    subject_id: string | null
   }
 
   export type SessionCycleCountAggregateOutputType = {
     id: number
     start: number
-    sessionId: number
-    subjectId: number
+    session_id: number
+    subject_id: number
     _all: number
   }
 
@@ -8591,22 +8591,22 @@ export namespace Prisma {
   export type SessionCycleMinAggregateInputType = {
     id?: true
     start?: true
-    sessionId?: true
-    subjectId?: true
+    session_id?: true
+    subject_id?: true
   }
 
   export type SessionCycleMaxAggregateInputType = {
     id?: true
     start?: true
-    sessionId?: true
-    subjectId?: true
+    session_id?: true
+    subject_id?: true
   }
 
   export type SessionCycleCountAggregateInputType = {
     id?: true
     start?: true
-    sessionId?: true
-    subjectId?: true
+    session_id?: true
+    subject_id?: true
     _all?: true
   }
 
@@ -8685,8 +8685,8 @@ export namespace Prisma {
   export type SessionCycleGroupByOutputType = {
     id: string
     start: Date
-    sessionId: string
-    subjectId: string | null
+    session_id: string
+    subject_id: string | null
     _count: SessionCycleCountAggregateOutputType | null
     _min: SessionCycleMinAggregateOutputType | null
     _max: SessionCycleMaxAggregateOutputType | null
@@ -8709,8 +8709,8 @@ export namespace Prisma {
   export type SessionCycleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     start?: boolean
-    sessionId?: boolean
-    subjectId?: boolean
+    session_id?: boolean
+    subject_id?: boolean
     session?: boolean | SessionAttendanceDefaultArgs<ExtArgs>
     subject?: boolean | SessionCycle$subjectArgs<ExtArgs>
     attendances?: boolean | SessionCycle$attendancesArgs<ExtArgs>
@@ -8720,8 +8720,8 @@ export namespace Prisma {
   export type SessionCycleSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     start?: boolean
-    sessionId?: boolean
-    subjectId?: boolean
+    session_id?: boolean
+    subject_id?: boolean
     session?: boolean | SessionAttendanceDefaultArgs<ExtArgs>
     subject?: boolean | SessionCycle$subjectArgs<ExtArgs>
   }, ExtArgs["result"]["sessionCycle"]>
@@ -8729,8 +8729,8 @@ export namespace Prisma {
   export type SessionCycleSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     start?: boolean
-    sessionId?: boolean
-    subjectId?: boolean
+    session_id?: boolean
+    subject_id?: boolean
     session?: boolean | SessionAttendanceDefaultArgs<ExtArgs>
     subject?: boolean | SessionCycle$subjectArgs<ExtArgs>
   }, ExtArgs["result"]["sessionCycle"]>
@@ -8738,11 +8738,11 @@ export namespace Prisma {
   export type SessionCycleSelectScalar = {
     id?: boolean
     start?: boolean
-    sessionId?: boolean
-    subjectId?: boolean
+    session_id?: boolean
+    subject_id?: boolean
   }
 
-  export type SessionCycleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "start" | "sessionId" | "subjectId", ExtArgs["result"]["sessionCycle"]>
+  export type SessionCycleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "start" | "session_id" | "subject_id", ExtArgs["result"]["sessionCycle"]>
   export type SessionCycleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     session?: boolean | SessionAttendanceDefaultArgs<ExtArgs>
     subject?: boolean | SessionCycle$subjectArgs<ExtArgs>
@@ -8768,8 +8768,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       start: Date
-      sessionId: string
-      subjectId: string | null
+      session_id: string
+      subject_id: string | null
     }, ExtArgs["result"]["sessionCycle"]>
     composites: {}
   }
@@ -9198,8 +9198,8 @@ export namespace Prisma {
   interface SessionCycleFieldRefs {
     readonly id: FieldRef<"SessionCycle", 'String'>
     readonly start: FieldRef<"SessionCycle", 'DateTime'>
-    readonly sessionId: FieldRef<"SessionCycle", 'String'>
-    readonly subjectId: FieldRef<"SessionCycle", 'String'>
+    readonly session_id: FieldRef<"SessionCycle", 'String'>
+    readonly subject_id: FieldRef<"SessionCycle", 'String'>
   }
     
 
@@ -10831,8 +10831,8 @@ export namespace Prisma {
   export const SessionCycleScalarFieldEnum: {
     id: 'id',
     start: 'start',
-    sessionId: 'sessionId',
-    subjectId: 'subjectId'
+    session_id: 'session_id',
+    subject_id: 'subject_id'
   };
 
   export type SessionCycleScalarFieldEnum = (typeof SessionCycleScalarFieldEnum)[keyof typeof SessionCycleScalarFieldEnum]
@@ -11384,8 +11384,8 @@ export namespace Prisma {
     NOT?: SessionCycleWhereInput | SessionCycleWhereInput[]
     id?: StringFilter<"SessionCycle"> | string
     start?: DateTimeFilter<"SessionCycle"> | Date | string
-    sessionId?: StringFilter<"SessionCycle"> | string
-    subjectId?: StringNullableFilter<"SessionCycle"> | string | null
+    session_id?: StringFilter<"SessionCycle"> | string
+    subject_id?: StringNullableFilter<"SessionCycle"> | string | null
     session?: XOR<SessionAttendanceScalarRelationFilter, SessionAttendanceWhereInput>
     subject?: XOR<SubjectNullableScalarRelationFilter, SubjectWhereInput> | null
     attendances?: AttendanceListRelationFilter
@@ -11394,8 +11394,8 @@ export namespace Prisma {
   export type SessionCycleOrderByWithRelationInput = {
     id?: SortOrder
     start?: SortOrder
-    sessionId?: SortOrder
-    subjectId?: SortOrderInput | SortOrder
+    session_id?: SortOrder
+    subject_id?: SortOrderInput | SortOrder
     session?: SessionAttendanceOrderByWithRelationInput
     subject?: SubjectOrderByWithRelationInput
     attendances?: AttendanceOrderByRelationAggregateInput
@@ -11403,22 +11403,23 @@ export namespace Prisma {
 
   export type SessionCycleWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    session_id_start?: SessionCycleSession_idStartCompoundUniqueInput
     AND?: SessionCycleWhereInput | SessionCycleWhereInput[]
     OR?: SessionCycleWhereInput[]
     NOT?: SessionCycleWhereInput | SessionCycleWhereInput[]
     start?: DateTimeFilter<"SessionCycle"> | Date | string
-    sessionId?: StringFilter<"SessionCycle"> | string
-    subjectId?: StringNullableFilter<"SessionCycle"> | string | null
+    session_id?: StringFilter<"SessionCycle"> | string
+    subject_id?: StringNullableFilter<"SessionCycle"> | string | null
     session?: XOR<SessionAttendanceScalarRelationFilter, SessionAttendanceWhereInput>
     subject?: XOR<SubjectNullableScalarRelationFilter, SubjectWhereInput> | null
     attendances?: AttendanceListRelationFilter
-  }, "id">
+  }, "id" | "session_id_start">
 
   export type SessionCycleOrderByWithAggregationInput = {
     id?: SortOrder
     start?: SortOrder
-    sessionId?: SortOrder
-    subjectId?: SortOrderInput | SortOrder
+    session_id?: SortOrder
+    subject_id?: SortOrderInput | SortOrder
     _count?: SessionCycleCountOrderByAggregateInput
     _max?: SessionCycleMaxOrderByAggregateInput
     _min?: SessionCycleMinOrderByAggregateInput
@@ -11430,8 +11431,8 @@ export namespace Prisma {
     NOT?: SessionCycleScalarWhereWithAggregatesInput | SessionCycleScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"SessionCycle"> | string
     start?: DateTimeWithAggregatesFilter<"SessionCycle"> | Date | string
-    sessionId?: StringWithAggregatesFilter<"SessionCycle"> | string
-    subjectId?: StringNullableWithAggregatesFilter<"SessionCycle"> | string | null
+    session_id?: StringWithAggregatesFilter<"SessionCycle"> | string
+    subject_id?: StringNullableWithAggregatesFilter<"SessionCycle"> | string | null
   }
 
   export type AttendanceWhereInput = {
@@ -11963,8 +11964,8 @@ export namespace Prisma {
   export type SessionCycleUncheckedCreateInput = {
     id?: string
     start: Date | string
-    sessionId: string
-    subjectId?: string | null
+    session_id: string
+    subject_id?: string | null
     attendances?: AttendanceUncheckedCreateNestedManyWithoutSessionCycleInput
   }
 
@@ -11979,16 +11980,16 @@ export namespace Prisma {
   export type SessionCycleUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     start?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessionId?: StringFieldUpdateOperationsInput | string
-    subjectId?: NullableStringFieldUpdateOperationsInput | string | null
+    session_id?: StringFieldUpdateOperationsInput | string
+    subject_id?: NullableStringFieldUpdateOperationsInput | string | null
     attendances?: AttendanceUncheckedUpdateManyWithoutSessionCycleNestedInput
   }
 
   export type SessionCycleCreateManyInput = {
     id?: string
     start: Date | string
-    sessionId: string
-    subjectId?: string | null
+    session_id: string
+    subject_id?: string | null
   }
 
   export type SessionCycleUpdateManyMutationInput = {
@@ -11999,8 +12000,8 @@ export namespace Prisma {
   export type SessionCycleUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     start?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessionId?: StringFieldUpdateOperationsInput | string
-    subjectId?: NullableStringFieldUpdateOperationsInput | string | null
+    session_id?: StringFieldUpdateOperationsInput | string
+    subject_id?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AttendanceCreateInput = {
@@ -12530,25 +12531,30 @@ export namespace Prisma {
     isNot?: SubjectWhereInput | null
   }
 
+  export type SessionCycleSession_idStartCompoundUniqueInput = {
+    session_id: string
+    start: Date | string
+  }
+
   export type SessionCycleCountOrderByAggregateInput = {
     id?: SortOrder
     start?: SortOrder
-    sessionId?: SortOrder
-    subjectId?: SortOrder
+    session_id?: SortOrder
+    subject_id?: SortOrder
   }
 
   export type SessionCycleMaxOrderByAggregateInput = {
     id?: SortOrder
     start?: SortOrder
-    sessionId?: SortOrder
-    subjectId?: SortOrder
+    session_id?: SortOrder
+    subject_id?: SortOrder
   }
 
   export type SessionCycleMinOrderByAggregateInput = {
     id?: SortOrder
     start?: SortOrder
-    sessionId?: SortOrder
-    subjectId?: SortOrder
+    session_id?: SortOrder
+    subject_id?: SortOrder
   }
 
   export type SessionCycleScalarRelationFilter = {
@@ -14029,7 +14035,7 @@ export namespace Prisma {
   export type SessionCycleUncheckedCreateWithoutSubjectInput = {
     id?: string
     start: Date | string
-    sessionId: string
+    session_id: string
     attendances?: AttendanceUncheckedCreateNestedManyWithoutSessionCycleInput
   }
 
@@ -14159,8 +14165,8 @@ export namespace Prisma {
     NOT?: SessionCycleScalarWhereInput | SessionCycleScalarWhereInput[]
     id?: StringFilter<"SessionCycle"> | string
     start?: DateTimeFilter<"SessionCycle"> | Date | string
-    sessionId?: StringFilter<"SessionCycle"> | string
-    subjectId?: StringNullableFilter<"SessionCycle"> | string | null
+    session_id?: StringFilter<"SessionCycle"> | string
+    subject_id?: StringNullableFilter<"SessionCycle"> | string | null
   }
 
   export type SubjectCreateWithoutSessionInput = {
@@ -14206,7 +14212,7 @@ export namespace Prisma {
   export type SessionCycleUncheckedCreateWithoutSessionInput = {
     id?: string
     start: Date | string
-    subjectId?: string | null
+    subject_id?: string | null
     attendances?: AttendanceUncheckedCreateNestedManyWithoutSessionCycleInput
   }
 
@@ -14482,8 +14488,8 @@ export namespace Prisma {
   export type SessionCycleUncheckedCreateWithoutAttendancesInput = {
     id?: string
     start: Date | string
-    sessionId: string
-    subjectId?: string | null
+    session_id: string
+    subject_id?: string | null
   }
 
   export type SessionCycleCreateOrConnectWithoutAttendancesInput = {
@@ -14549,8 +14555,8 @@ export namespace Prisma {
   export type SessionCycleUncheckedUpdateWithoutAttendancesInput = {
     id?: StringFieldUpdateOperationsInput | string
     start?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessionId?: StringFieldUpdateOperationsInput | string
-    subjectId?: NullableStringFieldUpdateOperationsInput | string | null
+    session_id?: StringFieldUpdateOperationsInput | string
+    subject_id?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SessionCreateManyUserInput = {
@@ -14746,7 +14752,7 @@ export namespace Prisma {
   export type SessionCycleCreateManySubjectInput = {
     id?: string
     start: Date | string
-    sessionId: string
+    session_id: string
   }
 
   export type ProfileUpdateWithoutJoinInput = {
@@ -14821,20 +14827,20 @@ export namespace Prisma {
   export type SessionCycleUncheckedUpdateWithoutSubjectInput = {
     id?: StringFieldUpdateOperationsInput | string
     start?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessionId?: StringFieldUpdateOperationsInput | string
+    session_id?: StringFieldUpdateOperationsInput | string
     attendances?: AttendanceUncheckedUpdateManyWithoutSessionCycleNestedInput
   }
 
   export type SessionCycleUncheckedUpdateManyWithoutSubjectInput = {
     id?: StringFieldUpdateOperationsInput | string
     start?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessionId?: StringFieldUpdateOperationsInput | string
+    session_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type SessionCycleCreateManySessionInput = {
     id?: string
     start: Date | string
-    subjectId?: string | null
+    subject_id?: string | null
   }
 
   export type SessionCycleUpdateWithoutSessionInput = {
@@ -14847,14 +14853,14 @@ export namespace Prisma {
   export type SessionCycleUncheckedUpdateWithoutSessionInput = {
     id?: StringFieldUpdateOperationsInput | string
     start?: DateTimeFieldUpdateOperationsInput | Date | string
-    subjectId?: NullableStringFieldUpdateOperationsInput | string | null
+    subject_id?: NullableStringFieldUpdateOperationsInput | string | null
     attendances?: AttendanceUncheckedUpdateManyWithoutSessionCycleNestedInput
   }
 
   export type SessionCycleUncheckedUpdateManyWithoutSessionInput = {
     id?: StringFieldUpdateOperationsInput | string
     start?: DateTimeFieldUpdateOperationsInput | Date | string
-    subjectId?: NullableStringFieldUpdateOperationsInput | string | null
+    subject_id?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AttendanceCreateManySessionCycleInput = {

@@ -1,23 +1,52 @@
 import { prisma } from "@/configs";
 import { Attendance } from "generated/prisma";
+import { RRule } from "rrule";
 
 class AttendanceModel {
   async checkin(sid: string, uid: string, data: Partial<Attendance>) {
-    // Check user in class
-    const sessionCycle = await prisma.sessionCycle.findFirst({
+    const session = await prisma.sessionAttendance.findFirst({
       where: { id: sid },
-      select: { subject: true },
+      include: { subject: true },
     });
-    if (!sessionCycle) throw new Error("Session cycle not found");
+    if (!session) throw new Error("Session not found");
 
     const subject = await prisma.subject.findFirst({
-      where: { id: sessionCycle.subject?.id },
+      where: { id: session.subject?.id },
       select: { students: true },
     });
     if (!subject) throw new Error("Class not found");
 
     if (!subject.students.some((student) => student.id === uid))
       throw new Error("You are not student of this class");
+
+    // upsert attendanceCycle
+    const now = new Date();
+    const start = session.start;
+    const rule = new RRule({
+      freq: RRule.WEEKLY,
+      interval: 1,
+      dtstart: start,
+    });
+
+    // Check TH xayr ra lan thu 2, chua den thoi gian diem danh hien tai nhuwng da qua lan diem danh truoc do
+    const previousOccurrence = rule.before(now, true);
+    if (!previousOccurrence) throw new Error("Session is not started yet");
+
+    const sessionCycle = await prisma.sessionCycle.upsert({
+      where: {
+        session_id_start: {
+          session_id: sid,
+          start: previousOccurrence,
+        },
+      },
+      create: {
+        start: previousOccurrence,
+        session_id: sid,
+        subject_id: session.subjectId,
+      },
+      update: {},
+    });
+    if (!sessionCycle) throw new Error("Session cycle not found");
 
     // Checkin
     const result = await prisma.attendance.create({

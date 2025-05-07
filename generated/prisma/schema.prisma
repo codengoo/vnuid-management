@@ -121,12 +121,13 @@ model SessionCycle {
   id    String   @id @default(uuid())
   start DateTime
 
-  sessionId   String
-  session     SessionAttendance @relation(fields: [sessionId], references: [id])
-  subject     Subject?          @relation(fields: [subjectId], references: [id])
-  subjectId   String?
+  session_id  String
+  session     SessionAttendance @relation(fields: [session_id], references: [id])
+  subject     Subject?          @relation(fields: [subject_id], references: [id])
+  subject_id  String?
   attendances Attendance[]
 
+  @@unique([session_id, start])
   @@map("session_cycles")
 }
 
