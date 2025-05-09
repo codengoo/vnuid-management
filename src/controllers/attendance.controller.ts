@@ -11,7 +11,7 @@ class AttendanceController {
     const data = req.body;
 
     const schema = yup.object({
-      embedding: yup.array(yup.number()).length(1).required(),
+      embedding: yup.array(yup.number()).length(512).required(),
     });
 
     await catcher(res, async () => {

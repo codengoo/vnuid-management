@@ -136,6 +136,8 @@ exports.Prisma.ProfileScalarFieldEnum = {
   name: 'name',
   dob: 'dob',
   official_class: 'official_class',
+  phone: 'phone',
+  address: 'address',
   face_data: 'face_data'
 };
 

@@ -49,6 +49,8 @@ model Profile {
   name           String
   dob            DateTime?
   official_class String
+  phone          String    @default("")
+  address        String    @default("")
   face_data      String?
 
   host        Subject[]    @relation("TeacherClass")

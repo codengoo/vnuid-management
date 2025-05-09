@@ -17,8 +17,6 @@ function authMidBuilder(req: Request, res: Response, next: Function) {
 
 export function authMid(roles: UserType[] = []) {
   return (req: Request, res: Response, next: Function) => { 
-    console.log(req.headers);
-    
     const UserId = req.headers["x-user-id"];
     const Role = req.headers["x-user-role"] as string;
     const Key = req.headers["x-user-key"];

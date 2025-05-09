@@ -2918,6 +2918,8 @@ export namespace Prisma {
     name: string | null
     dob: Date | null
     official_class: string | null
+    phone: string | null
+    address: string | null
     face_data: string | null
   }
 
@@ -2928,6 +2930,8 @@ export namespace Prisma {
     name: string | null
     dob: Date | null
     official_class: string | null
+    phone: string | null
+    address: string | null
     face_data: string | null
   }
 
@@ -2938,6 +2942,8 @@ export namespace Prisma {
     name: number
     dob: number
     official_class: number
+    phone: number
+    address: number
     face_data: number
     _all: number
   }
@@ -2950,6 +2956,8 @@ export namespace Prisma {
     name?: true
     dob?: true
     official_class?: true
+    phone?: true
+    address?: true
     face_data?: true
   }
 
@@ -2960,6 +2968,8 @@ export namespace Prisma {
     name?: true
     dob?: true
     official_class?: true
+    phone?: true
+    address?: true
     face_data?: true
   }
 
@@ -2970,6 +2980,8 @@ export namespace Prisma {
     name?: true
     dob?: true
     official_class?: true
+    phone?: true
+    address?: true
     face_data?: true
     _all?: true
   }
@@ -3053,6 +3065,8 @@ export namespace Prisma {
     name: string
     dob: Date | null
     official_class: string
+    phone: string
+    address: string
     face_data: string | null
     _count: ProfileCountAggregateOutputType | null
     _min: ProfileMinAggregateOutputType | null
@@ -3080,6 +3094,8 @@ export namespace Prisma {
     name?: boolean
     dob?: boolean
     official_class?: boolean
+    phone?: boolean
+    address?: boolean
     face_data?: boolean
     host?: boolean | Profile$hostArgs<ExtArgs>
     join?: boolean | Profile$joinArgs<ExtArgs>
@@ -3095,6 +3111,8 @@ export namespace Prisma {
     name?: boolean
     dob?: boolean
     official_class?: boolean
+    phone?: boolean
+    address?: boolean
     face_data?: boolean
   }, ExtArgs["result"]["profile"]>
 
@@ -3105,6 +3123,8 @@ export namespace Prisma {
     name?: boolean
     dob?: boolean
     official_class?: boolean
+    phone?: boolean
+    address?: boolean
     face_data?: boolean
   }, ExtArgs["result"]["profile"]>
 
@@ -3115,10 +3135,12 @@ export namespace Prisma {
     name?: boolean
     dob?: boolean
     official_class?: boolean
+    phone?: boolean
+    address?: boolean
     face_data?: boolean
   }
 
-  export type ProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sid" | "email" | "name" | "dob" | "official_class" | "face_data", ExtArgs["result"]["profile"]>
+  export type ProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sid" | "email" | "name" | "dob" | "official_class" | "phone" | "address" | "face_data", ExtArgs["result"]["profile"]>
   export type ProfileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     host?: boolean | Profile$hostArgs<ExtArgs>
     join?: boolean | Profile$joinArgs<ExtArgs>
@@ -3144,6 +3166,8 @@ export namespace Prisma {
       name: string
       dob: Date | null
       official_class: string
+      phone: string
+      address: string
       face_data: string | null
     }, ExtArgs["result"]["profile"]>
     composites: {}
@@ -3578,6 +3602,8 @@ export namespace Prisma {
     readonly name: FieldRef<"Profile", 'String'>
     readonly dob: FieldRef<"Profile", 'DateTime'>
     readonly official_class: FieldRef<"Profile", 'String'>
+    readonly phone: FieldRef<"Profile", 'String'>
+    readonly address: FieldRef<"Profile", 'String'>
     readonly face_data: FieldRef<"Profile", 'String'>
   }
     
@@ -10772,6 +10798,8 @@ export namespace Prisma {
     name: 'name',
     dob: 'dob',
     official_class: 'official_class',
+    phone: 'phone',
+    address: 'address',
     face_data: 'face_data'
   };
 
@@ -11050,6 +11078,8 @@ export namespace Prisma {
     name?: StringFilter<"Profile"> | string
     dob?: DateTimeNullableFilter<"Profile"> | Date | string | null
     official_class?: StringFilter<"Profile"> | string
+    phone?: StringFilter<"Profile"> | string
+    address?: StringFilter<"Profile"> | string
     face_data?: StringNullableFilter<"Profile"> | string | null
     host?: SubjectListRelationFilter
     join?: SubjectListRelationFilter
@@ -11064,6 +11094,8 @@ export namespace Prisma {
     name?: SortOrder
     dob?: SortOrderInput | SortOrder
     official_class?: SortOrder
+    phone?: SortOrder
+    address?: SortOrder
     face_data?: SortOrderInput | SortOrder
     host?: SubjectOrderByRelationAggregateInput
     join?: SubjectOrderByRelationAggregateInput
@@ -11081,6 +11113,8 @@ export namespace Prisma {
     name?: StringFilter<"Profile"> | string
     dob?: DateTimeNullableFilter<"Profile"> | Date | string | null
     official_class?: StringFilter<"Profile"> | string
+    phone?: StringFilter<"Profile"> | string
+    address?: StringFilter<"Profile"> | string
     face_data?: StringNullableFilter<"Profile"> | string | null
     host?: SubjectListRelationFilter
     join?: SubjectListRelationFilter
@@ -11095,6 +11129,8 @@ export namespace Prisma {
     name?: SortOrder
     dob?: SortOrderInput | SortOrder
     official_class?: SortOrder
+    phone?: SortOrder
+    address?: SortOrder
     face_data?: SortOrderInput | SortOrder
     _count?: ProfileCountOrderByAggregateInput
     _max?: ProfileMaxOrderByAggregateInput
@@ -11111,6 +11147,8 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Profile"> | string
     dob?: DateTimeNullableWithAggregatesFilter<"Profile"> | Date | string | null
     official_class?: StringWithAggregatesFilter<"Profile"> | string
+    phone?: StringWithAggregatesFilter<"Profile"> | string
+    address?: StringWithAggregatesFilter<"Profile"> | string
     face_data?: StringNullableWithAggregatesFilter<"Profile"> | string | null
   }
 
@@ -11596,6 +11634,8 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
+    phone?: string
+    address?: string
     face_data?: string | null
     host?: SubjectCreateNestedManyWithoutTeacherInput
     join?: SubjectCreateNestedManyWithoutStudentsInput
@@ -11610,6 +11650,8 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
+    phone?: string
+    address?: string
     face_data?: string | null
     host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
     join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
@@ -11624,6 +11666,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUpdateManyWithoutTeacherNestedInput
     join?: SubjectUpdateManyWithoutStudentsNestedInput
@@ -11638,6 +11682,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
     join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
@@ -11652,6 +11698,8 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
+    phone?: string
+    address?: string
     face_data?: string | null
   }
 
@@ -11662,6 +11710,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -11672,6 +11722,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -12240,6 +12292,8 @@ export namespace Prisma {
     name?: SortOrder
     dob?: SortOrder
     official_class?: SortOrder
+    phone?: SortOrder
+    address?: SortOrder
     face_data?: SortOrder
   }
 
@@ -12250,6 +12304,8 @@ export namespace Prisma {
     name?: SortOrder
     dob?: SortOrder
     official_class?: SortOrder
+    phone?: SortOrder
+    address?: SortOrder
     face_data?: SortOrder
   }
 
@@ -12260,6 +12316,8 @@ export namespace Prisma {
     name?: SortOrder
     dob?: SortOrder
     official_class?: SortOrder
+    phone?: SortOrder
+    address?: SortOrder
     face_data?: SortOrder
   }
 
@@ -13443,6 +13501,8 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
+    phone?: string
+    address?: string
     face_data?: string | null
     host?: SubjectCreateNestedManyWithoutTeacherInput
     join?: SubjectCreateNestedManyWithoutStudentsInput
@@ -13456,6 +13516,8 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
+    phone?: string
+    address?: string
     face_data?: string | null
     host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
     join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
@@ -13540,6 +13602,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUpdateManyWithoutTeacherNestedInput
     join?: SubjectUpdateManyWithoutStudentsNestedInput
@@ -13553,6 +13617,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
     join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
@@ -13942,6 +14008,8 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
+    phone?: string
+    address?: string
     face_data?: string | null
     join?: SubjectCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceCreateNestedManyWithoutAttendantInput
@@ -13955,6 +14023,8 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
+    phone?: string
+    address?: string
     face_data?: string | null
     join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
@@ -13973,6 +14043,8 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
+    phone?: string
+    address?: string
     face_data?: string | null
     host?: SubjectCreateNestedManyWithoutTeacherInput
     attendances?: AttendanceCreateNestedManyWithoutAttendantInput
@@ -13986,6 +14058,8 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
+    phone?: string
+    address?: string
     face_data?: string | null
     host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
     attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
@@ -14067,6 +14141,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     join?: SubjectUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
@@ -14080,6 +14156,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
@@ -14112,6 +14190,8 @@ export namespace Prisma {
     name?: StringFilter<"Profile"> | string
     dob?: DateTimeNullableFilter<"Profile"> | Date | string | null
     official_class?: StringFilter<"Profile"> | string
+    phone?: StringFilter<"Profile"> | string
+    address?: StringFilter<"Profile"> | string
     face_data?: StringNullableFilter<"Profile"> | string | null
   }
 
@@ -14454,6 +14534,8 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
+    phone?: string
+    address?: string
     face_data?: string | null
     host?: SubjectCreateNestedManyWithoutTeacherInput
     join?: SubjectCreateNestedManyWithoutStudentsInput
@@ -14467,6 +14549,8 @@ export namespace Prisma {
     name: string
     dob?: Date | string | null
     official_class: string
+    phone?: string
+    address?: string
     face_data?: string | null
     host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
     join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
@@ -14515,6 +14599,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUpdateManyWithoutTeacherNestedInput
     join?: SubjectUpdateManyWithoutStudentsNestedInput
@@ -14528,6 +14614,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
     join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
@@ -14762,6 +14850,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUpdateManyWithoutTeacherNestedInput
     attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
@@ -14775,6 +14865,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
     attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
@@ -14788,6 +14880,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     dob?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     official_class?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
