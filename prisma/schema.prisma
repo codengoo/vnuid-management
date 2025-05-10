@@ -51,6 +51,7 @@ model Profile {
   official_class String
   phone          String    @default("")
   address        String    @default("")
+  department     String    @default("")
   face_data      String?
 
   host        Subject[]    @relation("TeacherClass")
@@ -91,16 +92,17 @@ model Subject {
   code        String
   name        String
   description String?
-  openingDay  DateTime
-  startTime   DateTime
-  endTime     DateTime
+  opening_day DateTime
+  start_time  DateTime
+  end_time    DateTime
   address     String
+  is_done     Boolean
 
-  teacherId    String
-  teacher      Profile             @relation("TeacherClass", fields: [teacherId], references: [id])
-  students     Profile[]           @relation("StudentClass")
-  session      SessionAttendance[]
-  sessionCycle SessionCycle[]
+  teacher_id    String
+  teacher       Profile             @relation("TeacherClass", fields: [teacher_id], references: [id])
+  students      Profile[]           @relation("StudentClass")
+  session       SessionAttendance[]
+  session_cycle SessionCycle[]
 
   @@map("subjects")
 }

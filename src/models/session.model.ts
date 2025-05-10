@@ -8,7 +8,7 @@ class SessionModel {
       where: { id: session.subjectId },
     });
     if (!classObj) throw new Error("Class not found");
-    if (classObj.teacherId !== uid) throw new Error("You are not teacher of this class");
+    if (classObj.teacher_id !== uid) throw new Error("You are not teacher of this class");
 
     // Insert
     const result = await prisma.sessionAttendance.create({
@@ -30,7 +30,7 @@ class SessionModel {
       include: { subject: true },
     });
     if (!ses) throw new Error("Session not found");
-    if (ses.subject.teacherId !== uid) throw new Error("You are not teacher of this class");
+    if (ses.subject.teacher_id !== uid) throw new Error("You are not teacher of this class");
 
     // Update
     const result = await prisma.sessionAttendance.update({
@@ -49,7 +49,7 @@ class SessionModel {
       include: { subject: true },
     });
     if (!session) throw new Error("Session not found");
-    if (session.subject.teacherId !== uid) throw new Error("You are not teacher of this class");
+    if (session.subject.teacher_id !== uid) throw new Error("You are not teacher of this class");
 
     // Remove
     const result = await prisma.sessionAttendance.delete({ where: { id } });

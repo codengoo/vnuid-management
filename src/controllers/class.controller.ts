@@ -8,13 +8,22 @@ import * as yup from "yup";
 class ClassController {
   async getAllClasses(req: Request, res: Response<IResBody, ILocal>) {
     const { id, role } = res.locals.user;
+    const { from: fromText, to: toText } = req.query;
+    const parseDate = (date?: string) => {
+      if (!date) return;
+      if (!new Date(date).getDay) return;
+      return new Date(date);
+    };
+
+    const from = parseDate(fromText as string);
+    const to = parseDate(toText as string);
 
     await catcher(res, async () => {
       const classes =
         role === UserType.Teacher.toLowerCase()
           ? await ClassModel.getAllClassesByTeacher(id)
           : role === UserType.Student.toLowerCase()
-            ? await ClassModel.getAllClassesByStudent(id)
+            ? await ClassModel.getAllClassesByStudent(id, from, to)
             : [];
 
       res.json({ data: classes }).end();

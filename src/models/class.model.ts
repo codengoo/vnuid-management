@@ -1,7 +1,23 @@
 import { prisma } from "@/configs";
+import { addWeeks, isBefore, isSameDay, isWithinInterval, startOfDay } from "date-fns";
 import { Subject } from "generated/prisma";
 
 class ClassModel {
+  private getRecurringDatesInRange(openingDay: Date, from: Date, to: Date): Date[] {
+    const dates: Date[] = [];
+
+    let current = startOfDay(openingDay);
+    const start = startOfDay(from);
+    const end = startOfDay(to);
+
+    while (isBefore(current, to) || isSameDay(current, to)) {
+      if (isWithinInterval(current, { start, end })) dates.push(current);
+      current = addWeeks(current, 1);
+    }
+
+    return dates;
+  }
+
   async insertClass(classes: Partial<Subject>[]) {
     const result = await prisma.subject.createMany({
       // @ts-ignore
@@ -14,25 +30,41 @@ class ClassModel {
   async getAllClassesByTeacher(teacherId: string) {
     const result = await prisma.subject.findMany({
       where: {
-        teacherId: teacherId,
+        teacher_id: teacherId,
       },
     });
 
     return result;
   }
 
-  async getAllClassesByStudent(studentId: string) {
-    const result = await prisma.subject.findMany({
+  async getAllClassesByStudent(studentId: string, from?: Date, to?: Date) {
+    const subjects = await prisma.subject.findMany({
       where: {
         students: {
           some: {
             id: studentId,
           },
         },
+        is_done: false,
+        opening_day:
+          from && to
+            ? {
+                lte: to,
+              }
+            : undefined,
       },
     });
 
-    return result;
+    if (from && to) {
+      const validSubjects = subjects.filter((subject) => {
+        const occurrences = this.getRecurringDatesInRange(subject.opening_day, from, to);
+        return occurrences.length > 0;
+      });
+
+      return validSubjects;
+    } else {
+      return subjects;
+    }
   }
 
   async getClass(id: string, userId: string) {
@@ -42,17 +74,15 @@ class ClassModel {
     });
 
     if (!result) throw new Error("Class not found");
+
     const { students, ...props } = result;
-    if (props.teacherId === userId)
-      return {
-        ...props,
-        students: students.map((std) => {
-          const { name, dob, sid } = std;
-          return { name, dob, sid };
-        }),
-      };
-    else if (students.some((student) => student.id === userId)) return props;
-    return null;
+    return {
+      ...props,
+      students: students.map((std) => {
+        const { face_data, ...props } = std;
+        return props;
+      }),
+    };
   }
 }
 

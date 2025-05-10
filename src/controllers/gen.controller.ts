@@ -35,12 +35,14 @@ class GenController {
     for (let i = 0; i < num; i++) {
       classes.push({
         address: "Xuan thuy, Cau giay",
-        code: "K66CB",
-        startTime: new Date(),
-        endTime: new Date(),
-        openingDay: new Date(),
+        code: "INT220" + i,
+        start_time: new Date(),
+        end_time: new Date(),
+        opening_day: new Date(),
         name: "Class " + i,
-        teacherId: "62ec9765-6512-4cac-9929-39e0e9f3aaca",
+        teacher_id: "b74717be-8a4a-4f23-a763-26205672f973",
+        description: "Class " + i,
+        is_done: false,
       });
     }
 

@@ -138,6 +138,7 @@ exports.Prisma.ProfileScalarFieldEnum = {
   official_class: 'official_class',
   phone: 'phone',
   address: 'address',
+  department: 'department',
   face_data: 'face_data'
 };
 
@@ -163,11 +164,12 @@ exports.Prisma.SubjectScalarFieldEnum = {
   code: 'code',
   name: 'name',
   description: 'description',
-  openingDay: 'openingDay',
-  startTime: 'startTime',
-  endTime: 'endTime',
+  opening_day: 'opening_day',
+  start_time: 'start_time',
+  end_time: 'end_time',
   address: 'address',
-  teacherId: 'teacherId'
+  is_done: 'is_done',
+  teacher_id: 'teacher_id'
 };
 
 exports.Prisma.SessionAttendanceScalarFieldEnum = {

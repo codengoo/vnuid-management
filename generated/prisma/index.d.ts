@@ -1625,13 +1625,13 @@ export namespace Prisma {
   export type SubjectCountOutputType = {
     students: number
     session: number
-    sessionCycle: number
+    session_cycle: number
   }
 
   export type SubjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     students?: boolean | SubjectCountOutputTypeCountStudentsArgs
     session?: boolean | SubjectCountOutputTypeCountSessionArgs
-    sessionCycle?: boolean | SubjectCountOutputTypeCountSessionCycleArgs
+    session_cycle?: boolean | SubjectCountOutputTypeCountSession_cycleArgs
   }
 
   // Custom InputTypes
@@ -1662,7 +1662,7 @@ export namespace Prisma {
   /**
    * SubjectCountOutputType without action
    */
-  export type SubjectCountOutputTypeCountSessionCycleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SubjectCountOutputTypeCountSession_cycleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: SessionCycleWhereInput
   }
 
@@ -2920,6 +2920,7 @@ export namespace Prisma {
     official_class: string | null
     phone: string | null
     address: string | null
+    department: string | null
     face_data: string | null
   }
 
@@ -2932,6 +2933,7 @@ export namespace Prisma {
     official_class: string | null
     phone: string | null
     address: string | null
+    department: string | null
     face_data: string | null
   }
 
@@ -2944,6 +2946,7 @@ export namespace Prisma {
     official_class: number
     phone: number
     address: number
+    department: number
     face_data: number
     _all: number
   }
@@ -2958,6 +2961,7 @@ export namespace Prisma {
     official_class?: true
     phone?: true
     address?: true
+    department?: true
     face_data?: true
   }
 
@@ -2970,6 +2974,7 @@ export namespace Prisma {
     official_class?: true
     phone?: true
     address?: true
+    department?: true
     face_data?: true
   }
 
@@ -2982,6 +2987,7 @@ export namespace Prisma {
     official_class?: true
     phone?: true
     address?: true
+    department?: true
     face_data?: true
     _all?: true
   }
@@ -3067,6 +3073,7 @@ export namespace Prisma {
     official_class: string
     phone: string
     address: string
+    department: string
     face_data: string | null
     _count: ProfileCountAggregateOutputType | null
     _min: ProfileMinAggregateOutputType | null
@@ -3096,6 +3103,7 @@ export namespace Prisma {
     official_class?: boolean
     phone?: boolean
     address?: boolean
+    department?: boolean
     face_data?: boolean
     host?: boolean | Profile$hostArgs<ExtArgs>
     join?: boolean | Profile$joinArgs<ExtArgs>
@@ -3113,6 +3121,7 @@ export namespace Prisma {
     official_class?: boolean
     phone?: boolean
     address?: boolean
+    department?: boolean
     face_data?: boolean
   }, ExtArgs["result"]["profile"]>
 
@@ -3125,6 +3134,7 @@ export namespace Prisma {
     official_class?: boolean
     phone?: boolean
     address?: boolean
+    department?: boolean
     face_data?: boolean
   }, ExtArgs["result"]["profile"]>
 
@@ -3137,10 +3147,11 @@ export namespace Prisma {
     official_class?: boolean
     phone?: boolean
     address?: boolean
+    department?: boolean
     face_data?: boolean
   }
 
-  export type ProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sid" | "email" | "name" | "dob" | "official_class" | "phone" | "address" | "face_data", ExtArgs["result"]["profile"]>
+  export type ProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sid" | "email" | "name" | "dob" | "official_class" | "phone" | "address" | "department" | "face_data", ExtArgs["result"]["profile"]>
   export type ProfileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     host?: boolean | Profile$hostArgs<ExtArgs>
     join?: boolean | Profile$joinArgs<ExtArgs>
@@ -3168,6 +3179,7 @@ export namespace Prisma {
       official_class: string
       phone: string
       address: string
+      department: string
       face_data: string | null
     }, ExtArgs["result"]["profile"]>
     composites: {}
@@ -3604,6 +3616,7 @@ export namespace Prisma {
     readonly official_class: FieldRef<"Profile", 'String'>
     readonly phone: FieldRef<"Profile", 'String'>
     readonly address: FieldRef<"Profile", 'String'>
+    readonly department: FieldRef<"Profile", 'String'>
     readonly face_data: FieldRef<"Profile", 'String'>
   }
     
@@ -6265,11 +6278,12 @@ export namespace Prisma {
     code: string | null
     name: string | null
     description: string | null
-    openingDay: Date | null
-    startTime: Date | null
-    endTime: Date | null
+    opening_day: Date | null
+    start_time: Date | null
+    end_time: Date | null
     address: string | null
-    teacherId: string | null
+    is_done: boolean | null
+    teacher_id: string | null
   }
 
   export type SubjectMaxAggregateOutputType = {
@@ -6277,11 +6291,12 @@ export namespace Prisma {
     code: string | null
     name: string | null
     description: string | null
-    openingDay: Date | null
-    startTime: Date | null
-    endTime: Date | null
+    opening_day: Date | null
+    start_time: Date | null
+    end_time: Date | null
     address: string | null
-    teacherId: string | null
+    is_done: boolean | null
+    teacher_id: string | null
   }
 
   export type SubjectCountAggregateOutputType = {
@@ -6289,11 +6304,12 @@ export namespace Prisma {
     code: number
     name: number
     description: number
-    openingDay: number
-    startTime: number
-    endTime: number
+    opening_day: number
+    start_time: number
+    end_time: number
     address: number
-    teacherId: number
+    is_done: number
+    teacher_id: number
     _all: number
   }
 
@@ -6303,11 +6319,12 @@ export namespace Prisma {
     code?: true
     name?: true
     description?: true
-    openingDay?: true
-    startTime?: true
-    endTime?: true
+    opening_day?: true
+    start_time?: true
+    end_time?: true
     address?: true
-    teacherId?: true
+    is_done?: true
+    teacher_id?: true
   }
 
   export type SubjectMaxAggregateInputType = {
@@ -6315,11 +6332,12 @@ export namespace Prisma {
     code?: true
     name?: true
     description?: true
-    openingDay?: true
-    startTime?: true
-    endTime?: true
+    opening_day?: true
+    start_time?: true
+    end_time?: true
     address?: true
-    teacherId?: true
+    is_done?: true
+    teacher_id?: true
   }
 
   export type SubjectCountAggregateInputType = {
@@ -6327,11 +6345,12 @@ export namespace Prisma {
     code?: true
     name?: true
     description?: true
-    openingDay?: true
-    startTime?: true
-    endTime?: true
+    opening_day?: true
+    start_time?: true
+    end_time?: true
     address?: true
-    teacherId?: true
+    is_done?: true
+    teacher_id?: true
     _all?: true
   }
 
@@ -6412,11 +6431,12 @@ export namespace Prisma {
     code: string
     name: string
     description: string | null
-    openingDay: Date
-    startTime: Date
-    endTime: Date
+    opening_day: Date
+    start_time: Date
+    end_time: Date
     address: string
-    teacherId: string
+    is_done: boolean
+    teacher_id: string
     _count: SubjectCountAggregateOutputType | null
     _min: SubjectMinAggregateOutputType | null
     _max: SubjectMaxAggregateOutputType | null
@@ -6441,15 +6461,16 @@ export namespace Prisma {
     code?: boolean
     name?: boolean
     description?: boolean
-    openingDay?: boolean
-    startTime?: boolean
-    endTime?: boolean
+    opening_day?: boolean
+    start_time?: boolean
+    end_time?: boolean
     address?: boolean
-    teacherId?: boolean
+    is_done?: boolean
+    teacher_id?: boolean
     teacher?: boolean | ProfileDefaultArgs<ExtArgs>
     students?: boolean | Subject$studentsArgs<ExtArgs>
     session?: boolean | Subject$sessionArgs<ExtArgs>
-    sessionCycle?: boolean | Subject$sessionCycleArgs<ExtArgs>
+    session_cycle?: boolean | Subject$session_cycleArgs<ExtArgs>
     _count?: boolean | SubjectCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["subject"]>
 
@@ -6458,11 +6479,12 @@ export namespace Prisma {
     code?: boolean
     name?: boolean
     description?: boolean
-    openingDay?: boolean
-    startTime?: boolean
-    endTime?: boolean
+    opening_day?: boolean
+    start_time?: boolean
+    end_time?: boolean
     address?: boolean
-    teacherId?: boolean
+    is_done?: boolean
+    teacher_id?: boolean
     teacher?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["subject"]>
 
@@ -6471,11 +6493,12 @@ export namespace Prisma {
     code?: boolean
     name?: boolean
     description?: boolean
-    openingDay?: boolean
-    startTime?: boolean
-    endTime?: boolean
+    opening_day?: boolean
+    start_time?: boolean
+    end_time?: boolean
     address?: boolean
-    teacherId?: boolean
+    is_done?: boolean
+    teacher_id?: boolean
     teacher?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["subject"]>
 
@@ -6484,19 +6507,20 @@ export namespace Prisma {
     code?: boolean
     name?: boolean
     description?: boolean
-    openingDay?: boolean
-    startTime?: boolean
-    endTime?: boolean
+    opening_day?: boolean
+    start_time?: boolean
+    end_time?: boolean
     address?: boolean
-    teacherId?: boolean
+    is_done?: boolean
+    teacher_id?: boolean
   }
 
-  export type SubjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "code" | "name" | "description" | "openingDay" | "startTime" | "endTime" | "address" | "teacherId", ExtArgs["result"]["subject"]>
+  export type SubjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "code" | "name" | "description" | "opening_day" | "start_time" | "end_time" | "address" | "is_done" | "teacher_id", ExtArgs["result"]["subject"]>
   export type SubjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     teacher?: boolean | ProfileDefaultArgs<ExtArgs>
     students?: boolean | Subject$studentsArgs<ExtArgs>
     session?: boolean | Subject$sessionArgs<ExtArgs>
-    sessionCycle?: boolean | Subject$sessionCycleArgs<ExtArgs>
+    session_cycle?: boolean | Subject$session_cycleArgs<ExtArgs>
     _count?: boolean | SubjectCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type SubjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6512,18 +6536,19 @@ export namespace Prisma {
       teacher: Prisma.$ProfilePayload<ExtArgs>
       students: Prisma.$ProfilePayload<ExtArgs>[]
       session: Prisma.$SessionAttendancePayload<ExtArgs>[]
-      sessionCycle: Prisma.$SessionCyclePayload<ExtArgs>[]
+      session_cycle: Prisma.$SessionCyclePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       code: string
       name: string
       description: string | null
-      openingDay: Date
-      startTime: Date
-      endTime: Date
+      opening_day: Date
+      start_time: Date
+      end_time: Date
       address: string
-      teacherId: string
+      is_done: boolean
+      teacher_id: string
     }, ExtArgs["result"]["subject"]>
     composites: {}
   }
@@ -6921,7 +6946,7 @@ export namespace Prisma {
     teacher<T extends ProfileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfileDefaultArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     students<T extends Subject$studentsArgs<ExtArgs> = {}>(args?: Subset<T, Subject$studentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     session<T extends Subject$sessionArgs<ExtArgs> = {}>(args?: Subset<T, Subject$sessionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionAttendancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    sessionCycle<T extends Subject$sessionCycleArgs<ExtArgs> = {}>(args?: Subset<T, Subject$sessionCycleArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionCyclePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    session_cycle<T extends Subject$session_cycleArgs<ExtArgs> = {}>(args?: Subset<T, Subject$session_cycleArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionCyclePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6955,11 +6980,12 @@ export namespace Prisma {
     readonly code: FieldRef<"Subject", 'String'>
     readonly name: FieldRef<"Subject", 'String'>
     readonly description: FieldRef<"Subject", 'String'>
-    readonly openingDay: FieldRef<"Subject", 'DateTime'>
-    readonly startTime: FieldRef<"Subject", 'DateTime'>
-    readonly endTime: FieldRef<"Subject", 'DateTime'>
+    readonly opening_day: FieldRef<"Subject", 'DateTime'>
+    readonly start_time: FieldRef<"Subject", 'DateTime'>
+    readonly end_time: FieldRef<"Subject", 'DateTime'>
     readonly address: FieldRef<"Subject", 'String'>
-    readonly teacherId: FieldRef<"Subject", 'String'>
+    readonly is_done: FieldRef<"Subject", 'Boolean'>
+    readonly teacher_id: FieldRef<"Subject", 'String'>
   }
     
 
@@ -7404,9 +7430,9 @@ export namespace Prisma {
   }
 
   /**
-   * Subject.sessionCycle
+   * Subject.session_cycle
    */
-  export type Subject$sessionCycleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Subject$session_cycleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the SessionCycle
      */
@@ -10800,6 +10826,7 @@ export namespace Prisma {
     official_class: 'official_class',
     phone: 'phone',
     address: 'address',
+    department: 'department',
     face_data: 'face_data'
   };
 
@@ -10834,11 +10861,12 @@ export namespace Prisma {
     code: 'code',
     name: 'name',
     description: 'description',
-    openingDay: 'openingDay',
-    startTime: 'startTime',
-    endTime: 'endTime',
+    opening_day: 'opening_day',
+    start_time: 'start_time',
+    end_time: 'end_time',
     address: 'address',
-    teacherId: 'teacherId'
+    is_done: 'is_done',
+    teacher_id: 'teacher_id'
   };
 
   export type SubjectScalarFieldEnum = (typeof SubjectScalarFieldEnum)[keyof typeof SubjectScalarFieldEnum]
@@ -11080,6 +11108,7 @@ export namespace Prisma {
     official_class?: StringFilter<"Profile"> | string
     phone?: StringFilter<"Profile"> | string
     address?: StringFilter<"Profile"> | string
+    department?: StringFilter<"Profile"> | string
     face_data?: StringNullableFilter<"Profile"> | string | null
     host?: SubjectListRelationFilter
     join?: SubjectListRelationFilter
@@ -11096,6 +11125,7 @@ export namespace Prisma {
     official_class?: SortOrder
     phone?: SortOrder
     address?: SortOrder
+    department?: SortOrder
     face_data?: SortOrderInput | SortOrder
     host?: SubjectOrderByRelationAggregateInput
     join?: SubjectOrderByRelationAggregateInput
@@ -11115,6 +11145,7 @@ export namespace Prisma {
     official_class?: StringFilter<"Profile"> | string
     phone?: StringFilter<"Profile"> | string
     address?: StringFilter<"Profile"> | string
+    department?: StringFilter<"Profile"> | string
     face_data?: StringNullableFilter<"Profile"> | string | null
     host?: SubjectListRelationFilter
     join?: SubjectListRelationFilter
@@ -11131,6 +11162,7 @@ export namespace Prisma {
     official_class?: SortOrder
     phone?: SortOrder
     address?: SortOrder
+    department?: SortOrder
     face_data?: SortOrderInput | SortOrder
     _count?: ProfileCountOrderByAggregateInput
     _max?: ProfileMaxOrderByAggregateInput
@@ -11149,6 +11181,7 @@ export namespace Prisma {
     official_class?: StringWithAggregatesFilter<"Profile"> | string
     phone?: StringWithAggregatesFilter<"Profile"> | string
     address?: StringWithAggregatesFilter<"Profile"> | string
+    department?: StringWithAggregatesFilter<"Profile"> | string
     face_data?: StringNullableWithAggregatesFilter<"Profile"> | string | null
   }
 
@@ -11275,15 +11308,16 @@ export namespace Prisma {
     code?: StringFilter<"Subject"> | string
     name?: StringFilter<"Subject"> | string
     description?: StringNullableFilter<"Subject"> | string | null
-    openingDay?: DateTimeFilter<"Subject"> | Date | string
-    startTime?: DateTimeFilter<"Subject"> | Date | string
-    endTime?: DateTimeFilter<"Subject"> | Date | string
+    opening_day?: DateTimeFilter<"Subject"> | Date | string
+    start_time?: DateTimeFilter<"Subject"> | Date | string
+    end_time?: DateTimeFilter<"Subject"> | Date | string
     address?: StringFilter<"Subject"> | string
-    teacherId?: StringFilter<"Subject"> | string
+    is_done?: BoolFilter<"Subject"> | boolean
+    teacher_id?: StringFilter<"Subject"> | string
     teacher?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
     students?: ProfileListRelationFilter
     session?: SessionAttendanceListRelationFilter
-    sessionCycle?: SessionCycleListRelationFilter
+    session_cycle?: SessionCycleListRelationFilter
   }
 
   export type SubjectOrderByWithRelationInput = {
@@ -11291,15 +11325,16 @@ export namespace Prisma {
     code?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
-    openingDay?: SortOrder
-    startTime?: SortOrder
-    endTime?: SortOrder
+    opening_day?: SortOrder
+    start_time?: SortOrder
+    end_time?: SortOrder
     address?: SortOrder
-    teacherId?: SortOrder
+    is_done?: SortOrder
+    teacher_id?: SortOrder
     teacher?: ProfileOrderByWithRelationInput
     students?: ProfileOrderByRelationAggregateInput
     session?: SessionAttendanceOrderByRelationAggregateInput
-    sessionCycle?: SessionCycleOrderByRelationAggregateInput
+    session_cycle?: SessionCycleOrderByRelationAggregateInput
   }
 
   export type SubjectWhereUniqueInput = Prisma.AtLeast<{
@@ -11310,15 +11345,16 @@ export namespace Prisma {
     code?: StringFilter<"Subject"> | string
     name?: StringFilter<"Subject"> | string
     description?: StringNullableFilter<"Subject"> | string | null
-    openingDay?: DateTimeFilter<"Subject"> | Date | string
-    startTime?: DateTimeFilter<"Subject"> | Date | string
-    endTime?: DateTimeFilter<"Subject"> | Date | string
+    opening_day?: DateTimeFilter<"Subject"> | Date | string
+    start_time?: DateTimeFilter<"Subject"> | Date | string
+    end_time?: DateTimeFilter<"Subject"> | Date | string
     address?: StringFilter<"Subject"> | string
-    teacherId?: StringFilter<"Subject"> | string
+    is_done?: BoolFilter<"Subject"> | boolean
+    teacher_id?: StringFilter<"Subject"> | string
     teacher?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
     students?: ProfileListRelationFilter
     session?: SessionAttendanceListRelationFilter
-    sessionCycle?: SessionCycleListRelationFilter
+    session_cycle?: SessionCycleListRelationFilter
   }, "id">
 
   export type SubjectOrderByWithAggregationInput = {
@@ -11326,11 +11362,12 @@ export namespace Prisma {
     code?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
-    openingDay?: SortOrder
-    startTime?: SortOrder
-    endTime?: SortOrder
+    opening_day?: SortOrder
+    start_time?: SortOrder
+    end_time?: SortOrder
     address?: SortOrder
-    teacherId?: SortOrder
+    is_done?: SortOrder
+    teacher_id?: SortOrder
     _count?: SubjectCountOrderByAggregateInput
     _max?: SubjectMaxOrderByAggregateInput
     _min?: SubjectMinOrderByAggregateInput
@@ -11344,11 +11381,12 @@ export namespace Prisma {
     code?: StringWithAggregatesFilter<"Subject"> | string
     name?: StringWithAggregatesFilter<"Subject"> | string
     description?: StringNullableWithAggregatesFilter<"Subject"> | string | null
-    openingDay?: DateTimeWithAggregatesFilter<"Subject"> | Date | string
-    startTime?: DateTimeWithAggregatesFilter<"Subject"> | Date | string
-    endTime?: DateTimeWithAggregatesFilter<"Subject"> | Date | string
+    opening_day?: DateTimeWithAggregatesFilter<"Subject"> | Date | string
+    start_time?: DateTimeWithAggregatesFilter<"Subject"> | Date | string
+    end_time?: DateTimeWithAggregatesFilter<"Subject"> | Date | string
     address?: StringWithAggregatesFilter<"Subject"> | string
-    teacherId?: StringWithAggregatesFilter<"Subject"> | string
+    is_done?: BoolWithAggregatesFilter<"Subject"> | boolean
+    teacher_id?: StringWithAggregatesFilter<"Subject"> | string
   }
 
   export type SessionAttendanceWhereInput = {
@@ -11636,6 +11674,7 @@ export namespace Prisma {
     official_class: string
     phone?: string
     address?: string
+    department?: string
     face_data?: string | null
     host?: SubjectCreateNestedManyWithoutTeacherInput
     join?: SubjectCreateNestedManyWithoutStudentsInput
@@ -11652,6 +11691,7 @@ export namespace Prisma {
     official_class: string
     phone?: string
     address?: string
+    department?: string
     face_data?: string | null
     host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
     join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
@@ -11668,6 +11708,7 @@ export namespace Prisma {
     official_class?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    department?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUpdateManyWithoutTeacherNestedInput
     join?: SubjectUpdateManyWithoutStudentsNestedInput
@@ -11684,6 +11725,7 @@ export namespace Prisma {
     official_class?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    department?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
     join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
@@ -11700,6 +11742,7 @@ export namespace Prisma {
     official_class: string
     phone?: string
     address?: string
+    department?: string
     face_data?: string | null
   }
 
@@ -11712,6 +11755,7 @@ export namespace Prisma {
     official_class?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    department?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -11724,6 +11768,7 @@ export namespace Prisma {
     official_class?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    department?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -11849,14 +11894,15 @@ export namespace Prisma {
     code: string
     name: string
     description?: string | null
-    openingDay: Date | string
-    startTime: Date | string
-    endTime: Date | string
+    opening_day: Date | string
+    start_time: Date | string
+    end_time: Date | string
     address: string
+    is_done: boolean
     teacher: ProfileCreateNestedOneWithoutHostInput
     students?: ProfileCreateNestedManyWithoutJoinInput
     session?: SessionAttendanceCreateNestedManyWithoutSubjectInput
-    sessionCycle?: SessionCycleCreateNestedManyWithoutSubjectInput
+    session_cycle?: SessionCycleCreateNestedManyWithoutSubjectInput
   }
 
   export type SubjectUncheckedCreateInput = {
@@ -11864,14 +11910,15 @@ export namespace Prisma {
     code: string
     name: string
     description?: string | null
-    openingDay: Date | string
-    startTime: Date | string
-    endTime: Date | string
+    opening_day: Date | string
+    start_time: Date | string
+    end_time: Date | string
     address: string
-    teacherId: string
+    is_done: boolean
+    teacher_id: string
     students?: ProfileUncheckedCreateNestedManyWithoutJoinInput
     session?: SessionAttendanceUncheckedCreateNestedManyWithoutSubjectInput
-    sessionCycle?: SessionCycleUncheckedCreateNestedManyWithoutSubjectInput
+    session_cycle?: SessionCycleUncheckedCreateNestedManyWithoutSubjectInput
   }
 
   export type SubjectUpdateInput = {
@@ -11879,14 +11926,15 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
-    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    endTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    opening_day?: DateTimeFieldUpdateOperationsInput | Date | string
+    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
+    is_done?: BoolFieldUpdateOperationsInput | boolean
     teacher?: ProfileUpdateOneRequiredWithoutHostNestedInput
     students?: ProfileUpdateManyWithoutJoinNestedInput
     session?: SessionAttendanceUpdateManyWithoutSubjectNestedInput
-    sessionCycle?: SessionCycleUpdateManyWithoutSubjectNestedInput
+    session_cycle?: SessionCycleUpdateManyWithoutSubjectNestedInput
   }
 
   export type SubjectUncheckedUpdateInput = {
@@ -11894,14 +11942,15 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
-    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    endTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    opening_day?: DateTimeFieldUpdateOperationsInput | Date | string
+    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
-    teacherId?: StringFieldUpdateOperationsInput | string
+    is_done?: BoolFieldUpdateOperationsInput | boolean
+    teacher_id?: StringFieldUpdateOperationsInput | string
     students?: ProfileUncheckedUpdateManyWithoutJoinNestedInput
     session?: SessionAttendanceUncheckedUpdateManyWithoutSubjectNestedInput
-    sessionCycle?: SessionCycleUncheckedUpdateManyWithoutSubjectNestedInput
+    session_cycle?: SessionCycleUncheckedUpdateManyWithoutSubjectNestedInput
   }
 
   export type SubjectCreateManyInput = {
@@ -11909,11 +11958,12 @@ export namespace Prisma {
     code: string
     name: string
     description?: string | null
-    openingDay: Date | string
-    startTime: Date | string
-    endTime: Date | string
+    opening_day: Date | string
+    start_time: Date | string
+    end_time: Date | string
     address: string
-    teacherId: string
+    is_done: boolean
+    teacher_id: string
   }
 
   export type SubjectUpdateManyMutationInput = {
@@ -11921,10 +11971,11 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
-    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    endTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    opening_day?: DateTimeFieldUpdateOperationsInput | Date | string
+    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
+    is_done?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type SubjectUncheckedUpdateManyInput = {
@@ -11932,11 +11983,12 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
-    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    endTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    opening_day?: DateTimeFieldUpdateOperationsInput | Date | string
+    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
-    teacherId?: StringFieldUpdateOperationsInput | string
+    is_done?: BoolFieldUpdateOperationsInput | boolean
+    teacher_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type SessionAttendanceCreateInput = {
@@ -12009,7 +12061,7 @@ export namespace Prisma {
     id?: string
     start: Date | string
     session: SessionAttendanceCreateNestedOneWithoutSessionCycleInput
-    subject?: SubjectCreateNestedOneWithoutSessionCycleInput
+    subject?: SubjectCreateNestedOneWithoutSession_cycleInput
     attendances?: AttendanceCreateNestedManyWithoutSessionCycleInput
   }
 
@@ -12025,7 +12077,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     start?: DateTimeFieldUpdateOperationsInput | Date | string
     session?: SessionAttendanceUpdateOneRequiredWithoutSessionCycleNestedInput
-    subject?: SubjectUpdateOneWithoutSessionCycleNestedInput
+    subject?: SubjectUpdateOneWithoutSession_cycleNestedInput
     attendances?: AttendanceUpdateManyWithoutSessionCycleNestedInput
   }
 
@@ -12294,6 +12346,7 @@ export namespace Prisma {
     official_class?: SortOrder
     phone?: SortOrder
     address?: SortOrder
+    department?: SortOrder
     face_data?: SortOrder
   }
 
@@ -12306,6 +12359,7 @@ export namespace Prisma {
     official_class?: SortOrder
     phone?: SortOrder
     address?: SortOrder
+    department?: SortOrder
     face_data?: SortOrder
   }
 
@@ -12318,6 +12372,7 @@ export namespace Prisma {
     official_class?: SortOrder
     phone?: SortOrder
     address?: SortOrder
+    department?: SortOrder
     face_data?: SortOrder
   }
 
@@ -12464,11 +12519,12 @@ export namespace Prisma {
     code?: SortOrder
     name?: SortOrder
     description?: SortOrder
-    openingDay?: SortOrder
-    startTime?: SortOrder
-    endTime?: SortOrder
+    opening_day?: SortOrder
+    start_time?: SortOrder
+    end_time?: SortOrder
     address?: SortOrder
-    teacherId?: SortOrder
+    is_done?: SortOrder
+    teacher_id?: SortOrder
   }
 
   export type SubjectMaxOrderByAggregateInput = {
@@ -12476,11 +12532,12 @@ export namespace Prisma {
     code?: SortOrder
     name?: SortOrder
     description?: SortOrder
-    openingDay?: SortOrder
-    startTime?: SortOrder
-    endTime?: SortOrder
+    opening_day?: SortOrder
+    start_time?: SortOrder
+    end_time?: SortOrder
     address?: SortOrder
-    teacherId?: SortOrder
+    is_done?: SortOrder
+    teacher_id?: SortOrder
   }
 
   export type SubjectMinOrderByAggregateInput = {
@@ -12488,11 +12545,12 @@ export namespace Prisma {
     code?: SortOrder
     name?: SortOrder
     description?: SortOrder
-    openingDay?: SortOrder
-    startTime?: SortOrder
-    endTime?: SortOrder
+    opening_day?: SortOrder
+    start_time?: SortOrder
+    end_time?: SortOrder
     address?: SortOrder
-    teacherId?: SortOrder
+    is_done?: SortOrder
+    teacher_id?: SortOrder
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -13159,9 +13217,9 @@ export namespace Prisma {
     connect?: SessionAttendanceWhereUniqueInput
   }
 
-  export type SubjectCreateNestedOneWithoutSessionCycleInput = {
-    create?: XOR<SubjectCreateWithoutSessionCycleInput, SubjectUncheckedCreateWithoutSessionCycleInput>
-    connectOrCreate?: SubjectCreateOrConnectWithoutSessionCycleInput
+  export type SubjectCreateNestedOneWithoutSession_cycleInput = {
+    create?: XOR<SubjectCreateWithoutSession_cycleInput, SubjectUncheckedCreateWithoutSession_cycleInput>
+    connectOrCreate?: SubjectCreateOrConnectWithoutSession_cycleInput
     connect?: SubjectWhereUniqueInput
   }
 
@@ -13187,14 +13245,14 @@ export namespace Prisma {
     update?: XOR<XOR<SessionAttendanceUpdateToOneWithWhereWithoutSessionCycleInput, SessionAttendanceUpdateWithoutSessionCycleInput>, SessionAttendanceUncheckedUpdateWithoutSessionCycleInput>
   }
 
-  export type SubjectUpdateOneWithoutSessionCycleNestedInput = {
-    create?: XOR<SubjectCreateWithoutSessionCycleInput, SubjectUncheckedCreateWithoutSessionCycleInput>
-    connectOrCreate?: SubjectCreateOrConnectWithoutSessionCycleInput
-    upsert?: SubjectUpsertWithoutSessionCycleInput
+  export type SubjectUpdateOneWithoutSession_cycleNestedInput = {
+    create?: XOR<SubjectCreateWithoutSession_cycleInput, SubjectUncheckedCreateWithoutSession_cycleInput>
+    connectOrCreate?: SubjectCreateOrConnectWithoutSession_cycleInput
+    upsert?: SubjectUpsertWithoutSession_cycleInput
     disconnect?: SubjectWhereInput | boolean
     delete?: SubjectWhereInput | boolean
     connect?: SubjectWhereUniqueInput
-    update?: XOR<XOR<SubjectUpdateToOneWithWhereWithoutSessionCycleInput, SubjectUpdateWithoutSessionCycleInput>, SubjectUncheckedUpdateWithoutSessionCycleInput>
+    update?: XOR<XOR<SubjectUpdateToOneWithWhereWithoutSession_cycleInput, SubjectUpdateWithoutSession_cycleInput>, SubjectUncheckedUpdateWithoutSession_cycleInput>
   }
 
   export type AttendanceUpdateManyWithoutSessionCycleNestedInput = {
@@ -13503,6 +13561,7 @@ export namespace Prisma {
     official_class: string
     phone?: string
     address?: string
+    department?: string
     face_data?: string | null
     host?: SubjectCreateNestedManyWithoutTeacherInput
     join?: SubjectCreateNestedManyWithoutStudentsInput
@@ -13518,6 +13577,7 @@ export namespace Prisma {
     official_class: string
     phone?: string
     address?: string
+    department?: string
     face_data?: string | null
     host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
     join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
@@ -13604,6 +13664,7 @@ export namespace Prisma {
     official_class?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    department?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUpdateManyWithoutTeacherNestedInput
     join?: SubjectUpdateManyWithoutStudentsNestedInput
@@ -13619,6 +13680,7 @@ export namespace Prisma {
     official_class?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    department?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
     join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
@@ -13630,13 +13692,14 @@ export namespace Prisma {
     code: string
     name: string
     description?: string | null
-    openingDay: Date | string
-    startTime: Date | string
-    endTime: Date | string
+    opening_day: Date | string
+    start_time: Date | string
+    end_time: Date | string
     address: string
+    is_done: boolean
     students?: ProfileCreateNestedManyWithoutJoinInput
     session?: SessionAttendanceCreateNestedManyWithoutSubjectInput
-    sessionCycle?: SessionCycleCreateNestedManyWithoutSubjectInput
+    session_cycle?: SessionCycleCreateNestedManyWithoutSubjectInput
   }
 
   export type SubjectUncheckedCreateWithoutTeacherInput = {
@@ -13644,13 +13707,14 @@ export namespace Prisma {
     code: string
     name: string
     description?: string | null
-    openingDay: Date | string
-    startTime: Date | string
-    endTime: Date | string
+    opening_day: Date | string
+    start_time: Date | string
+    end_time: Date | string
     address: string
+    is_done: boolean
     students?: ProfileUncheckedCreateNestedManyWithoutJoinInput
     session?: SessionAttendanceUncheckedCreateNestedManyWithoutSubjectInput
-    sessionCycle?: SessionCycleUncheckedCreateNestedManyWithoutSubjectInput
+    session_cycle?: SessionCycleUncheckedCreateNestedManyWithoutSubjectInput
   }
 
   export type SubjectCreateOrConnectWithoutTeacherInput = {
@@ -13668,13 +13732,14 @@ export namespace Prisma {
     code: string
     name: string
     description?: string | null
-    openingDay: Date | string
-    startTime: Date | string
-    endTime: Date | string
+    opening_day: Date | string
+    start_time: Date | string
+    end_time: Date | string
     address: string
+    is_done: boolean
     teacher: ProfileCreateNestedOneWithoutHostInput
     session?: SessionAttendanceCreateNestedManyWithoutSubjectInput
-    sessionCycle?: SessionCycleCreateNestedManyWithoutSubjectInput
+    session_cycle?: SessionCycleCreateNestedManyWithoutSubjectInput
   }
 
   export type SubjectUncheckedCreateWithoutStudentsInput = {
@@ -13682,13 +13747,14 @@ export namespace Prisma {
     code: string
     name: string
     description?: string | null
-    openingDay: Date | string
-    startTime: Date | string
-    endTime: Date | string
+    opening_day: Date | string
+    start_time: Date | string
+    end_time: Date | string
     address: string
-    teacherId: string
+    is_done: boolean
+    teacher_id: string
     session?: SessionAttendanceUncheckedCreateNestedManyWithoutSubjectInput
-    sessionCycle?: SessionCycleUncheckedCreateNestedManyWithoutSubjectInput
+    session_cycle?: SessionCycleUncheckedCreateNestedManyWithoutSubjectInput
   }
 
   export type SubjectCreateOrConnectWithoutStudentsInput = {
@@ -13777,11 +13843,12 @@ export namespace Prisma {
     code?: StringFilter<"Subject"> | string
     name?: StringFilter<"Subject"> | string
     description?: StringNullableFilter<"Subject"> | string | null
-    openingDay?: DateTimeFilter<"Subject"> | Date | string
-    startTime?: DateTimeFilter<"Subject"> | Date | string
-    endTime?: DateTimeFilter<"Subject"> | Date | string
+    opening_day?: DateTimeFilter<"Subject"> | Date | string
+    start_time?: DateTimeFilter<"Subject"> | Date | string
+    end_time?: DateTimeFilter<"Subject"> | Date | string
     address?: StringFilter<"Subject"> | string
-    teacherId?: StringFilter<"Subject"> | string
+    is_done?: BoolFilter<"Subject"> | boolean
+    teacher_id?: StringFilter<"Subject"> | string
   }
 
   export type SubjectUpsertWithWhereUniqueWithoutStudentsInput = {
@@ -14010,6 +14077,7 @@ export namespace Prisma {
     official_class: string
     phone?: string
     address?: string
+    department?: string
     face_data?: string | null
     join?: SubjectCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceCreateNestedManyWithoutAttendantInput
@@ -14025,6 +14093,7 @@ export namespace Prisma {
     official_class: string
     phone?: string
     address?: string
+    department?: string
     face_data?: string | null
     join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
     attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
@@ -14045,6 +14114,7 @@ export namespace Prisma {
     official_class: string
     phone?: string
     address?: string
+    department?: string
     face_data?: string | null
     host?: SubjectCreateNestedManyWithoutTeacherInput
     attendances?: AttendanceCreateNestedManyWithoutAttendantInput
@@ -14060,6 +14130,7 @@ export namespace Prisma {
     official_class: string
     phone?: string
     address?: string
+    department?: string
     face_data?: string | null
     host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
     attendances?: AttendanceUncheckedCreateNestedManyWithoutAttendantInput
@@ -14143,6 +14214,7 @@ export namespace Prisma {
     official_class?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    department?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     join?: SubjectUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
@@ -14158,6 +14230,7 @@ export namespace Prisma {
     official_class?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    department?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
     attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
@@ -14192,6 +14265,7 @@ export namespace Prisma {
     official_class?: StringFilter<"Profile"> | string
     phone?: StringFilter<"Profile"> | string
     address?: StringFilter<"Profile"> | string
+    department?: StringFilter<"Profile"> | string
     face_data?: StringNullableFilter<"Profile"> | string | null
   }
 
@@ -14254,13 +14328,14 @@ export namespace Prisma {
     code: string
     name: string
     description?: string | null
-    openingDay: Date | string
-    startTime: Date | string
-    endTime: Date | string
+    opening_day: Date | string
+    start_time: Date | string
+    end_time: Date | string
     address: string
+    is_done: boolean
     teacher: ProfileCreateNestedOneWithoutHostInput
     students?: ProfileCreateNestedManyWithoutJoinInput
-    sessionCycle?: SessionCycleCreateNestedManyWithoutSubjectInput
+    session_cycle?: SessionCycleCreateNestedManyWithoutSubjectInput
   }
 
   export type SubjectUncheckedCreateWithoutSessionInput = {
@@ -14268,13 +14343,14 @@ export namespace Prisma {
     code: string
     name: string
     description?: string | null
-    openingDay: Date | string
-    startTime: Date | string
-    endTime: Date | string
+    opening_day: Date | string
+    start_time: Date | string
+    end_time: Date | string
     address: string
-    teacherId: string
+    is_done: boolean
+    teacher_id: string
     students?: ProfileUncheckedCreateNestedManyWithoutJoinInput
-    sessionCycle?: SessionCycleUncheckedCreateNestedManyWithoutSubjectInput
+    session_cycle?: SessionCycleUncheckedCreateNestedManyWithoutSubjectInput
   }
 
   export type SubjectCreateOrConnectWithoutSessionInput = {
@@ -14285,7 +14361,7 @@ export namespace Prisma {
   export type SessionCycleCreateWithoutSessionInput = {
     id?: string
     start: Date | string
-    subject?: SubjectCreateNestedOneWithoutSessionCycleInput
+    subject?: SubjectCreateNestedOneWithoutSession_cycleInput
     attendances?: AttendanceCreateNestedManyWithoutSessionCycleInput
   }
 
@@ -14322,13 +14398,14 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
-    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    endTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    opening_day?: DateTimeFieldUpdateOperationsInput | Date | string
+    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
+    is_done?: BoolFieldUpdateOperationsInput | boolean
     teacher?: ProfileUpdateOneRequiredWithoutHostNestedInput
     students?: ProfileUpdateManyWithoutJoinNestedInput
-    sessionCycle?: SessionCycleUpdateManyWithoutSubjectNestedInput
+    session_cycle?: SessionCycleUpdateManyWithoutSubjectNestedInput
   }
 
   export type SubjectUncheckedUpdateWithoutSessionInput = {
@@ -14336,13 +14413,14 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
-    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    endTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    opening_day?: DateTimeFieldUpdateOperationsInput | Date | string
+    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
-    teacherId?: StringFieldUpdateOperationsInput | string
+    is_done?: BoolFieldUpdateOperationsInput | boolean
+    teacher_id?: StringFieldUpdateOperationsInput | string
     students?: ProfileUncheckedUpdateManyWithoutJoinNestedInput
-    sessionCycle?: SessionCycleUncheckedUpdateManyWithoutSubjectNestedInput
+    session_cycle?: SessionCycleUncheckedUpdateManyWithoutSubjectNestedInput
   }
 
   export type SessionCycleUpsertWithWhereUniqueWithoutSessionInput = {
@@ -14384,37 +14462,39 @@ export namespace Prisma {
     create: XOR<SessionAttendanceCreateWithoutSessionCycleInput, SessionAttendanceUncheckedCreateWithoutSessionCycleInput>
   }
 
-  export type SubjectCreateWithoutSessionCycleInput = {
+  export type SubjectCreateWithoutSession_cycleInput = {
     id?: string
     code: string
     name: string
     description?: string | null
-    openingDay: Date | string
-    startTime: Date | string
-    endTime: Date | string
+    opening_day: Date | string
+    start_time: Date | string
+    end_time: Date | string
     address: string
+    is_done: boolean
     teacher: ProfileCreateNestedOneWithoutHostInput
     students?: ProfileCreateNestedManyWithoutJoinInput
     session?: SessionAttendanceCreateNestedManyWithoutSubjectInput
   }
 
-  export type SubjectUncheckedCreateWithoutSessionCycleInput = {
+  export type SubjectUncheckedCreateWithoutSession_cycleInput = {
     id?: string
     code: string
     name: string
     description?: string | null
-    openingDay: Date | string
-    startTime: Date | string
-    endTime: Date | string
+    opening_day: Date | string
+    start_time: Date | string
+    end_time: Date | string
     address: string
-    teacherId: string
+    is_done: boolean
+    teacher_id: string
     students?: ProfileUncheckedCreateNestedManyWithoutJoinInput
     session?: SessionAttendanceUncheckedCreateNestedManyWithoutSubjectInput
   }
 
-  export type SubjectCreateOrConnectWithoutSessionCycleInput = {
+  export type SubjectCreateOrConnectWithoutSession_cycleInput = {
     where: SubjectWhereUniqueInput
-    create: XOR<SubjectCreateWithoutSessionCycleInput, SubjectUncheckedCreateWithoutSessionCycleInput>
+    create: XOR<SubjectCreateWithoutSession_cycleInput, SubjectUncheckedCreateWithoutSession_cycleInput>
   }
 
   export type AttendanceCreateWithoutSessionCycleInput = {
@@ -14472,41 +14552,43 @@ export namespace Prisma {
     subjectId?: StringFieldUpdateOperationsInput | string
   }
 
-  export type SubjectUpsertWithoutSessionCycleInput = {
-    update: XOR<SubjectUpdateWithoutSessionCycleInput, SubjectUncheckedUpdateWithoutSessionCycleInput>
-    create: XOR<SubjectCreateWithoutSessionCycleInput, SubjectUncheckedCreateWithoutSessionCycleInput>
+  export type SubjectUpsertWithoutSession_cycleInput = {
+    update: XOR<SubjectUpdateWithoutSession_cycleInput, SubjectUncheckedUpdateWithoutSession_cycleInput>
+    create: XOR<SubjectCreateWithoutSession_cycleInput, SubjectUncheckedCreateWithoutSession_cycleInput>
     where?: SubjectWhereInput
   }
 
-  export type SubjectUpdateToOneWithWhereWithoutSessionCycleInput = {
+  export type SubjectUpdateToOneWithWhereWithoutSession_cycleInput = {
     where?: SubjectWhereInput
-    data: XOR<SubjectUpdateWithoutSessionCycleInput, SubjectUncheckedUpdateWithoutSessionCycleInput>
+    data: XOR<SubjectUpdateWithoutSession_cycleInput, SubjectUncheckedUpdateWithoutSession_cycleInput>
   }
 
-  export type SubjectUpdateWithoutSessionCycleInput = {
+  export type SubjectUpdateWithoutSession_cycleInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
-    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    endTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    opening_day?: DateTimeFieldUpdateOperationsInput | Date | string
+    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
+    is_done?: BoolFieldUpdateOperationsInput | boolean
     teacher?: ProfileUpdateOneRequiredWithoutHostNestedInput
     students?: ProfileUpdateManyWithoutJoinNestedInput
     session?: SessionAttendanceUpdateManyWithoutSubjectNestedInput
   }
 
-  export type SubjectUncheckedUpdateWithoutSessionCycleInput = {
+  export type SubjectUncheckedUpdateWithoutSession_cycleInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
-    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    endTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    opening_day?: DateTimeFieldUpdateOperationsInput | Date | string
+    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
-    teacherId?: StringFieldUpdateOperationsInput | string
+    is_done?: BoolFieldUpdateOperationsInput | boolean
+    teacher_id?: StringFieldUpdateOperationsInput | string
     students?: ProfileUncheckedUpdateManyWithoutJoinNestedInput
     session?: SessionAttendanceUncheckedUpdateManyWithoutSubjectNestedInput
   }
@@ -14536,6 +14618,7 @@ export namespace Prisma {
     official_class: string
     phone?: string
     address?: string
+    department?: string
     face_data?: string | null
     host?: SubjectCreateNestedManyWithoutTeacherInput
     join?: SubjectCreateNestedManyWithoutStudentsInput
@@ -14551,6 +14634,7 @@ export namespace Prisma {
     official_class: string
     phone?: string
     address?: string
+    department?: string
     face_data?: string | null
     host?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
     join?: SubjectUncheckedCreateNestedManyWithoutStudentsInput
@@ -14566,7 +14650,7 @@ export namespace Prisma {
     id?: string
     start: Date | string
     session: SessionAttendanceCreateNestedOneWithoutSessionCycleInput
-    subject?: SubjectCreateNestedOneWithoutSessionCycleInput
+    subject?: SubjectCreateNestedOneWithoutSession_cycleInput
   }
 
   export type SessionCycleUncheckedCreateWithoutAttendancesInput = {
@@ -14601,6 +14685,7 @@ export namespace Prisma {
     official_class?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    department?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUpdateManyWithoutTeacherNestedInput
     join?: SubjectUpdateManyWithoutStudentsNestedInput
@@ -14616,6 +14701,7 @@ export namespace Prisma {
     official_class?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    department?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
     join?: SubjectUncheckedUpdateManyWithoutStudentsNestedInput
@@ -14637,7 +14723,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     start?: DateTimeFieldUpdateOperationsInput | Date | string
     session?: SessionAttendanceUpdateOneRequiredWithoutSessionCycleNestedInput
-    subject?: SubjectUpdateOneWithoutSessionCycleNestedInput
+    subject?: SubjectUpdateOneWithoutSession_cycleNestedInput
   }
 
   export type SessionCycleUncheckedUpdateWithoutAttendancesInput = {
@@ -14712,10 +14798,11 @@ export namespace Prisma {
     code: string
     name: string
     description?: string | null
-    openingDay: Date | string
-    startTime: Date | string
-    endTime: Date | string
+    opening_day: Date | string
+    start_time: Date | string
+    end_time: Date | string
     address: string
+    is_done: boolean
   }
 
   export type AttendanceCreateManyAttendantInput = {
@@ -14731,13 +14818,14 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
-    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    endTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    opening_day?: DateTimeFieldUpdateOperationsInput | Date | string
+    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
+    is_done?: BoolFieldUpdateOperationsInput | boolean
     students?: ProfileUpdateManyWithoutJoinNestedInput
     session?: SessionAttendanceUpdateManyWithoutSubjectNestedInput
-    sessionCycle?: SessionCycleUpdateManyWithoutSubjectNestedInput
+    session_cycle?: SessionCycleUpdateManyWithoutSubjectNestedInput
   }
 
   export type SubjectUncheckedUpdateWithoutTeacherInput = {
@@ -14745,13 +14833,14 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
-    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    endTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    opening_day?: DateTimeFieldUpdateOperationsInput | Date | string
+    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
+    is_done?: BoolFieldUpdateOperationsInput | boolean
     students?: ProfileUncheckedUpdateManyWithoutJoinNestedInput
     session?: SessionAttendanceUncheckedUpdateManyWithoutSubjectNestedInput
-    sessionCycle?: SessionCycleUncheckedUpdateManyWithoutSubjectNestedInput
+    session_cycle?: SessionCycleUncheckedUpdateManyWithoutSubjectNestedInput
   }
 
   export type SubjectUncheckedUpdateManyWithoutTeacherInput = {
@@ -14759,10 +14848,11 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
-    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    endTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    opening_day?: DateTimeFieldUpdateOperationsInput | Date | string
+    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
+    is_done?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type SubjectUpdateWithoutStudentsInput = {
@@ -14770,13 +14860,14 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
-    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    endTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    opening_day?: DateTimeFieldUpdateOperationsInput | Date | string
+    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
+    is_done?: BoolFieldUpdateOperationsInput | boolean
     teacher?: ProfileUpdateOneRequiredWithoutHostNestedInput
     session?: SessionAttendanceUpdateManyWithoutSubjectNestedInput
-    sessionCycle?: SessionCycleUpdateManyWithoutSubjectNestedInput
+    session_cycle?: SessionCycleUpdateManyWithoutSubjectNestedInput
   }
 
   export type SubjectUncheckedUpdateWithoutStudentsInput = {
@@ -14784,13 +14875,14 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
-    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    endTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    opening_day?: DateTimeFieldUpdateOperationsInput | Date | string
+    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
-    teacherId?: StringFieldUpdateOperationsInput | string
+    is_done?: BoolFieldUpdateOperationsInput | boolean
+    teacher_id?: StringFieldUpdateOperationsInput | string
     session?: SessionAttendanceUncheckedUpdateManyWithoutSubjectNestedInput
-    sessionCycle?: SessionCycleUncheckedUpdateManyWithoutSubjectNestedInput
+    session_cycle?: SessionCycleUncheckedUpdateManyWithoutSubjectNestedInput
   }
 
   export type SubjectUncheckedUpdateManyWithoutStudentsInput = {
@@ -14798,11 +14890,12 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    openingDay?: DateTimeFieldUpdateOperationsInput | Date | string
-    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    endTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    opening_day?: DateTimeFieldUpdateOperationsInput | Date | string
+    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
-    teacherId?: StringFieldUpdateOperationsInput | string
+    is_done?: BoolFieldUpdateOperationsInput | boolean
+    teacher_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type AttendanceUpdateWithoutAttendantInput = {
@@ -14852,6 +14945,7 @@ export namespace Prisma {
     official_class?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    department?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUpdateManyWithoutTeacherNestedInput
     attendances?: AttendanceUpdateManyWithoutAttendantNestedInput
@@ -14867,6 +14961,7 @@ export namespace Prisma {
     official_class?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    department?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
     host?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
     attendances?: AttendanceUncheckedUpdateManyWithoutAttendantNestedInput
@@ -14882,6 +14977,7 @@ export namespace Prisma {
     official_class?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    department?: StringFieldUpdateOperationsInput | string
     face_data?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -14940,7 +15036,7 @@ export namespace Prisma {
   export type SessionCycleUpdateWithoutSessionInput = {
     id?: StringFieldUpdateOperationsInput | string
     start?: DateTimeFieldUpdateOperationsInput | Date | string
-    subject?: SubjectUpdateOneWithoutSessionCycleNestedInput
+    subject?: SubjectUpdateOneWithoutSession_cycleNestedInput
     attendances?: AttendanceUpdateManyWithoutSessionCycleNestedInput
   }
 
