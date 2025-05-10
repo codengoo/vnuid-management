@@ -52,6 +52,15 @@ class SubjectController {
     });
   }
 
+  async getAllSessionsNow(req: Request, res: Response<IResBody, ILocal>) {
+    const { id } = res.locals.user;
+
+    await catcher(res, async () => {
+      const result = await SessionModel.getAllSessionActiveNow(id);
+      res.json({ data: result }).end();
+    });
+  }
+
   async createSession(req: Request, res: Response<IResBody, ILocal>) {
     const { id: uid } = res.locals.user;
     const data = req.body;

@@ -8,6 +8,7 @@ router.get("/classes", authMid(), SubjectController.getAllClasses);
 router.get("/class/:id", authMid(), SubjectController.getClass);
 
 router.get("/sessions", authMid(), SubjectController.getAllSessions);
+router.get("/sessions/now", authMid(), SubjectController.getAllSessionsNow);
 router.post("/session", authMid(["Teacher"]), SubjectController.createSession);
 router.delete("/session/:id", authMid(["Teacher"]), SubjectController.deleteSession);
 router.put("/session/:id", authMid(["Teacher"]), SubjectController.updateSession);

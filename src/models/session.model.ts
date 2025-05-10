@@ -1,5 +1,5 @@
 import { prisma } from "@/configs";
-import { getRecurringDatesInRange } from "@/utils";
+import { getRecurringDatesInRange, isRunningNow } from "@/utils";
 import { getHours, getMinutes, set } from "date-fns";
 import { SessionAttendance } from "generated/prisma";
 
@@ -106,6 +106,15 @@ class SessionModel {
     } else {
       return sessions;
     }
+  }
+
+  async getAllSessionActiveNow(uid: string) {
+    const sessions = await this.getAllSessions(uid);
+    console.log(sessions);
+    
+    const valid = sessions.filter(session => isRunningNow(session.start, session.duration));
+    // console.log(valid);
+    return valid;
   }
 
   async triggerSessionCycle(id: string) {
