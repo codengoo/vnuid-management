@@ -1,23 +1,8 @@
 import { prisma } from "@/configs";
-import { addWeeks, isBefore, isSameDay, isWithinInterval, startOfDay } from "date-fns";
+import { getRecurringDatesInRange } from "@/utils";
 import { Subject } from "generated/prisma";
 
 class ClassModel {
-  private getRecurringDatesInRange(openingDay: Date, from: Date, to: Date): Date[] {
-    const dates: Date[] = [];
-
-    let current = startOfDay(openingDay);
-    const start = startOfDay(from);
-    const end = startOfDay(to);
-
-    while (isBefore(current, to) || isSameDay(current, to)) {
-      if (isWithinInterval(current, { start, end })) dates.push(current);
-      current = addWeeks(current, 1);
-    }
-
-    return dates;
-  }
-
   async insertClass(classes: Partial<Subject>[]) {
     const result = await prisma.subject.createMany({
       // @ts-ignore
@@ -27,24 +12,10 @@ class ClassModel {
     return result;
   }
 
-  async getAllClassesByTeacher(teacherId: string) {
-    const result = await prisma.subject.findMany({
-      where: {
-        teacher_id: teacherId,
-      },
-    });
-
-    return result;
-  }
-
-  async getAllClassesByStudent(studentId: string, from?: Date, to?: Date) {
+  async getAllClasses(uid: string, from?: Date, to?: Date) {
     const subjects = await prisma.subject.findMany({
       where: {
-        students: {
-          some: {
-            id: studentId,
-          },
-        },
+        OR: [{ students: { some: { id: uid } } }, { teacher_id: uid }],
         is_done: false,
         opening_day:
           from && to
@@ -57,7 +28,7 @@ class ClassModel {
 
     if (from && to) {
       const validSubjects = subjects.filter((subject) => {
-        const occurrences = this.getRecurringDatesInRange(subject.opening_day, from, to);
+        const occurrences = getRecurringDatesInRange(subject.opening_day, from, to);
         return occurrences.length > 0;
       });
 

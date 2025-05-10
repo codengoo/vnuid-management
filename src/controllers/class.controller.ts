@@ -2,10 +2,10 @@ import { catcher } from "@/helpers";
 import { ClassModel, SessionModel } from "@/models";
 import { ILocal, IResBody } from "@/types";
 import { Request, Response } from "express";
-import { RepeatType, UserType } from "generated/prisma";
+import { RepeatType } from "generated/prisma";
 import * as yup from "yup";
 
-class ClassController {
+class SubjectController {
   async getAllClasses(req: Request, res: Response<IResBody, ILocal>) {
     const { id, role } = res.locals.user;
     const { from: fromText, to: toText } = req.query;
@@ -19,13 +19,7 @@ class ClassController {
     const to = parseDate(toText as string);
 
     await catcher(res, async () => {
-      const classes =
-        role === UserType.Teacher.toLowerCase()
-          ? await ClassModel.getAllClassesByTeacher(id)
-          : role === UserType.Student.toLowerCase()
-            ? await ClassModel.getAllClassesByStudent(id, from, to)
-            : [];
-
+      const classes = await ClassModel.getAllClasses(id, from, to);
       res.json({ data: classes }).end();
     });
   }
@@ -36,6 +30,24 @@ class ClassController {
 
     await catcher(res, async () => {
       const result = await ClassModel.getClass(id, uid);
+      res.json({ data: result }).end();
+    });
+  }
+
+  async getAllSessions(req: Request, res: Response<IResBody, ILocal>) {
+    const { id } = res.locals.user;
+    const { from: fromText, to: toText } = req.query;
+    const parseDate = (date?: string) => {
+      if (!date) return;
+      if (!new Date(date).getDay) return;
+      return new Date(date);
+    };
+
+    const from = parseDate(fromText as string);
+    const to = parseDate(toText as string);
+
+    await catcher(res, async () => {
+      const result = await SessionModel.getAllSessions(id, from, to);
       res.json({ data: result }).end();
     });
   }
@@ -88,15 +100,6 @@ class ClassController {
       res.json({ message: "Success" }).end();
     });
   }
-
-  async getSessionCycle(req: Request, res: Response<IResBody, ILocal>) {
-    const { id } = res.locals.user;
-
-    await catcher(res, async () => {
-      const result = await SessionModel.getAllSessionCycles(id);
-      res.json({ data: result }).end();
-    });
-  }
 }
 
-export default new ClassController();
+export default new SubjectController();

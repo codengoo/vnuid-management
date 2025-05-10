@@ -1,4 +1,6 @@
 import { prisma } from "@/configs";
+import { getRecurringDatesInRange } from "@/utils";
+import { getHours, getMinutes, set } from "date-fns";
 import { SessionAttendance } from "generated/prisma";
 
 class SessionModel {
@@ -9,6 +11,25 @@ class SessionModel {
     });
     if (!classObj) throw new Error("Class not found");
     if (classObj.teacher_id !== uid) throw new Error("You are not teacher of this class");
+
+    const tmp = new Date(session.start!);
+    const subjectStart = new Date(classObj.start_time);
+    const subjectEnd = new Date(classObj.end_time);
+
+    const tmpMinutes = getHours(tmp) * 60 + getMinutes(tmp);
+    const startMinutes = getHours(subjectStart) * 60 + getMinutes(subjectStart);
+    const endMinutes = getHours(subjectEnd) * 60 + getMinutes(subjectEnd);
+
+    if (tmpMinutes < startMinutes || tmpMinutes > endMinutes) {
+      throw new Error("Invalid session time");
+    }
+
+    // Kiem tra chong lan cacs thoi gian
+
+    session.start = set(new Date(classObj.start_time), {
+      hours: getHours(tmp),
+      minutes: getMinutes(tmp),
+    });
 
     // Insert
     const result = await prisma.sessionAttendance.create({
@@ -57,6 +78,36 @@ class SessionModel {
     return result;
   }
 
+  async getAllSessions(uid: string, from?: Date, to?: Date) {
+    // List all class
+    const subjects = await prisma.subject.findMany({
+      where: {
+        OR: [{ students: { some: { id: uid } } }, { teacher_id: uid }],
+        is_done: false,
+      },
+    });
+    const subjectIds = subjects.map((s) => s.id);
+
+    // List all session
+    const sessions = await prisma.sessionAttendance.findMany({
+      where: {
+        subjectId: { in: subjectIds },
+      },
+      include: { subject: true },
+    });
+
+    if (from && to) {
+      const validSessions = sessions.filter((session) => {
+        const occurrences = getRecurringDatesInRange(session.start, from, to);
+        return occurrences.length > 0;
+      });
+
+      return validSessions;
+    } else {
+      return sessions;
+    }
+  }
+
   async triggerSessionCycle(id: string) {
     // Check
     const session = await prisma.sessionAttendance.findFirst({ where: { id } });
@@ -73,28 +124,6 @@ class SessionModel {
     });
 
     return result;
-  }
-
-  async getAllSessionCycles(uid: string) {
-    // List all class
-    const subjects = await prisma.subject.findMany({ where: { students: { some: { id: uid } } } });
-    const subjectIds = subjects.map((s) => s.id);
-
-    // List all session cycles
-    const cycles = await prisma.sessionCycle.findMany({
-      where: {
-        subject_id: { in: subjectIds },
-      },
-      include: { session: true, subject: true },
-    });
-
-    const now = new Date();
-    const filtered = cycles.filter((cycle) => {
-      const end = new Date(cycle.start.getTime() + cycle.session.duration * 60000);
-      return end >= now;
-    });
-
-    return filtered;
   }
 }
 
